@@ -1,0 +1,192 @@
+# Slime Toxin Healing Effects
+# This file configures which toxin reagents provide healing to slime people.
+# 
+# Requirements:
+# - Requires 10+ total units across all toxins to activate healing
+# - Uses the highest-quantity toxin to determine healing effectiveness:
+#   * High-end toxins (3+ damage/unit): Weaker omnizine-like healing (all damage types), 1.5x multiplier
+#   * Medium toxins (2 damage/unit): Heal brute, burn, and caustic damage, 1.25x multiplier
+#   * Low-end toxins (under 2 damage/unit): Heal brute damage only, 1.0x multiplier
+# - Only includes reagents with Poison or Radiation damage (Asphyxiation damage is excluded)
+
+# HIGH-END TOXINS (3+ damage per unit - strong omnizine-like healing)
+
+- type: reagent
+  id: Toxin
+  parent: Toxin
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 4
+
+- type: reagent
+  id: CarpoToxin
+  parent: CarpoToxin
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 4
+
+- type: reagent
+  id: Amatoxin
+  parent: Amatoxin
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 3
+
+- type: reagent
+  id: UnstableMutagen
+  parent: UnstableMutagen
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Radiation: 3
+
+# MEDIUM TOXINS (2 damage per unit - heal brute, burn, and caustic)
+
+- type: reagent
+  id: Mold
+  parent: Mold
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 1
+
+- type: reagent
+  id: GastroToxin
+  parent: GastroToxin
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 2
+
+- type: reagent
+  id: VentCrud
+  parent: VentCrud
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 2
+
+- type: reagent
+  id: Histamine
+  parent: Histamine
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 2
+
+- type: reagent
+  id: Vestine
+  parent: Vestine
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 2
+
+- type: reagent
+  id: Lipolicide
+  parent: Lipolicide
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 2
+
+# LOW-END TOXINS (under 2 damage per unit - heal brute only)
+
+- type: reagent
+  id: Bungotoxin
+  parent: Bungotoxin
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 1.8
+
+- type: reagent
+  id: ChloralHydrate
+  parent: ChloralHydrate
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 1.5
+
+- type: reagent
+  id: Lead
+  parent: Lead
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 0.6
+
+- type: reagent
+  id: Theobromine
+  parent: Theobromine
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 0.4
+
+- type: reagent
+  id: Allicin
+  parent: Allicin
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 0.06
+
+- type: reagent
+  id: Honk
+  parent: Honk
+  metabolisms:
+    Poison:
+      effects:
+      - !type:SlimeToxinHealing
+        toxinDamage:
+          types:
+            Poison: 0.06

@@ -176,8 +176,8 @@
     Blunt: 0.6
     Slash: 1.2
     Piercing: 1.2
-    Cold: 1.5
-    Poison: 0.8
+    Caustic: 1.85  # Increased from 1.5 to balance toxin healing buff (water dissolves slimes)
+    Poison: 0.0  # Immune to poison - toxins heal instead via SlimeToxinHealing
 
 - type: damageModifierSet
   id: Infernal

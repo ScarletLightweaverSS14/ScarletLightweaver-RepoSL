@@ -20,6 +20,16 @@
   moderately filling food for other species, although drinking the blood of your coworkers is usually frowned upon.
   They suffocate 80% slower, but take pressure damage 9% faster. This makes them by far the species most capable to survive in hard vacuum. For a while.
 
-  They take [color=#1e90ff]40% less Blunt damage[/color], but [color=#ffa500]50% more Cold damage, 20% more Slash damage and 20% more Piercing damage[/color].
+  They take [color=#1e90ff]40% less Blunt damage[/color], but [color=#ffa500]75% more Caustic damage, 20% more Slash damage and 20% more Piercing damage[/color].
+
+  ## Toxin Immunity
+  
+  Laspii are [color=#00ff00]completely immune to poison damage[/color]. Instead of harming them, toxic chemicals provide healing based on their potency:
+  
+  - [color=#ff6666]High-end toxins[/color] (3+ damage per unit like Toxin, Amatoxin, Unstable Mutagen): Heal all damage types proportionally, like a weaker Omnizine (1.5x multiplier)
+  - [color=#ffaa00]Medium toxins[/color] (2 damage per unit like GastroToxin, Histamine, VentCrud): Heal brute, burn, and caustic damage (1.25x multiplier)
+  - [color=#88ff88]Low-end toxins[/color] (under 2 damage per unit like Lead, Mold, Theobromine): Heal brute damage only (1.0x multiplier)
+  
+  [color=#ffff00]Important:[/color] You need at least 10 units of total toxins in your bloodstream for healing to activate. When multiple toxins are present, only the toxin with the highest quantity will provide healing effects.
 
 </Document>

@@ -76,6 +76,7 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
+  - type: SlimeAntitoxin # Converts toxin damage to healing
   - type: PassiveDamage # Around 8 damage a minute healed
     allowedStates:
     - Alive
@@ -117,7 +118,7 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: 0.05
+            Caustic: 0.075  # Increased from 0.05 to balance toxin healing buff (water dissolves slimes)
       - !type:PopupMessage
         type: Local
         visualType: Large

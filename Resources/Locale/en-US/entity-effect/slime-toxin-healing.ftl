@@ -1,0 +1,1 @@
+entity-effect-slime-toxin-healing = Deals {$damage} damage (chance {NATURALPERCENT($chance, 2)}) to non-slimes. For slimes with at least 10 units of toxin reagents in bloodstream, heals {$healing} damage instead. When multiple toxins are present, only the highest-quantity toxin provides healing.
