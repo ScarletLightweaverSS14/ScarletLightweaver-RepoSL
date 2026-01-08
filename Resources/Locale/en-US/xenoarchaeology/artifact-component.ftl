@@ -11,6 +11,11 @@ artifact-unlock-state-end-failure = It slows down before uneventfully stopping.
 artifact-activation-fail = Nothing happens...
 artifact-activation-artifexium = The liquid seeps into the pores of the artifact...
 
+### Repair
+artifact-repair-success = The artifact glue seeps into the artifact, repairing its damaged structure.
+artifact-repair-too-broken = This artifact has already been repaired once and its anomalous properties prevent further repairs.
+artifact-repair-anomaly-unrepairable = The artifact's anomalous properties make it impossible to repair.
+
 ### Misc.
 artifact-examine-trigger-desc = [color=gray][italic]Am I on your mind?[/italic][/color]
 

@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.EntityEffects.Effects;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
 using Robust.Shared.Audio;
@@ -15,7 +16,7 @@ namespace Content.Shared.Xenoarchaeology.Artifact.Components;
 /// This is used for handling interactions with artifacts as well as
 /// storing data about artifact node graphs.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedXenoArtifactSystem)), AutoGenerateComponentState, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedXenoArtifactSystem), typeof(ArtifactDurabilityRestoreEntityEffectsSystem)), AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class XenoArtifactComponent : Component
 {
     public static string NodeContainerId = "node-container";
@@ -51,6 +52,18 @@ public sealed partial class XenoArtifactComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Suppressed;
+
+    /// <summary>
+    /// Marker, if true - artifact contains an anomaly-spawning node and cannot be repaired.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool HasAnomalySpawner;
+
+    /// <summary>
+    /// Marker, if true - artifact has been repaired once and cannot be repaired again.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool HasBeenRepaired;
 
     /// <summary>
     /// A multiplier applied to the calculated point value

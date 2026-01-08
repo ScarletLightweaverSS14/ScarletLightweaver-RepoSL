@@ -29,6 +29,14 @@
       weight: 10.0
     - id: XenoArtifactChemicalPuddle
       weight: 10.0
+
+# Test table that only spawns anomaly nodes
+- type: entityTable
+  id: XenoArtifactEffectsAnomalyOnlyTable
+  table: !type:GroupSelector
+    children:
+    - id: XenoArtifactAnomalySpawn
+      weight: 1.0
     - id: XenoArtifactThrowThingsAround
       weight: 10.0
     - id: XenoArtifactColdWave

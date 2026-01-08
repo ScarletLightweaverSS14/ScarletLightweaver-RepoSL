@@ -12,15 +12,47 @@ namespace Content.Shared.EntityEffects.Effects;
 public sealed partial class ArtifactDurabilityRestoreEntityEffectsSystem : EntityEffectSystem<XenoArtifactComponent, ArtifactDurabilityRestore>
 {
     [Dependency] private readonly SharedXenoArtifactSystem _xenoArtifact = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     protected override void Effect(Entity<XenoArtifactComponent> entity, ref EntityEffectEvent<ArtifactDurabilityRestore> args)
     {
-        var durability = args.Effect.RestoredDurability;
+        // Check if the artifact has anomaly spawning capability - if so, it cannot be repaired at all
+        if (entity.Comp.HasAnomalySpawner)
+        {
+            // Check if this anomaly artifact has already been repaired once
+            if (entity.Comp.HasBeenRepaired)
+            {
+                _popup.PopupEntity(Loc.GetString("artifact-repair-too-broken"), entity, PopupType.Medium);
+                return;
+            }
+
+            var durability = args.Effect.RestoredDurability;
+            var anyRepaired = false;
+
+            foreach (var node in _xenoArtifact.GetActiveNodes(entity))
+            {
+                _xenoArtifact.AdjustNodeDurability(node.Owner, durability);
+                anyRepaired = true;
+            }
+
+            if (anyRepaired)
+            {
+                // Mark anomaly artifact as repaired - can only be repaired once
+                entity.Comp.HasBeenRepaired = true;
+                _popup.PopupEntity(Loc.GetString("artifact-repair-success"), entity, PopupType.Medium);
+            }
+            return;
+        }
+
+        // Normal artifacts can be repaired without limit
+        var normalDurability = args.Effect.RestoredDurability;
 
         foreach (var node in _xenoArtifact.GetActiveNodes(entity))
         {
-            _xenoArtifact.AdjustNodeDurability(node.Owner, durability);
+            _xenoArtifact.AdjustNodeDurability(node.Owner, normalDurability);
         }
+
+        _popup.PopupEntity(Loc.GetString("artifact-repair-success"), entity, PopupType.Medium);
     }
 }
 
