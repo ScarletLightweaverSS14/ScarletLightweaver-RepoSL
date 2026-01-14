@@ -1,0 +1,74 @@
+# Odysseus
+- type: entity
+  id: MechOdysseus
+  parent: [ BaseMech, IndustrialMech ]
+  name: Odysseus
+  description: A medical mech designed for rapid response and field triage. Features enhanced mobility and medical equipment integration.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/odysseus.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: Odysseus-Faces
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    equipmentWhitelist:
+      tags:
+      - MedicalMechModule
+    baseState: Odysseus-Faces
+    openState: odysseus-open
+    brokenState: odysseus-broken
+    mechToPilotDamageMultiplier: 0.5
+    airtight: true
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 20
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.6
+    baseSprintSpeed: 4.2
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 3
+    energy: 5
+    enabled: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 850
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Thruster
+    requireSpace: false
+    baseThrust: 150
+    thrust: 150
+    thrusterType: Linear
+
+- type: entity
+  id: MechOdysseusBattery
+  parent: MechOdysseus
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+      mech-gas-tank-slot:
+      - MechAirTankFilled

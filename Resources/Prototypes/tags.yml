@@ -1329,7 +1329,9 @@
 
 - type: Tag
   id: CombatMech
-# TODO: Make medical mech
+
+- type: Tag
+  id: MedicalMechModule
 
 - type: Tag
   id: SpecialMech

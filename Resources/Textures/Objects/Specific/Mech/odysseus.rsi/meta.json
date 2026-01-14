@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Monke station 2 at : https://github.com/Monkestation/Monkestation2.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "Odysseus-Faces",
+      "directions": 4
+    },
+    {
+      "name": "odysseus-open"
+    },
+    {
+      "name": "odysseus-broken"
+    }
+  ]
+}

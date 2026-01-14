@@ -53,3 +53,44 @@
     speed: 1.5
     startSound:
       path: /Audio/Mecha/sound_mecha_hydraulic.ogg
+
+- type: entity
+  id: MechEquipmentMedicalCarrier
+  parent: [ BaseMechEquipment ]
+  name: medical patient carrier
+  description: A stasis pod designed for mechs that can hold one patient in stasis. Slows down metabolism and prevents bodily decay. Can only hold other players.
+  components:
+  - type: MechEquipment
+    equipmentType: Active
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Mechs/medical_carrier.rsi
+    state: medical_carrier
+  - type: Item
+  - type: MultiHandedItem
+  - type: MechGrabber
+    maxContents: 1
+    grabDelay: 2
+    grabEnergyDelta: -20
+    canGrabMobs: true
+    canGrabItems: false
+    whitelist:
+      components:
+        - HumanoidAppearance
+        - Body
+      tags:
+        - !Pilot
+  - type: StasisBed
+  - type: AntiRotOnBuckle
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.001
+        Blunt: -0.001
+  - type: UIFragment
+    ui: !type:MechGrabberUi
+  - type: ContainerContainer
+    containers:
+      item-container: !type:Container
+  - type: Tag
+    tags:
+    - MedicalMechModule
