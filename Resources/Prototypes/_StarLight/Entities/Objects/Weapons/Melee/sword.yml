@@ -194,3 +194,75 @@
       soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     - type: Item
+
+# phoron_sabre.rsi (32x32) should contain: icon.png, p_sword.png, p_sword_blade.png
+# phoron_sabre_inhands.rsi (64x64) should contain: inhand-left.png, inhand-left-blade.png, inhand-right.png, inhand-right-blade.png
+- type: entity
+  name: phoron sabre
+  parent: [BaseMeleeWeaponEnergy, BaseCentcommContraband]
+  id: PhoronSabre
+  description: An exotic energy blade suffused with volatile phoron plasma. Its radioactive edge burns and slices with devastating efficiency.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/phoron_sabre.rsi
+    layers:
+    - state: p_sword
+    - state: p_sword_blade
+      color: "#8B008B"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    sprite: _Starlight/Objects/Weapons/Melee/phoron_sabre_inhands.rsi
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+      params:
+        pitch: 0.8
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+      params:
+        pitch: 0.8
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+      params:
+        pitch: 0.8
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        pitch: 0.8
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+        pitch: 0.8
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+        pitch: 0.8
+    activatedDamage:
+      types:
+        Slash: 30
+        Heat: 35
+        Radiation: 10
+        Structural: 80
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: "#8B008B"
+    netsync: false
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+      - Energy
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: StaticPrice
+    price: 3500
