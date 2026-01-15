@@ -173,23 +173,20 @@ public sealed partial class EnergyDomeSystem : EntitySystem
 
         _audio.PlayPvs(generatorComp.ParrySound, dome);
 
-        if (HasComp<PowerCellDrawComponent>(generatorUid))
+        // Try to drain from power cell slot first
+        if (HasComp<PowerCellDrawComponent>(generatorUid) && _powerCell.TryGetBatteryFromSlot(generatorUid, out var cell))
         {
-            _powerCell.TryGetBatteryFromSlot(generatorUid, out var cell);
-            if (cell != null)
-            {
-                _battery.UseCharge(cell.Value.Owner, energyLeak);
+            _battery.UseCharge(cell.Value.Owner, energyLeak);
 
-                if (cell.Value.Comp.LastCharge == 0)
-                    TurnOff((generatorUid, generatorComp), true);
-            }
+            if (cell.Value.Comp.CurrentCharge <= 0)
+                TurnOff((generatorUid, generatorComp), true);
         }
-
-        //it seems to me it would not work well to hang both a powercell and an internal battery with wire charging on the object....
-        if (TryComp<BatteryComponent>(generatorUid, out var battery)) {
+        // Otherwise, try to drain from internal battery component
+        else if (TryComp<BatteryComponent>(generatorUid, out var battery))
+        {
             _battery.UseCharge(generatorUid, energyLeak);
 
-            if (battery.CurrentCharge == 0)
+            if (battery.CurrentCharge <= 0)
                 TurnOff((generatorUid, generatorComp), true);
         }
     }
