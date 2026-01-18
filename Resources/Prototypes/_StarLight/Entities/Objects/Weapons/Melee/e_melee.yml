@@ -72,3 +72,34 @@
       path: /Audio/Weapons/ebladeoff.ogg
       params:
         pitch: 0.8
+
+- type: entity
+  name: Honor
+  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
+  id: WeaponHonor
+  description: A powerful energy mace that can switch between stunning and lethal modes.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/HonorMace.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#00FFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  - type: Item
+    sprite: _Starlight/Objects/Weapons/Melee/HonorMace.rsi
+  - type: StaticPrice
+    price: 3000
+    sprite: _Starlight/Objects/Weapons/Melee/HonorMace.rsi

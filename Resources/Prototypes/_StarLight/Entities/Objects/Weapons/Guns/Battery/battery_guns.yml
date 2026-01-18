@@ -918,3 +918,59 @@
   - type: PredictedBatterySelfRecharger
     autoRechargeRate: 50
     autoRechargePauseTime: 10
+
+- type: entity
+  name: Dignity
+  parent: BaseWeaponBatterySmall
+  id: WeaponDignity
+  description: An advanced prototype energy weapon.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Battery/ShotgunDignity.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: BatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+
+- type: entity
+  name: Beamdevastator
+  parent: BaseWeaponBatterySmall
+  id: WeaponBeamdevastator
+  description: A massive energy weapon capable of devastating firepower. Its sheer size slows the wielder significantly, even when worn on the back. Can only be recharged at cage rechargers.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Battery/Beamdevastator.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Starlight/Objects/Weapons/Guns/Battery/Beamdevastator.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: Item
+    size: Ginormous
+  - type: HeldSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: Gun
+    fireRate: 15
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Starlight/Weapons/Guns/Gunshots/beamcannon.ogg
+  - type: BatteryAmmoProvider
+    proto: RedHeavyLaser
+    fireCost: 100
+  - type: PredictedBattery
+    maxCharge: 25000
+    startingCharge: 25000
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StaticPrice
+    price: 8000

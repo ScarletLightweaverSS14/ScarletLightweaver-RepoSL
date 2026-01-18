@@ -151,3 +151,59 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+# Dignity weapon projectiles
+- type: entity
+  name: weak disabling barrage
+  id: BulletDignityDisablerSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletDisablerSmg
+  components:
+  - type: ProjectileSpread
+    proto: BulletDisablerSmg
+    count: 3
+    spread: 12
+
+- type: entity
+  name: weak lethal barrage
+  id: BulletDignityLaserSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaser
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaser
+    count: 3
+    spread: 15
+
+- type: entity
+  name: energy slug
+  id: BulletDignitySlug
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaser
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: blue_laser
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    color: "#00ccff"
+    radius: 2
+  - type: Projectile
+    impactEffect: BulletImpactEffectBlue
+    damage:
+      types:
+        Heat: 45
+
+- type: entity
+  id: BulletBeamdevastator
+  name: devastator beam
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaser
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 5
+        Structural: 15
