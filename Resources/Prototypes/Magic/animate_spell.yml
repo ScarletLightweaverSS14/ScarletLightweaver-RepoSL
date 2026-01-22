@@ -54,17 +54,19 @@
       - type: Damageable
         damageContainer: ManifestedSpirit
         damageModifierSet: ManifestedSpirit
-      - type: Destructible
-        thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
+      # Starlight-start: Removed hardcoded Destructible component - now added dynamically by AnimateSpellSystem with HP based on entity size
+      # - type: Destructible
+      #   thresholds:
+      #   - trigger:
+      #       !type:DamageTrigger
+      #       damage: 100
+      #     behaviors:
+      #     - !type:DoActsBehavior
+      #       acts: ["Destruction"]
+      #     - !type:PlaySoundBehavior
+      #       sound:
+      #         collection: MetalBreak
+      # Starlight-end
       - type: Hands
       - type: CanEscapeInventory
       - type: MobCollision

@@ -27,16 +27,24 @@ public sealed class AnimateSpellSystem : EntitySystem
             return;
 
         var xform = Transform(ent);
-        var fixture = fixtures.Fixtures.First();
+        // Starlight-start: Removed fixture.First() call and SetHard - now handled per-fixture
+        // var fixture = fixtures.Fixtures.First();
+        // Starlight-end
 
         _transform.Unanchor(ent); // If left anchored they are effectively stuck/immobile and not a threat
         _physics.SetCanCollide(ent, true, true, false, fixtures, physics);
+        // Starlight-start: Removed hardcoded fixture references - SetCollisionMask/Layer now iterate fixtures internally
+        /*
         _physics.SetCollisionMask(ent, fixture.Key, fixture.Value, (int)CollisionGroup.FlyingMobMask, fixtures, physics);
         _physics.SetCollisionLayer(ent, fixture.Key, fixture.Value, (int)CollisionGroup.FlyingMobLayer, fixtures, physics);
+        */
+        // Starlight-end
         _physics.SetBodyType(ent, BodyType.KinematicController, fixtures, physics, xform);
         _physics.SetBodyStatus(ent, physics, BodyStatus.InAir, true);
         _physics.SetFixedRotation(ent, false, true, fixtures, physics);
-        _physics.SetHard(ent, fixture.Value, true, fixtures);
+        // Starlight-start: Removed SetHard call - now handled server-side with proper fixture iteration
+        // _physics.SetHard(ent, fixture.Value, true, fixtures);
+        // Starlight-end
         _container.AttachParentToContainerOrGrid((ent, xform)); // Items animated inside inventory now exit, they can't be picked up and so can't escape otherwise
 
         var ev = new AnimateSpellEvent();
@@ -44,5 +52,7 @@ public sealed class AnimateSpellSystem : EntitySystem
     }
 }
 
+// Starlight-start: Event for server-side HP setting
 [ByRefEvent]
 public readonly record struct AnimateSpellEvent;
+// Starlight-end
