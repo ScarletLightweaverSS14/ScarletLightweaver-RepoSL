@@ -65,3 +65,16 @@
     sprite: _Starlight/Clothing/Shoes/Boots/belpero.rsi
   - type: Matchbox # Cool as fuck =}
 # Fashion-O-Mat End
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseSecurityContraband]
+  id: ClothingShoesBootsBSOJack
+  name: Bso Winter Jack Boots
+  description: Nanotrasen-issue Blueshield combat boots for combat scenarios or combat situations. All combat, all the time.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Shoes/Boots/bsowinter.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Shoes/Boots/bsowinter.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
