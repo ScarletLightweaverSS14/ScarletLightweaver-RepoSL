@@ -188,3 +188,21 @@
     - !type:AddCompsEffect
       components:
         - type: ScottishAccent
+
+# Starlight-Start: Cybersynth trait - Makes you talk like a borg and understand encoded language
+- type: trait
+  id: Cybersynth
+  name: trait-cybersynth-name
+  description: trait-cybersynth-desc
+  category: Quirks
+  cost: 2
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Cybersynth # Marker component that triggers the system to modify Speech
+        - type: TypingIndicator
+          proto: robot
+    - !type:LanguageEffect
+      languagesUnderstood:
+        - Machine # Can understand Encoded Audio Language (used by borgs/cyborgs)
+# Starlight-End

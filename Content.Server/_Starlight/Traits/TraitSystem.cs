@@ -199,6 +199,8 @@ public sealed class TraitSystem : EntitySystem
     /// </summary>
     private void ApplyTrait(EntityUid player, TraitPrototype trait)
     {
+        Log.Debug($"Applying trait {trait.ID} to {ToPrettyString(player)}"); // Starlight: Debug logging
+        
         if (_whitelistSystem.IsWhitelistFail(trait.Whitelist, player) ||
             _whitelistSystem.IsWhitelistPass(trait.Blacklist, player))
             return;
