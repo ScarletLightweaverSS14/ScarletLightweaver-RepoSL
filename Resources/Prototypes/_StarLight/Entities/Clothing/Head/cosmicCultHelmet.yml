@@ -1,0 +1,25 @@
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseMajorContraband]
+  id: ClothingHeadHelmetAbyssal
+  name: abyssal helmet
+  description: An eerie helmet wrought from indescribable material. Your instincts tell you it does not belong here.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/cosmic.rsi
+    state: icon-helmet
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/cosmic.rsi
+  - type: IngestionBlocker
+  - type: Pierceable
+    level: Metal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.7
+        Piercing: 0.8
+        Heat: 0.7
+        Cold: 0.7
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD

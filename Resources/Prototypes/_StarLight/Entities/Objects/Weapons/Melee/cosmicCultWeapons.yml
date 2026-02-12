@@ -1,0 +1,49 @@
+- type: entity
+  name: entropic blade
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: CosmicSword
+  description: An eerie blade wrought of indescribable material, forcibly extruded into reality. Your instincts tell you it does not belong here.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/CosmicCult/cosmicsword.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Heat: 20
+        Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Normal
+  - type: DisarmMalus
+  - type: Clothing
+    sprite: _Starlight/Objects/Weapons/Melee/CosmicCult/cosmicsword-inhand-64x.rsi
+    slots:
+    - back
+
+- type: entity
+  name: cosmic scythe
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: CosmicScythe
+  description: A massive scythe crackling with cosmic energy. Slower to swing, but devastatingly powerful.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/CosmicCult/cosmicsythe.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Heat: 25
+        Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Large
+  - type: DisarmMalus
+  - type: Clothing
+    sprite: _Starlight/Objects/Weapons/Melee/CosmicCult/cosmicsythe-inhand-64x.rsi
+    slots:
+    - back
