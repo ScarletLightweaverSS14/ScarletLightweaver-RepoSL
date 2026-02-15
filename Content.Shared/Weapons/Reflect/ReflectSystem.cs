@@ -113,8 +113,13 @@ public sealed class ReflectSystem : EntitySystem
         // 🌟Starlight🌟 start
         var reflectionChance = reflector.Comp.ReflectProb;
 
+        // Check for type-specific reflection probability
+        if (reflector.Comp.ReflectTypeProb.TryGetValue(reflective.Reflective, out var typeSpecificChance))
+        {
+            reflectionChance = typeSpecificChance;
+        }
         // Check for enhanced reflection against specific projectile types
-        if (TryComp<MetaDataComponent>(projectile, out var metaData) && metaData.EntityPrototype != null)
+        else if (TryComp<MetaDataComponent>(projectile, out var metaData) && metaData.EntityPrototype != null)
         {
             var projectileId = metaData.EntityPrototype.ID;
             if (reflector.Comp.EnhancedReflection.TryGetValue(projectileId, out var enhancedChance))
@@ -199,8 +204,13 @@ public sealed class ReflectSystem : EntitySystem
         // Get reflection probability - check for enhanced reflection against specific bullet types
         var reflectionChance = reflector.Comp.ReflectProb;
 
+        // Check for type-specific reflection probability
+        if (reflector.Comp.ReflectTypeProb.TryGetValue(hitscanReflectType, out var typeSpecificChance))
+        {
+            reflectionChance = typeSpecificChance;
+        }
         // Check for enhanced reflection against specific bullet types
-        if (hitscanId != null && reflector.Comp.EnhancedReflection.TryGetValue(hitscanId, out var enhancedChance))
+        else if (hitscanId != null && reflector.Comp.EnhancedReflection.TryGetValue(hitscanId, out var enhancedChance))
         {
             reflectionChance = enhancedChance;
         }

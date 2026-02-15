@@ -52,6 +52,14 @@ public sealed partial class ReflectComponent : Component
     public Dictionary<string, float> EnhancedReflection = new();
 
     /// <summary>
+    /// STARLIGHT: Type-specific reflection probabilities.
+    /// Allows different reflection chances for Energy vs NonEnergy projectiles.
+    /// If a type is not in this dictionary, uses ReflectProb instead.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<ReflectType, float> ReflectTypeProb = new();
+
+    /// <summary>
     /// Probability for a projectile to be reflected.
     /// </summary>
     [DataField, AutoNetworkedField]
