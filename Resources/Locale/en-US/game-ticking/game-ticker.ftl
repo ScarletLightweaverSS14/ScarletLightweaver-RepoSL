@@ -48,3 +48,11 @@ preset-no-one-ready = Can't start {$presetName}. No players are ready.
 game-run-level-PreRoundLobby = Pre-round lobby
 game-run-level-InRound = In round
 game-run-level-PostRound = Post round
+
+# Round end statistics
+round-end-statistics-header = Round Statistics
+round-end-statistics-cargo-money = Total cargo profit: {$amount} credits
+round-end-statistics-damage-healed = Total damage healed: {$amount} HP
+round-end-statistics-science-points = Science points generated: {$points}
+round-end-statistics-highest-smes-power = Highest SMES power output: {$power} kW
+round-end-statistics-clown-beaten = Times the clown took a beating: {$count}
