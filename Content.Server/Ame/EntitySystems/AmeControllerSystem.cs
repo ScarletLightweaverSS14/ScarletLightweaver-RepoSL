@@ -21,7 +21,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Ame.EntitySystems;
 
-public sealed class AmeControllerSystem : EntitySystem
+public sealed partial class AmeControllerSystem : EntitySystem // Starlight - made partial
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -117,6 +117,8 @@ public sealed class AmeControllerSystem : EntitySystem
                 if (availableInject > 0)
                     _audioSystem.PlayPvs(controller.InjectSound, uid, AudioParams.Default.WithVolume(overloading ? 10f : 0f));
                 UpdateUi(uid, controller);
+
+                AlertLowFuel(uid, controller, fuelContainer); // Starlight
             }
         }
 
