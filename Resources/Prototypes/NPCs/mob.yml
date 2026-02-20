@@ -2,9 +2,19 @@
 - type: htnCompound
   id: SimpleHostileCompound
   branches:
+    # Priority 1: Flee when critically injured
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FleeWhenCriticalCompound
+    # Priority 2: Flee when injured
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FleeWhenInjuredCompound
+    # Priority 3: Combat
     - tasks:
         - !type:HTNCompoundTask
           task: MeleeCombatCompound
+    # Priority 4: Idle
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
@@ -71,12 +81,23 @@
 - type: htnCompound
   id: RuminantHostileCompound
   branches:
+  # Priority 1: Flee when critically injured
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FleeWhenCriticalCompound
+  # Priority 2: Flee when injured
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FleeWhenInjuredCompound
+  # Priority 3: Combat
   - tasks:
     - !type:HTNCompoundTask
       task: MeleeCombatCompound
+  # Priority 4: Food
   - tasks:
     - !type:HTNCompoundTask
       task: FoodCompound
+  # Priority 5: Idle
   - tasks:
     - !type:HTNCompoundTask
       task: IdleCompound

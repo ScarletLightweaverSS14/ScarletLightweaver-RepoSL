@@ -297,6 +297,7 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
 
     public const string Owner = "Owner";
     public const string OwnerCoordinates = "OwnerCoordinates";
+    public const string OwnerHealthPercent = "OwnerHealthPercent";
     public const string MovementTarget = "MovementTarget";
 
     /// <summary>
@@ -339,6 +340,16 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
     /// A configurable target that's ordered by external sources.
     /// </summary>
     public const string CurrentOrderedTarget = "CurrentOrderedTarget";
+
+    /// <summary>
+    /// Timestamp of the last help call made by this NPC
+    /// </summary>
+    public const string LastHelpCallTime = "LastHelpCallTime";
+
+    /// <summary>
+    /// Whether allies responded to the last help call
+    /// </summary>
+    public const string AlliesResponded = "AlliesResponded";
 
     public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
     {

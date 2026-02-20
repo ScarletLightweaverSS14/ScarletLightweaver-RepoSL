@@ -1,0 +1,52 @@
+# Flee behavior for hostile mobs when low on health
+- type: htnCompound
+  id: FleeWhenInjuredCompound
+  branches:
+    # Only flee if health is below threshold
+    - preconditions:
+        - !type:HealthPercentPrecondition
+          threshold: 0.35  # Flee when below 35% health
+          isBelow: true
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        # Step 1: Flee to safety
+        - !type:HTNPrimitiveTask
+          operator: !type:FleeOperator
+            threatKey: Target
+            fleeDistance: 10.0
+            fleeDistanceMax: 15.0
+            fleeTargetKey: FleeTarget
+            shutdownState: PlanFinished
+        # Step 2: Call for help after reaching safety
+        - !type:HTNPrimitiveTask
+          operator: !type:CallForHelpOperator
+            threatKey: Target
+            allySearchRadius: 20.0
+            helpCallCooldown: 30.0
+
+# Critical health flee - more urgent, longer distance
+- type: htnCompound
+  id: FleeWhenCriticalCompound
+  branches:
+    - preconditions:
+        - !type:HealthPercentPrecondition
+          threshold: 0.20  # Flee when below 20% health
+          isBelow: true
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        # Step 1: Flee to safety (longer distance when critical)
+        - !type:HTNPrimitiveTask
+          operator: !type:FleeOperator
+            threatKey: Target
+            fleeDistance: 15.0
+            fleeDistanceMax: 20.0
+            fleeTargetKey: FleeTarget
+            shutdownState: PlanFinished
+        # Step 2: Call for help after reaching safety
+        - !type:HTNPrimitiveTask
+          operator: !type:CallForHelpOperator
+            threatKey: Target
+            allySearchRadius: 25.0
+            helpCallCooldown: 30.0

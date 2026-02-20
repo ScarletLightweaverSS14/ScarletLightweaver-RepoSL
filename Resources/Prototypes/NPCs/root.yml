@@ -69,12 +69,23 @@
 - type: htnCompound
   id: SimpleRangedHostileCompound
   branches:
+    # Priority 1: Flee when critically injured
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FleeWhenCriticalCompound
+    # Priority 2: Flee when injured
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FleeWhenInjuredCompound
+    # Priority 3: Ranged combat
     - tasks:
         - !type:HTNCompoundTask
           task: InnateRangedCombatCompound
+    # Priority 4: Melee combat
     - tasks:
         - !type:HTNCompoundTask
           task: MeleeCombatCompound
+    # Priority 5: Idle
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
@@ -82,12 +93,15 @@
 - type: htnCompound
   id: SimpleHumanoidHostileCompound
   branches:
+    # Priority 1: Ranged combat
     - tasks:
         - !type:HTNCompoundTask
           task: RangedCombatCompound
+    # Priority 2: Melee combat
     - tasks:
         - !type:HTNCompoundTask
           task: MeleeCombatCompound
+    # Priority 3: Idle
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
