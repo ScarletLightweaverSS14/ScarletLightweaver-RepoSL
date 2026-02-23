@@ -127,6 +127,13 @@ public sealed partial class ShuttleConsoleSystem
         if (shuttleComp.Enabled == false)
             return;
 
+        // Check shuttle is not too close to another shuttle or station
+        if (_shuttle.IsNearShuttleOrStation(shuttleUid.Value))
+        {
+            _popup.PopupEntity(Loc.GetString("shuttle-console-proximity-blocked"), ent.Owner);
+            return;
+        }
+
         // Check shuttle can even FTL
         if (!_shuttle.CanFTL(shuttleUid.Value, out var reason))
         {

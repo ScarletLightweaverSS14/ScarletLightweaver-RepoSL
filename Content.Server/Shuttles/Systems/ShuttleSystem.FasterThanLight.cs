@@ -270,6 +270,49 @@ public sealed partial class ShuttleSystem
         return true;
     }
 
+    // Starlight-edit start
+    private const float FTLProximityCheckRange = 750f;
+
+    /// <summary>
+    /// Returns true if the shuttle is within 750 metres of another shuttle or a station grid,
+    /// which prevents FTL departure for safety reasons.
+    /// </summary>
+    public bool IsNearShuttleOrStation(EntityUid shuttleUid)
+    {
+        var xform = Transform(shuttleUid);
+        var mapPos = XformSystem.GetMapCoordinates(shuttleUid, xform);
+
+        if (mapPos.MapId == MapId.Nullspace)
+            return false;
+
+        // Build a set of every grid that belongs to a station.
+        var stationGrids = new HashSet<EntityUid>();
+        var stationQuery = EntityQueryEnumerator<StationDataComponent>();
+        while (stationQuery.MoveNext(out _, out var stationData))
+        {
+            foreach (var gridUid in stationData.Grids)
+                stationGrids.Add(gridUid);
+        }
+
+        // Search within a square bounding box — close enough for a 750 m proximity check.
+        var box = Box2.CenteredAround(mapPos.Position, new Vector2(FTLProximityCheckRange * 2f, FTLProximityCheckRange * 2f));
+        var grids = new List<Entity<MapGridComponent>>();
+        _mapManager.FindGridsIntersecting(mapPos.MapId, box, ref grids, includeMap: false);
+
+        foreach (var grid in grids)
+        {
+            if (grid.Owner == shuttleUid)
+                continue;
+
+            // Only block for other shuttles or station grids — skip debris/asteroids.
+            if (HasComp<ShuttleComponent>(grid.Owner) || stationGrids.Contains(grid.Owner))
+                return true;
+        }
+
+        return false;
+    }
+    // Starlight-edit end
+
     /// <summary>
     /// Moves a shuttle from its current position to the target one without any checks. Goes through the hyperspace map while the timer is running.
     /// </summary>
