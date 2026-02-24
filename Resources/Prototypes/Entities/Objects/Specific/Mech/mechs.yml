@@ -1035,3 +1035,82 @@
       - WeaponMechCombatShotgun
       - WeaponMechCombatMissileRack6
       - WeaponMechCombatTeslaCannon
+
+# 🌟Starlight-start🌟
+# Phazon
+- type: entity
+  id: MechPhazon
+  parent: [ BaseMech, CombatMech, BaseCentcommContraband, NanotrasenMech ]
+  name: Phazon
+  description: A highly experimental Nanotrasen mech engineered with null-space phase technology. Its pilot can shift the entire chassis out of phase with realspace, allowing it to pass through solid matter.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: phazon
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/mechmove03.ogg
+  - type: Mech
+    baseState: phazon
+    openState: phazon-open
+    brokenState: phazon-broken
+    mechToPilotDamageMultiplier: 0.1
+    airtight: true
+    maxIntegrity: 500
+    maxEquipmentAmount: 4
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 40
+        Structural: 300
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 4.0
+  - type: Damageable
+    damageModifierSet: MediumArmorNT
+  - type: MechThrusters
+  - type: Repairable
+    fuelCost: 30
+    doAfterDelay: 15
+  - type: NullPhase
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 5
+    energy: 5
+    color: "#8800ff"
+    enabled: false
+
+- type: entity
+  id: MechPhazonBattery
+  parent: MechPhazon
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+- type: entity
+  id: MechPhazonFilled
+  parent: MechPhazonBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatPulseRifle
+      - WeaponMechCombatShotgun
+      - WeaponMechCombatMissileRack6
+# 🌟Starlight-end🌟
