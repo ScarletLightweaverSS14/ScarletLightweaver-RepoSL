@@ -14,6 +14,13 @@ chat-emote-name-lizardpurr = Purr
 chat-emote-name-lizardhiss = Hiss
 chat-emote-name-lizardrattle = Rattle
 chat-emote-name-flap-wings = Flap wings
+chat-emote-name-bubble = Bubble
+chat-emote-name-pop = Pop
+chat-emote-name-squee = Squeak
+chat-emote-name-snort = Snort
+chat-emote-name-stomp = Stomp
+chat-emote-name-hum = Hum
+chat-emote-name-glub = Glub
 
 # Emote Messages
 chat-emote-msg-mew = mews
@@ -31,3 +38,10 @@ chat-emote-msg-lurr = purrs
 chat-emote-msg-liss = hisses
 chat-emote-msg-rattle = rattles
 chat-emote-msg-flap-wings = flaps {POSS-ADJ($entity)} wings.
+chat-emote-msg-bubble = bubbles
+chat-emote-msg-pop = pops
+chat-emote-msg-squee = squeaks
+chat-emote-msg-snort = snorts
+chat-emote-msg-stomp = stomps
+chat-emote-msg-hum = hums
+chat-emote-msg-glub = glubs

@@ -58,6 +58,7 @@
     tags:
     - CannotSuicide
     - VimPilot
+    - DogEmotes # Starlight
   - type: StealTarget
     stealGroup: AnimalIan
 
@@ -417,6 +418,11 @@
     - Dog
     - GalacticCommon
     - Canilunzt
+  - type: Vocal
+    sounds:
+      Male: Dog
+      Female: Dog
+      Unsexed: Dog
   # Starlight-end
   - type: Sprite
     drawdepth: Mobs
@@ -478,10 +484,12 @@
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl', 'Yip' ] # Starlight
   - type: Tag
     tags:
     - CannotSuicide
     - VimPilot
+    - DogEmotes # Starlight
   - type: StealTarget
     stealGroup: AnimalMcGriff
   - type: MessyDrinker
@@ -535,6 +543,12 @@
     - Dog
     - GalacticCommon
     - Canilunzt
+  - type: Vocal
+    sounds:
+      Male: Dog
+      Female: Dog
+      Unsexed: Dog
+  - type: Emoting
   # Starlight-end
   - type: Sprite
     drawdepth: Mobs
@@ -584,11 +598,13 @@
     tags:
     - CannotSuicide
     - VimPilot
+    - DogEmotes # Starlight
   - type: StealTarget
     stealGroup: AnimalWalter
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl', 'Yip' ] # Starlight
   - type: MessyDrinker
 
 - type: entity
@@ -853,12 +869,23 @@
   - type: NpcFactionMember
     factions:
       - PetsNT
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: shiva
-      sprite: Mobs/Pets/shiva.rsi
+  # 🌟Starlight🌟 start
+  - type: OptionsVisualizer
+    visuals:
+      base:
+        - options: Default
+          data:
+            drawdepth: Mobs   
+            sprite: Mobs/Pets/shiva.rsi
+            map: ["enum.DamageStateVisualLayers.Base", "movement"]
+            state: shiva
+        - options: Arachnophobia
+          data:
+            drawdepth: Mobs
+            sprite: _Starlight/Mobs/Animals/Spiders/Arachnophobia/shiva.rsi
+            map: ["enum.DamageStateVisualLayers.Base", "movement"]
+            state: shiva
+  # 🌟Starlight🌟 end
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -1009,6 +1036,7 @@
         Bloodloss:
           -0.8
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 800
     coldDamageThreshold: 0
   - type: MeleeWeapon

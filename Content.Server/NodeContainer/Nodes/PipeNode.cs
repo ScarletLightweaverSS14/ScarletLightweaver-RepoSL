@@ -5,6 +5,7 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.NodeContainer;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
+using Content.Shared._Starlight.Atmos; // Starlight
 
 namespace Content.Server.NodeContainer.Nodes
 {
@@ -14,7 +15,7 @@ namespace Content.Server.NodeContainer.Nodes
     /// </summary>
     [DataDefinition]
     [Virtual]
-    public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode
+    public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode, IPipeNode // Starlight Edit: Added IPipeNode
     {
         /// <summary>
         ///     The directions in which this pipe can connect to other pipes around it.
@@ -142,17 +143,7 @@ namespace Content.Server.NodeContainer.Nodes
         public override void OnAnchorStateChanged(IEntityManager entityManager, bool anchored)
         {
             if (!anchored)
-            // Starlight Start: DockPipeSystem
-            {
-                if (_alwaysReachable != null)
-                {
-                    _alwaysReachable.Clear();
-                    if (NodeGroup != null)
-                        entityManager.System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup) NodeGroup);
-                }
                 return;
-            }
-            // Starlight End
 
             // update valid pipe directions
 
@@ -247,5 +238,9 @@ namespace Content.Server.NodeContainer.Nodes
             }
         }
         public HashSet<PipeNode>? GetAlwaysReachable() => _alwaysReachable; // Starlight: DockPipeSystem
+        // Starlight Start: RPD
+        PipeDirection IPipeNode.Direction => OriginalPipeDirection;
+        AtmosPipeLayer IPipeNode.Layer => CurrentPipeLayer;
+        // Starlight End: RPD
     }
 }

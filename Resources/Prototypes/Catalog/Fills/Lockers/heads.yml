@@ -91,6 +91,7 @@
     - id: ClothingEyesGlassesCommand
     - id: ClothingEyesHudCommand
     - id: EncryptionKeyExpedition #starlight
+    - id: SpyglassCaptain #Starlight
     - id: HeadSkeleton # A skull to accompany your skeleton crew
       conditions:
       - !type:PlayerCountCondition
@@ -234,6 +235,7 @@
     - id: DoorRemoteEngineering
     - id: BoxCECircuitboards
     - id: RCD
+    - id: RPD # Starlight: RPD
     - id: RCDAmmo
     - id: RubberStampCE
     - id: MetalFoamGrenade
@@ -305,6 +307,8 @@
     - id: AutoMenderBurnFilled #Starlight
     - id: AutoMenderBruteFilled #Starlight
     - id: CMOLicense #STARLIGHT
+    - id: EncryptionKeyMedicalScience # Starlight, steal target
+      prob: 0.5 # Starlight
     - id: PrintedDocumentGreenshiftAlert #SL
       conditions: #SL
       - !type:GamemodeCondition #SL
@@ -363,6 +367,8 @@
     - id: HandTeleporter
     - id: RubberStampRd
     - id: RDDiploma #STARLIGHT
+    - id: EncryptionKeyMedicalScience # Starlight, steal target
+      prob: 0.5 # Starlight
     - id: PrintedDocumentGreenshiftAlert #SL
       conditions: #SL
       - !type:GamemodeCondition #SL
@@ -371,6 +377,7 @@
         - Sandbox #SL
     #region Starlight
     - id: RDDiploma
+    - id: XenobiologyConsoleCameraTagger
     #- id: PaperIonstormBorgs
     #  prob: 0.10 #1/10 rounds will have this paper that can be signed repeatedly for no discernable effect!
     #endregion Starlight
@@ -418,7 +425,7 @@
     children:
     - id: ClothingNeckCloakHosElite # Starlight
     - id: WeaponEnergySMG # Starlight
-    - id: WeaponEnergyMagnum
+    # - id: WeaponEnergyMagnum # Starlight - Removed, given to det
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -438,13 +445,16 @@
     - id: WeaponTaser
     - id: WantedListCartridge
     - id: DrinkHosFlask
-    - id: SecurityShuttleConsoleCircuitboard #SL
-    - id: PrintedDocumentGreenshiftAlert #SL
-      conditions: #SL
-      - !type:GamemodeCondition #SL
-        presets: #SL
-        - Greenshift #SL
-        - Sandbox #SL
+    - id: SecurityShuttleConsoleCircuitboard # Starlight start
+    - id: ClothingOuterWinterHoS
+    - id: ClothingHandsGlovesCombat
+    - id: SecureBriefings
+    - id: PrintedDocumentGreenshiftAlert
+      conditions:
+      - !type:GamemodeCondition
+        presets:
+        - Greenshift
+        - Sandbox # Starlight end
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

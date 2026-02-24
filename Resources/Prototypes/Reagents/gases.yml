@@ -296,6 +296,10 @@
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
           inverted: true
+        # Funkystation Start: Funky atmos - /tg/ gases
+        - !type:BloodReagentCondition
+          reagent: NitrosylPlasmide
+        # Funkystation End: Funky atmos - /tg/ gases
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
@@ -306,6 +310,10 @@
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
           inverted: true
+        # Funkystation Start: Funky atmos - /tg/ gases
+        - !type:BloodReagentCondition
+          reagent: NitrosylPlasmide
+        # Funkystation End: Funky atmos - /tg/ gases
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
@@ -314,6 +322,10 @@
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
           inverted: true
+        # Funkystation Start: Funky atmos - /tg/ gases
+        - !type:BloodReagentCondition
+          reagent: NitrosylPlasmide
+        # Funkystation End: Funky atmos - /tg/ gases
         effectProto: StatusEffectForcedSleeping
         time: 12 #Starlight
         type: Update
@@ -352,9 +364,9 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
-        time: 15
+        time: 40 # Starlight: Liquid frezon way more potent (its denser!)
       - !type:Drunk
-        boozePower: 15
+        boozePower: 40  # Starlight: Liquid frezon way more potent (its denser!)
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
@@ -379,9 +391,9 @@
         minScale: 1
         effectProto: StatusEffectSeeingRainbow
         type: Add
-        time: 500
+        time: 20  # Starlight: Down from 500 (holy shit)
       - !type:Drunk
-        boozePower: 500
+        boozePower: 20 # Starlight: Down from 500 (holy shit)
         minScale: 1
       - !type:PopupMessage
         type: Local

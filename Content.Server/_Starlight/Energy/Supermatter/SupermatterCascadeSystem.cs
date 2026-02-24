@@ -5,14 +5,13 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
-namespace Content.Server.Starlight.Energy.Supermatter;
+namespace Content.Server._Starlight.Energy.Supermatter;
 
 public sealed class SupermatterCascadeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
     private readonly LinkedList<Branch> _branches = [];

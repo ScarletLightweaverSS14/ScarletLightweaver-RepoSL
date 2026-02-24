@@ -34,7 +34,9 @@
           weight: 2
         - id: EmagCommie
           weight: 1
-        - id: ClothingOuterArmorSovietFlak
+        - id: ClothingOuterArmorSovietPlate
           weight: 3
+        - id: WeaponShotgunToz106Extended
+          weight: 6
         rolls: !type:ConstantNumberSelector
           value: 1

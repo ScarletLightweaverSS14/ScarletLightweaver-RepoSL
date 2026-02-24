@@ -67,6 +67,7 @@
       Unsexed: MaleThaven
   - type: Speech
     speechSounds: Alto
+    allowedEmotes: ["ThavenHum", "ThavenGlub"]
   - type: HumanoidAppearance
     species: Thaven
     hideLayersOnEquip:
@@ -76,7 +77,7 @@
     speaks:
       - GalacticCommon
       - Thaveyan
-    understands: 
+    understands:
       - GalacticCommon
       - Thaveyan
       - Carptongue
@@ -109,6 +110,11 @@
             sprite: _Starlight/Mobs/Species/Thaven/displacement.rsi
             state: mask
       neck:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Thaven/displacement.rsi
+            state: neck
+      misc:
         sizeMaps:
           32:
             sprite: _Starlight/Mobs/Species/Thaven/displacement.rsi
@@ -161,6 +167,11 @@
             sprite: _Starlight/Mobs/Species/Thaven/displacement.rsi
             state: mask
       neck:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Thaven/displacement.rsi
+            state: neck
+      misc:
         sizeMaps:
           32:
             sprite: _Starlight/Mobs/Species/Thaven/displacement.rsi

@@ -35,7 +35,10 @@
         - id: FoodMeat
           amount: 4
     - type: Bloodstream
-      bloodMaxVolume: 300
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 300
       # if you fuck with the gorilla he will harambe you
     - type: MeleeWeapon
       altDisarm: false
@@ -47,13 +50,29 @@
           Blunt: 18
           Structural: 20
       animation: WeaponArcFist
+    - type: AmputateOnHit
+      chance: 0.1
+      parts:
+      - RightArmHuman
+      - LeftArmHuman
+      - RightHandHuman
+      - LeftHandHuman
+      - RightLegHuman
+      - LeftLegHuman
+      - RightFootHuman
+      - LeftFootHuman
     - type: StaminaDamageOnHit
-      damage: 50
+      damage: 20
     - type: MeleeThrowOnHit
       speed: 20
       distance: 5
     - type: NPCRetaliation
     - type: FactionException
+    - type: LanguageKnowledge
+      speaks:
+      - Ancestor
+      understands:
+      - Ancestor
     - type: NpcFactionMember
       factions:
         - Gorilla
@@ -78,7 +97,6 @@
       needsHands: false
     - type: StatusEffects
       allowed:
-        - KnockedDown
         - Stutter
         - Electrocution
         - ForcedSleep
@@ -86,7 +104,6 @@
         - Pacified
         - Flashed
         - RadiationProtection
-        - Drowsiness
         - Adrenaline
     - type: Prying
       pryPowered: true
@@ -94,9 +111,6 @@
       speedModifier: 1.5
       useSound:
         path: /Audio/Items/crowbar.ogg
-    - type: SlowOnDamage
-      speedModifierThresholds:
-        200: 0.5
     - type: IgnoreSlowOnDamage
     - type: MobThresholds
       thresholds:
@@ -123,14 +137,13 @@
       tags:
         - DoorBumpOpener
         - SlowImmune
+        - StunImmune
         - KnockdownImmune
         - CannotSuicide
 
 - type: entity
   parent: BaseMobGorilla
   id: MobGorilla
-  components:
-    - type: MonkeyAccent
 
 - type: entity
   name: Rampaging Gorilla
@@ -157,6 +170,13 @@
         types:
           Blunt: 35
           Structural: 20
+    - type: AmputateOnHit
+      chance: 1
+    - type: StaminaDamageOnHit
+      damage: 40
+    - type: MeleeThrowOnHit
+      speed: 40
+      distance: 5
     - type: MovementSpeedModifier
       baseWalkSpeed: 2
       baseSprintSpeed: 4
@@ -175,6 +195,12 @@
   id: MobCargorilla
   description: Cargo's pet gorilla. He seems to have an 'I love Mom' tattoo.
   components:
+    - type: LanguageKnowledge
+      speaks:
+      - Ancestor
+      understands:
+      - Ancestor
+      - GalacticCommon
     - type: Sprite
       drawdepth: Mobs
       layers:
