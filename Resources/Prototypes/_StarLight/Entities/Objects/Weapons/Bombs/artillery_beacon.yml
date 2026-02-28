@@ -1,0 +1,28 @@
+## NEMESIS-IV Orbital Strike Designator
+## A single-use syndicate item that calls in a kinetic orbital barrage.
+
+- type: entity
+  name: NEMESIS-IV orbital strike designator
+  id: SyndicateArtilleryBeacon
+  parent: [ BaseItem, BaseMajorContraband ]
+  description: >-
+    A compact, single-use targeting relay manufactured by Cybersun Ordnance Division.
+    Once armed, it uplinks to a waiting Syndicate orbital platform and paints the
+    surrounding area with active targeting data. Five high-velocity kinetic impactors
+    will saturate a six-tile radius thirty seconds later. There is no abort function.
+    There is no warranty. There is no mercy.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/signaller.rsi
+    state: advanced
+  - type: Item
+    size: Small
+  - type: ArtilleryBeacon
+    countdownSeconds: 30.0
+    numberOfStrikes: 5
+    strikeRadius: 6.0
+    strikeInterval: 1.5
+    explosionType: DemolitionCharge
+    totalIntensity: 280.0
+    slope: 5.0
+    maxTileIntensity: 25.0

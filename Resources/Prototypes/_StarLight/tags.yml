@@ -363,6 +363,12 @@
   id: MicroManipulatorStockPart
 
 - type: Tag
+  id: MinigunAmmoBackpack # Used by WeaponMinigunStarlight to find its ammo backpack in the back slot.
+
+- type: Tag
+  id: MinigunHolsterTag # Placed on WeaponMinigunStarlight so the backpack holster slot can whitelist it.
+
+- type: Tag
   id: ModularBarrel
 
 - type: Tag

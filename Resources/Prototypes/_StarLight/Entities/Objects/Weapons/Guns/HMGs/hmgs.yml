@@ -1,0 +1,105 @@
+## Starlight Minigun — M-2 Ironclad Rotary Cannon
+##
+## A new minigun variant that:
+##   • Uses .20 rifle ammo (CartridgeRifle) rather than the stock .10 round.
+##   • Requires a spin-up DoAfter before it can fire.
+##   • Has extreme spread (recoil) to keep it from being trivially dominant.
+##   • Can be holstered on the back like an LMG.
+
+- type: entity
+  name: M-2 Ironclad rotary minigun
+  id: WeaponMinigunStarlight
+  parent: [ BaseWeaponHeavyMachineGun, BaseMajorContraband ]
+  description: >-
+    An absolute beast of a weapon. The Ironclad M-2 is a six-barrelled rotary cannon
+    chambered in standard .20 rifle rounds, fed directly from a dedicated ammo backpack
+    worn on the back. The barrel cluster must reach full rotational speed before it will
+    fire — you will hear it spin up, and so will everyone nearby. Whatever is standing
+    downrange when it does should have its affairs in order.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    layers:
+    - state: base
+  - type: Item
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    size: Ginormous
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: GunRequiresWield
+  - type: MinigunCharge
+    chargeTime: 2.0
+    chargedDuration: 8.0
+  - type: Gun
+    fireRate: 14
+    minAngle: 18
+    maxAngle: 55
+    angleIncrease: 12
+    angleDecay: 6
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+  - type: ClothingSlotAmmoProvider
+  - type: SlotBasedConnectedContainer
+    targetSlot: BACK
+    containerWhitelist:
+      tags:
+      - MinigunAmmoBackpack
+  - type: MinigunHolster
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+    - MinigunHolsterTag
+
+## Ammo backpack for the M-2 Ironclad.
+## Wearable on the back; holds rifle ammo boxes so the carrier can reload in the field.
+
+- type: entity
+  name: Ironclad ammo backpack
+  id: ClothingBackpackMinigunAmmo
+  parent: ClothingBackpackDuffel
+  description: >-
+    A heavy-duty ammunition backpack purpose-built for sustained minigun operations.
+    Crammed with pre-loaded .20 rifle round boxes, this backpack is what separates
+    a brief suppression burst from a prolonged reign of terror.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    layers:
+    - state: notholstered
+      map: [ "enum.MinigunBackpackVisuals.HasMinigun" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MinigunBackpackVisuals.HasMinigun:
+        enum.MinigunBackpackVisuals.HasMinigun:
+          True: { state: holstered }
+          False: { state: notholstered }
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    clothingVisuals:
+      equipped-BACKPACK:
+      - state: holstered
+  - type: Tag
+    tags:
+    - MinigunAmmoBackpack
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleSP
+    capacity: 500
+  - type: ItemSlots
+    slots:
+      minigun_holster:
+        name: Minigun Holster
+        whitelist:
+          tags:
+          - MinigunHolsterTag
+        locked: false
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+      minigun_holster: !type:ContainerSlot {}

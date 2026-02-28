@@ -741,3 +741,14 @@
       whitelist:
         tags:
           - LoneOpsUplink
+
+- type: listing
+  id: UplinkNemesisIVBeacon
+  name: uplink-nemesis-iv-name
+  description: uplink-nemesis-iv-desc
+  icon: { sprite: /Textures/Objects/Devices/signaller.rsi, state: advanced }
+  productEntity: SyndicateArtilleryBeacon
+  cost:
+    Telecrystal: 200
+  categories:
+    - UplinkDisruption
