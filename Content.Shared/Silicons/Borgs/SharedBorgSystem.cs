@@ -1,3 +1,5 @@
+using Content.Shared._Starlight.Silicons.Borgs.BorgFortify;
+using Content.Shared._Starlight.Silicons.Borgs.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -370,6 +372,28 @@ public abstract partial class SharedBorgSystem : EntitySystem
         // Slow down to walk speed.
         var sprintDif = movement.BaseWalkSpeed / movement.BaseSprintSpeed;
         args.ModifySpeed(1f, sprintDif);
+
+        // Starlight: apply movement penalty from any installed heavy-weapon module.
+        if (chassis.Comp.ModuleContainer != null)
+        {
+            foreach (var moduleEnt in chassis.Comp.ModuleContainer.ContainedEntities)
+            {
+                if (!TryComp<BorgGunMovementSlowComponent>(moduleEnt, out var slow))
+                    continue;
+
+                args.ModifySpeed(slow.WalkModifier, slow.SprintModifier);
+                break; // Stacking intentionally avoided; only the first slowing module applies.
+            }
+
+            // 🌟Starlight🌟 Fortify stance roots the borg.
+            foreach (var moduleEnt2 in chassis.Comp.ModuleContainer.ContainedEntities)
+            {
+                if (!TryComp<BorgFortifyComponent>(moduleEnt2, out var fortify)) continue;
+                if (fortify.Fortified)
+                    args.ModifySpeed(fortify.FortifyWalkModifier, fortify.FortifySprintModifier);
+                break;
+            }
+        }
     }
 
     private void OnUIOpenAttempt(Entity<BorgChassisComponent> chassis, ref ActivatableUIOpenAttemptEvent args)

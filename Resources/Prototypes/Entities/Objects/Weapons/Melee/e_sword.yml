@@ -435,6 +435,56 @@
   - type: Wieldable
     freeHandsRequired: 0 # because borg has no off-hand to wield with.  Without this, it will be unable to activate the esword
 
+# 🌟Starlight: Reflective double-bladed variant for the assault cyborg
+- type: entity
+  parent: CyborgEnergySwordDouble
+  id: CyborgEnergySwordDoubleReflective
+  suffix: Double, Reflective, For Borgs
+  description: A double-ended plasma blade tuned to deflect energy fire on both edges. Standard kit for assault cyborgs who need to stay in the fight while walking into it.
+  components:
+  - type: Reflect
+    reflectProb: 0.70
+    spread: 75
+    enhancedReflection:
+      TaserBolt: 0.95
+      DisablerBolt: 0.85
+      LaserBolt: 0.85
+      BulletDisabler: 0.85
+      BulletDisablerSmgSpread: 0.85
+      BulletLaserSpread: 0.85
+      DisablerBoltSmg: 0.85
+      BulletLaserSpreadNarrow: 0.85
+      BulletDisablerSmg: 0.80
+      RedLaserBeam: 0.75
+      IgnitionRedLaser: 0.70
+      DestroyBeam: 0.70
+
+# 🌟Starlight: Reflective single-blade variant for the assault cyborg
+- type: entity
+  parent: CyborgEnergySword
+  id: CyborgEnergySwordReflective
+  suffix: Reflective, For Borgs
+  description: A plasma sword with a specially tuned blade field. The plasma frequency has been dialled in to actively deflect incoming energy fire. Standard kit for assault cyborgs.
+  components:
+  - type: Reflect
+    reflectProb: 0.75
+    spread: 75
+    enhancedReflection:
+      TaserBolt: 0.95
+      DisablerBolt: 0.85
+      LaserBolt: 0.85
+      BulletDisabler: 0.85
+      BulletDisablerSmgSpread: 0.85
+      BulletLaserSpread: 0.85
+      DisablerBoltSmg: 0.85
+      BulletLaserSpreadNarrow: 0.85
+      BulletDisablerSmg: 0.80
+      RedLaserBeam: 0.75
+      IgnitionRedLaser: 0.70
+      DestroyBeam: 0.70
+      RadOrb: 0.65
+      FreezeRay: 0.65
+
 - type: entity
   parent: [ EnergyDaggerLoud, BaseXenoborgContraband ]
   id: EnergyDaggerLoudBlue

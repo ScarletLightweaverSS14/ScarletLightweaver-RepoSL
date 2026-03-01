@@ -594,19 +594,50 @@
       borg_brain:
         - PositronicBrain
       borg_module:
-        - BorgModuleTool
-        - BorgModuleOperative
-        - BorgModuleL6C
-        - BorgModuleDoubleEsword
-        - BorgModuleSyndicateNukeDisk # Starlight
+        - BorgModuleAssaultSwords
+        - BorgModuleAssaultLMG
+        - BorgModuleAssaultGrenadeLauncher
+        - BorgModuleAssaultSmoke
+        - BorgModuleAssaultBreaching
   # Starlight begin
   - type: DefaultBorgModules
     modules:
-      - BorgModuleTool
-      - BorgModuleOperative
-      - BorgModuleL6C
-      - BorgModuleDoubleEsword
-      - BorgModuleSyndicateNukeDisk
+      - BorgModuleAssaultSwords
+      - BorgModuleAssaultLMG
+      - BorgModuleAssaultGrenadeLauncher
+      - BorgModuleAssaultSmoke
+      - BorgModuleAssaultBreaching
+  # Starlight end
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+
+- type: entity
+  id: PlayerBorgSyndicateAssaultHeavyBattery
+  parent: BorgChassisSyndicateAssaultHeavy
+  suffix: Heavy, Battery, Module, Operative
+  components:
+  - type: NukeOperative
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - PositronicBrain
+      borg_module:
+        - BorgModuleAssaultSwords
+        - BorgModuleAssaultLMG
+        - BorgModuleAssaultGrenadeLauncher
+        - BorgModuleAssaultSmoke
+        - BorgModuleAssaultBreaching
+  # Starlight begin
+  - type: DefaultBorgModules
+    modules:
+      - BorgModuleAssaultSwords
+      - BorgModuleAssaultLMG
+      - BorgModuleAssaultGrenadeLauncher
+      - BorgModuleAssaultSmoke
+      - BorgModuleAssaultBreaching
   # Starlight end
   - type: ItemSlots
     slots:
@@ -621,6 +652,20 @@
   components:
     - type: GhostRole
       name: ghost-role-information-syndicate-cyborg-assault-name
+      description: ghost-role-information-syndicate-cyborg-description
+      rules: ghost-role-information-silicon-rules
+      raffle:
+        settings: default
+      job: Borg
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  id: PlayerBorgSyndicateAssaultHeavyGhostRole
+  parent: PlayerBorgSyndicateAssaultHeavyBattery
+  suffix: Heavy, Ghost role
+  components:
+    - type: GhostRole
+      name: ghost-role-information-syndicate-cyborg-assault-heavy-name
       description: ghost-role-information-syndicate-cyborg-description
       rules: ghost-role-information-silicon-rules
       raffle:

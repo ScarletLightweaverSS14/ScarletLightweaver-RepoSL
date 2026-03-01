@@ -1,0 +1,56 @@
+# 🌟Starlight🌟 — Borg assault launcher grenade pellets.
+# These are internal ballistic projectiles fired by WeaponLauncherChinaLakeBorg.
+# They are NOT intended as stand-alone throwable grenades.
+
+- type: entity
+  id: BulletGrenadePelletSmoke
+  name: smoke pellet
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: SmokeOnTrigger
+    duration: 20
+    spreadAmount: 35
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+    positional: true
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: BulletGrenadePelletFlash
+  name: flash pellet
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: FlashOnTrigger
+    range: 7
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: BulletGrenadeThermobaric
+  name: thermobaric round
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 500 # large energy pool = wide radius
+    intensitySlope: 1   # flat falloff = maximum spread, minimal concentration
+    maxIntensity: 8     # caps centre damage, forces energy outward across many tiles
+    canCreateVacuum: false
+  - type: DeleteOnTrigger

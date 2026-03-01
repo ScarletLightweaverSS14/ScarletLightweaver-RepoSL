@@ -107,6 +107,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         // Ammo providers
         InitializeBallistic();
+        InitializeBorgAmmo(); // 🌟Starlight🌟
         InitializeBattery();
         InitializeCartridge();
         InitializeChamberMagazine();

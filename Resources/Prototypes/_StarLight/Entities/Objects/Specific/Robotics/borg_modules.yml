@@ -539,6 +539,135 @@
       tags:
         - BorgModuleSyndicate
 
+# region Assault - Starlight assault borg rework
+- type: entity
+  id: BorgModuleAssaultSwords
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: assault dual-blade cyborg module
+  description: A double-ended reflective plasma blade. The extended hilt lets both cutting edges deflect incoming energy fire simultaneously — a proper melee deterrent for a chassis that's going to be shot at constantly.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: CyborgEnergySwordDoubleReflective
+    - item: PinpointerNuclearOperative
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-desword-module }
+
+- type: entity
+  id: BorgModuleAssaultLMG
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: assault LMG cyborg module
+  description: A heavy-caliber L6 SAW with two spare drum magazines. Most effective when stationary - laying down suppressive fire from a held angle. Running and gunning will get you flanked and outmaneuvered. The weapon's mass reduces chassis mobility while installed.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: BorgGunMovementSlow
+    walkModifier: 0.70
+    sprintModifier: 0.70
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponLightMachineGunL6CBorg
+    - item: MagazineLightRifleBoxSP
+      hand:
+        emptyRepresentative: MagazineLightRifleBoxSP
+        emptyLabel: borg-slot-light-box-empty
+        whitelist:
+          tags:
+          - MagazineLightRifleBox
+    - item: MagazineLightRifleBoxSP
+      hand:
+        emptyRepresentative: MagazineLightRifleBoxSP
+        emptyLabel: borg-slot-light-box-empty
+        whitelist:
+          tags:
+          - MagazineLightRifleBox
+    - item: PinpointerNuclearOperative
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-l6c-module }
+
+- type: entity
+  id: BorgModuleAssaultGrenadeLauncher
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: integrated grenade launcher module
+  description: A hardmounted China Lake loaded with 9 rounds — 3 frag, 3 thermobaric, 3 flash. The launcher pairs with two integrated abilities: Smoke Barrage lays a three-round obscuring screen in seconds, and Fortify lets you brace into a shield stance that soaks half of all incoming damage. No auto-reload — what you spawn with is what you fight with, unless you salvage compatible rounds in the field.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponLauncherChinaLakeBorg
+    - item: PinpointerNuclearOperative
+  - type: BorgModuleActionGrant
+    actions:
+    - ActionBorgSmokeBarrage
+    - ActionBorgFortify
+  - type: BorgFortify
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Specific/Mech/mecha_equipment.rsi, state: mecha_grenadelnchr }
+
+- type: entity
+  id: BorgModuleAssaultBreaching
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: assault breaching module
+  description: Syndicate Jaws of Life, an Access Breaker, an Emag, and a nuclear operative pinpointer. Everything needed to crack every door between your team and the objective. The borg is the battering ram - the operatives are the follow-through.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: SyndicateJawsOfLife
+    - item: AccessBreaker
+    - item: Emag
+    - item: PinpointerNuclearOperative
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
+
+- type: entity
+  id: BorgModuleAssaultSmoke
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: assault ordnance module
+  description: Two shrapnel grenades and an incendiary for hard area denial. Shrapnel scatters lethal pellets and leaves targets bleeding; the incendiary drops persistent fire that cooks anything that tries to push through. Coordinate with your team — once the fire is down, the corridor belongs to you.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: GrenadeShrapnel
+      hand:
+        emptyRepresentative: GrenadeShrapnel
+        emptyLabel: borg-slot-shrapnel-empty
+        whitelist:
+          tags:
+          - HandGrenade
+    - item: GrenadeShrapnel
+      hand:
+        emptyRepresentative: GrenadeShrapnel
+        emptyLabel: borg-slot-shrapnel-empty
+        whitelist:
+          tags:
+          - HandGrenade
+    - item: GrenadeIncendiary
+      hand:
+        emptyRepresentative: GrenadeIncendiary
+        emptyLabel: borg-slot-incendiary-empty
+        whitelist:
+          tags:
+          - HandGrenade
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
 # xenoborg
 # region Medical
 - type: entity
@@ -603,34 +732,6 @@
     icon: { sprite: _Starlight/Interface/Actions/actions_borg.rsi, state: xenoborg-rcd-module }
 
 # region Cargo
-- type: entity
-  id: BaseBorgModuleMining
-  parent: BaseBorgModule
-  abstract: true
-  components:
-  - type: BorgModule
-    borgFitTypes:
-    - borg-type-salvage
-  - type: Tag
-    tags:
-    - BorgModuleMining
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: base-icon-inhand-left
-        color: "#EBD8B7"
-      - state: base-module-inhand-left
-        color: "#613D1D"
-      - state: base-stripes-inhand-left
-        color: "#520079"
-      right:
-      - state: base-icon-inhand-right
-        color: "#EBD8B7"
-      - state: base-module-inhand-right
-        color: "#613D1D"
-      - state: base-stripes-inhand-right
-        color: "#520079"
-
 - type: entity
   id: BaseBorgModuleSupply
   parent: BaseBorgModule

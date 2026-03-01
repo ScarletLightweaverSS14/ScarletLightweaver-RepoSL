@@ -23,6 +23,46 @@
   - type: RevolverAmmoProvider
     proto: GrenadeEMP
 
+# Assault borg rework — integrated grenade launcher, limited-use area-denial platform.
+- type: entity
+  id: WeaponLauncherChinaLakeBorg
+  parent: WeaponLauncherChinaLake
+  suffix: Borg Assault
+  name: integrated grenade launcher
+  description: A China Lake hardmounted to the chassis. Pre-loaded with 3 frag, 3 smoke, and 3 flash rounds — no auto-resupply. Area-denial platform: smoke cuts sightlines, flash breaks rushes, frag punishes clusters. Each round counts. Resupply by picking up compatible grenade rounds in the field.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    layers:
+    - state: mecha_grenadelnchr
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Wieldable
+    freeHandsRequired: 0
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
+  - type: BallisticAmmoProvider
+    capacity: 9
+    cycleable: false
+    whitelist:
+      tags:
+        - Grenade
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ContainerFill
+    containers:
+      ballistic-ammo:
+      - GrenadeFrag
+      - GrenadeFrag
+      - GrenadeFrag
+      - GrenadeThermobaric
+      - GrenadeThermobaric
+      - GrenadeThermobaric
+      - GrenadeFlash
+      - GrenadeFlash
+      - GrenadeFlash
+  - type: Unremoveable
+
 - type: entity
   parent: WeaponLauncherHydra
   id: WeaponLauncherHydraFilled

@@ -1,0 +1,68 @@
+# 🌟Starlight🌟 — Assault borg module actions & associated projectiles.
+
+# ─── Smoke Barrage ────────────────────────────────────────────────────────────
+# Fires three smoke pellets in a spread (0°, ±35°) toward the cursor.
+# Effective range ≈ 3 tiles (TimedDespawn 0.09 s @ 40 m/s).
+# 5-minute cooldown.
+- type: entity
+  id: ActionBorgSmokeBarrage
+  name: Smoke Barrage
+  description: Fire three smoke rounds in a spread, blanketing a corridor with obscuring smoke. 5-minute cooldown.
+  parent: BaseAction
+  components:
+  - type: Action
+    useDelay: 300
+    itemIconStyle: BigAction
+    raiseOnUser: false
+    icon:
+      sprite: Objects/Weapons/Grenades/smoke.rsi
+      state: icon
+  - type: TargetAction
+    range: 5
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MultiProjectileSpellEvent
+      prototype: BulletSmokeBarragePellet
+      projectileCount: 3
+      spreadDegrees: 70   # centres on cursor, ±35° spread
+
+# ─── Fortify ──────────────────────────────────────────────────────────────────
+# Toggles a shield brace: absorbs 50% of incoming damage into a 200-HP shield.
+# While active the borg cannot move. Shield breaks at 0 HP; requires welder to repair.
+- type: entity
+  id: ActionBorgFortify
+  name: Fortify
+  description: Brace your chassis, absorbing half of all incoming damage into an integral shield. While braced you cannot move. The shield breaks if depleted — have a welding torch ready.
+  parent: BaseAction
+  components:
+  - type: Action
+    useDelay: 0
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    icon:
+      sprite: Objects/Specific/Mech/mecha_equipment.rsi
+      state: mecha_clamp
+  - type: InstantAction
+    event: !type:BorgFortifyActionEvent {}
+
+# ─── Smoke Barrage Projectile ─────────────────────────────────────────────────
+# Internal projectile: not in spawn menu. Despawns after ≈ 3.6 tiles (0.09 s @ 40 m/s).
+- type: entity
+  id: BulletSmokeBarragePellet
+  name: smoke barrage pellet
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: SmokeOnTrigger
+    duration: 20
+    spreadAmount: 4
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+    positional: true
+  - type: TimedDespawn
+    lifetime: 0.09
+  - type: DeleteOnTrigger

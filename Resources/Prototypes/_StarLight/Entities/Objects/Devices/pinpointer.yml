@@ -1,0 +1,36 @@
+# Pinpointers added as part of the assault borg rework.
+
+- type: entity
+  name: operative tracker
+  description: A ruggedized pinpointer tuned to the biometric signatures of nuclear operatives. Cycles to the nearest active operative signal on click. Useful for coordinating team movements and locating allies in contact.
+  id: PinpointerNuclearOperative
+  parent: [ PinpointerBase, BaseSyndicateContraband ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-syndicate
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#202020"
+      - state: inhand-left-stripe
+        color: "#921f1f"
+      - state: inhand-left-top
+      right:
+      - state: inhand-right-base
+        color: "#202020"
+      - state: inhand-right-stripe
+        color: "#921f1f"
+      - state: inhand-right-top
+  - type: Icon
+    state: pinpointer-syndicate
+  - type: Pinpointer
+    component: NukeOperativeComponent
+    targetName: operative signal
+    canRetarget: true

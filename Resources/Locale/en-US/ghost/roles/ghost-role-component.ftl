@@ -248,7 +248,8 @@ ghost-role-information-syndicate-monkey-reinforcement-description = Someone need
 ghost-role-information-syndicate-kobold-reinforcement-name = Syndicate Kobold Agent
 ghost-role-information-syndicate-kobold-reinforcement-description = Someone needs reinforcements. You, a trained kobold, will help them.
 
-ghost-role-information-syndicate-cyborg-assault-name = Syndicate Assault Cyborg
+# 🌟Starlight🌟 — Assault borg renamed as part of assault rework (was: Syndicate Assault Cyborg)
+ghost-role-information-syndicate-cyborg-assault-name = Ravager-Pattern Assault Cyborg
 ghost-role-information-syndicate-cyborg-saboteur-name = Syndicate Saboteur Cyborg
 ghost-role-information-syndicate-cyborg-medical-name = Syndicate Medical Cyborg
 ghost-role-information-syndicate-cyborg-description = The Syndicate needs reinforcements. You, a cold silicon killing machine, will help them.

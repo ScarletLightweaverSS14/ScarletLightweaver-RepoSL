@@ -1,3 +1,22 @@
+# 🌟Starlight🌟 — Borg assault launcher grenade rounds (cartridge format).
+- type: entity
+  id: GrenadePelletSmoke
+  name: smoke round
+  parent: [ BaseGrenade, BaseSyndicateContraband ]
+  description: A launcher-delivered smoke round. Bursts into a thick, blinding cloud on impact — no timer, no arming delay.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadePelletSmoke
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: blast
+    suffix: false
+
 - type: entity
   parent: [ GrenadeCleanade, BaseSyndicateContraband ]
   id: GrenadeCleanadeSyndicate
@@ -7,3 +26,21 @@
     proto: BulletGrenadeCleanadeSyndicate
   - type: Contraband
     severity: Syndicate
+
+- type: entity
+  id: GrenadeThermobaric
+  name: thermobaric round
+  parent: [ BaseGrenade, BaseSyndicateContraband ]
+  description: A launcher-delivered thermobaric round. Detonates with a high-pressure concussive blast on impact — brutal against clustered targets and light structures. Lives up to its reputation: wherever it lands, nothing breathes easily.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeThermobaric
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: blast
+    suffix: false
