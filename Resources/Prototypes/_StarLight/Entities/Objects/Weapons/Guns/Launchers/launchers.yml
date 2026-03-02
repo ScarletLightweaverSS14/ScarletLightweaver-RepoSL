@@ -29,7 +29,7 @@
   parent: WeaponLauncherChinaLake
   suffix: Borg Assault
   name: integrated grenade launcher
-  description: A China Lake hardmounted to the chassis. Pre-loaded with 3 frag, 3 smoke, and 3 flash rounds — no auto-resupply. Area-denial platform: smoke cuts sightlines, flash breaks rushes, frag punishes clusters. Each round counts. Resupply by picking up compatible grenade rounds in the field.
+  description: "A China Lake hardmounted to the chassis. Pre-loaded with 3 frag, 3 smoke, and 3 flash rounds — no auto-resupply. Area-denial platform: smoke cuts sightlines, flash breaks rushes, frag punishes clusters. Each round counts. Resupply by picking up compatible grenade rounds in the field."
   components:
   - type: Sprite
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
@@ -44,23 +44,16 @@
   - type: BallisticAmmoProvider
     capacity: 9
     cycleable: false
+    proto: GrenadeFrag   # starting ammo type; right-click to cycle (BorgAmmoCyclerComponent)
     whitelist:
       tags:
         - Grenade
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-  - type: ContainerFill
-    containers:
-      ballistic-ammo:
-      - GrenadeFrag
-      - GrenadeFrag
-      - GrenadeFrag
-      - GrenadeThermobaric
-      - GrenadeThermobaric
-      - GrenadeThermobaric
-      - GrenadeFlash
-      - GrenadeFlash
-      - GrenadeFlash
+  - type: BorgAmmoCycler
+    protos:
+    - GrenadeFrag
+    - GrenadeThermobaric
   - type: Unremoveable
 
 - type: entity

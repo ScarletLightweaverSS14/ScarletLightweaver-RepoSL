@@ -583,6 +583,8 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: inflatable-module }
 
 # cargo modules
+# 🌟Starlight🌟 — Moved here from _StarLight to fix prototype load-order race (migration validator runs before child files resolve).
+- type: entity
   id: BaseBorgModuleMining
   parent: BaseBorgModule
   abstract: true

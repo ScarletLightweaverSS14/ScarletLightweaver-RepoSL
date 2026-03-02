@@ -595,7 +595,7 @@
   id: BorgModuleAssaultGrenadeLauncher
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: integrated grenade launcher module
-  description: A hardmounted China Lake loaded with 9 rounds — 3 frag, 3 thermobaric, 3 flash. The launcher pairs with two integrated abilities: Smoke Barrage lays a three-round obscuring screen in seconds, and Fortify lets you brace into a shield stance that soaks half of all incoming damage. No auto-reload — what you spawn with is what you fight with, unless you salvage compatible rounds in the field.
+  description: "A hardmounted China Lake loaded with 9 rounds — 3 frag, 3 thermobaric, 3 flash. The launcher pairs with two integrated abilities: Smoke Barrage lays a three-round obscuring screen in seconds, and Fortify lets you brace into a shield stance that soaks half of all incoming damage. No auto-reload — what you spawn with is what you fight with, unless you salvage compatible rounds in the field."
   components:
   - type: Sprite
     layers:
@@ -617,7 +617,7 @@
   id: BorgModuleAssaultBreaching
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: assault breaching module
-  description: Syndicate Jaws of Life, an Access Breaker, an Emag, and a nuclear operative pinpointer. Everything needed to crack every door between your team and the objective. The borg is the battering ram - the operatives are the follow-through.
+  description: Assault-pattern Jaws of Life, an Access Breaker, an Emag, and a nuclear operative pinpointer. Everything needed to crack every door between your team and the objective. The borg is the battering ram - the operatives are the follow-through.
   components:
   - type: Sprite
     layers:
@@ -625,7 +625,7 @@
     - state: icon-syndicate
   - type: ItemBorgModule
     hands:
-    - item: SyndicateJawsOfLife
+    - item: BorgAssaultJawsOfLife  # upgraded: 2× pry speed vs vanilla SyndicateJawsOfLife
     - item: AccessBreaker
     - item: Emag
     - item: PinpointerNuclearOperative

@@ -49,4 +49,10 @@ public sealed partial class BorgFortifyComponent : Component
     /// <summary>Seconds the weld repair DoAfter takes.</summary>
     [DataField]
     public float RepairTime = 5f;
+
+    /// <summary>
+    /// UID of the spawned shield-visual entity while fortified.
+    /// Not networked — server-side bookkeeping only.
+    /// </summary>
+    public EntityUid? ShieldVisualEntity;
 }

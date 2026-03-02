@@ -207,3 +207,22 @@
     radius: 5
     power: 10
     color: "#64b9de"
+
+# ─── Assault Borg Fortify visual (purely cosmetic, no physics, no damage) ─────
+- type: entity
+  id: BorgFortifyShieldEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    sprite: Effects/EnergyDome/energydome_small.rsi
+    layers:
+    - state: small
+      color: "#3B6FFF"
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    radius: 2
+    power: 3
+    color: "#3B6FFF"

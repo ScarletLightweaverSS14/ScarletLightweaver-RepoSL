@@ -7,6 +7,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Tools.Systems;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server._Starlight.Silicons.Borgs;
 
@@ -22,6 +23,7 @@ public sealed partial class BorgFortifySystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -60,6 +62,23 @@ public sealed partial class BorgFortifySystem : EntitySystem
             }
 
             fortify.Fortified = !fortify.Fortified;
+
+            if (fortify.Fortified)
+            {
+                // Spawn a purely-visual shield dome parented to the borg.
+                var visual = Spawn("BorgFortifyShieldEffect", Transform(ev.Performer).Coordinates);
+                _transform.SetParent(visual, ev.Performer);
+                fortify.ShieldVisualEntity = visual;
+            }
+            else
+            {
+                if (fortify.ShieldVisualEntity.HasValue)
+                {
+                    QueueDel(fortify.ShieldVisualEntity.Value);
+                    fortify.ShieldVisualEntity = null;
+                }
+            }
+
             Dirty(moduleEnt, fortify);
             _movement.RefreshMovementSpeedModifiers(ev.Performer);
 
@@ -107,6 +126,13 @@ public sealed partial class BorgFortifySystem : EntitySystem
                 fortify.CurrentShieldHp = 0f;
                 fortify.Fortified = false;
                 fortify.ShieldBroken = true;
+
+                if (fortify.ShieldVisualEntity.HasValue)
+                {
+                    QueueDel(fortify.ShieldVisualEntity.Value);
+                    fortify.ShieldVisualEntity = null;
+                }
+
                 _movement.RefreshMovementSpeedModifiers(chassis);
                 _popup.PopupEntity(
                     Loc.GetString("borg-fortify-shield-broken"),

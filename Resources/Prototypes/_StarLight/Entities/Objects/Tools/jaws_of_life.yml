@@ -7,3 +7,18 @@
   - type: Sprite
     sprite: Objects/Tools/jaws_of_life.rsi
     state: jaws_pry
+
+# 🌟Starlight🌟 — Assault borg variant: twice the prying speed of the standard syndicate JoL.
+# Design doc: "Upgraded Jaws of Life — faster prying, better resistance to interruption."
+# Resistance to interruption is achieved through higher speed (less window for interrupts),
+# not a separate mechanic (no engine hook exists for doAfter interrupt immunity on prying).
+- type: entity
+  name: assault-pattern jaws of life
+  parent: SyndicateJawsOfLife
+  id: BorgAssaultJawsOfLife
+  description: A heavily reinforced breach tool integrated into the Ravager assault chassis. Tears through doors and airlocks in half the time of a standard syndie unit.
+  components:
+  - type: Prying
+    force: true
+    speedModifier: 6.0  # 2× the vanilla SyndicateJawsOfLife (3.0)
+  - type: Unremoveable

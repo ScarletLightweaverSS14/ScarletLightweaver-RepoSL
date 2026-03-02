@@ -31,7 +31,7 @@
   id: GrenadeThermobaric
   name: thermobaric round
   parent: [ BaseGrenade, BaseSyndicateContraband ]
-  description: A launcher-delivered thermobaric round. Detonates with a high-pressure concussive blast on impact — brutal against clustered targets and light structures. Lives up to its reputation: wherever it lands, nothing breathes easily.
+  description: "A launcher-delivered thermobaric round. Detonates with a high-pressure concussive blast on impact — brutal against clustered targets and light structures. Lives up to its reputation: wherever it lands, nothing breathes easily."
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeThermobaric
