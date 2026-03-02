@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: NamesComrade
+  values:
+    prefix: names-comrade-dataset-
+    count: 30

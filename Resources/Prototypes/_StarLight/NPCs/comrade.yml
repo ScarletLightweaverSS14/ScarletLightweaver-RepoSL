@@ -1,0 +1,67 @@
+# Soviet Comrade NPC AI
+# Priority order: heal → flee → reload → ranged → melee → idle
+
+- type: htnCompound
+  id: SovietComradeHostileCompound
+  branches:
+    # 1. Heal when critically wounded (medipen must be in pocket)
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UseItemFromPocketOperator
+            itemTag: Medipen
+
+    # 2. Flee from active threat when critically wounded
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+        - !type:KeyExistsPrecondition
+          key: TargetCoordinates
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveFromOperator
+            targetKey: TargetCoordinates
+            pathfindInPlanning: false
+            range: 9.0
+            removeKeyOnFinish: false
+
+    # 3. Reload gun from pocket when empty
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ReloadFromPocketOperator
+
+    # 3b. Gun break — fully out of ammo after at least one reload, no spare mags left
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+        - !type:KeyExistsPrecondition
+          key: _GunHasBeenReloaded
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:GunBreakOperator
+
+    # 4. Ranged combat when armed with ammo
+    #    (uses GunCombatCompound directly to avoid RangedCombatCompound's gun-drop branch)
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          minPercent: 0.001
+      tasks:
+        - !type:HTNCompoundTask
+          task: GunCombatCompound
+
+    # 5. Fallback melee combat — switch to melee hand first, then attack
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToMeleeOperator
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+
+    # 6. Idle
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound

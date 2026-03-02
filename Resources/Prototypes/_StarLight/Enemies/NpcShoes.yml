@@ -1,0 +1,18 @@
+# NPC-bound shoes: have NoSlip and cannot be removed by players.
+# These are used on Soviet comrade and Syndicate NPC mobs.
+
+- type: entity
+  parent: ClothingShoesBootsCowboyBlack
+  id: ClothingShoesBootsNpcSoviet
+  suffix: NPC Bound
+  components:
+  - type: NoSlip
+  - type: NpcBoundClothing
+
+- type: entity
+  parent: ClothingShoesBootsCombat
+  id: ClothingShoesBootsNpcSyndie
+  suffix: NPC Bound
+  components:
+  - type: NoSlip
+  - type: NpcBoundClothing

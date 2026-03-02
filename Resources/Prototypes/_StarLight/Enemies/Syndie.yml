@@ -9,6 +9,9 @@
       speedModifier: 5.5
       useSound:
         path: /Audio/Items/crowbar.ogg
+    - type: RandomNameList
+      datasetId: NamesSyndicate
+      prefix: Footsoldier
     - type: NpcFactionMember
       factions:
         - DungeonSyndicate
@@ -17,6 +20,27 @@
         - SyndicateFootsoldierGearRuin
     - type: InputMover
     - type: MobMover
+    - type: NpcLootBreakOnDeath
+      chance: 0.85
+    - type: NpcCallout
+      spotPhrases:
+        - "Contact! Over here!"
+        - "I see them! Engage!"
+        - "Target spotted!"
+        - "Move up! They're here!"
+        - "Engaging target!"
+      hurtPhrases:
+        - "AUGH!"
+        - "Taking fire!"
+        - "Hit! Still up!"
+        - "Damn it!"
+        - "Son of a—!"
+      critPhrases:
+        - "AAAGGH!"
+        - "I'm down!"
+        - "Stupid Nanotrasen!"
+        - "They got me!"
+        - "AHHHH!"
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
@@ -114,7 +138,77 @@
     - type: Loadout
       prototypes:
         - SyndicateFootsoldierGearBoss
+#heavy
+- type: entity
+  name: syndicate enforcer
+  suffix: Heavy, Base
+  parent: MobSyndicateBase
+  id: MobSyndicateHeavy
+  abstract: true
+  description: A heavily armored syndicate enforcer. Designed to absorb punishment while the rest of the team pushes forward. Do not engage alone.
+  components:
+    - type: RandomNameList
+      datasetId: NamesSyndicate
+      prefix: Enforcer
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        250: Critical
+        350: Dead
+    - type: Stamina
+      critThreshold: 300
+    - type: NpcLootBreakOnDeath
+      chance: 0.85
+    - type: HTN
+      rootTask:
+        task: SyndicateHeavyHostileCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+- type: entity
+  suffix: Heavy, Bulldog
+  parent: MobSyndicateHeavy
+  id: MobSyndicateHeavyBulldog
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateHeavyGearBulldog
+- type: entity
+  suffix: Heavy, NorthStar
+  parent: MobSyndicateHeavy
+  id: MobSyndicateHeavyNorthStar
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateHeavyGearNorthStar
+- type: entity
+  suffix: Heavy, Breacher
+  parent: MobSyndicateHeavy
+  id: MobSyndicateHeavyBreacher
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateHeavyGearBreacher
+    - type: HTN
+      rootTask:
+        task: SyndicateBreacherHostileCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
 #defense
+# Pre-activated energy sword for NPC use — starts with blade already on.
+- type: entity
+  parent: EnergySword
+  id: EnergySwordNPC
+  suffix: NPC
+  components:
+  - type: ItemToggle
+    activated: true
+
 - type: entity
   parent: [BaseWeaponTurret, BaseSyndicateContraband]
   id: WeaponTurretDungeonSyndicate

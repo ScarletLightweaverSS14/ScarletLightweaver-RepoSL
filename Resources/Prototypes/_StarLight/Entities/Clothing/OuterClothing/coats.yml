@@ -403,3 +403,40 @@
     sprite: _Starlight/Clothing/OuterClothing/OverClothes/ratvar_robes.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/OuterClothing/OverClothes/ratvar_robes.rsi
+
+#NPC-only coats – unremovable and delete on drop so players cannot loot them
+
+- type: entity
+  parent: ClothingOuterSovietCoat
+  id: ClothingOuterSovietGreatcoatNPC
+  name: soviet military greatcoat
+  description: A heavy military greatcoat issued only to seasoned Soviet soldiers. The wool is laced with steel-thread weave, making it resilient against sidearm fire.
+  components:
+  - type: Unremoveable
+    deleteOnDrop: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.65
+        Heat: 0.80
+
+- type: entity
+  parent: ClothingOuterCoatSyndieCapArmored
+  id: ClothingOuterCoatSyndieCapArmoredNPC
+  name: syndicate combat coat
+  description: An armored syndicate coat reinforced with dense ballistic plating. The kind of protection that keeps operatives alive through coordinated crew assaults.
+  components:
+  - type: Unremoveable
+    deleteOnDrop: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.50
+        Heat: 0.60
+        Caustic: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.75

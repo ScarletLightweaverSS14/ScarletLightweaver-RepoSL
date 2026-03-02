@@ -1,50 +1,57 @@
+# Starlight base: inherits SyndicateFootsoldierGearRuin but swaps shoes for NPC-bound NoSlip boots.
+- type: startingGear
+  id: SyndicateFootsoldierGearStarlight
+  parent: SyndicateFootsoldierGearRuin
+  equipment:
+    shoes: ClothingShoesBootsNpcSyndie
+
 #melee
 - type: startingGear
   id: SyndicateFootsoldierGearKnife
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   inhand:
   - CombatKnife
 - type: startingGear
   id: SyndicateFootsoldierGearFireAxe
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   inhand:
   - FireAxe
 #shotgun
 - type: startingGear
   id: SyndicateFootsoldierGearSawn
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   inhand:
   - WeaponShotgunSawn
 #pistol
 - type: startingGear
   id: SyndicateFootsoldierGearViper
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   inhand:
   - WeaponPistolViper
   - RiotLaserShield
 - type: startingGear
   id: SyndicateFootsoldierGearCobra
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   equipment:
-    outerClothing: ClothingOuterCoatSyndieCapArmored
+    outerClothing: ClothingOuterCoatSyndieCapArmoredNPC
   inhand:
   - WeaponPistolCobra
   - RiotBulletShield
 #rifle
 - type: startingGear
   id: SyndicateFootsoldierGearAk
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   equipment:
     pocket1: MaterialDiamond1
     pocket2: MaterialDiamond1
     mask: ClothingMaskGasSyndicate
-    outerClothing: ClothingOuterCoatSyndieCapArmored
+    outerClothing: ClothingOuterCoatSyndieCapArmoredNPC
   inhand:
   - WeaponRifleAk
 #grenade
 - type: startingGear
   id: SyndicateFootsoldierGearChina
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   equipment:
     pocket1: MaterialDiamond1
     pocket2: Stimpack
@@ -55,7 +62,7 @@
 #laser
 - type: startingGear
   id: SyndicateFootsoldierGearLaserCarbine
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   equipment:
     pocket1: MaterialDiamond1
     pocket2: BruteAutoInjector
@@ -63,17 +70,46 @@
   - WeaponLaserCarbine
 - type: startingGear
   id: SyndicateFootsoldierGearMakeshiftLaser
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   equipment:
     pocket1: MaterialDiamond1
     pocket2: BruteAutoInjector
   inhand:
   - WeaponMakeshiftLaser
   - RiotLaserShield
+#heavy
+- type: startingGear
+  id: SyndicateHeavyGearBulldog
+  parent: SyndicateFootsoldierGearStarlight
+  equipment:
+    outerClothing: ClothingOuterCoatSyndieCapArmoredNPC
+    pocket1: BruteAutoInjector
+    pocket2: MagazineShotgun
+  inhand:
+  - WeaponShotgunBulldog
+- type: startingGear
+  id: SyndicateHeavyGearNorthStar
+  parent: SyndicateFootsoldierGearStarlight
+  equipment:
+    outerClothing: ClothingOuterCoatSyndieCapArmoredNPC
+    gloves: ClothingHandsGlovesNorthStar
+    pocket1: BruteAutoInjector
+  inhand:
+  - EnergySwordNPC
+- type: startingGear
+  id: SyndicateHeavyGearBreacher
+  parent: SyndicateFootsoldierGearStarlight
+  equipment:
+    outerClothing: ClothingOuterCoatSyndieCapArmoredNPC
+    pocket1: BruteAutoInjector
+    pocket2: MagazinePistolCaselessRifle
+  inhand:
+  - HammerBreachingNT
+  - WeaponPistolCobra
 #boss
 - type: startingGear
   id: SyndicateFootsoldierGearBoss
-  parent: SyndicateFootsoldierGearRuin
+  parent: SyndicateFootsoldierGearStarlight
   equipment:
     pocket1: WeaponPistolN1984
     pocket2: BruteAutoInjector

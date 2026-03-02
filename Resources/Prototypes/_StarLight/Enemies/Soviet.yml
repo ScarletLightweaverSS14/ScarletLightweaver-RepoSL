@@ -4,6 +4,9 @@
   id: MobSovietComrade
   categories: [ Spawner ]
   components:
+    - type: RandomNameList
+      prefix: Comrade
+      datasetId: NamesComrade
     - type: Prying
       pryPowered: true
       force: true
@@ -18,9 +21,39 @@
         - SovietComradeGear
     - type: InputMover
     - type: MobMover
+    - type: NpcLootBreakOnDeath
+      chance: 0.85
+    - type: NpcCallout
+      spotPhrases:
+        - "I serve the Soviet Union!"
+        - "Not one step back!"
+        - "Victory will be ours!"
+        - "Vigilance is our weapon!"
+        - "Every soldier is a defender of the Fatherland!"
+        - "Contact! To arms, comrade!"
+        - "For the Union! Fire!"
+        - "Target spotted! Move up!"
+        - "Engaging target!"
+      hurtPhrases:
+        - "AAUGH!"
+        - "They got me!"
+        - "Damn it!"
+        - "Taking fire!"
+        - "Hit! Still fighting!"
+        - "Discipline is the mother of victory!"
+        - "An order is law for a soldier!"
+      critPhrases:
+        - "For... the Motherland..."
+        - "Tell... tell the Union..."
+        - "I cannot... feel my legs..."
+        - "Stupid... Nanotrasen..."
+        - "Not... one step... back..."
+        - "The Motherland... will remember..."
+        - "Comrades... avenge me..."
+        - "Hard in training — easy in battle!"
     - type: HTN
       rootTask:
-        task: SimpleHumanoidHostileCompound
+        task: SovietComradeHostileCompound
       blackboard:
         NavInteract: !type:Bool
           true
