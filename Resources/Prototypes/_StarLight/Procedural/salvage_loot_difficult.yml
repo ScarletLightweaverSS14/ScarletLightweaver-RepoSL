@@ -248,6 +248,27 @@
         - proto: MedkitBurnFilled
           cost: 6
         - proto: MedkitRadiationFilled
+
+        - proto: MedkitRadiationFilled
           cost: 6
         - proto: MedkitToxinFilled
           cost: 6
+
+        # === Ticket Rewards ===
+        - proto: SalvageTicket20
+          prob: 1.0
+          cost: 2
+        - proto: SalvageTicket30
+          prob: 0.8
+          cost: 3
+        - proto: SalvageTicket50
+          prob: 0.5
+          cost: 5
+
+        # === Supply Caches ===
+        - proto: CrateUSSPSupplies
+          prob: 0.4
+          cost: 15
+        - proto: CrateSFFSupplies
+          prob: 0.4
+          cost: 15

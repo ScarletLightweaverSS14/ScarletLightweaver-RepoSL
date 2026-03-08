@@ -123,6 +123,10 @@
   id: SalvageCybernetics
   name: Cybernetics
 
+- type: storeCategory
+  id: SalvageExoticMaterials
+  name: Exotic
+
 # mining
 - type: storeCategory
   id: MiningEquipment

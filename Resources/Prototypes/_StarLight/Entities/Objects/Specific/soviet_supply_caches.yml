@@ -1,0 +1,204 @@
+# Soviet supply caches - spawn in expedition dungeons as retrieval objectives.
+# Each tier contains tickets and useful materials.
+# Bringing these back to the shuttle is the "retrieval objective."
+
+# ================================================
+# CHALLENGING TIER CACHE (small reward)
+# ================================================
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSovietSupplyCacheChallenging
+  name: soviet supply cache
+  description: A sealed steel crate bearing Soviet markings. Contains field rations, spare parts and salvage tickets from the supply depot.
+  suffix: Challenging
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SalvageTicket20
+        - id: SalvageTicket15
+        - id: SalvageTicket10
+        - id: SheetSteel
+        - id: IngotSilver
+          prob: 0.5
+        - id: DrinkVodkaBottleFull
+        - id: FoodTinMRE
+          prob: 0.8
+
+# ================================================
+# DIFFICULT TIER CACHE (medium reward)
+# ================================================
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSovietSupplyCacheDifficult
+  name: soviet armory cache
+  description: A reinforced armory crate from a Soviet forward operating base. Contains military equipment, tickets and rare materials.
+  suffix: Difficult
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SalvageTicket50
+        - id: SalvageTicket30
+        - id: SalvageTicket20
+        - id: SheetPlasma
+        - id: IngotGold
+        - id: ClothingOuterArmorSovietPlate
+          prob: 0.5
+        - id: DrinkVodkaBottleFull
+        - id: MagazinePistolSP
+          prob: 0.6
+        - id: MagazineLightRifleSP
+          prob: 0.4
+
+# ================================================
+# IMPOSSIBLE TIER CACHE (large reward)
+# ================================================
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSovietSupplyCacheImpossible
+  name: soviet command vault
+  description: A heavily secured command-level supply vault recovered from deep Soviet territory. Contains high-value military gear and large quantities of salvage tickets.
+  suffix: Impossible
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SalvageTicket100
+        - id: SalvageTicket50
+        - id: SalvageTicket50
+        - id: SheetPlasma
+        - id: SheetUranium
+        - id: IngotGold
+        - id: IngotGold
+          prob: 0.5
+        - id: ClothingOuterArmorSovietHeavy
+          prob: 0.4
+        - id: ClothingOuterHardsuitSovietMarine
+          prob: 0.15
+        - id: WeaponRifleAk
+          prob: 0.3
+        - id: MagazineBoxLightRifleAP
+          prob: 0.5
+        - id: DrinkVodkaBottleFull
+        - id: ResearchDisk5000
+          prob: 0.2
+
+# ================================================
+# SFF SUPPLIES (Challenging / Difficult -- lighter faction cache)
+# Pre-welded: needs a welder to open. High sell value at cargo.
+# ================================================
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateSFFSupplies
+  name: SFF supply crate
+  description: A sealed field supply crate marked with SFF insignia. It's been welded shut — whoever packed it didn't want it opened on the front line. Cargo would pay a good price for it.
+  suffix: Sealed
+  components:
+  - type: Icon
+    sprite: _Starlight/Structures/Storage/USSP/soviet-crate.rsi
+  - type: Sprite
+    sprite: _Starlight/Structures/Storage/USSP/soviet-crate.rsi
+  - type: Weldable
+    isWelded: true
+  - type: StaticPrice
+    price: 800
+  - type: AcidTrapCrate
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SalvageTicket20
+        - id: SalvageTicket15
+        - id: SheetSteel
+        - id: IngotSilver
+          prob: 0.6
+        - id: SheetPlasma
+          prob: 0.3
+        - id: DrinkVodkaBottleFull
+        - id: FoodTinMRE
+          prob: 0.8
+        - id: ClothingOuterArmorSovietPlate
+          prob: 0.25
+
+# ================================================
+# USSP SUPPLIES (Difficult / Impossible -- heavy military cache)
+# Pre-welded and locked. Very high sell value at cargo.
+# ================================================
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateUSSPSupplies
+  name: USSP military supply crate
+  description: A reinforced military supply crate bearing USSP markings. It's locked and welded shut — field protocol for sensitive military shipments. Cargo will pay handsomely for it intact.
+  suffix: Sealed
+  components:
+  - type: Icon
+    sprite: _Starlight/Structures/Storage/USSP/soviet-crate.rsi
+  - type: Sprite
+    sprite: _Starlight/Structures/Storage/USSP/soviet-crate.rsi
+  - type: Weldable
+    isWelded: true
+  - type: StaticPrice
+    price: 1500
+  - type: AcidTrapCrate
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SalvageTicket50
+        - id: SalvageTicket30
+        - id: SheetPlasma
+        - id: IngotGold
+        - id: SheetUranium
+          prob: 0.5
+        - id: ClothingOuterArmorSovietPlate
+          prob: 0.4
+        - id: WeaponRifleAk
+          prob: 0.2
+        - id: MagazineLightRifleSP
+          prob: 0.5
+        - id: DrinkVodkaBottleFull
+
+# ================================================
+# USSP CLASSIFIED VAULT (Impossible -- command-level cache)
+# Pre-welded secure vault. Extremely high sell value at cargo.
+# ================================================
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateUSSPClassified
+  name: USSP classified command vault
+  description: A heavily constructed command-level vault recovered from deep USSP territory. Embossed with the Soviet star and marked CLASSIFIED. Cargo or the higher-ups will pay a fortune for this one.
+  suffix: Sealed, Classified
+  components:
+  - type: Icon
+    sprite: _Starlight/Structures/Storage/USSP/revolutionary.rsi
+  - type: Sprite
+    sprite: _Starlight/Structures/Storage/USSP/revolutionary.rsi
+  - type: Weldable
+    isWelded: true
+  - type: StaticPrice
+    price: 2500
+  - type: AcidTrapCrate
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SalvageTicket100
+        - id: SalvageTicket50
+        - id: SheetPlasma
+        - id: SheetUranium
+        - id: IngotGold
+        - id: IngotGold
+          prob: 0.6
+        - id: ClothingOuterArmorSovietHeavy
+          prob: 0.35
+        - id: ResearchDisk5000
+          prob: 0.3
+        - id: WeaponRifleAk
+          prob: 0.25
+        - id: MagazineBoxLightRifleAP
+          prob: 0.4
+        - id: DrinkVodkaBottleFull

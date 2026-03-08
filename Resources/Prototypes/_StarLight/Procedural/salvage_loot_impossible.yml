@@ -257,3 +257,22 @@
           cost: 6
         - proto: MedkitToxinFilled
           cost: 6
+
+        # === Ticket Rewards ===
+        - proto: SalvageTicket50
+          prob: 1.0
+          cost: 5
+        - proto: SalvageTicket100
+          prob: 0.7
+          cost: 8
+        - proto: SalvageTicket100
+          prob: 0.4
+          cost: 12
+
+        # === Supply Caches ===
+        - proto: CrateUSSPClassified
+          prob: 0.5
+          cost: 20
+        - proto: CrateUSSPSupplies
+          prob: 0.5
+          cost: 20

@@ -458,34 +458,175 @@
   conditions:
   - !type:BuyerAccessCondition
 
-
-#Cybernetics
+#exotic materials / useful station items
 - type: listing
-  id: VendorSalvageBrainImplantCommsExpedition
-  productEntity: BrainImplantCommsExpedition
+  id: VendorSalvageSheetPlasma
+  productEntity: SheetPlasma
   cost:
-    SalvageTicket: 100
+    SalvageTicket: 80
   categories:
-  - SalvageCybernetics
+  - SalvageExoticMaterials
   conditions:
   - !type:BuyerAccessCondition
 
 - type: listing
-  id: VendorSalvageLeftArmCyberSpacer
-  productEntity: LeftArmCyberSpacer
+  id: VendorSalvageSheetUranium
+  productEntity: SheetUranium
   cost:
-    SalvageTicket: 700
+    SalvageTicket: 90
   categories:
-  - SalvageCybernetics
+  - SalvageExoticMaterials
   conditions:
   - !type:BuyerAccessCondition
 
 - type: listing
-  id: VendorSalvageRightArmCyberSpacer
-  productEntity: RightArmCyberSpacer
+  id: VendorSalvageIngotGold
+  productEntity: IngotGold
   cost:
-    SalvageTicket: 700
+    SalvageTicket: 60
   categories:
-  - SalvageCybernetics
+  - SalvageExoticMaterials
   conditions:
   - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageIngotSilver
+  productEntity: IngotSilver
+  cost:
+    SalvageTicket: 40
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageBluespaceBeaker
+  productEntity: BluespaceBeaker
+  cost:
+    SalvageTicket: 300
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvagePowerCellAntiqueProto
+  productEntity: PowerCellAntiqueProto
+  cost:
+    SalvageTicket: 3500
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvagePowerCellHigh
+  productEntity: PowerCellHigh
+  cost:
+    SalvageTicket: 60
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageTechDiskRare
+  productEntity: TechnologyDiskRare
+  cost:
+    SalvageTicket: 1200
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageResearchDisk5000
+  productEntity: ResearchDisk5000
+  cost:
+    SalvageTicket: 200
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageResearchDisk10000
+  productEntity: ResearchDisk10000
+  cost:
+    SalvageTicket: 2500
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageAMEJar
+  productEntity: AmeJar
+  cost:
+    SalvageTicket: 180
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageSovietArmorVest
+  productEntity: ClothingOuterArmorSovietPlate
+  cost:
+    SalvageTicket: 300
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageSovietHeavyArmor
+  productEntity: ClothingOuterArmorSovietHeavy
+  cost:
+    SalvageTicket: 600
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageChemistryBottleCognizine
+  productEntity: ChemistryBottleCognizine
+  cost:
+    SalvageTicket: 2500
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageChemistryBottleOmnizine
+  productEntity: ChemistryBottleOmnizine
+  cost:
+    SalvageTicket: 850
+  categories:
+  - SalvageExoticMaterials
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:BuyerAccessCondition
+
+

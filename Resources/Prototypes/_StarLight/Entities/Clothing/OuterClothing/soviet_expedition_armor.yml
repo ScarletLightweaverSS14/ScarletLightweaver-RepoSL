@@ -1,0 +1,102 @@
+# Soviet expedition armor tiers - worn by comrade enemies on salvage expeditions.
+# Each tier corresponds to an expedition difficulty and has a mob-worn (Unremovable) variant.
+
+# ================================================
+# TIER 1: CHALLENGING - Soviet padded vest
+# Light quilted armor; surplus conscript gear.
+# ================================================
+- type: entity
+  parent: [ ClothingOuterBaseMedium, BaseSovietContraband, AllowSuitStorageClothing ]
+  id: ClothingOuterArmorSovietPadded
+  name: soviet padded vest
+  description: A threadbare quilted vest worn by the lowest ranks of the Soviet conscript army. Provides minimal protection but better than nothing.
+  components:
+  - type: Pierceable
+    level: Soft
+  - type: Sprite
+    sprite: _Starlight/Clothing/OuterClothing/Armor/sovietflak.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/OuterClothing/Armor/sovietflak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.92
+        Slash: 0.90
+        Piercing: 0.85
+        Heat: 0.88
+        Radiation: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.88
+
+- type: entity
+  parent: ClothingOuterArmorSovietPadded
+  id: ClothingOuterArmorSovietPaddedUnremovable
+  name: soviet padded vest
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
+
+# ================================================
+# TIER 2: DIFFICULT - Soviet armor vest (existing rebalanced)
+# The ClothingOuterArmorSovietPlate remains as-is.
+# We create an unremovable variant for mob use.
+# ================================================
+- type: entity
+  parent: ClothingOuterArmorSovietPlate
+  id: ClothingOuterArmorSovietPlateUnremovable
+  name: soviet armor vest
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
+
+# ================================================
+# TIER 3: IMPOSSIBLE - Soviet heavy combat armor
+# Full steel-reinforced flak with spall liner.
+# ================================================
+- type: entity
+  parent: [ ClothingOuterBaseLarge, BaseSovietContraband, AllowSuitStorageClothing ]
+  id: ClothingOuterArmorSovietHeavy
+  name: soviet heavy combat armor
+  description: A thick steel-reinforced combat vest with integrated spall liner, issued to elite Soviet storm troops. Significantly reduces incoming damage at the cost of heavy mobility penalties.
+  components:
+  - type: Pierceable
+    level: Metal
+  - type: Sprite
+    sprite: _Starlight/Clothing/OuterClothing/Armor/sovietflak.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/OuterClothing/Armor/sovietflak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.45
+        Heat: 0.50
+        Radiation: 0.80
+        Caustic: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.40
+  - type: ClothingSpeedModifier
+    walkModifier: 0.80
+    sprintModifier: 0.70
+  - type: GroupExamine
+
+- type: entity
+  parent: ClothingOuterArmorSovietHeavy
+  id: ClothingOuterArmorSovietHeavyUnremovable
+  name: soviet heavy combat armor
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
+
+# ================================================
+# USSP MARINE HARDSUIT - Unremovable variant
+# Used by Red Vanguard elite soldiers.
+# ================================================
+- type: entity
+  parent: ClothingOuterHardsuitSovietMarine
+  id: ClothingOuterHardsuitSovietMarineUnremovable
+  name: SSF marine hardsuit
+  suffix: Unremovable
+  components:
+  - type: Unremoveable

@@ -1,0 +1,165 @@
+# Soviet comrade mob variants for each expedition difficulty tier.
+# Challenging → padded armor
+# Difficult  → plate armor
+# Impossible → heavy combat armor
+
+# ========================================================
+# CHALLENGING TIER COMRADES
+# ========================================================
+- type: entity
+  suffix: Challenging, Broken Bottle
+  parent: MobSovietComrade
+  id: MobSovietComradeChallengingBrokenBottle
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearChallengingBrokenBottle
+
+- type: entity
+  suffix: Challenging, Finka
+  parent: MobSovietComrade
+  id: MobSovietComradeChallengingFinka
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearChallengingFinka
+
+- type: entity
+  suffix: Challenging, Sawn
+  parent: MobSovietComrade
+  id: MobSovietComradeChallengingSawn
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearChallengingSawn
+
+- type: entity
+  suffix: Challenging, Makarov
+  parent: MobSovietComrade
+  id: MobSovietComradeChallengingMakarov
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearChallengingMakarov
+
+# ========================================================
+# DIFFICULT TIER COMRADES
+# ========================================================
+- type: entity
+  suffix: Difficult, Broken Bottle
+  parent: MobSovietComrade
+  id: MobSovietComradeDifficultBrokenBottle
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearDifficultBrokenBottle
+
+- type: entity
+  suffix: Difficult, Finka
+  parent: MobSovietComrade
+  id: MobSovietComradeDifficultFinka
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearDifficultFinka
+
+- type: entity
+  suffix: Difficult, Sawn
+  parent: MobSovietComrade
+  id: MobSovietComradeDifficultSawn
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearDifficultSawn
+
+- type: entity
+  suffix: Difficult, Makarov
+  parent: MobSovietComrade
+  id: MobSovietComradeDifficultMakarov
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearDifficultMakarov
+
+- type: entity
+  suffix: Difficult, Ak
+  parent: MobSovietComrade
+  id: MobSovietComradeDifficultAk
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearDifficultAk
+
+# ========================================================
+# IMPOSSIBLE TIER COMRADES
+# ========================================================
+- type: entity
+  suffix: Impossible, Broken Bottle
+  parent: MobSovietComrade
+  id: MobSovietComradeImpossibleBrokenBottle
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearImpossibleBrokenBottle
+
+- type: entity
+  suffix: Impossible, Finka
+  parent: MobSovietComrade
+  id: MobSovietComradeImpossibleFinka
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearImpossibleFinka
+
+- type: entity
+  suffix: Impossible, Sawn
+  parent: MobSovietComrade
+  id: MobSovietComradeImpossibleSawn
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearImpossibleSawn
+
+- type: entity
+  suffix: Impossible, Makarov
+  parent: MobSovietComrade
+  id: MobSovietComradeImpossibleMakarov
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearImpossibleMakarov
+
+- type: entity
+  suffix: Impossible, Ak
+  parent: MobSovietComrade
+  id: MobSovietComradeImpossibleAk
+  components:
+  - type: Loadout
+    prototypes:
+    - SovietComradeGearImpossibleAk
+
+# ========================================================
+# USSP RED VANGUARD (Impossible tier elite enemies)
+# Full marine hardsuit — reward for defeating them.
+# ========================================================
+- type: entity
+  name: Red Vanguard soldier
+  description: An elite USSP soldier in a sealed marine hardsuit. They move with practiced efficiency — not conscripts, but veterans of something far worse than a standard salvage expedition.
+  suffix: Red Vanguard, AK
+  parent: MobSovietComrade
+  id: MobUSSPRedVanguardAk
+  components:
+  - type: Loadout
+    prototypes:
+    - USSPRedVanguardGearAk
+
+- type: entity
+  name: Red Vanguard operator
+  description: A Red Vanguard close-quarters specialist. The knife on their belt has seen use. Their hardsuit has seen more.
+  suffix: Red Vanguard, Knife
+  parent: MobSovietComrade
+  id: MobUSSPRedVanguardKnife
+  components:
+  - type: Loadout
+    prototypes:
+    - USSPRedVanguardGearKnife

@@ -216,3 +216,20 @@
         - proto: EyeImplantSyndie
           prob: 0.1
           cost: 10
+
+        # === Ticket Rewards (Challenging) ===
+        # Small ticket bundles as expedition rewards
+        - proto: SalvageTicket10
+          prob: 1.0
+          cost: 1
+        - proto: SalvageTicket15
+          prob: 0.8
+          cost: 2
+        - proto: SalvageTicket20
+          prob: 0.5
+          cost: 3
+
+        # === Soviet Supply Cache Retrieval Objective ===
+        - proto: CrateSFFSupplies
+          prob: 0.7
+          cost: 8

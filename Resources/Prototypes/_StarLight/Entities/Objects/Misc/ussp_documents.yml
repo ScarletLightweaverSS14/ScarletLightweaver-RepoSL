@@ -1,0 +1,153 @@
+# ============================================================
+# USSP Classified Documents & Admiral Nameplates
+# Content loaded from Resources/Documents/en-US/_Starlight/salvage/
+# via TextFilePaperContentComponent.
+# ============================================================
+
+# ============================================================
+# USSP Classified Documents
+# ============================================================
+
+- type: entity
+  name: USSP classified document
+  description: A classified USSP Naval Command document. The header is stamped in deep red. Whatever this says, someone died to keep it buried.
+  parent: Paper
+  id: PaperUSSPClassifiedOrders
+  suffix: Deployment Orders
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+    - stampedName: CLASSIFIED
+      stampedColor: "#8B0000"
+  - type: TextFilePaperContent
+    fileName: ussp_doc_orders.txt
+
+- type: entity
+  name: USSP classified document
+  description: A USSP Naval Command internal report. The ink is clean but the contents are anything but.
+  parent: Paper
+  id: PaperUSSPClassifiedReport
+  suffix: Field Report
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+  - type: TextFilePaperContent
+    fileName: ussp_doc_report.txt
+
+- type: entity
+  name: USSP classified document
+  description: A logistics manifest from a USSP supply operation. Most line items are redacted. What isn't is still concerning.
+  parent: Paper
+  id: PaperUSSPClassifiedManifest
+  suffix: Supply Manifest
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+    - stampedName: Stellar Frontier Forces
+      stampedColor: "#4B5320"
+  - type: TextFilePaperContent
+    fileName: ussp_doc_manifest.txt
+
+# ============================================================
+# Admiral Nameplates
+# Desk plaques recovered from USSP command vaults.
+# ============================================================
+
+- type: entity
+  name: admiral's desk nameplate
+  description: A polished brass nameplate. Fleet Admiral N. Kuznetsov — someone important sat at this desk.
+  parent: Paper
+  id: PaperUSSPAdmiralKuznetsov
+  suffix: Nameplate - Kuznetsov
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+  - type: TextFilePaperContent
+    fileName: ussp_nameplate_kuznetsov.txt
+
+- type: entity
+  name: admiral's desk nameplate
+  description: A polished brass nameplate. Fleet Admiral S. Gorshkov.
+  parent: Paper
+  id: PaperUSSPAdmiralGorshkov
+  suffix: Nameplate - Gorshkov
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+  - type: TextFilePaperContent
+    fileName: ussp_nameplate_gorshkov.txt
+
+- type: entity
+  name: admiral's desk nameplate
+  description: A polished brass nameplate. Fleet Admiral I. Yumashev.
+  parent: Paper
+  id: PaperUSSPAdmiralYumashev
+  suffix: Nameplate - Yumashev
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+  - type: TextFilePaperContent
+    fileName: ussp_nameplate_yumashev.txt
+
+- type: entity
+  name: admiral's desk nameplate
+  description: A polished brass nameplate. Fleet Admiral A. Golovko.
+  parent: Paper
+  id: PaperUSSPAdmiralGolovko
+  suffix: Nameplate - Golovko
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+  - type: TextFilePaperContent
+    fileName: ussp_nameplate_golovko.txt
+
+- type: entity
+  name: admiral's desk nameplate
+  description: A polished brass nameplate. Fleet Admiral V. Tributs.
+  parent: Paper
+  id: PaperUSSPAdmiralTributs
+  suffix: Nameplate - Tributs
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+  - type: TextFilePaperContent
+    fileName: ussp_nameplate_tributs.txt
+
+- type: entity
+  name: admiral's desk nameplate
+  description: A polished brass nameplate. Fleet Admiral F. Oktyabrsky.
+  parent: Paper
+  id: PaperUSSPAdmiralOktyabrsky
+  suffix: Nameplate - Oktyabrsky
+  components:
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+    - stampedName: USSP Naval Command
+      stampedColor: "#8B0000"
+  - type: TextFilePaperContent
+    fileName: ussp_nameplate_oktyabrsky.txt

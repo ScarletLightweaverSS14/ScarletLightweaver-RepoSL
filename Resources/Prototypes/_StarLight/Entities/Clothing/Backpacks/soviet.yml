@@ -145,3 +145,90 @@
         children:
         - id: WeaponSubMachineGunPPSH
         - id: MagazinePistolSubMachineGunPPSH
+
+# ========================================================
+# EXPEDITION COMRADE LOOT BAGS - tiered by difficulty.
+# Dropped on mob death; looted by salvagers.
+# Balance: light utility at Challenging, escalating to
+# ammo + grenades at Impossible, plus a small bounty
+# ticket for Red Vanguard as an elite reward.
+# ========================================================
+
+- type: entity
+  id: ClothingBackpackDuffelSovietComradeChallengingLoot
+  name: SSF duffel bag
+  parent: ClothingBackpackDuffelSSF
+  description: A battered olive-drab bag. Light supplies and personal effects.
+  components:
+  - type: ScatterContentsOnOpen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodTinMRE
+        - id: DrinkVodkizineBottleFull
+        - id: Flare
+        - id: Flare
+        - id: MagazinePistolSP
+        - id: Brutepack
+
+- type: entity
+  id: ClothingBackpackDuffelSovietComradeDifficultLoot
+  name: SSF duffel bag
+  parent: ClothingBackpackDuffelSSF
+  description: A worn duffel bag marked with a platoon number. Heavier kit than the conscripts carry.
+  components:
+  - type: ScatterContentsOnOpen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BoxMRE
+        - id: DrinkVodkizineBottleFull
+        - id: Flare
+        - id: MagazinePistolSP
+        - id: MagazinePistolSP
+        - id: MagazineLightRifleSP
+        - id: Brutepack
+        - id: Ointment
+
+- type: entity
+  id: ClothingBackpackDuffelSovietComradeImpossibleLoot
+  name: SSF duffel bag
+  parent: ClothingBackpackDuffelSSF
+  description: A heavy-duty Soviet field bag. Storm troopers carry everything they need to keep fighting.
+  components:
+  - type: ScatterContentsOnOpen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BoxMRE
+        - id: DrinkVodkizineBottleFull
+        - id: MagazineLightRifleSP
+        - id: MagazineLightRifleSP
+        - id: MagazineLightRifleSP
+        - id: GrenadeShrapnel
+        - id: Brutepack
+        - id: Ointment
+
+- type: entity
+  id: ClothingBackpackDuffelRedVanguardLoot
+  name: SSF duffel bag
+  parent: ClothingBackpackDuffelSSF
+  description: A reinforced duffel bag bearing the Red Vanguard sigil. Elite kit — worth the fight.
+  components:
+  - type: ScatterContentsOnOpen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BoxMRE
+        - id: DrinkVodkizineBottleFull
+        - id: MagazineLightRifleSP
+        - id: MagazineLightRifleSP
+        - id: MagazineLightRifleSP
+        - id: GrenadeIncendiary
+        - id: Brutepack
+        - id: Ointment
+        - id: SalvageTicket10

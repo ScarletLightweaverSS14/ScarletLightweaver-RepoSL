@@ -1,0 +1,193 @@
+# Soviet expedition gear loadouts, tiered by difficulty.
+# All tiers use Unremovable armor and the NoSlip/Unremovable boots.
+
+# ========================================================
+# BASE GEAR (shared across tiers - boots + ushanka + id)
+# ========================================================
+- type: startingGear
+  id: SovietComradeGearExpeditionBase
+  equipment:
+    head: ClothingHeadHatUshanka
+    jumpsuit: ClothingUniformJumpsuitSoviet
+    shoes: ClothingShoesSovietCombatBoots
+    id: SovietIdCard
+
+# ========================================================
+# CHALLENGING TIER - padded vest, utility belt
+# ========================================================
+- type: startingGear
+  id: SovietComradeGearChallengingBelt
+  equipment:
+    belt: ClothingSovietBelt
+    outerClothing: ClothingOuterArmorSovietPaddedUnremovable
+    back: ClothingBackpackDuffelSovietComradeChallengingLoot
+  storage:
+    belt:
+    - RadioHandheld
+    - GeigerCounter
+    - Flare
+    - Flare
+    - Flare
+
+- type: startingGear
+  id: SovietComradeGearChallengingBrokenBottle
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearChallengingBelt]
+  inhand:
+  - BrokenBottle
+
+- type: startingGear
+  id: SovietComradeGearChallengingFinka
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearChallengingBelt]
+  inhand:
+  - Finka
+
+- type: startingGear
+  id: SovietComradeGearChallengingSawn
+  parent: SovietComradeGearExpeditionBase
+  equipment:
+    belt: ClothingSovietBandolier
+    outerClothing: ClothingOuterArmorSovietPaddedUnremovable
+    back: ClothingBackpackDuffelSovietComradeChallengingLoot
+  inhand:
+  - WeaponShotgunSawnSoviet
+
+- type: startingGear
+  id: SovietComradeGearChallengingMakarov
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearChallengingBelt]
+  inhand:
+  - WeaponPistolMakarovSoviet
+
+# ========================================================
+# DIFFICULT TIER - steel plate vest, utility belt
+# ========================================================
+- type: startingGear
+  id: SovietComradeGearDifficultBelt
+  equipment:
+    belt: ClothingSovietBelt
+    outerClothing: ClothingOuterArmorSovietPlateUnremovable
+    back: ClothingBackpackDuffelSovietComradeDifficultLoot
+  storage:
+    belt:
+    - RadioHandheld
+    - GeigerCounter
+    - Flare
+    - Flare
+    - Flare
+    - Flare
+
+- type: startingGear
+  id: SovietComradeGearDifficultBrokenBottle
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearDifficultBelt]
+  inhand:
+  - BrokenBottle
+
+- type: startingGear
+  id: SovietComradeGearDifficultFinka
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearDifficultBelt]
+  inhand:
+  - Finka
+
+- type: startingGear
+  id: SovietComradeGearDifficultSawn
+  parent: SovietComradeGearExpeditionBase
+  equipment:
+    belt: ClothingSovietBandolier
+    outerClothing: ClothingOuterArmorSovietPlateUnremovable
+    back: ClothingBackpackDuffelSovietComradeDifficultLoot
+  inhand:
+  - WeaponShotgunSawnSoviet
+
+- type: startingGear
+  id: SovietComradeGearDifficultMakarov
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearDifficultBelt]
+  inhand:
+  - WeaponPistolMakarovSoviet
+
+- type: startingGear
+  id: SovietComradeGearDifficultAk
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearDifficultBelt]
+  inhand:
+  - WeaponRifleAkSoviet
+
+# ========================================================
+# IMPOSSIBLE TIER - heavy combat armor, grenades
+# ========================================================
+- type: startingGear
+  id: SovietComradeGearImpossibleBelt
+  equipment:
+    belt: ClothingSovietBelt
+    outerClothing: ClothingOuterArmorSovietHeavyUnremovable
+    back: ClothingBackpackDuffelSovietComradeImpossibleLoot
+  storage:
+    belt:
+    - RadioHandheld
+    - GeigerCounter
+    - GrenadeIncendiary
+    - ExGrenade
+    - Flare
+
+- type: startingGear
+  id: SovietComradeGearImpossibleBrokenBottle
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearImpossibleBelt]
+  inhand:
+  - BrokenBottle
+
+- type: startingGear
+  id: SovietComradeGearImpossibleFinka
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearImpossibleBelt]
+  inhand:
+  - Finka
+
+- type: startingGear
+  id: SovietComradeGearImpossibleSawn
+  parent: SovietComradeGearExpeditionBase
+  equipment:
+    belt: ClothingSovietBandolier
+    outerClothing: ClothingOuterArmorSovietHeavyUnremovable
+    back: ClothingBackpackDuffelSovietComradeImpossibleLoot
+  inhand:
+  - WeaponShotgunSawnSoviet
+
+- type: startingGear
+  id: SovietComradeGearImpossibleMakarov
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearImpossibleBelt]
+  inhand:
+  - WeaponPistolMakarovSoviet
+
+- type: startingGear
+  id: SovietComradeGearImpossibleAk
+  parent: [SovietComradeGearExpeditionBase, SovietComradeGearImpossibleBelt]
+  inhand:
+  - WeaponRifleAkSoviet
+
+# ========================================================
+# USSP RED VANGUARD GEAR (Impossible+ tier elite soldiers)
+# Full marine hardsuit, always-functional AK (no break chance),
+# grenade belt. Not unremovable - reward for killing them.
+# ========================================================
+- type: startingGear
+  id: USSPRedVanguardGearBelt
+  equipment:
+    head: ClothingHeadHatUshanka
+    jumpsuit: ClothingUniformJumpsuitSovietFatigues
+    outerClothing: ClothingOuterHardsuitSovietMarineUnremovable
+    shoes: ClothingShoesSovietCombatBoots
+    back: ClothingBackpackDuffelRedVanguardLoot
+    id: SovietIdCard
+    ears: ClothingHeadsetAltSoviet
+    belt: ClothingBeltSovietMarineWebbingLoadout
+    gloves: ClothingHandsMercGlovesCombat
+    pocket1: GrenadeShrapnel
+    pocket2: GrenadeIncendiary
+
+- type: startingGear
+  id: USSPRedVanguardGearAk
+  parent: USSPRedVanguardGearBelt
+  inhand:
+  - WeaponRifleAk
+
+- type: startingGear
+  id: USSPRedVanguardGearKnife
+  parent: USSPRedVanguardGearBelt
+  inhand:
+  - Finka

@@ -1,0 +1,46 @@
+# Soviet expedition weapon variants.
+# These are copies of the base weapons with a BrokenWeaponOnSpawnComponent
+# that gives an 80% chance the weapon spawns broken (Gun component removed).
+# Used exclusively as enemy loadout items for Soviet comrade NPCs.
+
+# ================================================
+# SOVIET AK RIFLE (80% broken on spawn)
+# ================================================
+- type: entity
+  parent: WeaponRifleAk
+  id: WeaponRifleAkSoviet
+  name: AK rifle
+  suffix: Soviet, Possibly Broken
+  description: A battered AK rifle recovered from Soviet territory. Whether it actually fires is another matter entirely.
+  components:
+  - type: BrokenWeaponOnSpawn
+    brokenChance: 0.80
+    brokenDescriptionOverride: "A battered AK rifle with a snapped firing pin and mangled bolt. It's useless as a gun, but could still serve as a club."
+
+# ================================================
+# SOVIET MAKAROV PISTOL (80% broken on spawn)
+# ================================================
+- type: entity
+  parent: WeaponPistolMakarov
+  id: WeaponPistolMakarovSoviet
+  name: makarov
+  suffix: Soviet, Possibly Broken
+  description: A scratched-up Makarov pistol from Soviet stock. The action might have seized up.
+  components:
+  - type: BrokenWeaponOnSpawn
+    brokenChance: 0.80
+    brokenDescriptionOverride: "A scratched-up Makarov with a broken slide and seized firing mechanism. It cannot be fired."
+
+# ================================================
+# SOVIET SAWN-OFF SHOTGUN (80% broken on spawn)
+# ================================================
+- type: entity
+  parent: WeaponShotgunSawn
+  id: WeaponShotgunSawnSoviet
+  name: sawn-off shotgun
+  suffix: Soviet, Possibly Broken
+  description: A crudely sawn-off shotgun from a Soviet armoury. These often fail to function after prolonged storage.
+  components:
+  - type: BrokenWeaponOnSpawn
+    brokenChance: 0.80
+    brokenDescriptionOverride: "A crudely modified sawn-off with a cracked stock and corroded chamber. It cannot be fired."

@@ -1,0 +1,12 @@
+[head=1][color=#8B0000]USSP NAVAL COMMAND[/color][/head]
+[bold]CLASSIFICATION: EYES ONLY[/bold]
+
+[italic]Order 7-Krasnaya — Forward Deployment Authorization[/italic]
+
+By authority of the Fleet Admiral's Office, the undersigned units are hereby authorized for forward deployment to Sector [REDACTED] under operational codename [REDACTED].
+
+All personnel are to maintain communications blackout. No contact with NT-affiliated vessels. Salvage and extract designated materiel. Casualties are acceptable within threshold parameters.
+
+Non-compliance with blackout protocols will be treated as desertion.
+
+[bold]— Authorized under seal of USSP Naval Command[/bold]

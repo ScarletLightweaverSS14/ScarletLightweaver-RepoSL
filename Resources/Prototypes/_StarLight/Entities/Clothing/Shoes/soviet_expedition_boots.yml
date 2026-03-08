@@ -1,0 +1,17 @@
+# Soviet expedition boots - worn by comrade enemies.
+# NoSlip so enemies don't slip on ice/slippery surfaces.
+# Unremoveable so players cannot strip them mid-combat.
+
+- type: entity
+  parent: ClothingShoesBootsCowboyBlack
+  id: ClothingShoesSovietCombatBoots
+  name: soviet combat boots
+  description: Heavy leather boots worn by Soviet combatants. The thick rubber soles grip almost any surface.
+  suffix: Unremovable
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/cowboybootsblack.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/cowboybootsblack.rsi
+  - type: NoSlip
+  - type: Unremoveable

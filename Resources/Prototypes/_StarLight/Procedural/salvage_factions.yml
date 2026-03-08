@@ -36,6 +36,37 @@
 #  configs:
 #    DefenseStructure: WeaponTurretDungeonSyndicate
 
+# Challenging tier - padded vest comrades with lighter weapons
+- type: salvageFaction
+  id: SovietChallenging
+  desc: salvage-faction-soviet
+  biomes:
+    - Lava
+    - Grasslands
+    - Caves
+    - Snow
+  entries:
+    - proto: MobSovietComradeChallengingBrokenBottle
+      cost: 3
+    - proto: MobSovietComradeChallengingFinka
+      cost: 8
+    #shotgun
+    - proto: MobSovietComradeChallengingSawn
+      cost: 8
+    #pistol
+    - proto: MobSovietComradeChallengingMakarov
+      cost: 10
+      prob: 0.9
+    #bear boss
+    - proto: MobBearSoviet
+      cost: 30
+      prob: 0.3
+  difficulties:
+    - Challenging
+  configs:
+    DefenseStructure: WeaponTurretSyndicateBroken
+
+# Difficult tier - plate armor comrades with rifles
 - type: salvageFaction
   id: Soviet
   desc: salvage-faction-soviet
@@ -45,30 +76,31 @@
     - Caves
     - Snow
   entries:
-    - proto: MobSovietComradeBrokenBottle
+    - proto: MobSovietComradeDifficultBrokenBottle
       cost: 3
-    - proto: MobSovietComradeFinka
+    - proto: MobSovietComradeDifficultFinka
       cost: 8
     #shotgun
-    - proto: MobSovietComradeSawn
+    - proto: MobSovietComradeDifficultSawn
       cost: 8
     #pistol
-    - proto: MobSovietComradeMakarov 
+    - proto: MobSovietComradeDifficultMakarov
       cost: 10
       prob: 0.9
     #rifle
-    - proto: MobSovietComradeAk 
+    - proto: MobSovietComradeDifficultAk
       cost: 30
       prob: 0.5
-    #boss / meeeh
+    #boss
     - proto: MobBearSoviet
       cost: 35
       prob: 0.4
-  difficulties: 
+  difficulties:
     - Difficult
   configs:
     DefenseStructure: WeaponTurretSyndicateBroken
 
+# Impossible tier - heavy armor comrades alongside the Elder boss
 - type: salvageFaction
   id: SovietImpossible
   desc: salvage-faction-elder
@@ -76,8 +108,31 @@
     - TrueAbyss
   entries:
     - proto: MobElder
-      cost: 463
-  difficulties: 
+      cost: 200
+    #heavy comrades guarding the Elder
+    - proto: MobSovietComradeImpossibleBrokenBottle
+      cost: 8
+    - proto: MobSovietComradeImpossibleFinka
+      cost: 15
+    - proto: MobSovietComradeImpossibleSawn
+      cost: 15
+    - proto: MobSovietComradeImpossibleMakarov
+      cost: 20
+      prob: 0.9
+    - proto: MobSovietComradeImpossibleAk
+      cost: 50
+      prob: 0.6
+    #Red Vanguard elites
+    - proto: MobUSSPRedVanguardAk
+      cost: 80
+      prob: 0.4
+    - proto: MobUSSPRedVanguardKnife
+      cost: 60
+      prob: 0.3
+    - proto: MobBearSoviet
+      cost: 60
+      prob: 0.3
+  difficulties:
     - Impossible
   configs:
     DefenseStructure: WeaponTurretSyndicateBroken
