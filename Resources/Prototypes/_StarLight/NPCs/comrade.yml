@@ -1,10 +1,10 @@
 # Soviet Comrade NPC AI
-# Priority order: heal → flee → reload → ranged → melee → idle
+# Priority order: heal → equip backup melee → reload → flee → ranged → melee → idle
 
 - type: htnCompound
   id: SovietComradeHostileCompound
   branches:
-    # 1. Heal when critically wounded (medipen must be in pocket)
+    # 1. Heal when critically wounded — use medipen from pocket (visually moves to hand first)
     - preconditions:
         - !type:LowHealthPrecondition
           minDamagePercent: 0.55
@@ -12,20 +12,21 @@
         - !type:HTNPrimitiveTask
           operator: !type:UseItemFromPocketOperator
             itemTag: Medipen
+            directHeal:
+              groups:
+                Brute: -90
+                Airloss: -20
+              types:
+                Bloodloss: -20
 
-    # 2. Flee from active threat when critically wounded
+    # 2. Draw backup melee from pocket when gun is empty (e.g. shotgunner pulls a knife)
     - preconditions:
-        - !type:LowHealthPrecondition
-          minDamagePercent: 0.55
-        - !type:KeyExistsPrecondition
-          key: TargetCoordinates
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
       tasks:
         - !type:HTNPrimitiveTask
-          operator: !type:MoveFromOperator
-            targetKey: TargetCoordinates
-            pathfindInPlanning: false
-            range: 9.0
-            removeKeyOnFinish: false
+          operator: !type:EquipFromPocketOperator
+            itemTag: Knife
 
     # 3. Reload gun from pocket when empty
     - preconditions:
@@ -45,7 +46,22 @@
         - !type:HTNPrimitiveTask
           operator: !type:GunBreakOperator
 
-    # 4. Ranged combat when armed with ammo
+    # 4. Kite: flee AND shoot simultaneously when critically wounded and unable to heal/reload.
+    #    GunAmmoPrecondition (no params) fails for melee-only NPCs (no gun found), so they skip this.
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+        - !type:KeyExistsPrecondition
+          key: TargetCoordinates
+        - !type:GunAmmoPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:FleeCombatOperator
+            targetKey: TargetCoordinates
+            gunTargetKey: Target
+            range: 9.0
+
+    # 5. Ranged combat when armed with ammo
     #    (uses GunCombatCompound directly to avoid RangedCombatCompound's gun-drop branch)
     - preconditions:
         - !type:GunAmmoPrecondition
@@ -54,14 +70,14 @@
         - !type:HTNCompoundTask
           task: GunCombatCompound
 
-    # 5. Fallback melee combat — switch to melee hand first, then attack
+    # 6. Fallback melee combat — switch to melee hand first, then attack
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:SwitchHandToMeleeOperator
         - !type:HTNCompoundTask
           task: MeleeCombatCompound
 
-    # 6. Idle
+    # 7. Idle
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound

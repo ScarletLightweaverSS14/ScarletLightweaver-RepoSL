@@ -41,6 +41,7 @@
   equipment:
     belt: ClothingSovietBandolier
     pocket1: BruteAutoInjector
+    pocket2: Finka
   inhand:
   - WeaponShotgunSawn
 #pistol

@@ -51,6 +51,7 @@
         - "The Motherland... will remember..."
         - "Comrades... avenge me..."
         - "Hard in training — easy in battle!"
+    - type: NpcOnHitAggro
     - type: HTN
       rootTask:
         task: SovietComradeHostileCompound

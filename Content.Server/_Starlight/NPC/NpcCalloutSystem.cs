@@ -3,6 +3,7 @@ using Content.Server.NPC.Components;
 using Content.Shared._Starlight.NPC;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Damage.ForceSay;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Robust.Shared.Random;
@@ -95,6 +96,9 @@ public sealed partial class NpcCalloutSystem : EntitySystem
 
         if (ent.Comp.CritPhrases.Count == 0)
             return;
+
+        // Critical mobs normally can't speak — grant one-time speech permission.
+        EnsureComp<AllowNextCritSpeechComponent>(ent);
 
         var phrase = _random.Pick(ent.Comp.CritPhrases);
         _chat.TrySendInGameICMessage(ent, phrase, InGameICChatType.Speak, ChatTransmitRange.Normal, hideLog: true);
