@@ -12,12 +12,6 @@
         - !type:HTNPrimitiveTask
           operator: !type:UseItemFromPocketOperator
             itemTag: Medipen
-            directHeal:
-              groups:
-                Brute: -90
-                Airloss: -20
-              types:
-                Bloodloss: -20
 
     # 2. Draw backup melee from pocket when gun is empty (e.g. shotgunner pulls a knife)
     - preconditions:

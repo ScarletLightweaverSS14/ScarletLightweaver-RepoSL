@@ -62,3 +62,128 @@
     pocket2: MagazineLightRifleSP
   inhand:
   - WeaponRifleAk
+
+# ============================================================
+# Tiered gear loadouts — each simply adds the tier's loot bag
+# to the back slot on top of the existing weapon-variant gear.
+# ============================================================
+
+# --- Challenging tier ---
+- type: startingGear
+  id: SovietComradeGearChallengingBrokenBottle
+  parent: SovietComradeGearBrokenBottle
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeChallengingLoot
+
+- type: startingGear
+  id: SovietComradeGearChallengingFinka
+  parent: SovietComradeGearFinka
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeChallengingLoot
+
+- type: startingGear
+  id: SovietComradeGearChallengingSawn
+  parent: SovietComradeGearSawn
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeChallengingLoot
+
+- type: startingGear
+  id: SovietComradeGearChallengingMakarov
+  parent: SovietComradeGearMakarov
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeChallengingLoot
+
+# --- Difficult tier ---
+- type: startingGear
+  id: SovietComradeGearDifficultBrokenBottle
+  parent: SovietComradeGearBrokenBottle
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeDifficultLoot
+
+- type: startingGear
+  id: SovietComradeGearDifficultFinka
+  parent: SovietComradeGearFinka
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeDifficultLoot
+
+- type: startingGear
+  id: SovietComradeGearDifficultSawn
+  parent: SovietComradeGearSawn
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeDifficultLoot
+
+- type: startingGear
+  id: SovietComradeGearDifficultMakarov
+  parent: SovietComradeGearMakarov
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeDifficultLoot
+
+- type: startingGear
+  id: SovietComradeGearDifficultAk
+  parent: SovietComradeGearAk
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeDifficultLoot
+
+# --- Impossible tier ---
+- type: startingGear
+  id: SovietComradeGearImpossibleBrokenBottle
+  parent: SovietComradeGearBrokenBottle
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeImpossibleLoot
+
+- type: startingGear
+  id: SovietComradeGearImpossibleFinka
+  parent: SovietComradeGearFinka
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeImpossibleLoot
+
+- type: startingGear
+  id: SovietComradeGearImpossibleSawn
+  parent: SovietComradeGearSawn
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeImpossibleLoot
+
+- type: startingGear
+  id: SovietComradeGearImpossibleMakarov
+  parent: SovietComradeGearMakarov
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeImpossibleLoot
+
+- type: startingGear
+  id: SovietComradeGearImpossibleAk
+  parent: SovietComradeGearAk
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeImpossibleLoot
+
+# --- Red Vanguard gear (elite soldiers) ---
+- type: startingGear
+  id: RedVanguardGearBase
+  parent: SovietComradeGear
+  equipment:
+    belt: ClothingSovietBelt
+    back: ClothingBackpackDuffelRedVanguardLoot
+    outerClothing: ClothingOuterArmorBulletproof
+  storage:
+    belt:
+    - RadioHandheld
+    - GeigerCounter
+    - Flare
+    - Flare
+    - Flare
+
+- type: startingGear
+  id: RedVanguardGearAk
+  parent: RedVanguardGearBase
+  equipment:
+    pocket1: BruteAutoInjector
+    pocket2: MagazineLightRifleSP
+  inhand:
+  - WeaponRifleAk
+
+- type: startingGear
+  id: RedVanguardGearKnife
+  parent: RedVanguardGearBase
+  equipment:
+    pocket1: BruteAutoInjector
+  inhand:
+  - Finka

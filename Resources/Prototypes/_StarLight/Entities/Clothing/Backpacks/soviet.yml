@@ -145,3 +145,111 @@
         children:
         - id: WeaponSubMachineGunPPSH
         - id: MagazinePistolSubMachineGunPPSH
+
+# ============================================================
+# Expedition loot bags — worn by tiered comrades and Red Vanguard.
+# No Storage (cannot E-open). Use in-hand to scatter loot, then bag deletes itself.
+# ============================================================
+
+# Abstract base: equippable in back slot, no Storage, no speed penalty.
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: SovietLootBagBase
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Back/Duffels/soviet_marine_duffel.rsi
+    state: icon
+  - type: Item
+    size: Large
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+
+- type: entity
+  parent: SovietLootBagBase
+  id: ClothingBackpackDuffelSovietComradeChallengingLoot
+  name: comrade kitbag
+  description: A battered Soviet duffel bag. Something rattles inside. Use in-hand to open.
+  components:
+  - type: SovietLootBag
+    loot:
+    - MagazinePistolSP
+    - MagazinePistolSP
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - ClothingHeadHatUshanka
+    - DrinkVodkizineBottleFull
+    - Flare
+    - Flare
+
+- type: entity
+  parent: SovietLootBagBase
+  id: ClothingBackpackDuffelSovietComradeDifficultLoot
+  name: comrade kitbag
+  description: A battered Soviet duffel bag. Heavier than expected. Use in-hand to open.
+  components:
+  - type: SovietLootBag
+    loot:
+    - WeaponPistolMakarov
+    - MagazinePistolSP
+    - MagazinePistolSP
+    - MagazinePistolSP
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - ClothingHeadHatUshanka
+    - DrinkVodkizineBottleFull
+    - Flare
+    - Flare
+    - Flare
+
+- type: entity
+  parent: SovietLootBagBase
+  id: ClothingBackpackDuffelSovietComradeImpossibleLoot
+  name: comrade combat pack
+  description: A heavy Soviet combat pack. Well-stocked for a long campaign. Use in-hand to open.
+  components:
+  - type: SovietLootBag
+    loot:
+    - WeaponRifleAk
+    - MagazineLightRifleSP
+    - MagazineLightRifleSP
+    - MagazineLightRifleSP
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - ClothingHeadHatUshanka
+    - ClothingHandsGlovesCombat
+    - DrinkVodkizineBottleFull
+    - Flare
+    - Flare
+    - Flare
+
+- type: entity
+  parent: SovietLootBagBase
+  id: ClothingBackpackDuffelRedVanguardLoot
+  name: vanguard assault pack
+  description: A reinforced Soviet assault pack belonging to the Red Vanguard elite. Use in-hand to open.
+  components:
+  - type: SovietLootBag
+    loot:
+    - WeaponRifleAk
+    - MagazineLightRifleSP
+    - MagazineLightRifleSP
+    - MagazineLightRifleSP
+    - MagazineLightRifleSP
+    - WeaponPistolAPS
+    - MagazinePistol40SP
+    - MagazinePistol40SP
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - MedkitCombat
+    - ClothingHandsGlovesCombat
+    - DoubleEmergencyOxygenTankFilled
+    - Finka
+    - DrinkVodkizineBottleFull

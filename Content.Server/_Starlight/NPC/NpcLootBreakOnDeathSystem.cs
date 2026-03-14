@@ -60,9 +60,9 @@ public sealed class NpcLootBreakOnDeathSystem : EntitySystem
             {
                 var coords = _transform.GetMoverCoordinates(item);
                 var brokenEntity = Spawn(brokenProtoId, coords);
-                // Safety: strip any remaining weapon components from the spawned broken entity.
-                RemCompDeferred<GunComponent>(brokenEntity);
-                RemCompDeferred<MeleeWeaponComponent>(brokenEntity);
+                // Strip weapon components immediately so clients never see them as functional.
+                RemComp<GunComponent>(brokenEntity);
+                RemComp<MeleeWeaponComponent>(brokenEntity);
                 QueueDel(item);
                 return;
             }
@@ -70,7 +70,7 @@ public sealed class NpcLootBreakOnDeathSystem : EntitySystem
 
         // Fallback: rename and strip weapon components in-place.
         _metaData.SetEntityName(item, $"(broken) {meta.EntityName}");
-        RemCompDeferred<GunComponent>(item);
-        RemCompDeferred<MeleeWeaponComponent>(item);
+        RemComp<GunComponent>(item);
+        RemComp<MeleeWeaponComponent>(item);
     }
 }
