@@ -108,6 +108,23 @@
 # Tier 3
 
 - type: technology
+  id: AlloySmelting
+  name: research-technology-alloy-smelting
+  icon:
+    sprite: Objects/Structures/Machines/ore_processor_industrial.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 12000
+  recipeUnlocks:
+    - AlloySmelteryMachineCircuitboard
+  technologyPrerequisites:
+    - SalvageEquipment
+  radioChannels:
+    - Supply
+    - Engineering
+
+- type: technology
   id: EngineeringCyberLimbsTech
   name: research-technology-engineering-cyberlimbs
   icon:

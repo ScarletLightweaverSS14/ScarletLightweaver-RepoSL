@@ -1,0 +1,62 @@
+# Starlight: Alloy materials produced by the Alloy Smeltery.
+# These are advanced alloys smelted from existing metals.
+# Plastitium   = Plasteel + Titanium vibes (steel + plasma + gold traces)
+# PlastitiumAlloy = Refined plastitium alloy (harder)
+# Synthmetal   = Steel + Silver + Uranium (radiation-resistant meta-alloy)
+# Synthalloy   = Ultra-dense Synthmetal + Plasma composite (elite tier)
+
+- type: material
+  id: Plastitium
+  stackEntity: SheetPlastitium1
+  name: materials-plastitium
+  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: plasteel }
+  color: "#8a4fc7"
+  price: 1.5 # premium alloy
+  properties:
+    electrical: 6
+    thermal: 7
+    hard: 5
+    density: 7
+    chemical: 7
+
+- type: material
+  id: PlastitiumAlloy
+  stackEntity: SheetPlastitiumAlloy1
+  name: materials-plastitium-alloy
+  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: plasteel }
+  color: "#b075f5"
+  price: 2.5 # refined, stronger
+  properties:
+    electrical: 7
+    thermal: 8
+    hard: 7
+    density: 8
+    chemical: 8
+
+- type: material
+  id: Synthmetal
+  stackEntity: SheetSynthmetal1
+  name: materials-synthmetal
+  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: steel }
+  color: "#5ed4d4"
+  price: 1.8
+  properties:
+    electrical: 7
+    thermal: 5
+    hard: 5
+    density: 6
+    chemical: 9
+
+- type: material
+  id: Synthalloy
+  stackEntity: SheetSynthalloy1
+  name: materials-synthalloy
+  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: plasteel }
+  color: "#30c0e0"
+  price: 3.0 # top-tier engineering material
+  properties:
+    electrical: 9
+    thermal: 6
+    hard: 8
+    density: 9
+    chemical: 10

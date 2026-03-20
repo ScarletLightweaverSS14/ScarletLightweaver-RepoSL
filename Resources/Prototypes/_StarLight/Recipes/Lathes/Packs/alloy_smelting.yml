@@ -1,0 +1,11 @@
+# Starlight: Alloy Smeltery recipe pack.
+
+- type: latheRecipePack
+  id: AlloySmelting
+  recipes:
+    # Tier 1 alloys (available from the start)
+    - SheetPlastitium1
+    - SheetSynthmetal1
+    # Tier 2 alloys (stronger, require the Tier 1 alloys back in)
+    - SheetPlastitiumAlloy1
+    - SheetSynthalloy1

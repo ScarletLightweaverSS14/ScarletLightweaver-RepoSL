@@ -1,0 +1,243 @@
+# Starlight: Sheet entities for alloy smeltery outputs.
+# All alloy sheets use the plasteel RSI (Objects/Materials/Sheets/metal.rsi) with a color tint.
+# They come out HOT from the smeltery and deal burn damage until cooled.
+
+## --- Plastitium ---
+- type: entity
+  parent: SheetPlasteel
+  id: SheetPlastitium
+  name: plastitium
+  description: A shimmering violet alloy sheet. Lightweight and impressively strong — but it just came out of the smelter and is still searing hot.
+  suffix: Full
+  components:
+    - type: Material
+    - type: PhysicalComposition
+      materialComposition:
+        Plastitium: 100
+    - type: Stack
+      stackType: Plastitium
+      baseLayer: base
+      layerStates:
+        - plasteel
+        - plasteel_2
+        - plasteel_3
+    - type: Sprite
+      state: plasteel_3
+      color: "#8a4fc7"
+      layers:
+        - state: plasteel_3
+          map: ["base"]
+          color: "#8a4fc7"
+    - type: HotAlloy
+    - type: DamageOnHolding
+      enabled: true
+      interval: 1
+      damage:
+        types:
+          Heat: 3
+
+- type: entity
+  parent: SheetPlastitium
+  id: SheetPlastitium10
+  name: plastitium
+  suffix: 10
+  components:
+    - type: Sprite
+      state: plasteel
+      color: "#8a4fc7"
+    - type: Stack
+      stackType: Plastitium
+      count: 10
+
+- type: entity
+  parent: SheetPlastitium
+  id: SheetPlastitium1
+  name: plastitium
+  suffix: Single
+  components:
+    - type: Sprite
+      state: plasteel
+      color: "#8a4fc7"
+    - type: Stack
+      stackType: Plastitium
+      count: 1
+
+## --- Plastitium Alloy ---
+- type: entity
+  parent: SheetPlasteel
+  id: SheetPlastitiumAlloy
+  name: plastitium alloy
+  description: A refined plastitium sheet, denser and more structurally sound. Still radiates intense heat from the smelting process.
+  suffix: Full
+  components:
+    - type: Material
+    - type: PhysicalComposition
+      materialComposition:
+        PlastitiumAlloy: 100
+    - type: Stack
+      stackType: PlastitiumAlloy
+      baseLayer: base
+      layerStates:
+        - plasteel
+        - plasteel_2
+        - plasteel_3
+    - type: Sprite
+      state: plasteel_3
+      color: "#b075f5"
+      layers:
+        - state: plasteel_3
+          map: ["base"]
+          color: "#b075f5"
+    - type: HotAlloy
+    - type: DamageOnHolding
+      enabled: true
+      interval: 1
+      damage:
+        types:
+          Heat: 3
+
+- type: entity
+  parent: SheetPlastitiumAlloy
+  id: SheetPlastitiumAlloy10
+  name: plastitium alloy
+  suffix: 10
+  components:
+    - type: Sprite
+      state: plasteel
+      color: "#b075f5"
+    - type: Stack
+      stackType: PlastitiumAlloy
+      count: 10
+
+- type: entity
+  parent: SheetPlastitiumAlloy
+  id: SheetPlastitiumAlloy1
+  name: plastitium alloy
+  suffix: Single
+  components:
+    - type: Sprite
+      state: plasteel
+      color: "#b075f5"
+    - type: Stack
+      stackType: PlastitiumAlloy
+      count: 1
+
+## --- Synthmetal ---
+- type: entity
+  parent: SheetPlasteel
+  id: SheetSynthmetal
+  name: synthmetal
+  description: A dense, teal-tinted alloy of steel, silver and trace uranium. Highly resistant to radiation and corrosion. Handle with care once cooled.
+  suffix: Full
+  components:
+    - type: Material
+    - type: PhysicalComposition
+      materialComposition:
+        Synthmetal: 100
+    - type: Stack
+      stackType: Synthmetal
+      baseLayer: base
+      layerStates:
+        - plasteel
+        - plasteel_2
+        - plasteel_3
+    - type: Sprite
+      state: plasteel_3
+      color: "#5ed4d4"
+      layers:
+        - state: plasteel_3
+          map: ["base"]
+          color: "#5ed4d4"
+    - type: HotAlloy
+    - type: DamageOnHolding
+      enabled: true
+      interval: 1
+      damage:
+        types:
+          Heat: 3
+
+- type: entity
+  parent: SheetSynthmetal
+  id: SheetSynthmetal10
+  name: synthmetal
+  suffix: 10
+  components:
+    - type: Sprite
+      state: plasteel
+      color: "#5ed4d4"
+    - type: Stack
+      stackType: Synthmetal
+      count: 10
+
+- type: entity
+  parent: SheetSynthmetal
+  id: SheetSynthmetal1
+  name: synthmetal
+  suffix: Single
+  components:
+    - type: Sprite
+      state: plasteel
+      color: "#5ed4d4"
+    - type: Stack
+      stackType: Synthmetal
+      count: 1
+
+## --- Synthalloy ---
+- type: entity
+  parent: SheetPlasteel
+  id: SheetSynthalloy
+  name: synthalloy
+  description: The pinnacle of station metallurgy. A plasma-composite synthmetal sheet, almost impossibly dense and strong. It glows with residual heat.
+  suffix: Full
+  components:
+    - type: Material
+    - type: PhysicalComposition
+      materialComposition:
+        Synthalloy: 100
+    - type: Stack
+      stackType: Synthalloy
+      baseLayer: base
+      layerStates:
+        - plasteel
+        - plasteel_2
+        - plasteel_3
+    - type: Sprite
+      state: plasteel_3
+      color: "#30c0e0"
+      layers:
+        - state: plasteel_3
+          map: ["base"]
+          color: "#30c0e0"
+    - type: HotAlloy
+    - type: DamageOnHolding
+      enabled: true
+      interval: 1
+      damage:
+        types:
+          Heat: 3
+
+- type: entity
+  parent: SheetSynthalloy
+  id: SheetSynthalloy10
+  name: synthalloy
+  suffix: 10
+  components:
+    - type: Sprite
+      state: plasteel
+      color: "#30c0e0"
+    - type: Stack
+      stackType: Synthalloy
+      count: 10
+
+- type: entity
+  parent: SheetSynthalloy
+  id: SheetSynthalloy1
+  name: synthalloy
+  suffix: Single
+  components:
+    - type: Sprite
+      state: plasteel
+      color: "#30c0e0"
+    - type: Stack
+      stackType: Synthalloy
+      count: 1

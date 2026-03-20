@@ -40,3 +40,16 @@
     - !type:NoWindowsInTile
   objectType: Structure
   placementMode: SnapgridCenter
+- type: construction
+  id: PlastitiumWall
+  name: construction-plastitium-wall
+  graph: Girder
+  startNode: start
+  targetNode: plastitiumWall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

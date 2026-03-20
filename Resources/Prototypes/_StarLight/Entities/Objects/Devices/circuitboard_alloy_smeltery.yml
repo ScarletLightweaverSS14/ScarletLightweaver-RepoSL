@@ -1,0 +1,16 @@
+# Starlight: Alloy Smeltery circuit board.
+
+- type: entity
+  id: AlloySmelteryMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: alloy smeltery machine board
+  description: A machine board for an industrial alloy smeltery.
+  components:
+    - type: Sprite
+      state: supply
+    - type: MachineBoard
+      prototype: AlloySmeltery
+      stackRequirements:
+        Manipulator: 4
+        Glass: 2
+        Steel: 2

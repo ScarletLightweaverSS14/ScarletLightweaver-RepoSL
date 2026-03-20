@@ -1,4 +1,9 @@
 - type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+  id: AlloySmelteryMachineCircuitboard
+  result: AlloySmelteryMachineCircuitboard
+
+- type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   id: SlimeProcessorMachineCircuitboard
   result: SlimeProcessorMachineCircuitboard

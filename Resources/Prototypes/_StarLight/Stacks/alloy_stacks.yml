@@ -1,0 +1,29 @@
+# Starlight: Stack type definitions for alloy smeltery materials.
+
+- type: stack
+  parent: BaseSheetStack
+  id: Plastitium
+  name: stack-plastitium
+  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: plasteel }
+  spawn: SheetPlastitium1
+
+- type: stack
+  parent: BaseSheetStack
+  id: PlastitiumAlloy
+  name: stack-plastitium-alloy
+  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: plasteel }
+  spawn: SheetPlastitiumAlloy1
+
+- type: stack
+  parent: BaseSheetStack
+  id: Synthmetal
+  name: stack-synthmetal
+  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: steel }
+  spawn: SheetSynthmetal1
+
+- type: stack
+  parent: BaseSheetStack
+  id: Synthalloy
+  name: stack-synthalloy
+  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: plasteel }
+  spawn: SheetSynthalloy1

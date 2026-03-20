@@ -1,0 +1,23 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               MinSize="320 420"
+               Title="{Loc alloy-smeltery-ui-title}">
+    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="4">
+        <!-- Header -->
+        <Label Text="{Loc alloy-smeltery-ui-header}" StyleClasses="LabelHeading"
+               HorizontalAlignment="Center" Margin="0 0 0 4" />
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <!-- Material bar chart list -->
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" MinHeight="280">
+            <BoxContainer Name="MaterialList" Orientation="Vertical" HorizontalExpand="True"
+                          SeparationOverride="2" />
+        </ScrollContainer>
+
+        <!-- Footer -->
+        <PanelContainer StyleClasses="LowDivider" />
+        <Label Name="StatusLabel" StyleClasses="WindowFooterText"
+               HorizontalAlignment="Center" Margin="0 2 0 0" />
+    </BoxContainer>
+</DefaultWindow>

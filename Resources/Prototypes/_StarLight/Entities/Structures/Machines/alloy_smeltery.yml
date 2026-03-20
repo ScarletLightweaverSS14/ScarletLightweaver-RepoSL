@@ -1,0 +1,56 @@
+# Starlight: Alloy Smeltery - a machine to smelt and mix processed metals into advanced alloys.
+# Uses the industrial ore processor sprite as a visual base.
+# Outputs come out HOT and will burn your hands unless cooled.
+
+- type: entity
+  id: AlloySmeltery
+  parent: BaseLathe
+  name: alloy smeltery
+  description: A furnace designed for mixing and melting refined metals into advanced alloys. Output is extremely hot — use gas or water to cool before handling.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      sprite: _Starlight/Structures/Machines/alloy_smeltery.rsi
+      snapCardinals: true
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: AlloySmelteryMachineCircuitboard
+    - type: MaterialStorage
+      ignoreColor: true
+      whitelist:
+        tags:
+          - Sheet
+          - Ingot
+          - Metal
+    - type: Lathe
+      idleState: icon
+      runningState: building
+      staticPacks:
+        - AlloySmelting
+    - type: AlloySmelteryOutput
+    - type: UserInterface
+      interfaces:
+        enum.LatheUiKey.Key:
+          type: LatheBoundUserInterface
+        enum.ResearchClientUiKey.Key:
+          type: ResearchClientBoundUserInterface
+        enum.AlloySmelteryUiKey.Key:
+          type: AlloySmelteryBoundUserInterface
+    - type: ApcPowerReceiver
+      powerLoad: 2500
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+    - type: LatheHeatProducing
+      energyPerSecond: 2000

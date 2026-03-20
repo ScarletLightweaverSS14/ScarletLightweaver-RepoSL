@@ -1,0 +1,62 @@
+# Starlight: Alloy Smeltery lathe recipes.
+# All outputs from the smeltery come out HOT (AlloySmelteryOutput component adds DamageOnHolding).
+# Materials required are finished sheets/ingots, not raw ores.
+# Recipes intentionally use material IDs matching the MaterialPrototype definitions.
+
+## ============================
+## PLASTITIUM
+## Steel + Plasma + Gold traces
+## 1 sheet requires: 1 plasteel-worth + 1 gold ingot per sheet
+## ============================
+
+- type: latheRecipe
+  id: SheetPlastitium1
+  result: SheetPlastitium1
+  completetime: 8
+  materials:
+    Plasteel: 100
+    Steel: 100
+    Gold: 50
+
+## ============================
+## PLASTITIUM ALLOY
+## Refined: Plastitium + Plasma + Silver
+## ============================
+
+- type: latheRecipe
+  id: SheetPlastitiumAlloy1
+  result: SheetPlastitiumAlloy1
+  completetime: 12
+  materials:
+    Plastitium: 200
+    Plasma: 100
+    Silver: 100
+
+## ============================
+## SYNTHMETAL
+## Steel + Silver + Uranium (trace)
+## Radiation-resistant meta-alloy
+## ============================
+
+- type: latheRecipe
+  id: SheetSynthmetal1
+  result: SheetSynthmetal1
+  completetime: 10
+  materials:
+    Steel: 200
+    Silver: 100
+    Uranium: 50
+
+## ============================
+## SYNTHALLOY
+## Synthmetal + Plasma (pinnacle tier)
+## ============================
+
+- type: latheRecipe
+  id: SheetSynthalloy1
+  result: SheetSynthalloy1
+  completetime: 15
+  materials:
+    Synthmetal: 200
+    Plasma: 150
+    Gold: 50
