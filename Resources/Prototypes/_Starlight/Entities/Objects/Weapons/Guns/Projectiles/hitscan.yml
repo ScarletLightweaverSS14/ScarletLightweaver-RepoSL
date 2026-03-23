@@ -1780,6 +1780,7 @@
   - type: HitscanReflect
     reflectiveType: None
   - type: HitscanBasicRaycast
+    maxDistance: 80.0
     collisionMask: BulletImpassable
   - type: HitscanBasicVisuals
     muzzleFlash:

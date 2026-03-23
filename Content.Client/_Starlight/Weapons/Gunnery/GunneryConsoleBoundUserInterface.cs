@@ -3,14 +3,20 @@ using Content.Shared._Starlight.Weapons.Gunnery;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 
 namespace Content.Client._Starlight.Weapons.Gunnery;
 
 [UsedImplicitly]
 public sealed class GunneryConsoleBoundUserInterface : BoundUserInterface
 {
+    [Dependency] private readonly IEntitySystemManager _sysMan = default!;
+
     private GunneryConsoleWindow? _window;
+    private bool _lastIncomingMissile;
 
     public GunneryConsoleBoundUserInterface(EntityUid owner, Enum uiKey)
         : base(owner, uiKey) { }
@@ -46,6 +52,17 @@ public sealed class GunneryConsoleBoundUserInterface : BoundUserInterface
 
         if (state is not GunneryConsoleBoundUserInterfaceState cState)
             return;
+
+        // Play missile lock alarm when the flag first becomes true.
+        if (cState.IncomingMissile && !_lastIncomingMissile)
+        {
+            var audio = _sysMan.GetEntitySystem<SharedAudioSystem>();
+            audio.PlayGlobal(
+                audio.ResolveSound(new SoundPathSpecifier("/Audio/Effects/Shuttle/radar_ping.ogg")),
+                Filter.Local(), false,
+                AudioParams.Default.WithVolume(4f));
+        }
+        _lastIncomingMissile = cState.IncomingMissile;
 
         _window?.UpdateState(cState);
     }

@@ -120,9 +120,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 450 # 3x stronger than normal blast grenade (150 * 3 = 450) - approximately ~6 tile radius
+    totalIntensity: 650      # was 450 - 120mm hits harder per request
     intensitySlope: 8
-    maxIntensity: 30
+    maxIntensity: 45         # was 30 - wider blast
     canCreateVacuum: true
   - type: PointLight
     enabled: true
@@ -153,15 +153,15 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 500
-        Blunt: 150
-        Structural: 600
+        Piercing: 750       # was 500 - penetrates ALOT more per request
+        Blunt: 200          # was 150
+        Structural: 1000    # was 600 - punches through layers
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 350
+    totalIntensity: 550     # was 350 - better secondary explosion
     intensitySlope: 10
-    maxIntensity: 28
+    maxIntensity: 42        # was 28
     canCreateVacuum: true
   - type: PointLight
     enabled: true
@@ -196,9 +196,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 800
-    intensitySlope: 6
-    maxIntensity: 60
+    totalIntensity: 1400    # was 800 - massive AOE per request
+    intensitySlope: 3       # was 6 - flatter, wider blast profile
+    maxIntensity: 90        # was 60 - much larger AOE
     canCreateVacuum: true
   - type: PointLight
     enabled: true
@@ -210,3 +210,60 @@
     scale: 2.0
     shape: Triangle
     requireInSpace: true
+
+# --- SCYLLA BEAM (physical projectile with explosion on impact) ---
+
+- type: entity
+  id: BulletScyllaBeam
+  name: scylla laser beam
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: laser
+        shader: unshaded
+        color: "#00CCFF"
+    scale: 6.0, 1.5
+  - type: Projectile
+    damage:
+      types:
+        Heat: 800
+        Structural: 900
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 900       # massive on-impact explosion
+    intensitySlope: 7
+    maxIntensity: 55
+    canCreateVacuum: true
+  - type: PointLight
+    enabled: true
+    radius: 10
+    energy: 8
+    color: "#00CCFF"
+  - type: RadarBlip
+    color: "#00CCFF"
+    scale: 2.0
+    shape: Square
+    requireInSpace: true
+
+# --- HEAT-SEEKING ROCKET (auto-homing guided variant) ---
+
+- type: entity
+  id: BulletHEATRocket
+  name: HEAT-seeking rocket
+  parent: Bullet60mmRocket
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    color: "#FF4400"
+    scale: 1.4
+    shape: Circle
+    requireInSpace: true
+  - type: PDTarget
+  - type: GuidedProjectile
+    turnRate: 120
+    autoSeek: true
+    autoSeekRange: 120

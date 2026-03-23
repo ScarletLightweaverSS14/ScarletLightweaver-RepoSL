@@ -7,6 +7,7 @@ using Content.Shared.Physics;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
@@ -80,6 +81,8 @@ public sealed class GunneryConsoleSystem : EntitySystem
     /// <summary>
     /// When a new guided projectile spawns, claim it for the console that most
     /// recently fired (within a 200 ms window).
+    /// For auto-seeking (HEAT) missiles, skip player control but seed the initial
+    /// seeking target from the console's last-clicked position.
     /// </summary>
     private void OnGuidedProjectileStartup(EntityUid uid, GuidedProjectileComponent guided, ComponentStartup args)
     {
@@ -91,11 +94,26 @@ public sealed class GunneryConsoleSystem : EntitySystem
             if (_timing.CurTime - consoleComp.LastFireTime > threshold)
                 continue;
 
-            // Claim this projectile and immediately enable tracking toward the fire target.
-            guided.Controller = consoleUid;
-            guided.SteeringTarget = consoleComp.LastFireTargetPos;
-            guided.Active = true;
-            consoleComp.TrackedGuidedProjectile = uid;
+            if (guided.AutoSeek)
+            {
+                // HEAT missile: do not claim for player guidance.
+                // Seed the initial steering toward where the player clicked so the missile
+                // launches in the right direction; the GuidedProjectileSystem will then
+                // continuously update the target autonomously.
+                guided.SteeringTarget = consoleComp.LastFireTargetPos;
+                guided.Active = true;
+                // Record the launcher's grid so auto-seek never targets our own ship.
+                guided.SourceGrid = Transform(consoleUid).GridUid;
+                // SeekingTarget left null – GuidedProjectileSystem will lock to nearest grid.
+            }
+            else
+            {
+                // Normal guided missile: claim for player control.
+                guided.Controller = consoleUid;
+                guided.SteeringTarget = consoleComp.LastFireTargetPos;
+                guided.Active = true;
+                consoleComp.TrackedGuidedProjectile = uid;
+            }
             break;
         }
     }
@@ -307,11 +325,17 @@ public sealed class GunneryConsoleSystem : EntitySystem
                     continue;
 
                 var cooldown = (float)Math.Max(0.0, (gunComp.NextFire - _timing.CurTime).TotalSeconds);
+                var category = ClassifyCannonAmmoCategory(gunUid);
+                var displayName = MetaData(gunUid).EntityName;
+                // Append [HEAT] if the gun's ammo slot accepts HEAT homing rockets.
+                if (IsHEATCannon(gunUid))
+                    displayName += " [HEAT]";
                 cannons.Add(new CannonBlipData(
                     GetNetCoordinates(gunXform.Coordinates),
                     GetNetEntity(gunUid),
-                    MetaData(gunUid).EntityName,
-                    cooldown));
+                    displayName,
+                    cooldown,
+                    category));
             }
         }
 
@@ -323,8 +347,23 @@ public sealed class GunneryConsoleSystem : EntitySystem
             ? GetNetEntity(comp.TrackedGuidedProjectile.Value)
             : (NetEntity?)null;
 
+        // Check if any HEAT missile is currently locked onto this grid.
+        var incomingMissile = false;
+        if (gridId != null)
+        {
+            var missileQuery = AllEntityQuery<GuidedProjectileComponent>();
+            while (missileQuery.MoveNext(out _, out var missile))
+            {
+                if (missile.AutoSeek && missile.SeekingTarget == gridId)
+                {
+                    incomingMissile = true;
+                    break;
+                }
+            }
+        }
+
         _ui.SetUiState(uid, GunneryConsoleUiKey.Key,
-            new GunneryConsoleBoundUserInterfaceState(navState, cannons, trackedNet));
+            new GunneryConsoleBoundUserInterfaceState(navState, cannons, trackedNet, incomingMissile: incomingMissile));
     }
 
     // ── Helpers ────────────────────────────────────────────────────────────
@@ -340,5 +379,48 @@ public sealed class GunneryConsoleSystem : EntitySystem
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Infers the <see cref="CannonAmmoCategory"/> for a gun entity by inspecting which
+    /// ammo provider component it has.
+    /// </summary>
+    private CannonAmmoCategory ClassifyCannonAmmoCategory(EntityUid gun)
+    {
+        // Battery-powered = energy weapons (laser cannons, Scylla, Dynamre).
+        if (HasComp<BatteryAmmoProviderComponent>(gun))
+            return CannonAmmoCategory.Energy;
+
+        // Ballistic provider with capacity 1 and a tag whitelist that mentions Grenade
+        // or the gun has a BallisticAmmoProvider but no magazine slot.
+        if (TryComp<BallisticAmmoProviderComponent>(gun, out var ballistic))
+        {
+            // All ballistic-fed weapons (guns, rockets, grenades) → Ballistic.
+            return CannonAmmoCategory.Ballistic;
+        }
+
+        return CannonAmmoCategory.Ballistic;
+    }
+
+    /// <summary>
+    /// Returns true if the gun has a magazine slot that accepts CartridgeHEATRocket,
+    /// so the console can display a [HEAT] label.
+    /// </summary>
+    private bool IsHEATCannon(EntityUid gun)
+    {
+        if (!TryComp<ItemSlotsComponent>(gun, out var slots))
+            return false;
+
+        foreach (var slot in slots.Slots.Values)
+        {
+            if (slot.Whitelist?.Tags == null)
+                continue;
+            foreach (var tag in slot.Whitelist.Tags)
+            {
+                if (tag.Id.Contains("HEAT", StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+        }
+        return false;
     }
 }

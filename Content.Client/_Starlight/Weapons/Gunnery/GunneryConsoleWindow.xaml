@@ -41,6 +41,12 @@
                 FontColorOverride="#FFA040"
                 Margin="0,4,0,2" />
 
+            <BoxContainer Orientation="Horizontal" SeparationOverride="2" Margin="0,0,0,2">
+                <Button Name="FilterAll"       Text="All"      HorizontalExpand="True" />
+                <Button Name="FilterBallistic" Text="Ballistic" HorizontalExpand="True" />
+                <Button Name="FilterEnergy"    Text="Energy"   HorizontalExpand="True" />
+            </BoxContainer>
+
             <PanelContainer VerticalExpand="True">
                 <ScrollContainer VerticalExpand="True">
                     <ItemList
@@ -65,6 +71,14 @@
                 HorizontalAlignment="Center"
                 FontColorOverride="#44FF44"
                 Margin="0,0,0,4" />
+
+            <Label
+                Name="MissileWarningLabel"
+                Text="⚠ INCOMING MISSILE ⚠"
+                HorizontalAlignment="Center"
+                FontColorOverride="#FF2222"
+                Margin="0,2,0,4"
+                Visible="false" />
 
         </BoxContainer>
 

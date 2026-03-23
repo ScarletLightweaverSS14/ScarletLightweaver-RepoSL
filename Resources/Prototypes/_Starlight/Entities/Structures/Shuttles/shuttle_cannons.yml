@@ -199,7 +199,7 @@
           acts: ["Destruction"]
   - type: Gun
     projectileSpeed: 40
-    fireRate: 0.5
+    fireRate: 0.2             # was 0.5 - 5 seconds between shots, deliberate one-at-a-time pacing
     selectedMode: SemiAuto
     angleDecay: 20
     minAngle: 0
@@ -284,14 +284,15 @@
           acts: ["Destruction"]
   - type: Gun
     projectileSpeed: 150    # railgun slug velocity
-    fireRate: 100           # instant fire when loaded - delay is the manual reload
-    burstCooldown: 180      # Starlight: 3-minute cooldown after firing
-    selectedMode: SemiAuto
+    burstFireRate: 100      # fires the single shot instantly when the burst begins
+    shotsPerBurst: 1        # one slug per activation
+    burstCooldown: 45       # 45-second mandatory recharge regardless of manual reload speed
+    selectedMode: Burst     # Burst mode enforces burstCooldown; prevents spam-fire
     angleDecay: 90
     minAngle: 0
     maxAngle: 0             # perfect accuracy
     availableModes:
-    - SemiAuto
+    - Burst
     soundGunshot:
       path: /Audio/_Starlight/Weapons/Shuttleguns/leviathan_fire.ogg
       params:
@@ -542,10 +543,13 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
-    fireRate: 12
+    fireRate: 8                   # was 12, slightly slower for balance
     projectileSpeed: 160
+    selectedMode: FullAuto        # hold LMB to fire continuously
     minAngle: 0
     maxAngle: 5
+    availableModes:
+    - FullAuto
     soundGunshot:
       path: /Audio/_Starlight/Weapons/Shuttleguns/slammer.ogg
       params:
@@ -557,15 +561,15 @@
     proto: 20mmBullet
     fireCost: 1
   - type: Battery
-    maxCharge: 50
-    startingCharge: 50
+    maxCharge: 600              # was 50, enough for sustained full-auto bursts
+    startingCharge: 600
     netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 100
-    batteryRechargeRate: 1
-    batteryRechargeEfficiency: 0.0
+    batteryRechargeRate: 8      # was 1 - matches fire rate for sustained fire
+    batteryRechargeEfficiency: 1.0  # was 0.0 - actually recharge from grid
   - type: ApcPowerReceiver
-    powerLoad: 100
+    powerLoad: 800              # was 100 - 8 shots/sec x 100W each
   - type: ExtensionCableReceiver
   - type: RadarBlip
     color: "#88BBFF"
@@ -862,8 +866,12 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
+    projectileSpeed: 400      # fast physical beam
     fireRate: 1
     burstCooldown: 30     # 30-second recharge after each shot
+    selectedMode: Burst   # enforce cooldown via burst mode
+    shotsPerBurst: 1
+    burstFireRate: 100
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
       params:
@@ -880,12 +888,12 @@
     batteryRechargeRate: 167     # recharge full in ~30s at full draw
     batteryRechargeEfficiency: 1.0
   - type: ApcPowerReceiver
-    powerLoad: 5000
+    powerLoad: 8000              # massive power draw per request
   - type: ExtensionCableReceiver
   - type: BatteryAmmoProvider
-    proto: ScyllaWideLaser
+    proto: BulletScyllaBeam      # physical beam that explodes on impact
     fireCost: 5000
-  - type: RadarLaserTracker
+  - type: RadarLaserTracker      # keeps the laser trace line on radar
     laserColor: "#00CCFF"
     traceDuration: 1.5
     maxRange: 1200.0
@@ -970,7 +978,7 @@
   - type: RadarLaserTracker
     laserColor: "#FF44FF"
     traceDuration: 0.75
-    maxRange: 35.0
+    maxRange: 80.0
   - type: RadarBlip
     color: "#FF44FF"
     scale: 1.6

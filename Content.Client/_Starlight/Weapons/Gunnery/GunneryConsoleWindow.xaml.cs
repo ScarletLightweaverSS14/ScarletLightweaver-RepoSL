@@ -24,10 +24,19 @@ public sealed class GunneryConsoleWindow : FancyWindow
     private readonly Label _statusLabel;
     private readonly Label _guidanceLabel;
     private readonly Label _noServerLabel;
+    private readonly Label _missileWarningLabel;
+
+    // ── Filter buttons ──────────────────────────────────────────────────────
+
+    private readonly Button _filterAll;
+    private readonly Button _filterBallistic;
+    private readonly Button _filterEnergy;
 
     // ── Cannon list state ──────────────────────────────────────────────────
 
     private List<CannonBlipData> _cannons = new();
+    private List<CannonBlipData> _visibleCannons = new();
+    private CannonAmmoCategory? _activeFilter;
 
     public GunneryConsoleWindow()
     {
@@ -37,7 +46,16 @@ public sealed class GunneryConsoleWindow : FancyWindow
         _cannonList    = FindControl<ItemList>("CannonList");
         _statusLabel   = FindControl<Label>("StatusLabel");
         _guidanceLabel = FindControl<Label>("GuidanceLabel");
-        _noServerLabel = FindControl<Label>("NoServerLabel");
+        _noServerLabel        = FindControl<Label>("NoServerLabel");
+        _missileWarningLabel   = FindControl<Label>("MissileWarningLabel");
+
+        _filterAll       = FindControl<Button>("FilterAll");
+        _filterBallistic = FindControl<Button>("FilterBallistic");
+        _filterEnergy    = FindControl<Button>("FilterEnergy");
+
+        _filterAll      .OnPressed += _ => SetFilter(null);
+        _filterBallistic.OnPressed += _ => SetFilter(CannonAmmoCategory.Ballistic);
+        _filterEnergy   .OnPressed += _ => SetFilter(CannonAmmoCategory.Energy);
 
         // Wire radar-control callbacks to window-level callbacks.
         _radarControl.OnFireRequested  = (cannon, target) => OnFireRequested?.Invoke(cannon, target);
@@ -74,23 +92,16 @@ public sealed class GunneryConsoleWindow : FancyWindow
         _radarControl.UpdateState(state);
         _cannons = state.Cannons;
 
-        // Rebuild the cannon list with cooldown info.
-        _cannonList.Clear();
-        foreach (var cannon in _cannons)
-        {
-            var label = cannon.CooldownSeconds > 0f
-                ? $"{cannon.Name} [{cannon.CooldownSeconds:F1}s]"
-                : cannon.Name;
-            _cannonList.AddItem(label);
-        }
-
-        // Restore list selection from radar control.
-        SyncListSelectionToRadarSelection();
+        // Rebuild the filtered cannon list.
+        RebuildCannonList();
 
         // Guidance indicator.
         _guidanceLabel.Text = state.TrackedGuidedProjectile != null
             ? "GUIDANCE ACTIVE"
             : string.Empty;
+
+        // Missile incoming warning.
+        _missileWarningLabel.Visible = state.IncomingMissile;
 
         UpdateStatus();
     }
@@ -99,26 +110,60 @@ public sealed class GunneryConsoleWindow : FancyWindow
 
     private void OnListItemSelected(ItemList.ItemListSelectedEventArgs args)
     {
-        if (args.ItemIndex < 0 || args.ItemIndex >= _cannons.Count)
+        if (args.ItemIndex < 0 || args.ItemIndex >= _visibleCannons.Count)
             return;
 
-        _radarControl.SelectedCannons.Add(_cannons[args.ItemIndex].Entity);
+        _radarControl.SelectedCannons.Add(_visibleCannons[args.ItemIndex].Entity);
         UpdateStatus();
     }
 
     private void OnListItemDeselected(ItemList.ItemListDeselectedEventArgs args)
     {
-        if (args.ItemIndex < 0 || args.ItemIndex >= _cannons.Count)
+        if (args.ItemIndex < 0 || args.ItemIndex >= _visibleCannons.Count)
             return;
 
-        _radarControl.SelectedCannons.Remove(_cannons[args.ItemIndex].Entity);
+        _radarControl.SelectedCannons.Remove(_visibleCannons[args.ItemIndex].Entity);
         UpdateStatus();
     }
 
     private void SyncListSelectionToRadarSelection()
     {
-        for (var i = 0; i < _cannons.Count; i++)
-            _cannonList[i].Selected = _radarControl.SelectedCannons.Contains(_cannons[i].Entity);
+        for (var i = 0; i < _visibleCannons.Count; i++)
+            _cannonList[i].Selected = _radarControl.SelectedCannons.Contains(_visibleCannons[i].Entity);
+    }
+
+    private void SetFilter(CannonAmmoCategory? filter)
+    {
+        _activeFilter = filter;
+        RebuildCannonList();
+
+        // Auto-select all cannons now visible in the list.
+        _radarControl.SelectedCannons.Clear();
+        foreach (var cannon in _visibleCannons)
+            _radarControl.SelectedCannons.Add(cannon.Entity);
+
+        SyncListSelectionToRadarSelection();
+        UpdateStatus();
+    }
+
+    private void RebuildCannonList()
+    {
+        _visibleCannons.Clear();
+        _cannonList.Clear();
+
+        foreach (var cannon in _cannons)
+        {
+            if (_activeFilter != null && cannon.AmmoCategory != _activeFilter.Value)
+                continue;
+
+            _visibleCannons.Add(cannon);
+            var label = cannon.CooldownSeconds > 0f
+                ? $"{cannon.Name} [{cannon.CooldownSeconds:F1}s]"
+                : cannon.Name;
+            _cannonList.AddItem(label);
+        }
+
+        SyncListSelectionToRadarSelection();
     }
 
     private void UpdateStatus()

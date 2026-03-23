@@ -1,0 +1,307 @@
+# Starlight Station-Grade Weapons
+# Weaker versions of shuttle cannons intended for station defense.
+# These are NOT designed for ship-to-ship combat — they are much weaker.
+# Station guns have lower HP, lower damage, and shorter range than their shuttle counterparts.
+
+# ── Station 10mm Autocannon ─────────────────────────────────────────────────────
+# The very weakest station-defense weapon. Point defense against boarders and fighters.
+# Even lighter than the 20mm shuttle autocannon. Hold LMB to sustain fire.
+- type: entity
+  id: StationGunAutocannon10mm
+  parent: ShuttleGunBase
+  name: L22 10mm station autocannon
+  description: >-
+    A lightweight 10mm fully automatic cannon designed for station defense.
+    Far less powerful than the shuttle-grade 20mm, but cheap, low-maintenance,
+    and effective against unarmored targets and light shuttles at short range.
+    Hold the trigger to suppress.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Shuttleguns/50cal.rsi
+    granularLayersRendering: true
+    layers:
+    - sprite: _Starlight/Objects/Weapons/Guns/Turrets/pointdefense.rsi
+      state: support
+      renderingStrategy: NoRotation
+    - state: space_artillery
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 300
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+    delay: 30
+  - type: Pullable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200           # much less HP than shuttle gun (~400)
+      behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Gun
+    fireRate: 10
+    projectileSpeed: 80       # slower = much shorter range than 20mm
+    selectedMode: FullAuto
+    minAngle: 0
+    maxAngle: 8               # slightly less accurate
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Starlight/Weapons/Shuttleguns/slammer.ogg
+      params:
+        variation: 0.08
+        volume: 3
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatteryAmmoProvider
+    proto: 10mmBulletStation
+    fireCost: 1
+  - type: Battery
+    maxCharge: 400
+    startingCharge: 400
+    netsync: false
+  - type: ApcPowerReceiverBattery
+    idleLoad: 60
+    batteryRechargeRate: 10
+    batteryRechargeEfficiency: 1.0
+  - type: ApcPowerReceiver
+    powerLoad: 600
+  - type: ExtensionCableReceiver
+  - type: RadarBlip
+    color: "#AACCFF"
+    scale: 0.7
+    shape: Square
+    requireInSpace: true
+  - type: GunneryTrackable
+  - type: StaticPrice
+    price: 500
+
+# 10mm station bullet projectile
+- type: entity
+  id: 10mmBulletStation
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 2         # very low structural — won't eat through walls
+        Blunt: 4
+        Piercing: 12          # weak against armor
+  - type: TimedDespawn
+    lifetime: 0.4             # 80 * 0.4 = 32 tiles — very short range
+  - type: PointLight
+    radius: 1.5
+    energy: 0.3
+    color: orange
+
+# ── Station 40mm Mortar ─────────────────────────────────────────────────────────
+# Light explosive cannon for station defense. Fires small HE shells.
+# Useful for denying landing areas or deterring lightly armored shuttles.
+- type: entity
+  id: StationGunMortar40mm
+  parent: ShuttleGunBase
+  name: M4 40mm station mortar
+  description: >-
+    A compact 40mm shell-firing mortar designed for station perimeter defense.
+    Fires magazine-fed high-explosive shells at a steady rate. Much weaker than
+    full-caliber shuttle artillery, but sufficient to deter lightly armored
+    ships and deny approach vectors. Magazine-fed, 10-round capacity.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Shuttleguns/50cal.rsi
+    granularLayersRendering: true
+    layers:
+    - sprite: _Starlight/Objects/Weapons/Guns/Turrets/pointdefense.rsi
+      state: support
+      renderingStrategy: NoRotation
+    - state: space_artillery
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 400
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+    delay: 60
+  - type: Pullable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Gun
+    projectileSpeed: 20       # short-to-medium range
+    fireRate: 0.7
+    selectedMode: SemiAuto
+    angleDecay: 20
+    minAngle: 0
+    maxAngle: 12
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Starlight/Weapons/Shuttleguns/120mm_mortar.ogg
+      params:
+        variation: 0.1
+        volume: 3
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine40mmStationHE
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineStation40mm
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+          params:
+            pitch: 2.0
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: RadarBlip
+    color: "#FFDD88"
+    scale: 0.9
+    shape: Square
+    requireInSpace: true
+  - type: GunneryTrackable
+  - type: StaticPrice
+    price: 1200
+  - type: AutoLoader
+    container: gun_magazine
+    whitelist:
+      tags:
+      - MagazineStation40mm
+
+# 40mm station HE shell projectile
+- type: entity
+  id: BulletStation40mmHE
+  name: 40mm HE shell
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+    scale: 0.9, 0.9
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20          # much lower than Dravon 75mm (60)
+        Structural: 30
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 60        # much weaker than Dravon 75mm (180)
+    intensitySlope: 5
+    maxIntensity: 10
+    canCreateVacuum: false
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1.0
+    color: "#ff8800"
+  - type: RadarBlip
+    color: "#FFDD88"
+    scale: 0.7
+    shape: Square
+    requireInSpace: true
+  - type: PDTarget
+
+# 10-round magazine for 40mm station shells
+- type: entity
+  parent: BaseMagazineGrenade
+  id: Magazine40mmStationHE
+  name: 40mm HE shell magazine
+  description: A 10-round magazine of 40mm high-explosive shells for the M4 station mortar.
+  components:
+  - type: Tag
+    tags:
+    - MagazineStation40mm
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeStation40mm
+    proto: CartridgeStation40mmHE
+    capacity: 10
+    soundRack:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        variation: 0.05
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        variation: 0.05
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-4
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: StaticPrice
+    price: 80
+
+# 40mm station shell cartridge
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: CartridgeStation40mmHE
+  name: 40mm HE station shell
+  description: A 40mm high-explosive shell designed for the M4 station mortar.
+  components:
+  - type: Tag
+    tags:
+    - CartridgeStation40mm
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: BulletStation40mmHE
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: blast
+    suffix: false
+  - type: StaticPrice
+    price: 10

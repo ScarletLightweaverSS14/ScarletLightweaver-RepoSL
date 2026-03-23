@@ -156,7 +156,7 @@
       tags:
         - Cartridge60mmRocket
     proto: Cartridge60mmRocket
-    capacity: 30
+    capacity: 3              # was 30 - one-at-a-time feel, deliberate shots
     soundRack:
       path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
       params:
@@ -192,4 +192,68 @@
     whitelist:
       tags:
         - Cartridge60mmRocket
-    capacity: 30
+    capacity: 3              # matches rebalanced capacity
+
+# HEAT (Homing) Rocket Ammunition
+
+# HEAT Rocket Cartridge
+- type: entity
+  parent: [BaseItem, BaseMajorContraband]
+  id: CartridgeHEATRocket
+  name: HEAT homing rocket
+  description: A 60mm heat-seeking rocket designed for the Vanyk-MK2. Automatically homes in on the nearest enemy shuttle upon launch. Can be diverted by flares. Load one at a time.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeHEATRocket
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: BulletHEATRocket
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: rpg
+  - type: StaticPrice
+    price: 75
+
+# Single-shot HEAT Rocket Magazine (1 round - deliberate one-at-a-time)
+- type: entity
+  parent: BaseMagazineGrenade
+  id: MagazineHEATRocket
+  name: HEAT homing rocket magazine
+  description: A single-round magazine loaded with one HEAT homing rocket. The missile automatically locks onto the nearest hostile vessel. Launch flares to divert it.
+  components:
+  - type: Tag
+    tags:
+    - Magazine60mmRocket       # compatible with Vanyk-MK2
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeHEATRocket
+    proto: CartridgeHEATRocket
+    capacity: 1
+    soundRack:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        variation: 0.05
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        variation: 0.05
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: StaticPrice
+    price: 200

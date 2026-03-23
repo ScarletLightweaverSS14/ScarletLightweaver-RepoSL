@@ -590,3 +590,15 @@
 
 - type: Tag
   id: XenosDisasterSurvivorTraitBackground
+
+- type: Tag
+  id: CartridgeFlare
+
+- type: Tag
+  id: MagazineFlare
+
+- type: Tag
+  id: CartridgeHEATRocket
+
+- type: Tag
+  id: MagazineHEATRocket

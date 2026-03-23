@@ -225,6 +225,7 @@
     whitelist:
       tags:
       - Grenade
+  - type: GunneryTrackable # Starlight
 
 - type: entity
   id: ShuttleGunDuster

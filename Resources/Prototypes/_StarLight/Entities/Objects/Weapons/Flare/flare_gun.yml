@@ -1,0 +1,145 @@
+# Starlight: Flare Gun + Countermeasure Flares
+# Flares are HEAT-missile countermeasures. Any HEAT-seeking rocket within its AutoSeekRange
+# will divert to follow the nearest active flare instead of its original ship target.
+
+# --- Flare projectile (the burning decoy in space) ---
+- type: entity
+  id: BulletFlare
+  name: flare
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Effects/fire.rsi
+    layers:
+      - state: fire
+        shader: unshaded
+        color: "#FFAA00"
+    scale: 0.8, 0.8
+  - type: TimedDespawn
+    lifetime: 12.0          # burns for 12 seconds before expiring
+  - type: PointLight
+    radius: 6.0
+    energy: 3.0
+    color: "#FFAA00"
+    netsync: false
+  - type: FlareDecoy          # attracts HEAT missiles within their AutoSeekRange
+  - type: RadarBlip
+    color: "#FFAA00"
+    scale: 1.2
+    shape: Circle
+    requireInSpace: true
+
+# --- Flare cartridge (loaded into the flare gun) ---
+- type: entity
+  parent: BaseItem
+  id: CartridgeFlare
+  name: flare cartridge
+  description: >-
+    A hand-launched pyrotechnic countermeasure. When fired into space it burns brightly,
+    attracting any nearby HEAT-seeking missiles and diverting them away from your vessel.
+    Effective against automatic homing rockets. Burns for 12 seconds.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeFlare
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: BulletFlare
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: flash
+  - type: StaticPrice
+    price: 8
+
+# --- Flare magazine (5-round clip) ---
+- type: entity
+  parent: BaseItem
+  id: MagazineFlare
+  name: flare magazine
+  description: A 5-round magazine of countermeasure flares for the handheld flare gun.
+  components:
+  - type: Tag
+    tags:
+      - MagazineFlare
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeFlare
+    proto: CartridgeFlare
+    capacity: 5
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: StaticPrice
+    price: 40
+
+# --- Handheld Flare Gun ---
+- type: entity
+  parent: BaseItem
+  id: WeaponNavalFlareGun
+  name: naval flare gun
+  description: >-
+    A wide-barrelled single-shot flare launcher loaded with countermeasure flare cartridges.
+    Fire flares into space near your vessel to divert incoming HEAT-seeking missiles.
+    Load one magazine at a time. Crew must coordinate to ensure flares are ready before an attack.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,0
+    - 0,1,1,1
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Gun
+    projectileSpeed: 25       # slow arc into space
+    fireRate: 2
+    selectedMode: SemiAuto
+    minAngle: 10
+    maxAngle: 30              # slightly inaccurate — just needs to be "in space"
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_friendship.ogg
+      params:
+        variation: 0.1
+        volume: 3
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineFlare
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineFlare
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/generic_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/generic_magout.ogg
+  - type: Appearance
+  - type: StaticPrice
+    price: 150

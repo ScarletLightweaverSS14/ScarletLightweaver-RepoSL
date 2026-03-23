@@ -6,11 +6,11 @@
   - type: Projectile
     damage:
       types:
-        Structural: 10
-        Blunt: 25
-        Piercing: 75
+        Structural: 4       # was 10 - weakest naval weapon
+        Blunt: 8            # was 25
+        Piercing: 25        # was 75 - light suppression only
   - type: TimedDespawn
-    lifetime: 2
+    lifetime: 0.7           # was 2 - limited range (160 * 0.7 = 112 tiles)
   - type: PointLight
     radius: 3.5
     energy: 0.5
