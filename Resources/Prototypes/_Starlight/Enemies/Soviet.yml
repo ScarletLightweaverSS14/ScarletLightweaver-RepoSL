@@ -1,0 +1,425 @@
+- type: entity
+  name: comrade
+  parent: BaseMobHuman
+  id: MobSovietComrade
+  categories: [ Spawner ]
+  components:
+    - type: RandomNameList
+      prefix: Comrade
+      datasetId: NamesComrade
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 1.5
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+      useSoundOnDoafter: /Audio/_Starlight/Machines/airlock_pry.ogg #SL
+      playSoundOnDoafter: true
+    - type: NpcFactionMember
+      factions:
+        - DungeonSoviet
+    - type: Loadout
+      prototypes:
+        - SovietComradeGear
+    - type: InputMover
+    - type: MobMover
+    - type: NpcLootBreakOnDeath
+      chance: 0.85
+    - type: NpcCallout
+      spotPhrases:
+        - "I serve the Soviet Union!"
+        - "Not one step back!"
+        - "Victory will be ours!"
+        - "Vigilance is our weapon!"
+        - "Every soldier is a defender of the Fatherland!"
+        - "Contact! To arms, comrade!"
+        - "For the Union! Fire!"
+        - "Target spotted! Move up!"
+        - "Engaging target!"
+      hurtPhrases:
+        - "AAUGH!"
+        - "They got me!"
+        - "Damn it!"
+        - "Taking fire!"
+        - "Hit! Still fighting!"
+        - "Discipline is the mother of victory!"
+        - "An order is law for a soldier!"
+      critPhrases:
+        - "For... the Motherland..."
+        - "Tell... tell the Union..."
+        - "I cannot... feel my legs..."
+        - "Stupid... Nanotrasen..."
+        - "Not... one step... back..."
+        - "The Motherland... will remember..."
+        - "Comrades... avenge me..."
+        - "Hard in training — easy in battle!"
+    - type: NpcOnHitAggro
+    - type: HTN
+      rootTask:
+        task: SovietComradeHostileCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+          
+#melee
+- type: entity
+  suffix: Broken Bottle
+  parent: MobSovietComrade
+  id: MobSovietComradeBrokenBottle
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearBrokenBottle
+- type: entity
+  suffix: Finka
+  parent: MobSovietComrade
+  id: MobSovietComradeFinka
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearFinka
+#shotgun
+- type: entity
+  suffix: Sawn
+  parent: MobSovietComrade
+  id: MobSovietComradeSawn
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearSawn
+#pistol
+- type: entity
+  suffix: Makarov
+  parent: MobSovietComrade
+  id: MobSovietComradeMakarov
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearMakarov
+#rifle
+- type: entity
+  suffix: Ak
+  parent: MobSovietComrade
+  id: MobSovietComradeAk
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearAk
+
+# ============================================================
+# Tiered expedition comrades — each tier shares the same HTN
+# and callouts as the base comrade but with scaled HP and a
+# loot bag in their back slot.
+# ============================================================
+
+# --- Base tier entities (parents for weapon variants) ---
+
+# Challenging (expedition budget ~75)
+- type: entity
+  suffix: Challenging
+  parent: MobSovietComrade
+  id: MobSovietComradeChallenging
+  categories: [ Spawner ]
+
+# Difficult (expedition budget ~225) — visibly tougher
+- type: entity
+  suffix: Difficult
+  parent: MobSovietComrade
+  id: MobSovietComradeDifficult
+  categories: [ Spawner ]
+  components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        130: Critical
+        260: Dead
+    - type: Stamina
+      baseCritThreshold: 130
+
+# Impossible (expedition budget ~463) — hardened veteran
+- type: entity
+  suffix: Impossible
+  parent: MobSovietComrade
+  id: MobSovietComradeImpossible
+  categories: [ Spawner ]
+  components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        170: Critical
+        320: Dead
+    - type: Stamina
+      baseCritThreshold: 170
+
+# --- Challenging weapon variants ---
+- type: entity
+  suffix: Challenging, Broken Bottle
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingBrokenBottle
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingBrokenBottle
+
+- type: entity
+  suffix: Challenging, Finka
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingFinka
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingFinka
+
+- type: entity
+  suffix: Challenging, Sawn
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingSawn
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingSawn
+
+- type: entity
+  suffix: Challenging, Makarov
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingMakarov
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingMakarov
+
+# --- Difficult weapon variants ---
+- type: entity
+  suffix: Difficult, Broken Bottle
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultBrokenBottle
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultBrokenBottle
+
+- type: entity
+  suffix: Difficult, Finka
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultFinka
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultFinka
+
+- type: entity
+  suffix: Difficult, Sawn
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultSawn
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultSawn
+
+- type: entity
+  suffix: Difficult, Makarov
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultMakarov
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultMakarov
+
+- type: entity
+  suffix: Difficult, Ak
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultAk
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultAk
+
+# --- Impossible weapon variants ---
+- type: entity
+  suffix: Impossible, Broken Bottle
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleBrokenBottle
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleBrokenBottle
+
+- type: entity
+  suffix: Impossible, Finka
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleFinka
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleFinka
+
+- type: entity
+  suffix: Impossible, Sawn
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleSawn
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleSawn
+
+- type: entity
+  suffix: Impossible, Makarov
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleMakarov
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleMakarov
+
+- type: entity
+  suffix: Impossible, Ak
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleAk
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleAk
+
+# ============================================================
+# Red Vanguard — elite USSP soldiers, max tier (Impossible+).
+# Wear marine hardsuits; significantly more HP than comrades.
+# ============================================================
+- type: entity
+  name: Red Vanguard
+  parent: MobSovietComrade
+  id: MobUSSPRedVanguardBase
+  categories: [ Spawner ]
+  components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        220: Critical
+        380: Dead
+    - type: Stamina
+      baseCritThreshold: 220
+    - type: NpcCallout
+      spotPhrases:
+        - "For the Red Vanguard!"
+        - "Advance! The Motherland calls!"
+        - "No mercy for the enemy of the Union!"
+        - "The Vanguard does not retreat!"
+        - "Target acquired — open fire!"
+      hurtPhrases:
+        - "AGGHH!"
+        - "Still standing, comrade!"
+        - "Just a scratch!"
+        - "The Union gave me this pain!"
+      critPhrases:
+        - "The Vanguard... does not fail..."
+        - "They will know... the Union's wrath..."
+        - "Tell the Admiral... I held the line..."
+        - "For... the Red Vanguard..."
+        - "The Motherland... expected more of me..."
+
+- type: entity
+  suffix: Ak
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardAk
+  components:
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearAk
+
+- type: entity
+  suffix: Knife
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardKnife
+  components:
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearKnife
+
+#boss
+- type: entity
+  name: soviet bear
+  id: MobBearSoviet
+  parent: SimpleSpaceMobBase
+  description: Smells like booze.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - DungeonSoviet
+  - type: Sprite
+    drawdepth: Mobs 
+    sprite: _Starlight/Mobs/Animals/bear.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: bear
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bear
+      Critical:
+        Base: bear_dead
+      Dead:
+        Base: bear_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      300: Dead
+  - type: Stamina
+    baseCritThreshold: 250
+  - type: MovementAlwaysTouching
+  - type: Bloodstream
+    bloodReferenceSolution:
+        reagents:
+        - ReagentId: Vodka
+          Quantity: 300
+  - type: CombatMode
+  - type: TemperatureDamage
+    heatDamageThreshold: 500
+    coldDamageThreshold: 0
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 10
+        Slash: 20
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: Puller
+    needsHands: false
+  - type: Speech
+    speechVerb: LargeMob
+  - type: Vocal
+    sounds:
+      Unsexed: Bear
+  - type: InteractionPopup
+    successChance: 0.25
+    interactSuccessString: petting-success-bear
+    interactFailureString: petting-failure-bear
+    interactSuccessSound:
+      path: /Audio/Animals/sloth_squeak.ogg
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBear
+      amount: 6
+    - id: ChemistryBottleOmnizine
+      amount: 1

@@ -1,0 +1,221 @@
+- type: entity
+  name: syndicate
+  parent: MobSyndicateFootsoldier
+  id: MobSyndicateBase
+  components:
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 5.5
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+      useSoundOnDoafter: /Audio/_Starlight/Machines/airlock_pry.ogg #SL
+      playSoundOnDoafter: true
+    - type: RandomNameList
+      datasetId: NamesSyndicate
+      prefix: Footsoldier
+    - type: NpcFactionMember
+      factions:
+        - DungeonSyndicate
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearRuin
+    - type: InputMover
+    - type: MobMover
+    - type: NpcLootBreakOnDeath
+      chance: 0.85
+    - type: NpcCallout
+      spotPhrases:
+        - "Contact! Over here!"
+        - "I see them! Engage!"
+        - "Target spotted!"
+        - "Move up! They're here!"
+        - "Engaging target!"
+      hurtPhrases:
+        - "AUGH!"
+        - "Taking fire!"
+        - "Hit! Still up!"
+        - "Damn it!"
+        - "Son of a—!"
+      critPhrases:
+        - "AAAGGH!"
+        - "I'm down!"
+        - "Stupid Nanotrasen!"
+        - "They got me!"
+        - "AHHHH!"
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+#melee
+- type: entity
+  suffix: Knife
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierKnife
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearKnife
+- type: entity
+  suffix: FireAxe
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierFireAxe
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearFireAxe
+#shotgun
+- type: entity
+  suffix: Sawn
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierSawn
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearSawn
+#pistol
+- type: entity
+  suffix: Viper
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierViper
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearViper
+- type: entity
+  suffix: Cobra
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierCobra
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearCobra
+#rifle
+- type: entity
+  suffix: Ak
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierAk
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearAk
+
+#grenade
+- type: entity
+  suffix: China
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierChina
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearChina
+
+#laser
+- type: entity
+  suffix: LaserCarbine
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierLaserCarbine
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearLaserCarbine
+- type: entity
+  suffix: MakeshiftLaser
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierMakeshiftLaser
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearMakeshiftLaser
+#boss
+- type: entity
+  suffix: Boss
+  parent: MobSyndicateBase
+  id: MobSyndicateFootsoldierBoss
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearBoss
+#heavy
+- type: entity
+  name: syndicate enforcer
+  suffix: Heavy, Base
+  parent: MobSyndicateBase
+  id: MobSyndicateHeavy
+  abstract: true
+  description: A heavily armored syndicate enforcer. Designed to absorb punishment while the rest of the team pushes forward. Do not engage alone.
+  components:
+    - type: RandomNameList
+      datasetId: NamesSyndicate
+      prefix: Enforcer
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        250: Critical
+        350: Dead
+    - type: Stamina
+      critThreshold: 300
+    - type: NpcLootBreakOnDeath
+      chance: 0.85
+    - type: HTN
+      rootTask:
+        task: SyndicateHeavyHostileCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+- type: entity
+  suffix: Heavy, Bulldog
+  parent: MobSyndicateHeavy
+  id: MobSyndicateHeavyBulldog
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateHeavyGearBulldog
+- type: entity
+  suffix: Heavy, NorthStar
+  parent: MobSyndicateHeavy
+  id: MobSyndicateHeavyNorthStar
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateHeavyGearNorthStar
+- type: entity
+  suffix: Heavy, Breacher
+  parent: MobSyndicateHeavy
+  id: MobSyndicateHeavyBreacher
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateHeavyGearBreacher
+    - type: HTN
+      rootTask:
+        task: SyndicateBreacherHostileCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+#defense
+# Pre-activated energy sword for NPC use — starts with blade already on.
+- type: entity
+  parent: EnergySword
+  id: EnergySwordNPC
+  suffix: NPC
+  components:
+  - type: ItemToggle
+    activated: true
+
+- type: entity
+  parent: [BaseWeaponTurret, BaseSyndicateContraband]
+  id: WeaponTurretDungeonSyndicate
+  suffix: DungeonSyndicate
+  components:
+    - type: NpcFactionMember
+      factions:
+        - DungeonSyndicate
