@@ -24,7 +24,7 @@
     - type: InputMover
     - type: MobMover
     - type: NpcLootBreakOnDeath
-      chance: 0.85
+      chance: 0.8
     - type: NpcCallout
       spotPhrases:
         - "I serve the Soviet Union!"
@@ -187,6 +187,15 @@
     - type: Loadout
       prototypes:
         - SovietComradeGearChallengingMakarov
+
+- type: entity
+  suffix: Challenging, Ak
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingAk
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingAk
 
 # --- Difficult weapon variants ---
 - type: entity

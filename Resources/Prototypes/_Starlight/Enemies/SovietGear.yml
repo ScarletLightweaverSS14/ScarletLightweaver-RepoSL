@@ -93,6 +93,12 @@
   equipment:
     back: ClothingBackpackDuffelSovietComradeChallengingLoot
 
+- type: startingGear
+  id: SovietComradeGearChallengingAk
+  parent: SovietComradeGearAk
+  equipment:
+    back: ClothingBackpackDuffelSovietComradeChallengingLoot
+
 # --- Difficult tier ---
 - type: startingGear
   id: SovietComradeGearDifficultBrokenBottle

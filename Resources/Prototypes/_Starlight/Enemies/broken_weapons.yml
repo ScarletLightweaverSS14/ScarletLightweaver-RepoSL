@@ -118,3 +118,75 @@
     materialComposition:
       Steel: 200
       Plastic: 75
+
+- type: entity
+  parent: CombatKnife
+  id: CombatKnifeBroken
+  suffix: Broken
+  name: snapped combat knife
+  description: A combat knife with a broken blade — nothing left but a useless handle and a stub of steel.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 50
+
+- type: entity
+  parent: FireAxe
+  id: FireAxeBroken
+  suffix: Broken
+  name: broken fire axe
+  description: A fire axe with a shattered head — the handle is intact but the blade has snapped clean off.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200
+      Wood: 100
+
+- type: entity
+  parent: WeaponLaserCarbine
+  id: WeaponLaserCarbineBroken
+  suffix: Broken
+  name: broken laser carbine
+  description: A laser carbine with a fried emitter array and shattered focusing lens. Absolutely inoperable.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+      Plasteel: 100
+
+- type: entity
+  parent: WeaponMakeshiftLaser
+  id: WeaponMakeshiftLaserBroken
+  suffix: Broken
+  name: broken makeshift laser
+  description: A cobbled-together laser weapon that has finally given up the ghost. The power cell is ruptured.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 150
+      Plastic: 100
+
+- type: entity
+  parent: WeaponLightMachineGunL6
+  id: WeaponLightMachineGunL6Broken
+  suffix: Broken
+  name: broken L6 machine gun
+  description: An L6 light machine gun with a shattered bolt carrier and warped barrel. A very expensive paperweight.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+      Plasteel: 200
+
+- type: entity
+  parent: WeaponLauncherChinaLake
+  id: WeaponLauncherChinaLakeBroken
+  suffix: Broken
+  name: broken China Lake launcher
+  description: A China Lake grenade launcher with a cracked barrel and jammed pump. It won't be launching anything.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 500
+      Plasteel: 150

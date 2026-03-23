@@ -158,7 +158,7 @@
         250: Critical
         350: Dead
     - type: Stamina
-      critThreshold: 300
+      baseCritThreshold: 300
     - type: NpcLootBreakOnDeath
       chance: 0.85
     - type: HTN
