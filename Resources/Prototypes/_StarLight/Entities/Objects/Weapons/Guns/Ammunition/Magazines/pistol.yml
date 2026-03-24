@@ -153,6 +153,88 @@
   - type: BallisticAmmoProvider
     proto: null
 
+- type: entity
+  id: MagazinePistolSubMachineGunTopMountedIncendiary
+  name: WT550 magazine (.35 auto top-mounted incendiary)
+  parent: MagazinePistolSubMachineGunTopMounted
+  description: Unconventional 30-round top feeding magazine for the WT550 SMG. Loaded with self-igniting incendiary ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolIncendiary
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi
+    layers:
+      - state: base
+        color: "#E7EEEE"
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#E7EEEE"
+      right:
+      - state: inhand-right
+        color: "#E7EEEE"
+
+- type: entity
+  id: MagazinePistolSubMachineGunTopMountedUranium
+  name: WT550 magazine (.35 auto top-mounted uranium)
+  parent: MagazinePistolSubMachineGunTopMounted
+  description: Unconventional 30-round top feeding magazine for the WT550 SMG. Loaded with exotic uranium-core ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolUranium
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi
+    layers:
+      - state: base
+        color: "#40F57A"
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#40F57A"
+      right:
+      - state: inhand-right
+        color: "#40F57A"
+
+- type: entity
+  id: MagazinePistolSubMachineGunTopMountedAP
+  name: WT550 magazine (.35 auto top-mounted AP)
+  parent: MagazinePistolSubMachineGunTopMounted
+  description: Unconventional 30-round top feeding magazine for the WT550 SMG. Loaded with armor-penetrating ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgePistolAP
+    whitelist:
+      tags:
+        - CartridgePistol
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi
+    layers:
+      - state: base
+        color: "#72E374"
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#72E374"
+      right:
+      - state: inhand-right
+        color: "#72E374"
+
 #########################################################
 
 - type: entity

@@ -221,6 +221,9 @@
   - MagazinePistolSubMachineGunIncendiary
   - MagazinePistolSubMachineGunUranium
   - MagazinePistolSubMachineGunAP
+  - MagazinePistolSubMachineGunTopMountedIncendiary
+  - MagazinePistolSubMachineGunTopMountedUranium
+  - MagazinePistolSubMachineGunTopMountedAP
 # Rifle
   - MagazineRifleIncendiary
   - MagazineRifleUranium
