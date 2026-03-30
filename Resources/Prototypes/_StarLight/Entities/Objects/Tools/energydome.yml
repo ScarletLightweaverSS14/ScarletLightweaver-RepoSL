@@ -99,6 +99,9 @@
     - Toggle
     - On
     - Off
+  - type: Tag
+    tags:
+    - DurandTurtleShield
 
 - type: entity
   id: EnergyDomeWiredTest

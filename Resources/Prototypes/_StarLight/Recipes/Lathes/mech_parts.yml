@@ -252,3 +252,27 @@
   materials:
     Steel: 1000
     Glass: 150
+
+# Mech NV camera (researched via T3 Experimental)
+- type: latheRecipe
+  id: MechEquipmentCamera
+  result: MechEquipmentCamera
+  categories:
+  - Mech
+  completetime: 10
+  materials:
+    Steel: 750
+    Glass: 500
+    Plastic: 100
+
+# AI Exosuit control beacon (researched via T4 Experimental)
+- type: latheRecipe
+  id: MechEquipmentBorgPilot
+  result: MechEquipmentBorgPilot
+  categories:
+  - Mech
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 200
+    Gold: 100

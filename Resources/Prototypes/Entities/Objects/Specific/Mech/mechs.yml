@@ -713,9 +713,9 @@
       types:
         Blunt: 40
         Structural: 220
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 1.7
-    baseSprintSpeed: 2.2
+  - type: MovementSpeedModifier # 🌟Starlight: slowed further due to integrated shield weight
+    baseWalkSpeed: 1.45
+    baseSprintSpeed: 1.8
   - type: Damageable
     damageModifierSet: DurandArmor
   - type: MechThrusters
@@ -728,6 +728,14 @@
     radius: 7
     energy: 5
     enabled: false
+# 🌟Starlight-start🌟: Built-in turtle shield - drains reactor on use and when absorbing damage
+  - type: MechBuiltInShield
+  - type: EnergyDomeGenerator
+    damageEnergyDraw: 3
+    domePrototype: EnergyDomeDirected
+    canInteractUse: false
+    canDeviceNetworkUse: false
+# 🌟Starlight-end🌟
 
 - type: entity
   id: MechDurandBattery

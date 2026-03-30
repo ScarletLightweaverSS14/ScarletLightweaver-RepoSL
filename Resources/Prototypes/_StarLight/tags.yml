@@ -193,6 +193,9 @@
   id: DurandTargetingControlModule
 
 - type: Tag
+  id: DurandTurtleShield
+
+- type: Tag
   id: ElderArena
 
 - type: Tag

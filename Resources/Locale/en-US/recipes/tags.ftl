@@ -119,6 +119,7 @@ construction-graph-tag-durand-central-control = durand central control module
 construction-graph-tag-durand-peripherals-control = durand peripherals control module
 construction-graph-tag-durand-weapon-targeting = durand weapon control and targeting module
 construction-graph-tag-durand-armor-plates = durand armor plates
+construction-graph-tag-durand-turtle-shield = BR-40c "Turtle" energy barrier
 
 construction-graph-tag-clarke-central-control = clarke central control module
 construction-graph-tag-clarke-peripherals-control = clarke peripherals control module

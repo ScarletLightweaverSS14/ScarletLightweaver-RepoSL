@@ -1,4 +1,5 @@
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.Mech.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Actions;
@@ -7,6 +8,8 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Mech;
+using Content.Shared.Mech.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
@@ -31,6 +34,7 @@ public sealed partial class EnergyDomeSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
+    [Dependency] private readonly MechSystem _mech = default!;
 
     public override void Initialize()
     {
@@ -193,6 +197,15 @@ public sealed partial class EnergyDomeSystem : EntitySystem
             if (_battery.GetCharge((generatorUid, battery)) == 0)
                 TurnOff((generatorUid, generatorComp), true);
         }
+
+        // 🌟Starlight-start🌟: drain mech reactor energy when a built-in shield absorbs damage
+        if (TryComp<MechBuiltInShieldComponent>(generatorUid, out var shieldComp) &&
+            TryComp<MechComponent>(generatorUid, out var mechComp))
+        {
+            if (!_mech.TryChangeEnergy(generatorUid, -energyLeak, mechComp))
+                TurnOff((generatorUid, generatorComp), true);
+        }
+        // 🌟Starlight-end🌟
     }
 
     private void OnParentChanged(Entity<EnergyDomeGeneratorComponent> generator, ref EntParentChangedMessage args)

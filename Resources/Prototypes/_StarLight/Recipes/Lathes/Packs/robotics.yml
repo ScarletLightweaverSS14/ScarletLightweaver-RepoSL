@@ -52,6 +52,8 @@
     - MechEquipmentKineticAccelerator
     - MechEquipmentHonkerBananaMortar
     - MechEquipmentHonkerMousetrapMortar
+    - MechEquipmentCamera
+    - MechEquipmentBorgPilot
 
 - type: latheRecipePack
   id: StarlightMechWeapon

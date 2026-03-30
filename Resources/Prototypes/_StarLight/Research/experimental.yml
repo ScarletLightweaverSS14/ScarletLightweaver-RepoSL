@@ -75,3 +75,36 @@
     - CyberLimbsTech
     - AdvancedAnomalyResearch
 # Tier 3
+
+- type: technology
+  id: MechNightVisionTech
+  name: research-technology-mech-night-vision
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_camera
+  discipline: Experimental
+  tier: 3
+  cost: 12000
+  recipeUnlocks:
+    - MechEquipmentCamera
+  radioChannels:
+    - Science
+
+# Tier 4
+
+- type: technology
+  id: MechAIControlTech
+  name: research-technology-mech-ai-control
+  icon:
+    sprite: _Starlight/Objects/Specific/Mechs/equipment.rsi
+    state: exosuit_beacon
+  discipline: Experimental
+  tier: 4
+  cost: 35000
+  recipeUnlocks:
+    - MechEquipmentBorgPilot
+  technologyPrerequisites:
+    - MechNightVisionTech
+  radioChannels:
+    - Science
+    - Binary

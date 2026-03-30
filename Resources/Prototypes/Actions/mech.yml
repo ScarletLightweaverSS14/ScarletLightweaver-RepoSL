@@ -131,3 +131,4 @@
       state: mech_night_vision_on
   - type: InstantAction
     event: !type:MechToggleNightVisionEvent
+
