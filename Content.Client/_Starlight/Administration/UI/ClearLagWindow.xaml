@@ -1,0 +1,55 @@
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    Title="Clear Lag"
+    SetSize="700 320">
+    <BoxContainer Orientation="Vertical" Margin="8">
+
+        <Label Text="Select a category and press Clear to remove those entities from the station."
+               Margin="0 0 0 8"/>
+
+        <!-- Category rows -->
+        <GridContainer Columns="4" Margin="0 0 0 8">
+
+            <!-- Column headers -->
+            <Label StyleClasses="LabelHeading" Text="Category"    Margin="0 0 8 4"/>
+            <Label StyleClasses="LabelHeading" Text="Description"  Margin="0 0 8 4" HorizontalExpand="True"/>
+            <Label StyleClasses="LabelHeading" Text="Count"        Margin="0 0 8 4"/>
+            <Label Text="" />
+
+            <!-- Trash -->
+            <Label Text="Trash"
+                   ToolTip="Items tagged Trash, or with 'trash' in their ID / 'rubbish' in their description."
+                   Margin="0 0 8 2"/>
+            <Label Text="Litter, food wrappers, general rubbish on the ground."
+                   HorizontalExpand="True" Margin="0 0 8 2"/>
+            <Label Name="TrashCount" Text="…" Margin="0 0 8 2"/>
+            <Button Name="ClearTrashButton" Text="Clear" MinWidth="70"/>
+
+            <!-- Spent casings -->
+            <Label Text="Spent Casings"
+                   ToolTip="Fired bullet casings (CartridgeAmmo that is marked spent)."
+                   Margin="0 0 8 2"/>
+            <Label Text="Used shell casings ejected by firearms."
+                   HorizontalExpand="True" Margin="0 0 8 2"/>
+            <Label Name="SpentCasingsCount" Text="…" Margin="0 0 8 2"/>
+            <Button Name="ClearSpentCasingsButton" Text="Clear" MinWidth="70"/>
+
+            <!-- Soviet arms crates -->
+            <Label Text="Soviet Arms Crates"
+                   ToolTip="SKB armaments crates. Contents are ejected to the ground before the crate is deleted."
+                   Margin="0 0 8 2"/>
+            <Label Text="SKB/USSP crates from the Rev supply rift — contents dropped safely."
+                   HorizontalExpand="True" Margin="0 0 8 2"/>
+            <Label Name="SovietCratesCount" Text="…" Margin="0 0 8 2"/>
+            <Button Name="ClearSovietCratesButton" Text="Clear" MinWidth="70"/>
+
+        </GridContainer>
+
+        <!-- Bottom bar -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Control HorizontalExpand="True"/>
+            <Button Name="RefreshButton" Text="Refresh Counts" MinWidth="120"/>
+        </BoxContainer>
+
+    </BoxContainer>
+</DefaultWindow>
