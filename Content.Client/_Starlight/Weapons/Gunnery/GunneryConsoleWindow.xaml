@@ -31,7 +31,7 @@
         <!-- Right sidebar: cannon list + status -->
         <BoxContainer
             Orientation="Vertical"
-            MinWidth="170"
+            MinWidth="220"
             Margin="4,4,6,4"
             SeparationOverride="4">
 

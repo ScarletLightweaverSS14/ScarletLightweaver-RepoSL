@@ -100,7 +100,10 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         if (!string.IsNullOrEmpty(_server) && !string.IsNullOrEmpty(_project))
         {
             if (_serverPlaytimeRecognition is null)
-                _prototypes.TryIndex(_project, out _serverPlaytimeRecognition);
+            {
+                try { _prototypes.TryIndex(_project, out _serverPlaytimeRecognition); }
+                catch (UnknownPrototypeException) { /* prototype kind not yet registered — skip merge */ }
+            }
 
             if (_serverPlaytimeRecognition?.Recognition.TryGetValue(_server, out var servers) is true)
             {

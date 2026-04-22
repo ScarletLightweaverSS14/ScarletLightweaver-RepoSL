@@ -14,14 +14,17 @@ public sealed partial class GunneryConsoleComponent : Component
     // ── Server-only runtime state ──────────────────────────────────────────
     // These are never serialized; they are set each frame by GunneryConsoleSystem.
 
-    /// <summary>Server: EntityUid of the guided projectile currently being steered by this console, if any.</summary>
-    public EntityUid? TrackedGuidedProjectile;
+    /// <summary>Server: all guided projectiles currently being tracked by this console (multi-rocket support).</summary>
+    public List<EntityUid> TrackedGuidedProjectiles = new();
 
     /// <summary>Server: game time at which the last fire command was sent (used to associate spawned guided projectiles).</summary>
     public TimeSpan LastFireTime;
 
     /// <summary>Server: map-space position of the last fire target (used to immediately activate guided projectile steering).</summary>
     public Vector2 LastFireTargetPos;
+
+    /// <summary>Server: grid entity the last fire click landed on (set by the fire message; used to lock HEAT rockets onto a target grid).</summary>
+    public EntityUid? LastFireTargetGrid;
 }
 
 /// <summary>

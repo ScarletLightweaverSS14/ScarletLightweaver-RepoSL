@@ -1,0 +1,71 @@
+# 60mm HEAT (High-Explosive Anti-Tank) Rocket Ammunition
+# HEAT rockets lock onto a ship grid when fired from the gunnery console with a grid targeted.
+# They are diverted by countermeasure flares and self-destruct on proximity.
+
+# HEAT rocket projectile — inherits explosion from Bullet60mmRocketStarlight, adds grid-tracking guidance.
+- type: entity
+  parent: Bullet60mmRocketStarlight
+  id: Bullet60mmRocketHEAT
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    color: "#FF4400"
+    scale: 1.2
+    shape: Circle
+    requireInSpace: true
+  - type: GuidedProjectile
+    turnRate: 240
+    heatSeekable: true
+
+# HEAT rocket cartridge — tagged with both Cartridge60mmRocket AND Cartridge60mmRocketHEAT
+# so it is accepted by the standard Magazine60mmRocket whitelist on the Vanyk-MK2 cannon.
+- type: entity
+  parent: Cartridge60mmRocket
+  id: Cartridge60mmRocketHEAT
+  name: 60mm HEAT rocket
+  description: >-
+    A 60mm High-Explosive Anti-Tank rocket cartridge. When fired from a Vanyk-MK2 via the gunnery
+    console with a ship grid targeted, it will autonomously track and pursue that grid.
+    Countermeasure flares will divert it harmlessly away.
+  components:
+  - type: Tag
+    tags:
+      - Cartridge60mmRocket
+      - Cartridge60mmRocketHEAT
+  - type: CartridgeAmmo
+    proto: Bullet60mmRocketHEAT
+    deleteOnSpawn: true
+  - type: StaticPrice
+    price: 80
+
+# 30-round HEAT rocket magazine — tagged with Magazine60mmRocket so the Vanyk accepts it.
+- type: entity
+  parent: Magazine60mmRocket
+  id: Magazine60mmRocketHEAT
+  name: 60mm HEAT rocket magazine
+  description: >-
+    A 30-round magazine loaded with HEAT-seeking 60mm rockets. Rockets autonomously track ship grids
+    targeted via the gunnery console and are diverted by countermeasure flares.
+  suffix: HEAT
+  components:
+  - type: Tag
+    tags:
+    - Magazine60mmRocket
+    - Magazine60mmRocketHEAT
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge60mmRocketHEAT
+    proto: Cartridge60mmRocketHEAT
+    capacity: 30
+    soundRack:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        variation: 0.05
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        variation: 0.05
+  - type: StaticPrice
+    price: 2400

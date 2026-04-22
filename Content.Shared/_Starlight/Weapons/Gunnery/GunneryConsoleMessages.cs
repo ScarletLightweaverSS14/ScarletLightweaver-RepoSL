@@ -15,6 +15,12 @@ public sealed class GunneryConsoleFireMessage : BoundUserInterfaceMessage
 
     /// <summary>World-space target coordinates.</summary>
     public NetCoordinates Target;
+
+    /// <summary>
+    /// The ship grid entity the player clicked on, or null if the click was in open space.
+    /// When set, HEAT-seeking rockets fired will lock onto and track this grid.
+    /// </summary>
+    public NetEntity? TargetGrid;
 }
 
 /// <summary>

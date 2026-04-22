@@ -45,7 +45,12 @@ public sealed class GunneryRadarControl : BaseShuttleControl
     private List<RadarBlipData>                      _blips  = new();
     private List<RadarLaserData>                     _lasers = new();
     private List<CannonBlipData>                     _cannons = new();
-    private NetEntity?                               _trackedGuidedProjectile;
+    private List<NetEntity>                          _trackedGuidedProjectiles = new();
+
+    // ── Hover-snap / HEAT targeting ────────────────────────────────────────
+
+    /// <summary>The non-own grid currently under the cursor, or null.</summary>
+    private Entity<MapGridComponent>? _hoveredGrid;
 
     // ── UI state ───────────────────────────────────────────────────────────
 
@@ -62,8 +67,8 @@ public sealed class GunneryRadarControl : BaseShuttleControl
 
     // ── Callbacks ──────────────────────────────────────────────────────────
 
-    /// <summary>Invoked when the player clicks to fire a cannon. Args: (cannon NetEntity, target EntityCoordinates).</summary>
-    public Action<NetEntity, EntityCoordinates>? OnFireRequested;
+    /// <summary>Invoked when the player clicks to fire a cannon. Args: (cannon NetEntity, target EntityCoordinates, clicked grid NetEntity or null).</summary>
+    public Action<NetEntity, EntityCoordinates, NetEntity?>? OnFireRequested;
 
     /// <summary>Invoked continuously while LMB is held with an active guided projectile.</summary>
     public Action<EntityCoordinates>? OnGuidanceUpdate;
@@ -103,7 +108,7 @@ public sealed class GunneryRadarControl : BaseShuttleControl
         _blips   = nav.Blips;
         _lasers  = nav.Lasers;
         _cannons = state.Cannons;
-        _trackedGuidedProjectile = state.TrackedGuidedProjectile;
+        _trackedGuidedProjectiles = state.TrackedGuidedProjectiles ?? new();
     }
 
     // ── Input ──────────────────────────────────────────────────────────────
@@ -140,8 +145,14 @@ public sealed class GunneryRadarControl : BaseShuttleControl
         if (SelectedCannons.Count == 0)
             return;
 
+        // Detect if the click landed on a (non-own) grid for HEAT targeting.
+        // If a grid is currently hovered/snapped, use that regardless of exact pixel click.
+        NetEntity? clickedGrid = _hoveredGrid.HasValue
+            ? EntManager.GetNetEntity(_hoveredGrid.Value.Owner)
+            : TryFindClickedGrid(worldPos);
+
         foreach (var selected in SelectedCannons)
-            OnFireRequested?.Invoke(selected, worldPos);
+            OnFireRequested?.Invoke(selected, worldPos, clickedGrid);
     }
 
     protected override void MouseMove(GUIMouseMoveEventArgs args)
@@ -150,8 +161,11 @@ public sealed class GunneryRadarControl : BaseShuttleControl
 
         _cursorRelativePos = args.RelativePixelPosition;
 
+        // Update which grid (if any) is under the cursor so Draw() can snap the crosshair.
+        _hoveredGrid = TryFindHoveredGrid(args.RelativePixelPosition);
+
         // While LMB is held and a guided projectile is active, send guidance.
-        if (_lmbHeld && _trackedGuidedProjectile != null && _coordinates != null && _rotation != null)
+        if (_lmbHeld && _trackedGuidedProjectiles.Count > 0 && _coordinates != null && _rotation != null)
         {
             var worldPos = ScreenToWorld(args.RelativePixelPosition);
             OnGuidanceUpdate?.Invoke(worldPos);
@@ -315,13 +329,34 @@ public sealed class GunneryRadarControl : BaseShuttleControl
             handle.DrawString(Font, cannonScreen + new Vector2(-labelDim.X / 2f, 10f), shortName, 0.8f, blipColor);
         }
 
-        // ── Aim lines + coordinate readout: all selected cannons → cursor ──
+        // ── Aim lines + coordinate readout: all selected cannons → cursor (or snapped grid) ──
         if (SelectedCannons.Count > 0 && _cursorRelativePos != null)
         {
-            var cursor   = _cursorRelativePos.Value;
-            var aimColor = _trackedGuidedProjectile != null
+            // If hovering over a ship grid, snap the crosshair to its world centre.
+            Vector2 crosshairScreen;
+            Vector2 worldTarget;
+            bool heatLock = false;
+
+            if (_hoveredGrid.HasValue)
+            {
+                var gridBody = bodyQuery.GetComponent(_hoveredGrid.Value.Owner);
+                var gridToWorld = _transform.GetWorldMatrix(_hoveredGrid.Value.Owner);
+                var gridWorldCenter = Vector2.Transform(gridBody.LocalCenter, gridToWorld);
+                crosshairScreen = Vector2.Transform(gridWorldCenter, blipWorldToView);
+                worldTarget = gridWorldCenter;
+                heatLock = true;
+            }
+            else
+            {
+                crosshairScreen = _cursorRelativePos.Value;
+                worldTarget = _transform.ToMapCoordinates(ScreenToWorld(_cursorRelativePos.Value)).Position;
+            }
+
+            var aimColor = _trackedGuidedProjectiles.Count > 0
                 ? new Color(0.3f, 1f, 0.3f)   // green = guidance active
-                : new Color(1f, 0.85f, 0.1f);  // gold = normal aim
+                : heatLock
+                    ? new Color(1f, 0.3f, 0.1f)  // red-orange = HEAT lock
+                    : new Color(1f, 0.85f, 0.1f); // gold = normal aim
 
             foreach (var cannon in _cannons)
             {
@@ -334,26 +369,36 @@ public sealed class GunneryRadarControl : BaseShuttleControl
                     continue;
 
                 var cannonScreen = Vector2.Transform(cannonMapCoords.Position, blipWorldToView);
-                handle.DrawLine(cannonScreen, cursor, aimColor.WithAlpha(0.85f));
+                handle.DrawLine(cannonScreen, crosshairScreen, aimColor.WithAlpha(0.85f));
             }
 
-            // Crosshair at cursor.
+            // Crosshair at cursor/snapped position.
             const float CH = 6f;
-            handle.DrawLine(cursor - new Vector2(CH, 0), cursor + new Vector2(CH, 0), aimColor);
-            handle.DrawLine(cursor - new Vector2(0, CH), cursor + new Vector2(0, CH), aimColor);
-            handle.DrawCircle(cursor, CH, aimColor.WithAlpha(0.25f));
+            handle.DrawLine(crosshairScreen - new Vector2(CH, 0), crosshairScreen + new Vector2(CH, 0), aimColor);
+            handle.DrawLine(crosshairScreen - new Vector2(0, CH), crosshairScreen + new Vector2(0, CH), aimColor);
+            handle.DrawCircle(crosshairScreen, CH, aimColor.WithAlpha(0.25f));
+
+            // If HEAT lock: draw a larger lock ring around the grid + label.
+            if (heatLock)
+            {
+                handle.DrawCircle(crosshairScreen, CH * 3f, aimColor.WithAlpha(0.4f));
+                const string HeatLabel = "HEAT LOCK";
+                var heatDim = handle.GetDimensions(Font, HeatLabel, 0.85f);
+                handle.DrawString(Font,
+                    crosshairScreen + new Vector2(-heatDim.X / 2f, -CH * 3f - heatDim.Y - 2f),
+                    HeatLabel, 0.85f, aimColor);
+            }
 
             // Coordinate readout just above the crosshair.
-            var worldTarget = ScreenToWorld(cursor);
-            var coordText   = $"({worldTarget.X:F1}, {worldTarget.Y:F1})";
-            var coordDim    = handle.GetDimensions(Font, coordText, 0.75f);
+            var coordText = $"({worldTarget.X:F1}, {worldTarget.Y:F1})";
+            var coordDim  = handle.GetDimensions(Font, coordText, 0.75f);
             handle.DrawString(Font,
-                cursor + new Vector2(-coordDim.X / 2f, -CH - coordDim.Y - 2f),
+                crosshairScreen + new Vector2(-coordDim.X / 2f, heatLock ? CH * 3f + 4f : -CH - coordDim.Y - 2f),
                 coordText, 0.75f, aimColor);
         }
 
         // ── Guidance indicator ─────────────────────────────────────────────
-        if (_trackedGuidedProjectile != null)
+        if (_trackedGuidedProjectiles.Count > 0)
         {
             const string GuidanceText = "GUIDANCE ACTIVE — hold LMB to steer";
             var dim = handle.GetDimensions(Font, GuidanceText, 1f);
@@ -450,6 +495,69 @@ public sealed class GunneryRadarControl : BaseShuttleControl
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Returns the non-own grid (if any) whose world AABB contains the given screen-space cursor position.
+    /// Used every MouseMove to update <see cref="_hoveredGrid"/> for hover-snap / HEAT targeting.
+    /// </summary>
+    private Entity<MapGridComponent>? TryFindHoveredGrid(Vector2 cursorRelativePos)
+    {
+        if (_coordinates == null || _rotation == null)
+            return null;
+
+        var xformQuery = EntManager.GetEntityQuery<TransformComponent>();
+        if (!xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform)
+            || xform.MapID == MapId.Nullspace)
+            return null;
+
+        var ownGridId   = xform.GridUid;
+        var worldCoords = ScreenToWorld(cursorRelativePos);
+        var mapWorldPos = _transform.ToMapCoordinates(worldCoords).Position;
+
+        foreach (var grid in _grids)
+        {
+            if (grid.Owner == ownGridId)
+                continue;
+
+            var gridWorldMatrix = _transform.GetWorldMatrix(grid.Owner);
+            var worldAABB       = gridWorldMatrix.TransformBox(grid.Comp.LocalAABB);
+            if (worldAABB.Contains(mapWorldPos))
+                return grid;
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Returns the <see cref="NetEntity"/> of the first non-own grid whose world AABB
+    /// contains <paramref name="worldCoords"/>, or <c>null</c> if none.
+    /// Used to detect which enemy ship the player clicked on for HEAT targeting.
+    /// </summary>
+    private NetEntity? TryFindClickedGrid(EntityCoordinates worldCoords)
+    {
+        if (_coordinates == null)
+            return null;
+
+        var xformQuery = EntManager.GetEntityQuery<TransformComponent>();
+        if (!xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform))
+            return null;
+
+        var ownGridId   = xform.GridUid;
+        var mapWorldPos = _transform.ToMapCoordinates(worldCoords).Position;
+
+        foreach (var grid in _grids)
+        {
+            if (grid.Owner == ownGridId)
+                continue;
+
+            var gridWorldMatrix = _transform.GetWorldMatrix(grid.Owner);
+            var worldAABB       = gridWorldMatrix.TransformBox(grid.Comp.LocalAABB);
+            if (worldAABB.Contains(mapWorldPos))
+                return EntManager.GetNetEntity(grid.Owner);
+        }
+
+        return null;
     }
 
     // ── Blip drawing helpers ───────────────────────────────────────────────

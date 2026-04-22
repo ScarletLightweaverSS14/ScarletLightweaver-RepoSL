@@ -1,0 +1,106 @@
+# Countermeasure Flare System
+# The flare launcher fires bright flares that divert HEAT-seeking rockets (FlareComponent),
+# causing them to self-destruct harmlessly on proximity contact.
+
+# Flare projectile — a slow-moving glowing entity with FlareComponent.
+# It does NOT inherit BaseBullet so it will not be deleted on collision.
+# HEAT rockets within detection range will divert toward it and self-destruct on proximity.
+- type: entity
+  id: BulletFlare
+  name: flare
+  parent: BaseItem
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+      shader: unshaded
+      color: "#FF8C00"
+  - type: Physics
+    bodyType: Dynamic
+  - type: TileFrictionModifier
+    modifier: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Projectile
+    damage: {}
+    deleteOnCollide: false
+    soundHit:
+      path: /Audio/Effects/pop.ogg
+  - type: PointLight
+    radius: 8
+    color: "#FF8C00"
+    energy: 5
+    enabled: true
+  - type: Flare
+    detectionRange: 20
+  - type: RadarBlip
+    color: "#FF8C00"
+    scale: 1.6
+    shape: Circle
+    requireInSpace: false
+  - type: TimedDespawn
+    lifetime: 12
+
+# Flare entity used directly in the revolver provider chambers.
+# (Not a cartridge — the RevolverAmmoProvider stores these entities directly, like grenade chambers.)
+- type: entity
+  parent: [BaseItem]
+  id: CartridgeFlare
+  name: flare cartridge
+  description: A single countermeasure flare cartridge. When fired, produces a bright infrared signature that diverts HEAT-seeking rockets, causing them to self-destruct away from their intended target.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeFlare
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: BulletFlare
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: rpg
+  - type: StaticPrice
+    price: 25
+
+# 3-shot handheld flare launcher
+- type: entity
+  parent: WeaponLauncherHydra
+  id: WeaponFlareLauncher
+  name: flare launcher
+  description: >-
+    A compact 3-shot countermeasure launcher. Fires bright infrared flares that divert incoming
+    HEAT-seeking rockets, causing them to harmlessly self-destruct. Reload with flare cartridges.
+  components:
+  - type: Gun
+    fireRate: 1.5
+    projectileSpeed: 15
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeFlare
+    proto: CartridgeFlare
+    chambers: [ True, True, True ]
+    ammoSlots: [ null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+  - type: StaticPrice
+    price: 500

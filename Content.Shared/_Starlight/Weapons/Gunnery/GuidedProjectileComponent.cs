@@ -39,4 +39,36 @@ public sealed partial class GuidedProjectileComponent : Component
 
     /// <summary>Whether active guidance is currently being applied this frame.</summary>
     public bool Active;
+
+    /// <summary>
+    /// If set, <see cref="SteeringTarget"/> is overridden each frame with the
+    /// world-space position of this entity (HEAT grid-tracking mode).
+    /// </summary>
+    public EntityUid? TrackingTarget;
+
+    /// <summary>
+    /// Whether this projectile can be diverted by <see cref="FlareComponent"/> entities.
+    /// Set to true on HEAT rockets.
+    /// </summary>
+    [DataField]
+    public bool HeatSeekable;
+
+    /// <summary>Set to true once a flare has redirected this rocket away from its tracking target.</summary>
+    public bool DivertedByFlare;
+
+    /// <summary>The specific flare entity this rocket is currently chasing after diversion.</summary>
+    public EntityUid? TargetFlare;
+}
+
+/// <summary>
+/// Marks an entity as a countermeasure flare. Heat-seeking rockets within
+/// <see cref="DetectionRange"/> tiles will divert toward this entity and
+/// harmlessly self-destruct on proximity contact.
+/// </summary>
+[RegisterComponent]
+public sealed partial class FlareComponent : Component
+{
+    /// <summary>Detection range in tiles at which HEAT rockets will sense and divert to this flare.</summary>
+    [DataField]
+    public float DetectionRange = 20f;
 }

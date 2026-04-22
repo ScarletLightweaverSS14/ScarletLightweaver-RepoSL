@@ -349,6 +349,9 @@
   id: Cartridge60mmRocket
 
 - type: Tag
+  id: Cartridge60mmRocketHEAT # Ammo: Cartridge60mmRocketHEAT (HEAT-seeking guided rockets)
+
+- type: Tag
   id: Cartridge50mmRocket
 
 - type: Tag
@@ -371,6 +374,12 @@
 
 - type: Tag
   id: Magazine60mmRocket
+
+- type: Tag
+  id: Magazine60mmRocketHEAT # Magazine: Magazine60mmRocketHEAT (HEAT rockets)
+
+- type: Tag
+  id: CartridgeFlare # Ammo: CartridgeFlare (countermeasure flares for WeaponFlareLauncher)
 
 - type: Tag
   id: Magazine50mmRocket

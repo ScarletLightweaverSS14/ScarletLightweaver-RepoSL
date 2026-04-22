@@ -11,8 +11,8 @@ public sealed class GunneryConsoleWindow : FancyWindow
 {
     // ── Callbacks to BUI ───────────────────────────────────────────────────
 
-    /// <summary>Invoked when the player fires a cannon. Args: (cannon entity, world target).</summary>
-    public Action<NetEntity, EntityCoordinates>? OnFireRequested;
+    /// <summary>Invoked when the player fires a cannon. Args: (cannon entity, world target, clicked grid entity or null).</summary>
+    public Action<NetEntity, EntityCoordinates, NetEntity?>? OnFireRequested;
 
     /// <summary>Invoked continuously while player steers a guided projectile.</summary>
     public Action<EntityCoordinates>? OnGuidanceUpdate;
@@ -40,7 +40,7 @@ public sealed class GunneryConsoleWindow : FancyWindow
         _noServerLabel = FindControl<Label>("NoServerLabel");
 
         // Wire radar-control callbacks to window-level callbacks.
-        _radarControl.OnFireRequested  = (cannon, target) => OnFireRequested?.Invoke(cannon, target);
+        _radarControl.OnFireRequested  = (cannon, target, targetGrid) => OnFireRequested?.Invoke(cannon, target, targetGrid);
         _radarControl.OnGuidanceUpdate = target => OnGuidanceUpdate?.Invoke(target);
 
         // Sync cannon-list selection to radar control.
@@ -88,8 +88,9 @@ public sealed class GunneryConsoleWindow : FancyWindow
         SyncListSelectionToRadarSelection();
 
         // Guidance indicator.
-        _guidanceLabel.Text = state.TrackedGuidedProjectile != null
-            ? "GUIDANCE ACTIVE"
+        var trackedCount = state.TrackedGuidedProjectiles?.Count ?? 0;
+        _guidanceLabel.Text = trackedCount > 0
+            ? $"GUIDANCE ACTIVE ({trackedCount})"
             : string.Empty;
 
         UpdateStatus();

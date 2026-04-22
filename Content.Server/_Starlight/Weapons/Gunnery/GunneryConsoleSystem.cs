@@ -91,11 +91,23 @@ public sealed class GunneryConsoleSystem : EntitySystem
             if (_timing.CurTime - consoleComp.LastFireTime > threshold)
                 continue;
 
-            // Claim this projectile and immediately enable tracking toward the fire target.
-            guided.Controller = consoleUid;
-            guided.SteeringTarget = consoleComp.LastFireTargetPos;
+            // Add this projectile to the tracked list (multi-rocket support).
+            consoleComp.TrackedGuidedProjectiles.Add(uid);
             guided.Active = true;
-            consoleComp.TrackedGuidedProjectile = uid;
+
+            if (guided.HeatSeekable && consoleComp.LastFireTargetGrid.HasValue
+                && Exists(consoleComp.LastFireTargetGrid.Value))
+            {
+                // HEAT rocket: lock onto the target grid — no manual steering needed.
+                guided.TrackingTarget = consoleComp.LastFireTargetGrid.Value;
+            }
+            else
+            {
+                // Standard guided projectile: set initial steering target and assign console.
+                guided.Controller = consoleUid;
+                guided.SteeringTarget = consoleComp.LastFireTargetPos;
+            }
+
             break;
         }
     }
@@ -161,6 +173,7 @@ public sealed class GunneryConsoleSystem : EntitySystem
         // the spawned entity and activate tracking toward the clicked position.
         comp.LastFireTime = _timing.CurTime;
         comp.LastFireTargetPos = targetMapPos.Position;
+        comp.LastFireTargetGrid = msg.TargetGrid.HasValue ? GetEntity(msg.TargetGrid.Value) : null;
 
         // Pass cannon as the "user" so AttemptShoot uses the cannon's world position as the
         // projectile spawn origin instead of the player's position.
@@ -169,24 +182,33 @@ public sealed class GunneryConsoleSystem : EntitySystem
 
     private void OnGuidanceMessage(EntityUid uid, GunneryConsoleComponent comp, GunneryConsoleGuidanceMessage msg)
     {
-        // If no projectile tracked yet, try to find one controlled by this console.
-        if (comp.TrackedGuidedProjectile == null || !Exists(comp.TrackedGuidedProjectile.Value))
+        // Remove stale entries first.
+        comp.TrackedGuidedProjectiles.RemoveAll(e => !Exists(e));
+
+        // If list is empty, search for any console-controlled projectiles we may have missed.
+        if (comp.TrackedGuidedProjectiles.Count == 0)
         {
-            comp.TrackedGuidedProjectile = FindControlledProjectile(uid);
-            if (comp.TrackedGuidedProjectile == null)
+            FindControlledProjectiles(uid, comp.TrackedGuidedProjectiles);
+            if (comp.TrackedGuidedProjectiles.Count == 0)
                 return;
         }
 
-        if (!TryComp<GuidedProjectileComponent>(comp.TrackedGuidedProjectile.Value, out var guided))
-        {
-            comp.TrackedGuidedProjectile = null;
-            return;
-        }
-
         var targetMapCoords = _transform.ToMapCoordinates(GetCoordinates(msg.Target));
-        guided.SteeringTarget = targetMapCoords.Position;
-        guided.Active = true;
-        guided.Controller = uid;
+
+        foreach (var projectileUid in comp.TrackedGuidedProjectiles)
+        {
+            if (!TryComp<GuidedProjectileComponent>(projectileUid, out var guided))
+                continue;
+
+            // HEAT rockets with an active (non-diverted) tracking target steer themselves —
+            // skip manual steering for them.
+            if (guided.HeatSeekable && guided.TrackingTarget.HasValue && !guided.DivertedByFlare)
+                continue;
+
+            guided.SteeringTarget = targetMapCoords.Position;
+            guided.Active = true;
+            guided.Controller = uid;
+        }
     }
 
     // ── State building ─────────────────────────────────────────────────────
@@ -226,7 +248,7 @@ public sealed class GunneryConsoleSystem : EntitySystem
         if (!serverfound)
         {
             _ui.SetUiState(uid, GunneryConsoleUiKey.Key,
-                new GunneryConsoleBoundUserInterfaceState(_console.GetNavState(uid, _console.GetAllDocks()), new List<CannonBlipData>(), null, false));
+                new GunneryConsoleBoundUserInterfaceState(_console.GetNavState(uid, _console.GetAllDocks()), new List<CannonBlipData>(), new List<NetEntity>(), false));
 
             return;
         }
@@ -315,13 +337,12 @@ public sealed class GunneryConsoleSystem : EntitySystem
             }
         }
 
-        // Clean up tracked projectile if it has been destroyed.
-        if (comp.TrackedGuidedProjectile != null && !Exists(comp.TrackedGuidedProjectile.Value))
-            comp.TrackedGuidedProjectile = null;
+        // Clean up any destroyed projectiles from the tracked list.
+        comp.TrackedGuidedProjectiles.RemoveAll(e => !Exists(e));
 
-        var trackedNet = comp.TrackedGuidedProjectile.HasValue
-            ? GetNetEntity(comp.TrackedGuidedProjectile.Value)
-            : (NetEntity?)null;
+        var trackedNet = comp.TrackedGuidedProjectiles
+            .Select(e => GetNetEntity(e))
+            .ToList();
 
         _ui.SetUiState(uid, GunneryConsoleUiKey.Key,
             new GunneryConsoleBoundUserInterfaceState(navState, cannons, trackedNet));
@@ -329,16 +350,14 @@ public sealed class GunneryConsoleSystem : EntitySystem
 
     // ── Helpers ────────────────────────────────────────────────────────────
 
-    /// <summary>Scans for any <see cref="GuidedProjectileComponent"/> whose controller is this console.</summary>
-    private EntityUid? FindControlledProjectile(EntityUid consoleUid)
+    /// <summary>Scans for any <see cref="GuidedProjectileComponent"/> whose controller is this console and adds them to <paramref name="result"/>.</summary>
+    private void FindControlledProjectiles(EntityUid consoleUid, List<EntityUid> result)
     {
         var query = AllEntityQuery<GuidedProjectileComponent>();
         while (query.MoveNext(out var uid, out var guided))
         {
             if (guided.Controller == consoleUid)
-                return uid;
+                result.Add(uid);
         }
-
-        return null;
     }
 }
