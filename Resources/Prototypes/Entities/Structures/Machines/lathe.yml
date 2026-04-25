@@ -461,6 +461,7 @@
     - SecurityDisablers
     - StarlightDefenseStatic # starlight start
     - SecurityCyberLimbs
+    - StarlightArmorPrinting # Starlight - ArmorPrinting research
     - StarlightSecurityEquipment
     - StarlightSecurityBoards
     - StarlightSecurityExplosives

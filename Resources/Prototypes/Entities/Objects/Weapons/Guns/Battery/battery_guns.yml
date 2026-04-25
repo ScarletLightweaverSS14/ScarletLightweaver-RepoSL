@@ -77,7 +77,7 @@
   - type: ContainerFill
     containers:
       firing_pin:
-      - FiringPinLaser
+      - FiringPinLaserRifle # Starlight
   - type: FiringPinHolder
     supportedPins: [ Laser ]
   # starlight end

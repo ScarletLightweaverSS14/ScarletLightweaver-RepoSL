@@ -1,5 +1,48 @@
 # Mech Weapons
 
+# Armor Printing (ArmorPrinting research)
+
+- type: latheRecipe
+  id: ClothingOuterArmorBasic
+  result: ClothingOuterArmorBasic
+  categories:
+  - Clothing
+  completetime: 5
+  materials:
+    Steel: 300
+    Cloth: 250
+
+- type: latheRecipe
+  id: ClothingOuterArmorBasicSlim
+  result: ClothingOuterArmorBasicSlim
+  categories:
+  - Clothing
+  completetime: 5
+  materials:
+    Steel: 250
+    Cloth: 250
+
+- type: latheRecipe
+  id: ClothingHeadHelmetBasic
+  result: ClothingHeadHelmetBasic
+  categories:
+  - Clothing
+  completetime: 3
+  materials:
+    Steel: 250
+    Cloth: 100
+
+- type: latheRecipe
+  id: ClothingShoesBootsJack
+  result: ClothingShoesBootsJack
+  categories:
+  - Clothing
+  completetime: 3
+  materials:
+    Steel: 100
+    Cloth: 150
+
+
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun
   result: WeaponMechCombatImmolationGun
@@ -195,7 +238,9 @@
   result: FiringPinLaser
   categories:
   - Weapons
-  completetime: 7
+  completetime: 15
   materials:
-    Steel: 200
-    Glass: 500
+    Steel: 500
+    Glass: 2000
+    Gold: 200
+    Plasma: 1500

@@ -426,6 +426,15 @@
     fireCost: 30
   - type: StaticPrice
     price: 300
+  - type: ContainerContainer
+    containers:
+      firing_pin: !type:Container
+  - type: ContainerFill
+    containers:
+      firing_pin:
+      - FiringPinLaserRifle
+  - type: FiringPinHolder
+    supportedPins: [ Laser ]
 
 - type: entity
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband ]
@@ -488,12 +497,15 @@
       fireCost: 100
       magState: kill
     - proto: DestroyBeam
-      fireCost: 100
+      fireCost: 200
       magState: destroy
   - type: GunFireModeSounds
     sounds:
       2:
         path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
 
 - type: entity
   name: pulse pistol

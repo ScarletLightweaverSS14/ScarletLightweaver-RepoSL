@@ -1,14 +1,29 @@
 - type: latheRecipe
   parent: BaseAmmoRecipe
+  id: CartridgeBattery
+  result: CartridgeBattery
+  materials:
+    Steel: 100
+    Plastic: 10
+    Plasma: 50
+    Gold: 10
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBatteryLr30
   result: MagazineBatteryLr30
   materials:
-    Steel: 50
-    Plastic: 600
+    Steel: 1200
+    Plastic: 120
+    Plasma: 600
+    Gold: 120
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxBattery
   result: MagazineBoxBattery
   materials:
-    Steel: 800
+    Steel: 5000
+    Plastic: 500
+    Plasma: 2500
+    Gold: 500

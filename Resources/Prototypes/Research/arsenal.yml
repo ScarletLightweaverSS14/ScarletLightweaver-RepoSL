@@ -59,7 +59,6 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
-  - FiringPinLaser # Starlight
   - WeaponMechCombatFiredartLaser
   radioChannels:
   - Security
@@ -186,6 +185,25 @@
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser
   - WeaponLaserImmolator
+  radioChannels:
+  - Security
+
+- type: technology
+  id: AdvancedLaserMunitions
+  name: research-technology-advanced-laser-munitions
+  icon:
+    sprite: _Starlight/Objects/Weapons/Guns/Rifles/laser_carbine.rsi
+    state: base
+  discipline: Arsenal
+  tier: 2
+  cost: 12000
+  technologyPrerequisites:
+  - WeaponizedLaserManipulation
+  recipeUnlocks:
+  - FiringPinLaser # Starlight - laser crystal; expensive to craft, punishing to replace
+  - CartridgeBattery # Starlight
+  - MagazineBatteryLr30 # Starlight
+  - MagazineBoxBattery # Starlight
   radioChannels:
   - Security
 

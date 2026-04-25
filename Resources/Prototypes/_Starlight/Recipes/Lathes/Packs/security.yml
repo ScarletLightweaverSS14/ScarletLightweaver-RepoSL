@@ -61,8 +61,7 @@
   - BoxLethalshot
   - BoxShotgunSlug
   - BoxShellTranquilizer
-# Battery
-  - MagazineBoxBattery
+# Battery (laser ammo locked behind AdvancedLaserMunitions research) # Starlight
 #####################MAGAZINE#######################
 # Light Rifle
   - MagazineLightRifleSP
@@ -116,8 +115,7 @@
   - SpeedLoaderShotgunEmpty
   - SpeedLoaderShotgunSlug
   - SpeedLoaderShotgunBeanbag
-# Battery
-  - MagazineBatteryLr30
+# Battery (laser ammo locked behind AdvancedLaserMunitions research) # Starlight
 ####################################################
 
 - type: latheRecipePack
@@ -126,9 +124,18 @@
   - BoxLethalshot
   - BoxShotgunSlug
   - CombatKnife
-  - RiotShield
+  - RiotShield # emag still grants it
 
 ## Dynamic recipes
+
+- type: latheRecipePack
+  id: StarlightArmorPrinting
+  recipes:
+  - RiotShield
+  - ClothingOuterArmorBasic
+  - ClothingOuterArmorBasicSlim
+  - ClothingHeadHelmetBasic
+  - ClothingShoesBootsJack
 
 - type: latheRecipePack
   id: StarlightDefenseStatic
@@ -241,6 +248,10 @@
   - CartridgePistolRubber
 # Rifle
   - CartridgeRifleRubber
+# Battery (unlocked via AdvancedLaserMunitions research)
+  - CartridgeBattery
+  - MagazineBatteryLr30
+  - MagazineBoxBattery
 ####################################################
 
 - type: latheRecipePack

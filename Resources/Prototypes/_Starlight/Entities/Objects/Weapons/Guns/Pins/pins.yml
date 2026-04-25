@@ -83,6 +83,10 @@
     damage:
       types:
         Blunt: 5
+  - type: FiringPinCrystal
+    maxHeat: 120
+    heatPerShot: 10
+    cooldownRate: 12
   - type: Destructible
     thresholds:
     - trigger:
@@ -121,6 +125,17 @@
 
 - type: entity
   parent: FiringPinLaser
+  id: FiringPinLaserRifle
+  name: rifle laser crystal
+  description: A hardened crystal tuned for sustained rifle fire. More durable than a sidearm crystal, but costly to replace.
+  components:
+  - type: FiringPinCrystal
+    maxHeat: 250
+    heatPerShot: 10
+    cooldownRate: 20
+
+- type: entity
+  parent: FiringPinLaser
   id: FiringPinAdvancedLaser
   name: prototype laser crystal
   description: DO NOT DROP is inscribed on the side. whatever.
@@ -130,6 +145,8 @@
     state: adv-laser
   - type: FiringPin
     pinType: AdvancedLaser
+  - type: FiringPinCrystal
+    enabled: false
   - type: StealTarget
     stealGroup: FiringPinAdvancedLaser
   - type: Explosive
