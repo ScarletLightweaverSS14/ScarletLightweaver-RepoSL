@@ -132,7 +132,7 @@
   - type: FiringPinCrystal
     maxHeat: 250
     heatPerShot: 10
-    cooldownRate: 20
+    cooldownRate: 38
 
 - type: entity
   parent: FiringPinLaser
