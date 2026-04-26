@@ -227,6 +227,34 @@
         - SalvageTicket # Same currency as salvage vendor to promote sharing
 
 - type: entity
+  parent: SLVendingMachine
+  id: SLVendingMachineArms
+  name: automated arms vendor
+  description: A heavily reinforced dispenser stocked with weapons and tactical gear. An overwhelming sense of danger washes over you.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/ammo.rsi
+    snapCardinals: true
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: normal-unshaded
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: Store
+    name: vendor-arms-automated
+    categories:
+    - ArmsVendSecurity
+    - ArmsVendNukie
+    - ArmsVendSyndicate
+    currencyWhitelist:
+    - ArmsTicket
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: ArmsVendorBoundUserInterface
+
+- type: entity
   parent: VendingMachine
   id: VendingMachineAbductorDispenser
   name: alien dispenser

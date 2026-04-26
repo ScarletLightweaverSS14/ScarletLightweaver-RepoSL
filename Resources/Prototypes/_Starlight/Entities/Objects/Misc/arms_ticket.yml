@@ -1,0 +1,102 @@
+- type: currency
+  id: ArmsTicket
+  displayName: arms-ticket-currency-name
+  cash:
+    1: ArmsTicket
+  canWithdraw: true
+
+- type: material
+  id: ArmsTicket
+  name: material-arms-ticket
+  unit: materials-unit-ticket
+  stackEntity: ArmsTicket
+
+- type: stack
+  id: ArmsTicket
+  name: arms ticket
+  icon:
+    sprite: _Starlight/Objects/Economy/salvage_ticket.rsi
+    state: icon
+  spawn: ArmsTicket
+  maxCount: 100
+
+- type: entity
+  parent: BaseItem
+  id: ArmsTicket
+  name: arms ticket
+  description: A black market token redeemable at an Automated Arms Vendor for weapons and tactical equipment.
+  components:
+  - type: Item
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,-2
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ArmsTicket: 1
+  - type: StaticPrice
+    price: 0
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: Stack
+    stackType: ArmsTicket
+    count: 1
+    baseLayer: base
+    layerFunction: Threshold
+  - type: StackLayerThreshold
+    thresholds: [1]
+  - type: Sprite
+    sprite: _Starlight/Objects/Economy/salvage_ticket.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 30
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.2,0.25,0.1"
+        mask:
+        - ItemMask
+  - type: Appearance
+  - type: Currency
+    price:
+      ArmsTicket: 1
+
+- type: entity
+  parent: ArmsTicket
+  id: ArmsTicket5
+  suffix: Five
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: ArmsTicket
+  id: ArmsTicket10
+  suffix: Ten
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: ArmsTicket
+  id: ArmsTicket25
+  suffix: TwentyFive
+  components:
+  - type: Stack
+    count: 25
+
+- type: entity
+  parent: ArmsTicket
+  id: ArmsTicket50
+  suffix: Fifty
+  components:
+  - type: Stack
+    count: 50

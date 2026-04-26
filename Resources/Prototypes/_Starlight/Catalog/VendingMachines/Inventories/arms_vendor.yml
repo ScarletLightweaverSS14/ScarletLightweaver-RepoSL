@@ -1,0 +1,181 @@
+# ============================================================
+#  Automated Arms Vendor — Store Listings
+#  Currency: ArmsTicket
+# ============================================================
+
+# --------------------  Security Genre  --------------------
+
+- type: listing
+  id: ArmsVendSecStunbaton
+  productEntity: Stunbaton
+  cost:
+    ArmsTicket: 50
+  categories:
+  - ArmsVendSecurity
+  description: "Power Cell\nA non-lethal compliance tool standard to security personnel."
+
+- type: listing
+  id: ArmsVendSecHandcuffs
+  productEntity: Handcuffs
+  cost:
+    ArmsTicket: 20
+  categories:
+  - ArmsVendSecurity
+  description: "Standard-issue restraints for detaining suspects."
+
+- type: listing
+  id: ArmsVendSecFlashbang
+  productEntity: GrenadeFlashBang
+  cost:
+    ArmsTicket: 35
+  categories:
+  - ArmsVendSecurity
+  description: "Flashbang grenade for disorienting and blinding threats in a wide area."
+
+- type: listing
+  id: ArmsVendSecArmorBasic
+  productEntity: ClothingOuterArmorBasic
+  cost:
+    ArmsTicket: 80
+  categories:
+  - ArmsVendSecurity
+  description: "Basic body armor offering light ballistic and melee protection."
+
+- type: listing
+  id: ArmsVendSecArmorBulletproof
+  productEntity: ClothingOuterArmorBulletproof
+  cost:
+    ArmsTicket: 150
+  categories:
+  - ArmsVendSecurity
+  description: "Heavy bulletproof vest offering superior ballistic protection."
+
+- type: listing
+  id: ArmsVendSecHelmetBasic
+  productEntity: ClothingHeadHelmetBasic
+  cost:
+    ArmsTicket: 40
+  categories:
+  - ArmsVendSecurity
+  description: "A standard security patrol helmet providing head protection."
+
+- type: listing
+  id: ArmsVendSecArmorRiot
+  productEntity: ClothingOuterArmorRiot
+  cost:
+    ArmsTicket: 200
+  categories:
+  - ArmsVendSecurity
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  description: "Heavy riot armor for crowd control and high-threat operations."
+
+- type: listing
+  id: ArmsVendSecHelmetRiot
+  productEntity: ClothingHeadHelmetRiot
+  cost:
+    ArmsTicket: 60
+  categories:
+  - ArmsVendSecurity
+  description: "A riot helmet offering superior impact and flash protection."
+
+# --------------------  Nukie  --------------------
+
+- type: listing
+  id: ArmsVendNukieHardsuitSyndie
+  productEntity: ClothingOuterHardsuitSyndie
+  cost:
+    ArmsTicket: 300
+  categories:
+  - ArmsVendNukie
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  description: "A Syndicate-issue hardsuit designed for nuclear insertion operations."
+
+- type: listing
+  id: ArmsVendNukieHelmetSwatSyndicate
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  cost:
+    ArmsTicket: 120
+  categories:
+  - ArmsVendNukie
+  description: "A Syndicate SWAT helmet built for frontline operatives."
+
+- type: listing
+  id: ArmsVendNukieSMGWt550
+  productEntity: WeaponSubMachineGunWt550
+  cost:
+    ArmsTicket: 250
+  categories:
+  - ArmsVendNukie
+  description: ".35 Auto\nA compact Syndicate SMG favored by nuclear operatives for its reliability."
+
+- type: listing
+  id: ArmsVendNukieSMGC20r
+  productEntity: WeaponSubMachineGunC20r
+  cost:
+    ArmsTicket: 300
+  categories:
+  - ArmsVendNukie
+  description: ".35 Auto\nA high-capacity Syndicate automatic carbine with excellent suppressive fire."
+
+# --------------------  Syndicate  --------------------
+
+- type: listing
+  id: ArmsVendSyndicateEnergySword
+  productEntity: EnergySword
+  cost:
+    ArmsTicket: 400
+  categories:
+  - ArmsVendSyndicate
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  description: "A deadly energy blade of Syndicate origin. Extremely hazardous — handle with care."
+
+- type: listing
+  id: ArmsVendSyndicateCombatKnife
+  productEntity: CombatKnife
+  cost:
+    ArmsTicket: 150
+  categories:
+  - ArmsVendSyndicate
+  description: "A razor-sharp combat knife favored by Syndicate field agents."
+
+- type: listing
+  id: ArmsVendSyndicateBriefcaseSMG
+  productEntity: WeaponSubMachineGunBriefcase
+  cost:
+    ArmsTicket: 350
+  categories:
+  - ArmsVendSyndicate
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  description: ".35 Auto\nA Syndicate SMG cunningly disguised as an ordinary briefcase."
+
+- type: listing
+  id: ArmsVendSyndicateHardsuitElite
+  productEntity: ClothingOuterHardsuitSyndieElite
+  cost:
+    ArmsTicket: 500
+  categories:
+  - ArmsVendSyndicate
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  description: "An elite-tier Syndicate hardsuit reserved for senior operatives."
+
+- type: listing
+  id: ArmsVendSyndicateEnergySwordDouble
+  productEntity: EnergySwordDouble
+  cost:
+    ArmsTicket: 600
+  categories:
+  - ArmsVendSyndicate
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  description: "A dual-bladed energy sword — the ultimate Syndicate close-quarters weapon."

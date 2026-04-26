@@ -173,6 +173,19 @@
   id: Languages
   name: store-category-languages
 
+# arms vendor
+- type: storeCategory
+  id: ArmsVendSecurity
+  name: Security
+
+- type: storeCategory
+  id: ArmsVendNukie
+  name: Nukie
+
+- type: storeCategory
+  id: ArmsVendSyndicate
+  name: Syndicate
+
 # Secret
 - type: storeCategory
   id: SLSecret
