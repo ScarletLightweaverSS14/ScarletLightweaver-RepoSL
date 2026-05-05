@@ -105,6 +105,12 @@
     heldPrefix: overpriced_pen
   - type: StaticPrice
     price: 500
+  - type: Tag
+    tags:
+    - Write
+    - WriteIgnoreStamps
+    - Pen
+    - CanvasOverridePen
 
 - type: entity
   name: CentComm pen
@@ -116,6 +122,12 @@
     state: pen_centcom
   - type: Item
     heldPrefix: pen_centcom
+  - type: Tag
+    tags:
+    - Write
+    - WriteIgnoreStamps
+    - Pen
+    - CanvasOverridePen
 
 - type: entity
   name: captain's fountain pen

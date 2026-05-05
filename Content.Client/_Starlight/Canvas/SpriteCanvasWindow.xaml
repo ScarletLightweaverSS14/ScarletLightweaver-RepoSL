@@ -1,0 +1,92 @@
+<canvas:SpriteCanvasWindow
+    xmlns="https://spacestation14.io"
+    xmlns:canvas="clr-namespace:Content.Client._Starlight.Canvas"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Content.Client._Starlight.Canvas.SpriteCanvasWindow"
+    MinSize="560 560"
+    SetSize="620 700"
+    Resizable="True"
+    MouseFilter="Stop">
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+        <!-- Toolbar row: colour palette + brush sizes + eraser -->
+        <PanelContainer StyleClasses="BackgroundPanel" Margin="0 2">
+            <BoxContainer Orientation="Vertical" Margin="4 2">
+
+                <!-- Colour swatches -->
+                <BoxContainer Name="PaletteRow" Orientation="Horizontal" HorizontalExpand="True" Margin="0 2" />
+
+                <!-- Brush / eraser row -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2">
+                    <Label Text="{Loc 'sprite-canvas-brush'}" VerticalAlignment="Center" Margin="0 0 6 0" />
+                    <Button Name="BrushSmall"  Text="{Loc 'sprite-canvas-brush-s'}" StyleClasses="OpenBoth" MinWidth="50" />
+                    <Button Name="BrushMedium" Text="{Loc 'sprite-canvas-brush-m'}" StyleClasses="OpenBoth" MinWidth="50" />
+                    <Button Name="BrushLarge"  Text="{Loc 'sprite-canvas-brush-l'}" StyleClasses="OpenBoth" MinWidth="50" />
+                    <Control HorizontalExpand="True" />
+                    <Button Name="EraserButton" Text="{Loc 'sprite-canvas-eraser'}" StyleClasses="OpenBoth" MinWidth="70" />
+                </BoxContainer>
+
+                <!-- Custom hex colour + custom brush size row -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2">
+                    <Label Text="#" VerticalAlignment="Center" Margin="0 0 2 0" />
+                    <LineEdit Name="HexInput" MinWidth="72" PlaceHolder="RRGGBB" />
+                    <PanelContainer Name="HexPreview" MinSize="22 22" Margin="4 0 0 0" />
+                    <Control HorizontalExpand="True" />
+                    <Label Text="{Loc 'sprite-canvas-size'}" VerticalAlignment="Center" Margin="0 0 4 0" />
+                    <LineEdit Name="BrushSizeInput" MinWidth="52" PlaceHolder="1-50" />
+                </BoxContainer>
+
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- Locked banner — hidden until canvas is signed -->
+        <PanelContainer Name="LockedBanner" Visible="False"
+                        StyleClasses="BackgroundPanel" Margin="0 2">
+            <Label Name="LockedLabel"
+                   HorizontalAlignment="Center"
+                   StyleClasses="LabelSecondaryColor"
+                   Margin="4 3" />
+        </PanelContainer>
+
+        <!-- Canvas drawing area (scrollable for large sizes) -->
+        <ScrollContainer Name="CanvasScroll"
+                         HorizontalExpand="True"
+                         VerticalExpand="True"
+                         HScrollEnabled="True"
+                         VScrollEnabled="True">
+            <PanelContainer Name="CanvasBackground"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                <canvas:SpriteCanvasControl Name="DrawingCanvas" />
+            </PanelContainer>
+        </ScrollContainer>
+
+        <!-- Bottom action row -->
+        <PanelContainer StyleClasses="BackgroundPanel" Margin="0 2 0 0">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4 3">
+                <!-- Sign row -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 2">
+                    <Label Name="SignedByLabel"
+                           HorizontalExpand="True"
+                           StyleClasses="LabelSecondaryColor"
+                           VerticalAlignment="Center" />
+                    <Button Name="SignButton" Text="{Loc 'sprite-canvas-sign'}"
+                            StyleClasses="OpenBoth" MinWidth="80" />
+                </BoxContainer>
+                <!-- Stroke count + Clear + Save row -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <Label Name="StrokeCountLabel"
+                           StyleClasses="LabelSecondaryColor"
+                           VerticalAlignment="Center"
+                           HorizontalExpand="True" />
+                    <Button Name="ClearButton" Text="{Loc 'sprite-canvas-clear'}"
+                            StyleClasses="OpenBoth" Margin="0 0 6 0" />
+                    <Button Name="SaveButton"  Text="{Loc 'sprite-canvas-save'}"
+                            StyleClasses="OpenBoth" />
+                </BoxContainer>
+            </BoxContainer>
+        </PanelContainer>
+
+    </BoxContainer>
+</canvas:SpriteCanvasWindow>

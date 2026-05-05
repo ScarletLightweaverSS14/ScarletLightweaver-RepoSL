@@ -1,0 +1,13 @@
+sprite-canvas-title = Canvas
+sprite-canvas-brush = Brush:
+sprite-canvas-brush-s = S
+sprite-canvas-brush-m = M
+sprite-canvas-brush-l = L
+sprite-canvas-eraser = Eraser
+sprite-canvas-size = Size:
+sprite-canvas-save = Save
+sprite-canvas-clear = Clear
+sprite-canvas-stroke-count = {$count}/{$max} strokes
+sprite-canvas-sign = Sign
+sprite-canvas-signed-by = Signed by {$name}
+sprite-canvas-locked = Signed by {$name}

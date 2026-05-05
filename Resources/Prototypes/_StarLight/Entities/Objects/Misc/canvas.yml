@@ -1,0 +1,61 @@
+# Base abstract canvas entity
+- type: entity
+  id: BaseCanvas
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: SpriteCanvas
+  - type: ActivatableUI
+    key: enum.SpriteCanvasUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.SpriteCanvasUiKey.Key:
+        type: SpriteCanvasBui
+
+# Small canvas — 500×500 drawing area
+- type: entity
+  id: CanvasSmall
+  name: small canvas
+  description: A small blank canvas. Perfect for quick sketches.
+  parent: BaseCanvas
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+  - type: SpriteCanvas
+    canvasSize: Small
+
+# Medium canvas — 1000×1000 drawing area
+- type: entity
+  id: CanvasMedium
+  name: medium canvas
+  description: A medium blank canvas. Plenty of room to paint a scene.
+  parent: BaseCanvas
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+  - type: SpriteCanvas
+    canvasSize: Medium
+
+# Large canvas — 1500×1500 drawing area
+- type: entity
+  id: CanvasLarge
+  name: large canvas
+  description: A large blank canvas for ambitious murals and detailed artwork.
+  parent: BaseCanvas
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+  - type: SpriteCanvas
+    canvasSize: Large
+
+# The CanvasOverridePen tag is added directly to CyberPen and PenCentcom
+# in Resources/Prototypes/Entities/Objects/Misc/pen.yml.
