@@ -459,6 +459,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         MuzzleFlash(gun, cartridge, worldAngle, user);
                         Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                         Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
+                        TryRenderPredictedBullet(gun, fromCoordinates, toCoordinates, user); // 🌟Starlight🌟 gun prediction
                         fired = true; // Starlight
                         // TODO: Can't predict entity deletions.
                         //if (cartridge.DeleteOnSpawn)
@@ -478,6 +479,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     MuzzleFlash(gun, newAmmo, worldAngle, user);
                     Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                     Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
+                    TryRenderPredictedBullet(gun, fromCoordinates, toCoordinates, user); // 🌟Starlight🌟 gun prediction
                     fired = true; // Starlight
                     if (IsClientSide(ent!.Value))
                         Del(ent.Value);
