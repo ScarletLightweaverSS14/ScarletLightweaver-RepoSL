@@ -9,6 +9,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -36,6 +37,7 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tag = default!; //Starlight -- arming distance
     [Dependency] private readonly IRobustRandom _rand = default!; // Starlight-edit
+    [Dependency] private readonly INetManager _netManager = default!; // Starlight - hitscan prediction
 
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;
 
@@ -141,7 +143,7 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
         if (attemptEvent.Cancelled)
         { // Starlight start - added block with additional command before return
             if (isRoot)
-                FireEffects(ent, args.OutputTrace);
+                FireEffects(ent, args.OutputTrace, args.Shooter); // Starlight - pass shooter for prediction dedup
             // Starlight end
             return;
         } // Starlight
@@ -151,7 +153,7 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
 
         // Starlight start
         if (isRoot)
-            FireEffects(ent, args.OutputTrace);
+            FireEffects(ent, args.OutputTrace, args.Shooter); // Starlight - pass shooter for prediction dedup
         // Starlight end
     }
 
@@ -185,7 +187,8 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
         };
     }
 
-    private void FireEffects(EntityUid hitscan, List<HitscanTrace> traces)
+    // Starlight - added shooter parameter so the server can exclude the local shooter (who already sees a predicted visual)
+    private void FireEffects(EntityUid hitscan, List<HitscanTrace> traces, EntityUid? shooter = null)
     {
         if (!_visualsQuery.TryComp(hitscan, out var visuals))
         {
@@ -215,7 +218,22 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
         foreach (var pos in sampledPositions)
             filter.Merge(Filter.Pvs(pos, entityMan: EntityManager));
 
-        RaiseNetworkEvent(hitscanEvent, filter);
+        if (_netManager.IsServer && shooter != null)
+        {
+            // Starlight - broadcast to everyone in PVS except the shooter
+            var othersFilter = filter.Clone().RemoveWhereAttachedEntity(e => e == shooter.Value);
+            RaiseNetworkEvent(hitscanEvent, othersFilter);
+
+            // Starlight - also send the server's authoritative trace back to the shooter so their client
+            // can correct the predicted visual to the real impact position (arrives ~1 RTT after the
+            // predicted visual, snapping the bullet to where it actually landed).
+            var shooterFilter = Filter.Empty().AddWhereAttachedEntity(e => e == shooter.Value);
+            RaiseNetworkEvent(hitscanEvent, shooterFilter);
+        }
+        else
+        {
+            RaiseNetworkEvent(hitscanEvent, filter);
+        }
     }
 
     /* Starlight - comment out upstream FireEffects

@@ -1,0 +1,22 @@
+# Prediction test dummy — walks randomly so you can test client-side hitscan prediction
+# Spawn in-game, then fire at it with any hitscan gun.
+# Enable the overlay with:  gun.prediction_debug true
+# Simulate lag with:        net.fakelagmin 0.1   net.fakelagrand 0.05
+- type: entity
+  id: MobPredictionTestDummy
+  parent: MobHuman
+  name: prediction dummy
+  suffix: Test, RandomWalk
+  description: A mannequin that wanders randomly. Used to test client-side gun prediction.
+  components:
+  - type: PredictionDummy
+  - type: RandomWalk
+    minSpeed: 5.0
+    maxSpeed: 7.5
+    minStepCooldown: 0.2
+    maxStepCooldown: 0.6
+    stepOnStartup: true
+  - type: RandomHumanoidAppearance
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral

@@ -20,7 +20,9 @@ public sealed partial class GunPredictionComponent : Component
     public ExtendedSpriteSpecifier Bullet = default!;
 
     /// <summary>
-    /// Speed of the predicted bullet visual in units/s. Should match the gun's actual projectile speed.
+    /// Physical projectile speed in tiles/second. Should match the gun's actual ProjectileSpeed
+    /// so the predicted visual travel time matches the real bullet.
+    /// Defaults to <see cref="Content.Shared.Weapons.Ranged.Systems.SharedGunSystem.ProjectileSpeed"/> (40 t/s).
     /// </summary>
     [DataField]
     public float BulletSpeed = 40f;

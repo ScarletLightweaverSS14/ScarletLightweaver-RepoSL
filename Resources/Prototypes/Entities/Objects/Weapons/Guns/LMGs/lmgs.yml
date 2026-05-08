@@ -90,6 +90,11 @@
       - FiringPin
   - type: FiringPinHolder
     supportedPins: [ Rifle ]
+  - type: GunPrediction
+    bullet:
+      sprite:
+        sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+        state: bullet
   # starlight end
 
 - type: entity

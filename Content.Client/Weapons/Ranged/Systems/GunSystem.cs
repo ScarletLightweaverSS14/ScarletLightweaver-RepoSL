@@ -432,7 +432,11 @@ public sealed partial class GunSystem : SharedGunSystem
         // Rather than splitting client / server for every ammo provider it's easier
         // to just delete the spawned entities. This is for programmer sanity despite the wasted perf.
         // This also means any ammo specific stuff can be grabbed as necessary.
-        var direction = TransformSystem.ToMapCoordinates(fromCoordinates).Position - TransformSystem.ToMapCoordinates(toCoordinates).Position;
+        // 🌟Starlight🌟 Pre-compute stable world-space positions so prediction methods don't have to
+        // re-convert entity-relative coordinates (which can shift between prediction replays).
+        var fromMapPos = TransformSystem.ToMapCoordinates(fromCoordinates);
+        var toMapPos   = TransformSystem.ToMapCoordinates(toCoordinates);
+        var direction  = fromMapPos.Position - toMapPos.Position;
         var worldAngle = direction.ToAngle().Opposite();
 
         foreach (var (ent, shootable) in ammo)
@@ -459,7 +463,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         MuzzleFlash(gun, cartridge, worldAngle, user);
                         Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                         Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                        TryRenderPredictedBullet(gun, fromCoordinates, toCoordinates, user); // 🌟Starlight🌟 gun prediction
+                        TryRenderPredictedBullet(gun, fromMapPos, toMapPos, user); // 🌟Starlight🌟 gun prediction
                         fired = true; // Starlight
                         // TODO: Can't predict entity deletions.
                         //if (cartridge.DeleteOnSpawn)
@@ -479,7 +483,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     MuzzleFlash(gun, newAmmo, worldAngle, user);
                     Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                     Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                    TryRenderPredictedBullet(gun, fromCoordinates, toCoordinates, user); // 🌟Starlight🌟 gun prediction
+                    TryRenderPredictedBullet(gun, fromMapPos, toMapPos, user); // 🌟Starlight🌟 gun prediction
                     fired = true; // Starlight
                     if (IsClientSide(ent!.Value))
                         Del(ent.Value);
@@ -489,6 +493,10 @@ public sealed partial class GunSystem : SharedGunSystem
                 case HitscanAmmoComponent:
                     Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                     Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
+                    // 🌟Starlight🌟 hitscan prediction: use full trace visual when ammo entity is available;
+                    // fall back to a simple bullet visual (from GunPredictionComponent) when it isn't.
+                    if (ent == null || !TryPredictHitscan(gun, ent.Value, fromMapPos, toMapPos, user))
+                        TryRenderPredictedBullet(gun, fromMapPos, toMapPos, user);
                     fired = true; // Starlight
                     break;
             }
