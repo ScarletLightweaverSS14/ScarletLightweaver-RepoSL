@@ -166,9 +166,10 @@
   id: RedVanguardGearBase
   parent: SovietComradeGear
   equipment:
+    shoes: ClothingShoesBootsNpcVanguard
     belt: ClothingSovietBelt
     back: ClothingBackpackDuffelRedVanguardLoot
-    outerClothing: ClothingOuterArmorBulletproof
+    outerClothing: ClothingOuterArmorRedVanguardNPC
   storage:
     belt:
     - RadioHandheld
@@ -177,6 +178,46 @@
     - Flare
     - Flare
 
+# Ranged class — AK rifle with spare mag, one medipen
+- type: startingGear
+  id: RedVanguardGearRanged
+  parent: RedVanguardGearBase
+  equipment:
+    pocket1: BruteAutoInjector
+    pocket2: MagazineLightRifleSP
+  inhand:
+  - WeaponRifleAk
+
+# Melee class — two medipens, Finka, no gun
+- type: startingGear
+  id: RedVanguardGearMelee
+  parent: RedVanguardGearBase
+  equipment:
+    pocket1: BruteAutoInjector
+    pocket2: BruteAutoInjector
+  inhand:
+  - Finka
+
+# Hybrid class — shotgun primary, Finka backup, carries medipens for ally healing
+- type: startingGear
+  id: RedVanguardGearHybrid
+  parent: RedVanguardGearBase
+  equipment:
+    belt: ClothingSovietBandolier
+    pocket1: BruteAutoInjector
+    pocket2: Finka
+  storage:
+    belt:
+    - RadioHandheld
+    - GeigerCounter
+    - ShellShotgun
+    - ShellShotgun
+    - ShellShotgun
+    - ShellShotgun
+  inhand:
+  - WeaponShotgunSawn
+
+# Legacy loadouts kept for existing entities
 - type: startingGear
   id: RedVanguardGearAk
   parent: RedVanguardGearBase

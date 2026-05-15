@@ -84,6 +84,9 @@
   parent: MobSovietComrade
   id: MobSovietComradeSawn
   components:
+    - type: HTN
+      rootTask:
+        task: SovietComradeRangedHostileCompound
     - type: Loadout
       prototypes:
         - SovietComradeGearSawn
@@ -93,6 +96,9 @@
   parent: MobSovietComrade
   id: MobSovietComradeMakarov
   components:
+    - type: HTN
+      rootTask:
+        task: SovietComradeRangedHostileCompound
     - type: Loadout
       prototypes:
         - SovietComradeGearMakarov
@@ -102,6 +108,9 @@
   parent: MobSovietComrade
   id: MobSovietComradeAk
   components:
+    - type: HTN
+      rootTask:
+        task: SovietComradeRangedHostileCompound
     - type: Loadout
       prototypes:
         - SovietComradeGearAk
@@ -342,6 +351,57 @@
     - type: Loadout
       prototypes:
         - RedVanguardGearKnife
+
+# Three playable classes for dynamic encounters
+- type: entity
+  suffix: Ranged
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardRanged
+  components:
+    - type: HTN
+      rootTask:
+        task: VanguardRangedHostileCompound
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearRanged
+
+- type: entity
+  suffix: Melee
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardMelee
+  components:
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearMelee
+
+- type: entity
+  suffix: Hybrid
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardHybrid
+  components:
+    - type: HTN
+      rootTask:
+        task: SovietVanguardHybridHostileCompound
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearHybrid
+
+# Spawner — randomly picks one of the three classes
+- type: entity
+  id: MobUSSPRedVanguardSpawner
+  name: Red Vanguard spawner
+  parent: MarkerBase
+  categories: [ Spawner ]
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+    - type: RandomSpawner
+      prototypes:
+        - MobUSSPRedVanguardRanged
+        - MobUSSPRedVanguardMelee
+        - MobUSSPRedVanguardHybrid
+      offset: 0.1
 
 #boss
 - type: entity
