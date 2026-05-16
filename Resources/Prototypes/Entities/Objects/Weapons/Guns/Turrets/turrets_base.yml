@@ -85,6 +85,13 @@
   name: ballistic turret
   abstract: true
   components:
+  - type: PointLight
+    radius: 14
+    color: "#FF0000"
+    energy: 8.0
+    softness: 0.1
+    mask: /Textures/_Starlight/Effects/LightMasks/laser_cone.png
+    autoRot: true
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
