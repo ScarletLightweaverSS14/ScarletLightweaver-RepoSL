@@ -1,0 +1,69 @@
+- type: reagent
+  id: ZombieMiasma
+  name: reagent-name-zombie-miasma
+  group: Toxins
+  desc: reagent-desc-zombie-miasma
+  physicalDesc: reagent-physical-desc-putrid
+  flavor: bitter
+  color: "#4a6b3a"
+  metabolisms:
+    Poison:
+      effects:
+        # Slows metabolism — net 0.5u/s consumed instead of 1u/s
+        # This allows gradual accumulation in rooms with many rotting zombie corpses
+        - !type:AdjustReagent
+          reagent: ZombieMiasma
+          amount: 0.5
+        # Faint smell at low exposure
+        - !type:PopupMessage
+          type: Local
+          visualType: SmallCaution
+          messages:
+            - zombie-miasma-smell
+          conditions:
+            - !type:ReagentCondition
+              reagent: ZombieMiasma
+              min: 0.5
+              max: 2
+          probability: 0.3
+        # Nausea at moderate exposure
+        - !type:PopupMessage
+          type: Local
+          visualType: MediumCaution
+          messages:
+            - zombie-miasma-nausea
+          conditions:
+            - !type:ReagentCondition
+              reagent: ZombieMiasma
+              min: 2
+          probability: 0.25
+        # Movement slow at moderate exposure
+        - !type:MovementSpeedModifier
+          walkSpeedModifier: 0.8
+          sprintSpeedModifier: 0.8
+          conditions:
+            - !type:ReagentCondition
+              reagent: ZombieMiasma
+              min: 2
+        # Vomiting at moderate-high exposure
+        - !type:Vomit
+          conditions:
+            - !type:ReagentCondition
+              reagent: ZombieMiasma
+              min: 3
+          probability: 0.2
+        # Poison damage at high exposure
+        - !type:HealthChange
+          damage:
+            types:
+              Poison: 0.5
+          conditions:
+            - !type:ReagentCondition
+              reagent: ZombieMiasma
+              min: 4
+        # Zombie infection at very high exposure (requires sustained large-scale exposure)
+        - !type:CauseZombieInfection
+          conditions:
+            - !type:ReagentCondition
+              reagent: ZombieMiasma
+              min: 12

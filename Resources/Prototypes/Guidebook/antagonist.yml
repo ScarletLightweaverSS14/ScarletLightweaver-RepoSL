@@ -42,6 +42,13 @@
   id: Zombies
   name: guide-entry-zombies
   text: "/ServerInfo/Guidebook/Antagonist/Zombies.xml"
+  children:
+    - ZombieMiasmaAndMutations
+
+- type: guideEntry
+  id: ZombieMiasmaAndMutations
+  name: guide-entry-zombie-miasma-mutations
+  text: "/ServerInfo/Guidebook/Antagonist/ZombieMiasmaAndMutations.xml"
 
 - type: guideEntry
   id: Revolutionaries

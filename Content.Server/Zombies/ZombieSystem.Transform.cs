@@ -53,6 +53,7 @@ using Content.Shared.Changeling.Components;
 using Content.Server.Animals.Components;
 using Content.Shared.Animals;
 using Content.Shared.FixedPoint;
+using Content.Shared._Starlight.Zombies;
 #endregion Starlight
 
 namespace Content.Server.Zombies;
@@ -368,5 +369,9 @@ public sealed partial class ZombieSystem
         // Also prevents them from becoming a Survivor. They're undead.
         _tag.AddTag(target, InvalidForGlobalSpawnSpellTag);
         _tag.AddTag(target, CannotSuicideTag);
+
+        // Starlight-start: Zombie mutations — unlocks 5–10 min after zombification
+        EnsureComp<ZombieMutationComponent>(target);
+        // Starlight-end
     }
 }

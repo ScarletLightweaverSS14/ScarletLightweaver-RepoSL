@@ -1,0 +1,12 @@
+## ZombieArmored: like the Zombie modifier set but with additional Slash and Piercing resistance
+## for the Armor mutation variant.
+- type: damageModifierSet
+  id: ZombieArmored
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.45
+    Piercing: 0.5
+    Cold: 0.3
+    Heat: 1.25
+    Poison: 0.0
+    Radiation: 0.0

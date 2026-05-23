@@ -1,0 +1,64 @@
+<Document>
+  # Zombie Miasma &amp; Mutations
+
+  ## Rotting Corpse Miasma
+
+  When zombie corpses enter the [bold]rotting stage[/bold] (bloated and decaying), they begin to exhale a toxic [color=#4a6b3a]miasma gas[/color] that permeates the surrounding area.
+
+  A [italic]single[/italic] rotting corpse poses little danger on its own — the gas dissipates before it can build up to threatening levels. However, when [bold]many zombie corpses[/bold] are left to rot in a confined space, the miasma accumulates rapidly and becomes a serious hazard.
+
+  ### Effects of the Miasma
+
+  - [bold]Low exposure[/bold]: A faint rotting smell. Unpleasant but harmless.
+  - [bold]Moderate exposure[/bold]: Severe nausea and vomiting. Movement becomes sluggish.
+  - [bold]High exposure[/bold]: Persistent vomiting, ongoing poison damage.
+  - [bold]Extreme exposure[/bold] (room full of rotting corpses): Risk of contracting a [color=#7e916e]lesser strain of Romerol[/color] — the zombie infection!
+
+  ### Protection
+
+  Wearing protective gear [italic]greatly reduces[/italic] exposure:
+
+  - [bold]Full internals (gas mask + air tank)[/bold]: 90% reduction — effectively immune under normal conditions.
+  - [bold]Gas mask or breath mask[/bold] (no tank): ~60% reduction — safe in small numbers of corpses.
+  - [bold]Protective gloves[/bold]: Additional 30% reduction on top of the above.
+
+  Without protection, even a moderate number of rotting corpses in one room can be lethal over time.
+
+  ### What To Do With The Dead
+
+  To prevent miasma buildup:
+
+  - [bold]Freeze bodies[/bold] in the morgue or a cryopod — freezing halts decomposition.
+  - [bold]Seal bodies[/bold] in body bags and store them in a cold location.
+  - [bold]Burn the bodies[/bold] — fire destroys the corpse and stops miasma production.
+  - [bold]Space the bodies[/bold] — no atmo, no buildup indoors.
+
+  [italic]Leaving piles of zombie corpses in corridors or rooms is extremely dangerous for your crewmates.[/italic]
+
+  ## Zombie Mutations
+
+  After surviving for [bold]5–10 minutes[/bold] as a zombie, your rotting body strains with unnatural potential.
+  You will receive a notification and a new action button: [color=#7e916e][bold]Undergo Grotesque Mutation[/bold][/color].
+
+  ### How It Works
+
+  1. Activate the action.
+  2. [bold]Stand completely still[/bold] for approximately 8 seconds while your body contorts horribly.
+  3. A [italic]random[/italic] mutation is applied permanently.
+
+  Moving during the transformation will cancel it — you may try again.
+
+  This mutation can only be performed [bold]once[/bold].
+
+  ### Possible Mutations
+
+  | Mutation | Effect |
+  |---|---|
+  | [color=#7e916e]Rapid Decay[/color] (Speed) | Your necrotic muscles tighten — you now move at [bold]full speed[/bold], losing the usual zombie slowdown. |
+  | [color=#7e916e]Bloated Flesh[/color] (Health) | Necrotic mass pads your frame — [bold]+30 HP[/bold] to your critical and death thresholds. |
+  | [color=#7e916e]Accelerated Rot[/color] (Healing) | Your wounds close at an unnerving rate — [bold]passive healing is doubled[/bold]. |
+  | [color=#7e916e]Chitinous Crust[/color] (Armor) | Your skin hardens — gain [bold]increased resistance to slashing and piercing[/bold] damage. |
+  | [color=#7e916e]Virulent Strain[/color] (Virulence) | Your bite drips with concentrated rot — [bold]infection chance is maximized[/bold] to 100%. |
+
+  [italic]You don't get to choose — embrace whatever the rot grants you.[/italic]
+</Document>

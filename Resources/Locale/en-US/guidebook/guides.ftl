@@ -139,6 +139,7 @@ guide-entry-nuclear-operatives = Nuclear Operatives
 guide-entry-traitors = Traitors
 guide-entry-changelings = Changelings
 guide-entry-zombies = Zombies
+guide-entry-zombie-miasma-mutations = Miasma &amp; Mutations
 guide-entry-revolutionaries = Revolutionaries / Red Tide
 guide-entry-minor-antagonists = Minor Antagonists
 guide-entry-space-ninja = Space Ninja

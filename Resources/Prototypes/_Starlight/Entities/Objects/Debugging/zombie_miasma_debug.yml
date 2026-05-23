@@ -1,0 +1,19 @@
+- type: entity
+  parent: SmokeGrenade
+  id: DebugZombieMiasmaCanister
+  name: zombie miasma canister
+  description: A debug canister that releases a dense cloud of zombie miasma. Do not use in production.
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    color: "#4a6b3a"
+  - type: SmokeOnTrigger
+    keysIn:
+    - timer
+    duration: 60
+    spreadAmount: 80
+    solution:
+      reagents:
+      - ReagentId: ZombieMiasma
+        Quantity: 100

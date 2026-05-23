@@ -1,0 +1,14 @@
+- type: entity
+  id: ActionZombieEvolve
+  name: zombie-mutation-action-name
+  description: zombie-mutation-action-desc
+  components:
+    - type: Action
+      priority: -20
+      itemIconStyle: BigAction
+      checkConsciousness: true
+      icon:
+        sprite: Mobs/Species/Human/organs.rsi
+        state: brain
+    - type: InstantAction
+      event: !type:ZombieEvolveActionEvent
