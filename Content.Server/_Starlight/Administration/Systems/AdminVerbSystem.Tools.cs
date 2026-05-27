@@ -80,6 +80,67 @@ public sealed partial class AdminVerbSystem : EntitySystem
                 Priority = (int)TricksVerbPriorities.BlockObjectiveTargeting
             };
             if (HasComp<ActorComponent>(args.Target)) args.Verbs.Add(preventObjectiveTargeting);
+
+            // ── Redact (head) / Un-redact ─────────────────────────────────────
+            var isRedacted    = HasComp<Content.Shared._Starlight.SCP.RedactedComponent>(args.Target);
+            var isHeadRedact  = isRedacted && !Comp<Content.Shared._Starlight.SCP.RedactedComponent>(args.Target).FullBody;
+            var isBodyRedact  = isRedacted && Comp<Content.Shared._Starlight.SCP.RedactedComponent>(args.Target).FullBody;
+
+            Verb redactHeadVerb = new()
+            {
+                Text = isHeadRedact ? "Un-Redact (Head)" : "Redact Head",
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Rsi(new("/Textures/_Starlight/Clothing/Head/Hardsuits/Decimus_Helm.rsi"), "icon"),
+                Act = () =>
+                {
+                    if (isHeadRedact)
+                    {
+                        RemComp<Content.Shared._Starlight.SCP.RedactedComponent>(args.Target);
+                        _chat.SendAdminAnnouncementMessage(player, $"Removed head redaction from {args.Target}.");
+                    }
+                    else
+                    {
+                        var c = EnsureComp<Content.Shared._Starlight.SCP.RedactedComponent>(args.Target);
+                        c.FullBody = false;
+                        Dirty(args.Target, c);
+                        _chat.SendAdminAnnouncementMessage(player, $"Applied head redaction to {args.Target}.");
+                    }
+                },
+                Impact = LogImpact.Low,
+                Message = isHeadRedact
+                    ? "Removes the black-box head overlay and name scramble from this entity."
+                    : "Adds a SCP-style black box over the entity's head and scrambles its name.",
+                Priority = (int)TricksVerbPriorities.BlockObjectiveTargeting - 1,
+            };
+            args.Verbs.Add(redactHeadVerb);
+
+            Verb redactBodyVerb = new()
+            {
+                Text = isBodyRedact ? "Un-Redact (Body)" : "Redact Full Body",
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Rsi(new("/Textures/_Starlight/Clothing/Head/Hardsuits/Decimus_Helm.rsi"), "icon"),
+                Act = () =>
+                {
+                    if (isBodyRedact)
+                    {
+                        RemComp<Content.Shared._Starlight.SCP.RedactedComponent>(args.Target);
+                        _chat.SendAdminAnnouncementMessage(player, $"Removed full-body redaction from {args.Target}.");
+                    }
+                    else
+                    {
+                        var c = EnsureComp<Content.Shared._Starlight.SCP.RedactedComponent>(args.Target);
+                        c.FullBody = true;
+                        Dirty(args.Target, c);
+                        _chat.SendAdminAnnouncementMessage(player, $"Applied full-body redaction to {args.Target}.");
+                    }
+                },
+                Impact = LogImpact.Low,
+                Message = isBodyRedact
+                    ? "Removes the full-body black-box overlay and name scramble from this entity."
+                    : "Covers the entire entity in a black box and scrambles its name.",
+                Priority = (int)TricksVerbPriorities.BlockObjectiveTargeting - 2,
+            };
+            args.Verbs.Add(redactBodyVerb);
         }
     }
 }

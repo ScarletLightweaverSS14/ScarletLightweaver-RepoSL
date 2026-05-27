@@ -1,0 +1,77 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# SCP "Redacted" — a relentless, unkillable humanoid that silently follows its
+# assigned target. Every observer sees a black box over its head and a
+# scrambled glitch-text name thanks to the client-side RedactedOverlay.
+# ─────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  id: MobSCPRedacted
+  name: "[REDACTED]"
+  description: "[DATA EXPUNGED]"
+  parent: SimpleSpaceMobBase
+  suffix: SCP, Follow NPC
+  categories: [ HideSpawnMenu ]
+  components:
+
+  # ── Visual ──────────────────────────────────────────────────────────────────
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/_Starlight/SCP/scp_redacted.rsi
+    layers:
+    - state: alive
+      map: ["enum.DamageStateVisualLayers.Base"]
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+
+  # ── Client-side full-body redaction & name scramble ─────────────────────
+  - type: Redacted
+    fullBody: true
+
+  # ── SCP follower — assign target via SCPFollowerSystem.SetFollowTarget ────
+  - type: SCPFollower
+
+  # ── NPC follow behaviour ────────────────────────────────────────────────────
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: FollowCompound
+    blackboard:
+      FollowRange:      !type:Single 2.0
+      FollowCloseRange: !type:Single 1.2
+      IdleRange:        !type:Single 2.5
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 3.5
+
+  # ── Physics ──────────────────────────────────────────────────────────────────
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+
+  # ── Practically invulnerable ──────────────────────────────────────────────
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+  - type: Damageable
+    damageModifierSet: Metallic    # absorbs almost nothing, but required
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 9999             # effectively disabled
+
+  # ── No combat — it only follows ──────────────────────────────────────────
+  - type: MovementAlwaysTouching
