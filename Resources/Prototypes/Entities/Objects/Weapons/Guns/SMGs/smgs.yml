@@ -86,6 +86,7 @@
       - FiringPinPistol
   - type: FiringPinHolder
     supportedPins: [ Pistol, GunUpgrade ]
+  - type: EngravableWeapon # 🌟Starlight🌟
   # starlight end
 
 - type: entity

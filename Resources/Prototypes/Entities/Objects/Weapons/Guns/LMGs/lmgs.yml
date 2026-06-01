@@ -103,6 +103,7 @@
       - FiringPin
   - type: FiringPinHolder
     supportedPins: [ Rifle ]
+  - type: EngravableWeapon # 🌟Starlight🌟
   # starlight end
 
 - type: entity

@@ -30,6 +30,7 @@
     startingCharge: 1000
   - type: StaticPrice
     price: 500
+  - type: EngravableWeapon # 🌟Starlight🌟
 
 - type: entity
   parent: [BaseWeaponBattery, BaseGunWieldable]
@@ -120,6 +121,7 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
+  - type: EngravableWeapon # 🌟Starlight🌟
 
 - type: entity
   id: BaseWeaponBatterySmall

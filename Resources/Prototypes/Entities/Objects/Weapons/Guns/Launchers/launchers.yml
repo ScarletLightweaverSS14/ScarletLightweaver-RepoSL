@@ -46,6 +46,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: EngravableWeapon # 🌟Starlight🌟
 
 - type: entity
   name: china lake

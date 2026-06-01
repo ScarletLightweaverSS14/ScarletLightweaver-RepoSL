@@ -94,6 +94,7 @@
     soundHit:
       collection: MetalThud
   - type: AltFireMelee
+  - type: EngravableWeapon # 🌟Starlight🌟
   # starlight end
 
 - type: entity

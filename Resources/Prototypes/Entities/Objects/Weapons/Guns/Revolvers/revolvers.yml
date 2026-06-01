@@ -64,6 +64,7 @@
     # starlight end
   - type: StaticPrice
     price: 500
+  - type: EngravableWeapon # 🌟Starlight🌟
 
 - type: entity
   name: Deckard
