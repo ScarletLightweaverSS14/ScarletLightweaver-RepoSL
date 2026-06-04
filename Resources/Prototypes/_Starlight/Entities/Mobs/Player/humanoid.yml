@@ -173,6 +173,456 @@
       nameFormat: name-format-ert
 
 - type: entity
+  id: RandomHumanoidSpawnerNTSFPrimus
+  name: NTSF Primus Operative
+  suffix: ERTRole, NTSF Primus
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFPrimusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFPrimusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-primus-name
+      description: ghost-role-information-ntsf-primus-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFPrimusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
+  id: RandomHumanoidSpawnerNTSFSecundus
+  name: NTSF Secundus Operative
+  suffix: ERTRole, NTSF Secundus
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFSecundusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFSecundusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-secundus-name
+      description: ghost-role-information-ntsf-secundus-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFSecundusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
+  id: RandomHumanoidSpawnerNTSFTertius
+  name: NTSF Tertius Operative
+  suffix: ERTRole, NTSF Tertius
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFTertiusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFTertiusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-tertius-name
+      description: ghost-role-information-ntsf-tertius-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFTertiusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
+  id: RandomHumanoidSpawnerNTSFQuartus
+  name: NTSF Quartus Operative
+  suffix: ERTRole, NTSF Quartus
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFQuartusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFQuartusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-quartus-name
+      description: ghost-role-information-ntsf-quartus-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFQuartusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
+  id: RandomHumanoidSpawnerNTSFQuintus
+  name: NTSF Quintus Operative
+  suffix: ERTRole, NTSF Quintus
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFQuintusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFQuintusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-quintus-name
+      description: ghost-role-information-ntsf-quintus-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFQuintusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
+  id: RandomHumanoidSpawnerNTSFSextus
+  name: NTSF Sextus Operative
+  suffix: ERTRole, NTSF Sextus
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFSextusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFSextusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-sextus-name
+      description: ghost-role-information-ntsf-sextus-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFSextusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
+  id: RandomHumanoidSpawnerNTSFSeptimus
+  name: NTSF Septimus Operative
+  suffix: ERTRole, NTSF Septimus
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFSeptimusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFSeptimusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-septimus-name
+      description: ghost-role-information-ntsf-septimus-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFSeptimusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
+  id: RandomHumanoidSpawnerNTSFOctavius
+  name: NTSF Octavius Operative
+  suffix: ERTRole, NTSF Octavius
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFOctaviusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFOctaviusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-octavius-name
+      description: ghost-role-information-ntsf-octavius-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFOctaviusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
+  id: RandomHumanoidSpawnerNTSFNonus
+  name: NTSF Nonus Operative
+  suffix: ERTRole, NTSF Nonus
+  components:
+    - type: Sprite
+      sprite: _Starlight/Markers/jobs.rsi
+      state: ntsficon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NTSFNonusOperative
+
+- type: randomHumanoidSettings
+  id: NTSFNonusOperative
+  parent: EventHumanoidCentcomm
+  speciesBlacklist:
+    - Arachnid
+    - Diona
+    - Reptilian
+    - Resomi
+    - Vox
+    - Vulpkanin
+    - Avali
+    - Felionoid
+    - Shadekin
+    - Thaven
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ntsf-nonus-name
+      description: ghost-role-information-ntsf-nonus-description
+      rules: ghost-role-information-corporate-aligned-rules
+      important: true
+      raffle:
+        settings: short
+      mindRoles:
+        - MindRoleGhostCorporateAligned
+      job: NanoTrasenSpecialForces
+    - type: Loadout
+      prototypes: [NTSFNonusGear]
+      roleLoadout: [RoleSurvivalEVA]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+- type: entity
   id: RandomHumanoidSpawnerDecimus
   name: Decimus Operative
   suffix: ERTRole, Decimus

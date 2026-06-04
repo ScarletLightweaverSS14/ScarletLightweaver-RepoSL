@@ -39,8 +39,8 @@
     pocket1: AccessOveriderUnlimited
     pocket2: EnergyShield
     belt: PrototypeVibrobladeSheath
-    neck: ClothingNeckCapeNTSF1
-    suitstorage: WeaponPulseRifle
+    neck: ClothingNeckCapeNTSFLead
+    suitstorage: WeaponPulseCarbine
   storage:
     back:
     - WeaponPulsePistol
@@ -52,6 +52,310 @@
     - WelderExperimental
     - Hypospray
     - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
+    - FreedomImplanter
+  inhand:
+  - PrototypeVibroblade
+
+# Per task-force gear — each suit paired with its matching numbered cape
+
+- type: startingGear
+  id: NTSFPrimusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitNTSFPrimus
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: PrototypeVibrobladeSheath
+    neck: ClothingNeckCapeNTSF1
+    suitstorage: WeaponPulseCarbine
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+  inhand:
+  - PrototypeVibroblade
+
+- type: startingGear
+  id: NTSFSecundusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitNTSFSecundus
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: PrototypeVibrobladeSheath
+    neck: ClothingNeckCapeNTSF2
+    suitstorage: WeaponPulseCarbine
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+  inhand:
+  - PrototypeVibroblade
+
+- type: startingGear
+  id: NTSFTertiusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombatThieving
+    outerClothing: ClothingOuterHardsuitNTSFTertius
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: PrototypeVibrobladeSheath
+    neck: ClothingNeckCapeNTSF3
+    suitstorage: WeaponPulseCarbine
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+  inhand:
+  - PrototypeVibroblade
+
+- type: startingGear
+  id: NTSFQuartusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitNTSFQuartus
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: PrototypeVibrobladeSheath
+    neck: ClothingNeckCapeNTSF4
+    suitstorage: WeaponPulseCarbine
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+    - RCDExperimental
+    - WeaponPistolCHIMP
+    - HoloprojectorField
+    - PowerCellMicroreactor
+  inhand:
+  - PrototypeVibroblade
+
+- type: startingGear
+  id: NTSFQuintusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitNTSFQuintus
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: PrototypeVibrobladeSheath
+    neck: ClothingNeckCapeNTSF5
+    suitstorage: WeaponPulseCarbine
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+  inhand:
+  - PrototypeVibroblade
+
+- type: startingGear
+  id: NTSFSextusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitNTSFSextus
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: PrototypeVibrobladeSheath
+    neck: ClothingNeckCapeNTSF6
+    suitstorage: WeaponPulseCarbine
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+    - WizardsGrimoire
+    - WizCoin1
+    - WizCoin1
+    - WizCoin1
+  inhand:
+  - PrototypeVibroblade
+
+- type: startingGear
+  id: NTSFSeptimusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitNTSFSeptimus
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: PrototypeVibrobladeSheath
+    neck: ClothingNeckCapeNTSF7
+    suitstorage: WeaponPulseCarbine
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+    - PillAmbuzolPlus
+    - PillAmbuzolPlus
+    - PillAmbuzolPlus
+    - LauncherSyringe
+    - LauncherSyringe
+  inhand:
+  - PrototypeVibroblade
+
+- type: startingGear
+  id: NTSFOctaviusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitNTSFOctavius
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: ClothingBeltMilitaryWebbing
+    neck: ClothingNeckCapeNTSF8
+    suitstorage: WeaponAdmemeX09Headsman
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponPulseCarbine
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+    - OxygenTankFilled
+    - NitrogenTankFilled
+
+- type: startingGear
+  id: NTSFNonusGear
+  equipment:
+    jumpsuit: ClothingUniformNTNCFatigues
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesBlueShield
+    ears: ClothingHeadsetAltNTSF
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitNTSFNonus
+    shoes: ClothingShoesBootsMagAdv
+    id: NTSFPDA
+    pocket1: AccessOveriderUnlimited
+    pocket2: EnergyShield
+    belt: PrototypeVibrobladeSheath
+    neck: ClothingNeckCapeNTSF9
+    suitstorage: WeaponPulseCarbine
+  storage:
+    back:
+    - WeaponPulsePistol
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxFlashbang
+    - ToolDebug
+    - WelderExperimental
+    - Hypospray
+    - DeathAcidifierImplanter
     - FreedomImplanter
   inhand:
   - PrototypeVibroblade

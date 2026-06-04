@@ -154,6 +154,16 @@
   - type: Fiber
     fiberColor: fibers-black
 
+- type: entity #for the repo men NTSF team
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesCombatThieving
+  name: combat thieving gloves
+  description: Fireproof, shock-resistant combat gloves modified for a lighter touch. They strip just as fast as they punch.
+  components:
+  - type: Thieving
+    stripTimeReduction: 1.5
+    stealthy: true
+
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsMaidGlovesElegant
