@@ -1,0 +1,11 @@
+- type: entity
+  id: AmmoAutoloaderMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: ammo autoloader machine board
+  description: A machine printed circuit board for an ammo autoloader.
+  components:
+  - type: MachineBoard
+    prototype: AmmoAutoloader
+    stackRequirements:
+      Manipulator: 2
+      Steel: 2

@@ -1,0 +1,118 @@
+- type: entity
+  id: AmmoAutoloader
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: ammo autoloader
+  description: A stationary machine that rapidly loads ammunition from boxes into magazines at twice the normal speed. Jams badly if you feed it the wrong caliber.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/_Starlight/ammo_autoloader.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      visible: false
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Appearance
+  - type: AmmoAutoloader
+  - type: Machine
+    board: AmmoAutoloaderMachineCircuitboard
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: ActivatableUI
+    key: enum.AmmoAutoloaderUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.AmmoAutoloaderUiKey.Key:
+        type: AmmoAutoloaderBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+          - MachineLayer
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: StaticPrice
+    price: 1200
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ItemSlots
+    slots:
+      mag_slot_1:
+        name: ammo-autoloader-mag-slot-1
+        whitelist:
+          components:
+          - BallisticAmmoProvider
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+      mag_slot_2:
+        name: ammo-autoloader-mag-slot-2
+        whitelist:
+          components:
+          - BallisticAmmoProvider
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+      ammo_slot_1:
+        name: ammo-autoloader-ammo-slot-1
+        whitelist:
+          components:
+          - BallisticAmmoProvider
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+      ammo_slot_2:
+        name: ammo-autoloader-ammo-slot-2
+        whitelist:
+          components:
+          - BallisticAmmoProvider
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+  - type: ContainerContainer
+    containers:
+      machine_board:  !type:Container
+      machine_parts:  !type:Container
+      mag_slot_1:     !type:ContainerSlot
+      mag_slot_2:     !type:ContainerSlot
+      ammo_slot_1:    !type:ContainerSlot
+      ammo_slot_2:    !type:ContainerSlot
+  # Starlight lighting
+  - type: LitOnPowered
+  - type: PointLight
+    autoRot: true
+    color: "#3a5c2b"
+    radius: 2
+    energy: 1.2
+    castShadows: false
