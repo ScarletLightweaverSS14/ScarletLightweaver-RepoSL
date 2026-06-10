@@ -86,6 +86,15 @@
   contrabandSeverity: Major
   flavor: bitter
   color: "#D4872A"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: PhlogistonFireTrail
+    usage: 1
+    maxOnTile: 1
+    maxOnTileWhitelist:
+      ids:
+      - PhlogistonFireTrail
+      - PhlogNapalmFireTrail
   metabolisms:
     Poison:
       effects:

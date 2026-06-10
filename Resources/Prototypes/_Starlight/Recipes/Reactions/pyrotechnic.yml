@@ -1,0 +1,13 @@
+# Starlight pyrotechnic reactions.
+
+# Mixing phlogiston and napalm produces a superheated fuel mixture
+# that burns hotter than plasma fire but cooler than tritium.
+- type: reaction
+  id: PhlogNapalmMix
+  reactants:
+    Phlogiston:
+      amount: 1
+    Napalm:
+      amount: 1
+  products:
+    PhlogNapalmMix: 2

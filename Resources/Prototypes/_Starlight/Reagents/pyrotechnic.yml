@@ -1,0 +1,40 @@
+# Pyrotechnic reagents added by Starlight.
+
+- type: reagent
+  id: PhlogNapalmMix
+  name: reagent-name-phlognapalm
+  parent: BasePyrotechnic
+  desc: reagent-desc-phlognapalm
+  physicalDesc: reagent-physical-desc-blazing
+  contrabandSeverity: Major
+  flavor: bitter
+  color: "#FF6600"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: PhlogNapalmFireTrail
+    usage: 1
+    maxOnTile: 1
+    maxOnTileWhitelist:
+      ids:
+      - PhlogistonFireTrail
+      - PhlogNapalmFireTrail
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 4
+            Poison: 1
+      - !type:Flammable
+        multiplier: 0.5
+      - !type:AdjustTemperature
+        amount: 8000
+      - !type:Ignite
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:Flammable
+        multiplier: 0.35
+      - !type:Ignite

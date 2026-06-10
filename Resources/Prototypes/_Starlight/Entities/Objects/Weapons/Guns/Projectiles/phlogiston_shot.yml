@@ -1,0 +1,81 @@
+# Phlogiston flamethrower projectiles fired by the phlogiston/phlog-napalm backpack tanks.
+# These are actual flame entities, not chemical vapor - they ignite tiles along their path
+# and set entities on fire at plasma/super-plasma levels of intensity.
+
+- type: entity
+  id: BulletPhlogistonShot
+  name: phlogiston flame
+  description: A gout of burning phlogiston.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
+    soundHit:
+      path: /Audio/Effects/explosion.ogg
+      params:
+        volume: -10
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    color: "#FF5500"
+    radius: 2.5
+    energy: 6.0
+  - type: IgnitionSource
+    temperature: 3000
+    ignited: true
+  - type: IgniteOnCollide
+    fireStacks: 5
+  - type: RepeatingTrigger
+    delay: 0.07
+  - type: SpawnOnTrigger
+    proto: PhlogistonFireTrail
+    useMapCoords: true
+  - type: TimedDespawn
+    lifetime: 0.35 # ~10 tiles at default gun projectile speed (40 u/s). Tune as needed.
+
+- type: entity
+  id: BulletPhlogNapalmShot
+  name: phlogiston-napalm flame
+  description: A superheated gout of phlogiston and napalm. Hotter than plasma fire.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 14
+    soundHit:
+      path: /Audio/Effects/explosion.ogg
+      params:
+        volume: -8
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    color: "#FF8800"
+    radius: 3.0
+    energy: 8.0
+  - type: IgnitionSource
+    temperature: 4500
+    ignited: true
+  - type: IgniteOnCollide
+    fireStacks: 7
+  - type: RepeatingTrigger
+    delay: 0.07
+  - type: SpawnOnTrigger
+    proto: PhlogNapalmFireTrail
+    useMapCoords: true
+  - type: TimedDespawn
+    lifetime: 0.35 # ~10 tiles at default gun projectile speed (40 u/s). Tune as needed.

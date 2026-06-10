@@ -18,3 +18,6 @@ reagent-desc-welding-fuel = Used by welders to weld.
 
 reagent-name-fluorosurfactant = fluorosurfactant
 reagent-desc-fluorosurfactant = A perfluoronated sulfonic acid that forms a foam when mixed with water.
+
+reagent-name-phlognapalm = phlogiston-napalm mix
+reagent-desc-phlognapalm = A volatile fusion of phlogiston and napalm that burns hotter than plasma fire. Don't get it on you.

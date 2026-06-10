@@ -134,3 +134,33 @@
   fireStates: 3
   fireStacks: 2
   temperature: 1500
+
+# Phlogiston flamethrower fire trail - near plasma levels of heat
+- type: explosion
+  id: PhlogistonFire
+  damagePerIntensity:
+    types:
+      Heat: 2
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: "#FF5500"
+  fireColor: "#FF5500"
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  fireStacks: 5
+  temperature: 3000
+
+# Phlogiston + Napalm mix fire trail - stronger than plasma, weaker than tritium
+- type: explosion
+  id: PhlogNapalmFire
+  damagePerIntensity:
+    types:
+      Heat: 3
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: "#FF8800"
+  fireColor: "#FF8800"
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  fireStacks: 7
+  temperature: 4500

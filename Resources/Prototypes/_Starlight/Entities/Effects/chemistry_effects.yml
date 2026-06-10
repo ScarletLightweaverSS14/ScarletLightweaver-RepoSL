@@ -46,6 +46,76 @@
     sound:
       path: /Audio/_Starlight/Effects/thermite_burning.ogg
 
+# Phlogiston flamethrower fire trail - spawned on the tile by CreateEntityTileReaction.
+- type: entity
+  id: PhlogistonFireTrail
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    sprite: Effects/fire.rsi
+    state: 1
+  - type: Appearance
+  - type: AnimationPlayer
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - ItemMask
+        layer:
+        - HighImpassable
+  - type: IgnitionSource
+    temperature: 3000
+    ignited: true
+  - type: PointLight
+    color: "#FF5500"
+    radius: 2.0
+    energy: 6.0
+  - type: TimedDespawn
+    lifetime: 4.0
+
+# Phlogiston-napalm mix fire trail - hotter than the base phlogiston trail.
+- type: entity
+  id: PhlogNapalmFireTrail
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    sprite: Effects/fire.rsi
+    state: 1
+  - type: Appearance
+  - type: AnimationPlayer
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - ItemMask
+        layer:
+        - HighImpassable
+  - type: IgnitionSource
+    temperature: 4500
+    ignited: true
+  - type: PointLight
+    color: "#FF8800"
+    radius: 2.5
+    energy: 8.0
+  - type: TimedDespawn
+    lifetime: 4.0
+
 - type: entity
   parent: TearGasSmoke
   id: TearGasSmokeYellow
