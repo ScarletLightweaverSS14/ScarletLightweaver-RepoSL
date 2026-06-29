@@ -1,0 +1,259 @@
+# Soviet Comrade NPC AI
+# Priority order: heal → equip backup melee → reload → gun break → kite → flee-no-path → ranged → erratic melee → ally-idle
+
+- type: htnCompound
+  id: SovietComradeHostileCompound
+  branches:
+    # 1. Heal when critically wounded — use medipen from pocket (visually moves to hand first)
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UseItemFromPocketOperator
+            itemTag: Medipen
+
+    # 2. Draw backup melee from pocket when gun is empty (e.g. shotgunner pulls a knife)
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:EquipFromPocketOperator
+            itemTag: Knife
+
+    # 3. Reload gun from pocket when empty
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ReloadFromPocketOperator
+
+    # 3b. Gun break — fully out of ammo after at least one reload, no spare mags left
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+        - !type:KeyExistsPrecondition
+          key: _GunHasBeenReloaded
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:GunBreakOperator
+
+    # 4. Kite: flee AND shoot simultaneously when critically wounded and unable to heal/reload.
+    #    GunAmmoPrecondition (no params) fails for melee-only NPCs (no gun found), so they skip this.
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+        - !type:KeyExistsPrecondition
+          key: TargetCoordinates
+        - !type:GunAmmoPrecondition
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:FleeCombatOperator
+            targetKey: TargetCoordinates
+            gunTargetKey: Target
+            range: 9.0
+
+    # 5. Hide: flee from the enemy's last position when melee approach found no path.
+    #    ComradeMeleeApproachOperator sets _ComradeMeleeFleeUntil before returning Failed.
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: _ComradeMeleeFleeUntil
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ComradeMeleeFleeOperator
+
+    # 6. Ranged combat when armed with ammo
+    #    (uses GunCombatCompound directly to avoid RangedCombatCompound's gun-drop branch)
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          minPercent: 0.001
+      tasks:
+        - !type:HTNCompoundTask
+          task: GunCombatCompound
+
+    # 7. Erratic melee — switch to melee weapon, flank instead of charging head-on.
+    #    ComradeMeleeApproachOperator handles approach; MeleeCombatCompound handles the hit.
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToMeleeOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:ComradeMeleeApproachOperator
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+
+    # 8. Idle — drift toward nearby allies; falls back to random wander when alone
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ComradeAllyIdleCompound
+
+# Ally-cohesion idle compound: drift toward the group, or wander if alone
+- type: htnCompound
+  id: ComradeAllyIdleCompound
+  branches:
+    # Move near faction allies while staying spread out
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:AllyFlockingIdleOperator
+    # Fall back to standard random wander when alone (or after flocking finishes)
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
+# Ranged Comrade compound — wield → shoot empty → reload → shoot empty → gun break → melee
+# Used by AK, Makarov, and Sawn-off comrades
+- type: htnCompound
+  id: SovietComradeRangedHostileCompound
+  branches:
+    # 1. Heal when critically wounded
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UseItemFromPocketOperator
+            itemTag: Medipen
+
+    # 2. Gun break — out of ammo after at least one reload: no spare mags left
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+        - !type:KeyExistsPrecondition
+          key: _GunHasBeenReloaded
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnwieldActiveWeaponOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:GunBreakOperator
+
+    # 3. Reload when gun is empty
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnwieldActiveWeaponOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:ReloadFromPocketOperator
+
+    # 4. Wield gun and shoot when armed
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          minPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToGunOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:WieldActiveWeaponOperator
+        - !type:HTNCompoundTask
+          task: GunCombatCompound
+
+    # 5. Flee no-path when melee approach is blocked
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: _ComradeMeleeFleeUntil
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ComradeMeleeFleeOperator
+
+    # 6. Melee fallback after gun is broken
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToMeleeOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:ComradeMeleeApproachOperator
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+
+    # 7. Idle with ally cohesion
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ComradeAllyIdleCompound
+
+# Hybrid Red Vanguard compound — same as standard comrade but can heal allies mid-fight
+- type: htnCompound
+  id: SovietVanguardHybridHostileCompound
+  branches:
+    # Heal a nearby wounded ally before engaging in personal combat
+    - preconditions:
+        - !type:NearbyWoundedAllyPrecondition
+          minDamagePercent: 0.35
+          range: 8.0
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:HealNearbyAllyOperator
+    # Delegate everything else to the standard comrade compound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: SovietComradeHostileCompound
+
+# Ranged Red Vanguard — dedicated rifle loop:
+#   wield → shoot until empty → reload (with strafe) → rewield → shoot until empty → gun break → melee
+- type: htnCompound
+  id: VanguardRangedHostileCompound
+  branches:
+    # 1. Heal self when critically wounded
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UseItemFromPocketOperator
+            itemTag: Medipen
+
+    # 2. Gun break — emptied AFTER already reloading once: no more spare mags left
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+        - !type:KeyExistsPrecondition
+          key: _GunHasBeenReloaded
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnwieldActiveWeaponOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:GunBreakOperator
+
+    # 3. Reload when gun is empty (strafes while reloading; sets _GunHasBeenReloaded)
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          maxPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UnwieldActiveWeaponOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:ReloadFromPocketOperator
+
+    # 4. Wield gun and shoot when armed
+    - preconditions:
+        - !type:GunAmmoPrecondition
+          minPercent: 0.001
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToGunOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:WieldActiveWeaponOperator
+        - !type:HTNCompoundTask
+          task: GunCombatCompound
+
+    # 5. Hide: flee when melee approach found no path
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: _ComradeMeleeFleeUntil
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ComradeMeleeFleeOperator
+
+    # 6. Melee fallback after gun is broken
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToMeleeOperator
+        - !type:HTNPrimitiveTask
+          operator: !type:ComradeMeleeApproachOperator
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+
+    # 7. Idle with ally cohesion
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ComradeAllyIdleCompound

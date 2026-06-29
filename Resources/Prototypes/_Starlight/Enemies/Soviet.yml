@@ -4,6 +4,9 @@
   id: MobSovietComrade
   categories: [ Spawner ]
   components:
+    - type: RandomNameList
+      prefix: Comrade
+      datasetId: NamesComrade
     - type: Prying
       pryPowered: true
       force: true
@@ -20,9 +23,40 @@
         - SovietComradeGear
     - type: InputMover
     - type: MobMover
+    - type: NpcLootBreakOnDeath
+      chance: 0.8
+    - type: NpcCallout
+      spotPhrases:
+        - "I serve the Soviet Union!"
+        - "Not one step back!"
+        - "Victory will be ours!"
+        - "Vigilance is our weapon!"
+        - "Every soldier is a defender of the Fatherland!"
+        - "Contact! To arms, comrade!"
+        - "For the Union! Fire!"
+        - "Target spotted! Move up!"
+        - "Engaging target!"
+      hurtPhrases:
+        - "AAUGH!"
+        - "They got me!"
+        - "Damn it!"
+        - "Taking fire!"
+        - "Hit! Still fighting!"
+        - "Discipline is the mother of victory!"
+        - "An order is law for a soldier!"
+      critPhrases:
+        - "For... the Motherland..."
+        - "Tell... tell the Union..."
+        - "I cannot... feel my legs..."
+        - "Stupid... Nanotrasen..."
+        - "Not... one step... back..."
+        - "The Motherland... will remember..."
+        - "Comrades... avenge me..."
+        - "Hard in training — easy in battle!"
+    - type: NpcOnHitAggro
     - type: HTN
       rootTask:
-        task: SimpleHumanoidHostileCompound
+        task: SovietComradeHostileCompound
       blackboard:
         NavInteract: !type:Bool
           true
@@ -50,6 +84,9 @@
   parent: MobSovietComrade
   id: MobSovietComradeSawn
   components:
+    - type: HTN
+      rootTask:
+        task: SovietComradeRangedHostileCompound
     - type: Loadout
       prototypes:
         - SovietComradeGearSawn
@@ -59,6 +96,9 @@
   parent: MobSovietComrade
   id: MobSovietComradeMakarov
   components:
+    - type: HTN
+      rootTask:
+        task: SovietComradeRangedHostileCompound
     - type: Loadout
       prototypes:
         - SovietComradeGearMakarov
@@ -68,9 +108,301 @@
   parent: MobSovietComrade
   id: MobSovietComradeAk
   components:
+    - type: HTN
+      rootTask:
+        task: SovietComradeRangedHostileCompound
     - type: Loadout
       prototypes:
         - SovietComradeGearAk
+
+# ============================================================
+# Tiered expedition comrades — each tier shares the same HTN
+# and callouts as the base comrade but with scaled HP and a
+# loot bag in their back slot.
+# ============================================================
+
+# --- Base tier entities (parents for weapon variants) ---
+
+# Challenging (expedition budget ~75)
+- type: entity
+  suffix: Challenging
+  parent: MobSovietComrade
+  id: MobSovietComradeChallenging
+  categories: [ Spawner ]
+
+# Difficult (expedition budget ~225) — visibly tougher
+- type: entity
+  suffix: Difficult
+  parent: MobSovietComrade
+  id: MobSovietComradeDifficult
+  categories: [ Spawner ]
+  components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        130: Critical
+        260: Dead
+    - type: Stamina
+      baseCritThreshold: 130
+
+# Impossible (expedition budget ~463) — hardened veteran
+- type: entity
+  suffix: Impossible
+  parent: MobSovietComrade
+  id: MobSovietComradeImpossible
+  categories: [ Spawner ]
+  components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        170: Critical
+        320: Dead
+    - type: Stamina
+      baseCritThreshold: 170
+
+# --- Challenging weapon variants ---
+- type: entity
+  suffix: Challenging, Broken Bottle
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingBrokenBottle
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingBrokenBottle
+
+- type: entity
+  suffix: Challenging, Finka
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingFinka
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingFinka
+
+- type: entity
+  suffix: Challenging, Sawn
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingSawn
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingSawn
+
+- type: entity
+  suffix: Challenging, Makarov
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingMakarov
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingMakarov
+
+- type: entity
+  suffix: Challenging, Ak
+  parent: MobSovietComradeChallenging
+  id: MobSovietComradeChallengingAk
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearChallengingAk
+
+# --- Difficult weapon variants ---
+- type: entity
+  suffix: Difficult, Broken Bottle
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultBrokenBottle
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultBrokenBottle
+
+- type: entity
+  suffix: Difficult, Finka
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultFinka
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultFinka
+
+- type: entity
+  suffix: Difficult, Sawn
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultSawn
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultSawn
+
+- type: entity
+  suffix: Difficult, Makarov
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultMakarov
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultMakarov
+
+- type: entity
+  suffix: Difficult, Ak
+  parent: MobSovietComradeDifficult
+  id: MobSovietComradeDifficultAk
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearDifficultAk
+
+# --- Impossible weapon variants ---
+- type: entity
+  suffix: Impossible, Broken Bottle
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleBrokenBottle
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleBrokenBottle
+
+- type: entity
+  suffix: Impossible, Finka
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleFinka
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleFinka
+
+- type: entity
+  suffix: Impossible, Sawn
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleSawn
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleSawn
+
+- type: entity
+  suffix: Impossible, Makarov
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleMakarov
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleMakarov
+
+- type: entity
+  suffix: Impossible, Ak
+  parent: MobSovietComradeImpossible
+  id: MobSovietComradeImpossibleAk
+  components:
+    - type: Loadout
+      prototypes:
+        - SovietComradeGearImpossibleAk
+
+# ============================================================
+# Red Vanguard — elite USSP soldiers, max tier (Impossible+).
+# Wear marine hardsuits; significantly more HP than comrades.
+# ============================================================
+- type: entity
+  name: Red Vanguard
+  parent: MobSovietComrade
+  id: MobUSSPRedVanguardBase
+  categories: [ Spawner ]
+  components:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        220: Critical
+        380: Dead
+    - type: Stamina
+      baseCritThreshold: 220
+    - type: NpcCallout
+      spotPhrases:
+        - "For the Red Vanguard!"
+        - "Advance! The Motherland calls!"
+        - "No mercy for the enemy of the Union!"
+        - "The Vanguard does not retreat!"
+        - "Target acquired — open fire!"
+      hurtPhrases:
+        - "AGGHH!"
+        - "Still standing, comrade!"
+        - "Just a scratch!"
+        - "The Union gave me this pain!"
+      critPhrases:
+        - "The Vanguard... does not fail..."
+        - "They will know... the Union's wrath..."
+        - "Tell the Admiral... I held the line..."
+        - "For... the Red Vanguard..."
+        - "The Motherland... expected more of me..."
+
+- type: entity
+  suffix: Ak
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardAk
+  components:
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearAk
+
+- type: entity
+  suffix: Knife
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardKnife
+  components:
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearKnife
+
+# Three playable classes for dynamic encounters
+- type: entity
+  suffix: Ranged
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardRanged
+  components:
+    - type: HTN
+      rootTask:
+        task: VanguardRangedHostileCompound
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearRanged
+
+- type: entity
+  suffix: Melee
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardMelee
+  components:
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearMelee
+
+- type: entity
+  suffix: Hybrid
+  parent: MobUSSPRedVanguardBase
+  id: MobUSSPRedVanguardHybrid
+  components:
+    - type: HTN
+      rootTask:
+        task: SovietVanguardHybridHostileCompound
+    - type: Loadout
+      prototypes:
+        - RedVanguardGearHybrid
+
+# Spawner — randomly picks one of the three classes
+- type: entity
+  id: MobUSSPRedVanguardSpawner
+  name: Red Vanguard spawner
+  parent: MarkerBase
+  categories: [ Spawner ]
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+    - type: RandomSpawner
+      prototypes:
+        - MobUSSPRedVanguardRanged
+        - MobUSSPRedVanguardMelee
+        - MobUSSPRedVanguardHybrid
+      offset: 0.1
+
 #boss
 - type: entity
   name: soviet bear

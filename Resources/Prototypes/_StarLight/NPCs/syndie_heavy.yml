@@ -1,0 +1,92 @@
+# Syndicate Heavy NPC AI variants
+
+# General heavy HTN: heal/flee when critical, then gun combat, then melee fallback.
+- type: htnCompound
+  id: SyndicateHeavyHostileCompound
+  branches:
+    # 1. Heal when critically wounded
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UseItemFromPocketOperator
+            itemTag: Medipen
+
+    # 2. Flee from active threat when critically wounded
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+        - !type:KeyExistsPrecondition
+          key: TargetCoordinates
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveFromOperator
+            targetKey: TargetCoordinates
+            pathfindInPlanning: false
+            range: 8.0
+            removeKeyOnFinish: false
+
+    # 3. Ranged combat
+    - tasks:
+        - !type:HTNCompoundTask
+          task: GunCombatCompound
+
+    # 4. Melee fallback — switch to melee hand first, then attack
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToMeleeOperator
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+
+    # 5. Idle
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
+# Breacher: heal/flee + dual-wields hammer + pistol.
+# Prefers ranged, switches to hammer when gun is empty or out of range.
+- type: htnCompound
+  id: SyndicateBreacherHostileCompound
+  branches:
+    # 1. Heal when critically wounded
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UseItemFromPocketOperator
+            itemTag: Medipen
+
+    # 2. Flee from active threat when critically wounded
+    - preconditions:
+        - !type:LowHealthPrecondition
+          minDamagePercent: 0.55
+        - !type:KeyExistsPrecondition
+          key: TargetCoordinates
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveFromOperator
+            targetKey: TargetCoordinates
+            pathfindInPlanning: false
+            range: 8.0
+            removeKeyOnFinish: false
+
+    # 3. Switch to gun hand and engage at range
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToGunOperator
+        - !type:HTNCompoundTask
+          task: GunCombatCompound
+
+    # 4. Switch to hammer and engage in melee
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:SwitchHandToMeleeOperator
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+
+    # 5. Idle
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound

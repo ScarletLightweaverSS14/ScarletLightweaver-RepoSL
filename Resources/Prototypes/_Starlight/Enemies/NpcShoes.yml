@@ -1,0 +1,36 @@
+# NPC-bound shoes: have NoSlip and cannot be removed by players.
+# NpcBoundClothing cancels strip attempts; Unremoveable(deleteOnDrop) ensures the
+# item deletes on the corpse so it can't be looted after death.
+# These are used on Soviet comrade and Syndicate NPC mobs.
+
+- type: entity
+  parent: ClothingShoesBootsCowboyBlack
+  id: ClothingShoesBootsNpcSoviet
+  suffix: NPC Bound
+  components:
+  - type: NoSlip
+  - type: NpcBoundClothing
+  - type: Unremoveable
+    deleteOnDrop: true
+
+- type: entity
+  parent: ClothingShoesBootsCombat
+  id: ClothingShoesBootsNpcSyndie
+  suffix: NPC Bound
+  components:
+  - type: NoSlip
+  - type: NpcBoundClothing
+  - type: Unremoveable
+    deleteOnDrop: true
+
+- type: entity
+  parent: ClothingShoesBootsCombat
+  id: ClothingShoesBootsNpcVanguard
+  name: vanguard field boots
+  suffix: NPC Bound
+  description: Heavy military boots worn by Red Vanguard soldiers. Bound to the wearer — removing them is not an option.
+  components:
+  - type: NoSlip
+  - type: NpcBoundClothing
+  - type: Unremoveable
+    deleteOnDrop: true

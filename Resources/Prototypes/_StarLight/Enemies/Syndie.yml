@@ -9,8 +9,6 @@
       speedModifier: 5.5
       useSound:
         path: /Audio/Items/crowbar.ogg
-      useSoundOnDoafter: /Audio/_Starlight/Machines/airlock_pry.ogg #SL
-      playSoundOnDoafter: true
     - type: RandomNameList
       datasetId: NamesSyndicate
       prefix: Footsoldier
@@ -158,7 +156,7 @@
         250: Critical
         350: Dead
     - type: Stamina
-      baseCritThreshold: 300
+      critThreshold: 300
     - type: NpcLootBreakOnDeath
       chance: 0.85
     - type: HTN

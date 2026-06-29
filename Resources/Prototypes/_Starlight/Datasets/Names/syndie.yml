@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: NamesSyndicate
+  values:
+    prefix: names-syndicate-dataset-
+    count: 30

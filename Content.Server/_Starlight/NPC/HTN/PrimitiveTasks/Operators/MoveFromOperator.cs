@@ -72,6 +72,13 @@ public sealed partial class MoveFromOperator : HTNOperator, IHtnConditionalShutd
     public string RangeKey = "MovementRange";
 
     /// <summary>
+    /// Fixed safe distance (tiles). When non-zero this overrides the blackboard key lookup,
+    /// so the YAML can specify a flee distance without needing a blackboard entry.
+    /// </summary>
+    [DataField]
+    public float Range = 0f;
+
+    /// <summary>
     /// Do we only need to move into line of sight.
     /// </summary>
     [DataField]
@@ -103,7 +110,8 @@ public sealed partial class MoveFromOperator : HTNOperator, IHtnConditionalShutd
             return (false, null);
 
         var ownerPos = xform.Coordinates;
-        var safeDistance = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
+
+        var safeDistance = Range > 0f ? Range : blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
         if (safeDistance == 0f)
             safeDistance = DefaultSafeDistance;
 
@@ -180,7 +188,7 @@ public sealed partial class MoveFromOperator : HTNOperator, IHtnConditionalShutd
         {
             var threatCoords = blackboard.GetValue<EntityCoordinates>(TargetKey);
             var ownerPos = _transform.GetMoverCoordinates(uid);
-            var safeDistance = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
+            var safeDistance = Range > 0f ? Range : blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
             if (safeDistance == 0f)
                 safeDistance = DefaultSafeDistance;
             fleePos = ComputeFleePos(ownerPos, threatCoords, safeDistance, 0f);
@@ -193,8 +201,9 @@ public sealed partial class MoveFromOperator : HTNOperator, IHtnConditionalShutd
         var comp = _steering.Register(uid, fleePos);
         comp.ArriveOnLineOfSight = StopOnLineOfSight;
 
-        if (blackboard.TryGetValue<float>(RangeKey, out var range, _entManager))
-            comp.Range = range;
+        var compRange = Range > 0f ? Range : blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
+        if (compRange > 0f)
+            comp.Range = compRange;
 
         // Re-use the pre-computed path if available.
         if (blackboard.TryGetValue<PathResultEvent>(PathfindKey, out var result, _entManager))
@@ -219,7 +228,7 @@ public sealed partial class MoveFromOperator : HTNOperator, IHtnConditionalShutd
             var xform = _entManager.GetComponent<TransformComponent>(owner);
             if (xform.Coordinates.TryDistance(_entManager, threatCoords, out var dist))
             {
-                var safeDistance = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
+                var safeDistance = Range > 0f ? Range : blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
                 if (dist >= safeDistance)
                     return HTNOperatorStatus.Finished;
             }
