@@ -5,12 +5,14 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 #region Starlight
+using Content.Shared._Starlight.Weapons.Ranged;
 using Content.Shared._Starlight.Weapons.Ranged.Systems;
 #endregion
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), Access(typeof(SharedGunSystem), typeof(RandomAmmoFillSystem), typeof(MixedAmmoFillSystem))]
+// Starlight — UGLSupportSystem added so it can sync container entities on mode-switch (M90 GL underbarrel)
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), Access(typeof(SharedGunSystem), typeof(RandomAmmoFillSystem), typeof(MixedAmmoFillSystem), typeof(UGLSupportSystem))]
 public sealed partial class BallisticAmmoProviderComponent : Component
 {
     [DataField]

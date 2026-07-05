@@ -1,3 +1,43 @@
+# M90 GL kits — Starlight
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledM90GL
+  name: M90 GL bundle
+  description: "An M90 bullpup carbine with an integrated underbarrel 20mm grenade launcher, bundled with two rifle magazines and six GL rounds."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleM90GrenadeLauncher
+        - id: MagazineRifleFMJ
+          amount: 2
+        - id: GrenadeM90GLBlast
+          amount: 3
+        - id: GrenadeM90GLFrag
+          amount: 3
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledM90GLNukie
+  name: M90 GL nukie bundle
+  description: "An M90 bullpup carbine with an underbarrel 20mm grenade launcher, for the demands of a nuclear operative. Comes with three rifle magazines and eight GL rounds."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleM90GrenadeLauncher
+        - id: MagazineRifleFMJ
+          amount: 3
+        - id: GrenadeM90GLBlast
+          amount: 4
+        - id: GrenadeM90GLFrag
+          amount: 4
+
+# (end M90 GL kits)
+
 - type: entity
   parent: ClothingBackpackDuffelAbductorBundle
   id: ClothingBackpackDuffelAbductorFilled

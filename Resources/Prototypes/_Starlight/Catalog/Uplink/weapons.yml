@@ -1,4 +1,39 @@
 - type: listing
+  id: UplinkM90GL
+  name: uplink-m90-gl-name
+  description: uplink-m90-gl-desc
+  icon: { sprite: Objects/Weapons/Guns/Rifles/carbine.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledM90GL
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 14
+  cost:
+    Telecrystal: 18
+  categories:
+    - UplinkWeaponry
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
+
+- type: listing
+  id: UplinkM90GLNukie
+  name: uplink-m90-gl-nukie-name
+  description: uplink-m90-gl-nukie-desc
+  icon: { sprite: Objects/Weapons/Guns/Rifles/carbine.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledM90GLNukie
+  cost:
+    Telecrystal: 22
+  categories:
+    - UplinkWeaponry
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+
+- type: listing
   id: UplinkUziBundle
   name: uplink-uzi-bundle-name
   description: uplink-uzi-bundle-desc

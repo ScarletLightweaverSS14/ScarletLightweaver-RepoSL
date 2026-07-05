@@ -33,6 +33,7 @@ public abstract partial class SharedItemSwitchSystem : EntitySystem
         SubscribeLocalEvent<ItemSwitchComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<ItemSwitchComponent, GetVerbsEvent<ActivationVerb>>(OnActivateVerb);
         SubscribeLocalEvent<ItemSwitchComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<ItemSwitchComponent, SwitchableActionEvent>(OnSwitchableAction); // Starlight — hotbar action toggle (e.g. M90 GL underbarrel)
 
         SubscribeLocalEvent<ClothingComponent, ItemSwitchedEvent>(UpdateClothingLayer);
     }
@@ -91,6 +92,16 @@ public abstract partial class SharedItemSwitchSystem : EntitySystem
             return;
 
         Switch((ent.Owner, ent.Comp), Next(ent), args.User, predicted: ent.Comp.Predictable);
+    }
+
+    // Starlight — raised when a player uses the hotbar toggle action (e.g. M90 GL underbarrel toggle)
+    private void OnSwitchableAction(Entity<ItemSwitchComponent> ent, ref SwitchableActionEvent args)
+    {
+        if (ent.Comp.States.Count == 0) return;
+        var next = Next(ent);
+        if (ent.Comp.States.TryGetValue(next, out var state) && state.Hiden) return;
+        if (Switch((ent, ent.Comp), next, args.Performer, predicted: ent.Comp.Predictable))
+            args.Handled = true;
     }
 
     private static string Next(Entity<ItemSwitchComponent> ent)
@@ -180,10 +191,21 @@ public abstract partial class SharedItemSwitchSystem : EntitySystem
     {
         if (TryComp(ent, out AppearanceComponent? appearance))
             _appearance.SetData(ent, SwitchableVisuals.Switched, key, appearance);
-        _item.SetHeldPrefix(ent, key);
+        // Starlight — only update the held-prefix when the state defines a sprite;
+        // states without sprites (e.g. M90 GL rifle/grenade modes) should not clear in-hand RSI rendering.
+        if (ent.Comp.States.TryGetValue(key, out var switchState) && switchState.Sprite != null)
+            _item.SetHeldPrefix(ent, key);
 
         VisualsChanged(ent, key);
     }
     private void UpdateClothingLayer(Entity<ClothingComponent> ent, ref ItemSwitchedEvent args)
-        => _clothing.SetEquippedPrefix(ent, args.State, ent.Comp);
+    {
+        // Only update the equipped prefix when the state defines a sprite;
+        // states without sprites would look for e.g. "rifle-equipped-BACKPACK" which doesn't exist.
+        if (!TryComp<ItemSwitchComponent>(ent, out var switcher) ||
+            !switcher.States.TryGetValue(args.State, out var switchState) ||
+            switchState.Sprite == null)
+            return;
+        _clothing.SetEquippedPrefix(ent, args.State, ent.Comp);
+    }
 }

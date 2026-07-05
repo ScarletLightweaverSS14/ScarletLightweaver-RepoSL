@@ -1,0 +1,16 @@
+# Actions for weapon systems
+
+# M90 GL — toggle between rifle and underbarrel 20mm grenade launcher
+- type: entity
+  parent: BaseAction
+  id: ActionM90GLToggleUGL
+  name: Toggle Grenade Launcher
+  description: Switch between rifle mode and the underbarrel 20mm grenade launcher. Load a 20mm GL round first.
+  components:
+  - type: Action
+    useDelay: 0.5
+    icon:
+      sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: blast
+  - type: InstantAction
+    event: !type:SwitchableActionEvent {}

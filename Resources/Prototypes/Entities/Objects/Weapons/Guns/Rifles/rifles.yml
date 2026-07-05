@@ -130,49 +130,84 @@
     zeroVisible: true
   - type: Appearance
 
-#- type: entity # Starlight start, weapon replaced with the Lawbringer
-#  name: M90 GL
-#  parent: [BaseWeaponRifle, BaseSyndicateContraband]
-#  id: WeaponRifleM90GrenadeLauncher
-#  description: "An older bullpup carbine model, with an attached underbarrel grenade launcher.\nFeeds from .20 rifle magazines."
-#  components:
-#  - type: Sprite
-#    sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
-#    layers:
-#    - state: base
-#      map: [ "enum.GunVisualLayers.Base" ]
-#    - state: mag-0
-#      map: [ "enum.GunVisualLayers.Mag" ]
-#  - type: Clothing
-#    sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
-#  - type: ItemSlots
-#    slots:
-#      gun_magazine:
-#        name: Magazine
-#        startingItem: MagazineRifleFMJ
-#        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-#        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-#        priority: 2
-#        whitelist:
-#          tags:
-#          - MagazineRifle
-#        whitelistFailPopup: gun-magazine-whitelist-fail
-#      gun_chamber:
-#        name: Chamber
-#        priority: 1
-#        whitelist:
-#          tags:
-#          - CartridgeRifle
-#  - type: ContainerContainer
-#    containers:
-#      gun_magazine: !type:ContainerSlot ""
-#      gun_chamber: !type:ContainerSlot ""
-#      firing_pin: !type:Container # starlight
-#  - type: MagazineVisuals
-#    magState: mag
-#    steps: 1
-#    zeroVisible: true
-#  - type: Appearance # Starlight end
+- type: entity # Starlight - underbarrel grenade launcher. Toggle with hotbar action.
+  name: M90 GL
+  parent: [BaseWeaponRifle, BaseSyndicateContraband]
+  id: WeaponRifleM90GrenadeLauncher
+  description: "An older bullpup carbine model, with an attached underbarrel 20mm grenade launcher.\nFeeds from .20 rifle magazines. Use the hotbar 'Toggle Grenade Launcher' action to open the underbarrel.\nThe underbarrel accepts 20mm GL rounds: blast and frag.\nPress Z to eject a spent round while in grenade launcher mode."
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot ""
+      gun_chamber: !type:ContainerSlot ""
+      firing_pin: !type:Container # starlight
+      ballistic-ammo: !type:Container
+  # ContainerFill not overridden — inherits firing_pin: FiringPin from BaseWeaponRifle.
+  # The underbarrel launcher starts empty; load GL rounds manually or buy a kit from the uplink.
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: ActionGrant
+    actions:
+    - ActionM90GLToggleUGL
+  - type: ItemActionGrant
+    actions:
+    - ActionM90GLToggleUGL
+  # Mode toggle via hotbar action only (no Z/E key conflicts).
+  # UGLSupportSystem patches GunComponent fields in-place on each switch.
+  - type: ItemSwitch
+    state: rifle
+    onUse: false
+    onActivate: false
+    states:
+      rifle: !type:ItemSwitchState
+        verb: m90-gl-switch-rifle
+        # No soundStateActivate — prevents bolt clunk on initial spawn
+        components:
+        - type: ChamberMagazineAmmoProvider
+          soundRack:
+            path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+      grenade: !type:ItemSwitchState
+        verb: m90-gl-switch-grenade
+        soundStateActivate:
+          path: /Audio/Effects/thudswoosh.ogg
+        components:
+        - type: BallisticAmmoProvider
+          capacity: 1
+          whitelist:
+            tags:
+            - GrenadeM90GL
+          soundInsert:
+            path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
 
 - type: entity
   name: Lecter

@@ -7,7 +7,8 @@ namespace Content.Shared.Weapons.Ranged.Components;
 /// Chamber + mags in one package. If you need just magazine then use <see cref="MagazineAmmoProviderComponent"/>
 /// </summary>
 [RegisterComponent, AutoGenerateComponentState]
-[Access(typeof(SharedGunSystem))]
+// Starlight — UGLSupportSystem sets BoltClosed when M90 GL switches back to rifle mode
+[Access(typeof(SharedGunSystem), typeof(Content.Shared._Starlight.Weapons.Ranged.UGLSupportSystem))]
 public sealed partial class ChamberMagazineAmmoProviderComponent : MagazineAmmoProviderComponent
 {
     /// <summary>

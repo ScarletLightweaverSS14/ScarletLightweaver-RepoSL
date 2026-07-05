@@ -282,6 +282,9 @@
   id: Grenade120mm # Ammo: Magazine120mmGrenadeBlast, ShuttleGunNTSFCyerxa120mm
 
 - type: Tag
+  id: GrenadeM90GL # Ammo: GrenadeM90GLBlast/Frag/Baton/Flash/Teargas, WeaponRifleM90GrenadeLauncher underbarrel
+
+- type: Tag
   id: GygaxArmor
 
 - type: Tag

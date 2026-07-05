@@ -6,10 +6,13 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
+// Starlight — UGLSupportSystem needs write access to patch gun properties on M90 GL mode switch
+using Content.Shared._Starlight.Weapons.Ranged;
+
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem))]
+[Access(typeof(SharedGunSystem), typeof(UGLSupportSystem))]
 public sealed partial class GunComponent : Component
 {
     #region Sound

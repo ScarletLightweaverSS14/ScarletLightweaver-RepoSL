@@ -1,3 +1,8 @@
+uplink-m90-gl-name = M90 GL bundle
+uplink-m90-gl-desc = An M90 carbine with an integrated underbarrel 20mm grenade launcher. Bundled with two rifle mags and six 20mm rounds (3× blast, 3× frag).
+uplink-m90-gl-nukie-name = M90 GL nukie bundle
+uplink-m90-gl-nukie-desc = An M90 carbine for nuclear operatives. Three rifle mags and eight 20mm rounds (4× blast, 4× frag) — enough firepower for a station raid.
+
 uplink-contortionist-jumpsuit-name = Contortionist's Jumpsuit
 uplink-contortionist-jumpsuit-desc = It looks like an atmos jumpsuit, but it really is. This jumpsuit allows the agent to slip through the vents.
 uplink-marriage-axe-name = Marriage axe
