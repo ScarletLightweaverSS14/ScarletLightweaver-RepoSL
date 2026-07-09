@@ -1,0 +1,168 @@
+# Phase 1 Military Raid expedition gear.
+# Mirrors the SovietComradeGear pattern: a base clothing loadout, optional belts,
+# and weapon-specific children composed via parent.
+
+#region base clothing
+- type: startingGear
+  id: MilitaryComradeGear
+  equipment:
+    head: ClothingHeadHatUshanka
+    jumpsuit: ClothingUniformJumpsuitSoviet
+    outerClothing: ClothingOuterArmorBasic # light vest
+    shoes: ClothingShoesBootsCowboyBlack
+    id: SovietIdCard
+
+# heavier troops swap to a helmet + bulletproof (heavy ballistic) vest
+- type: startingGear
+  id: MilitaryComradeGearHeavy
+  parent: MilitaryComradeGear
+  equipment:
+    head: ClothingHeadHelmetBasic
+    outerClothing: ClothingOuterArmorBulletproof
+
+# utility belt with basic supplies
+- type: startingGear
+  id: MilitaryComradeGearBelt
+  equipment:
+    belt: ClothingSovietBelt
+  storage:
+    belt:
+    - RadioHandheld
+    - Flare
+    - Flare
+#endregion
+
+#region comrade weapon variants
+#sabre (melee)
+- type: startingGear
+  id: MilitaryGearSabre
+  parent: MilitaryComradeGear
+  inhand:
+  - Cutlass
+
+#throwing knives (melee/ranged thrown)
+- type: startingGear
+  id: MilitaryGearKnife
+  parent: [MilitaryComradeGear, MilitaryComradeGearBelt]
+  inhand:
+  - ThrowingKnife
+  storage:
+    belt:
+    - ThrowingKnife
+    - ThrowingKnife
+
+#shotgun (SGG "Bojevec" CQB stand-in)
+- type: startingGear
+  id: MilitaryGearShotgun
+  parent: MilitaryComradeGear
+  equipment:
+    belt: ClothingSovietBandolier
+  inhand:
+  - WeaponShotgunCombat
+
+#pistol (Modified Makarov)
+- type: startingGear
+  id: MilitaryGearPistol
+  parent: [MilitaryComradeGear, MilitaryComradeGearBelt]
+  inhand:
+  - WeaponPistolMakarov
+
+#rifle (AKMSM stand-in)
+- type: startingGear
+  id: MilitaryGearRifle
+  parent: [MilitaryComradeGearHeavy, MilitaryComradeGearBelt]
+  inhand:
+  - WeaponRifleAk
+
+#marksman (Mosin-Nagant)
+- type: startingGear
+  id: MilitaryGearMarksman
+  parent: [MilitaryComradeGear, MilitaryComradeGearBelt]
+  inhand:
+  - WeaponSniperMosin
+
+#combat medic
+- type: startingGear
+  id: MilitaryGearMedic
+  parent: [MilitaryComradeGearHeavy, MilitaryComradeGearBelt]
+  inhand:
+  - WeaponRifleAk
+  storage:
+    belt:
+    - CombatMedipen
+    - CombatMedipen
+    - RadioHandheld
+#endregion
+
+#region SSF marines (elite)
+- type: startingGear
+  id: MilitarySSFMarineGear
+  equipment:
+    head: ClothingHeadHelmetMerc
+    jumpsuit: ClothingUniformJumpsuitSoviet
+    outerClothing: ClothingOuterArmorSSFMarine
+    shoes: ClothingShoesBootsCowboyBlack
+    belt: ClothingSovietBelt
+    id: SovietIdCard
+  storage:
+    belt:
+    - RadioHandheld
+
+- type: startingGear
+  id: MilitarySSFMarineGearRifle
+  parent: MilitarySSFMarineGear
+  inhand:
+  - WeaponRifleAk
+
+- type: startingGear
+  id: MilitarySSFMarineGearLMG
+  parent: MilitarySSFMarineGear
+  inhand:
+  - WeaponLightMachineGunDP28
+#endregion
+
+#region ranks & bosses
+#officer
+- type: startingGear
+  id: MilitaryOfficerGear
+  parent: MilitaryComradeGearHeavy
+  equipment:
+    belt: ClothingSovietBelt
+  inhand:
+  - WeaponPistolMakarov
+  storage:
+    belt:
+    - RadioHandheld
+    - CombatMedipen
+
+#SSF commander (boss)
+- type: startingGear
+  id: SSFCommanderGear
+  parent: MilitarySSFMarineGear
+  inhand:
+  - WeaponRifleAk
+  storage:
+    belt:
+    - RadioHandheld
+    - CombatMedipen
+    - CombatMedipen
+
+#PPSh "Bullet Hose" veteran (rare boss)
+- type: startingGear
+  id: PPShVeteranGear
+  parent: MilitarySSFMarineGear
+  inhand:
+  - WeaponSubMachineGunPPSH
+
+#RPG-7 specialist (rare boss) - launcher in hand, sidearm stowed
+- type: startingGear
+  id: RPGSpecialistGear
+  parent: MilitaryComradeGearHeavy
+  equipment:
+    belt: ClothingSovietBelt
+  inhand:
+  - WeaponLauncherRocket
+  storage:
+    belt:
+    - WeaponPistolMakarov
+#endregion

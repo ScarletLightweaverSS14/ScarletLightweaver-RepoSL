@@ -69,6 +69,67 @@
   configs:
     DefenseStructure: WeaponTurretSyndicateBroken
 
+# Military Raid - highest-risk expedition. Fortified installation of soldiers,
+# elite SSF marines and rare bosses. Phase 1 reuses standard combat AI.
+- type: salvageFaction
+  id: Military
+  desc: salvage-faction-military
+  biomes:
+    - Snow
+    - Caves
+    - Lava
+    - Grasslands
+  entries:
+    #melee
+    - proto: MobMilitaryComradeKnife
+      cost: 4
+    - proto: MobMilitaryComradeSabre
+      cost: 6
+    #shotgun / cqb
+    - proto: MobMilitaryComradeShotgun
+      cost: 10
+    #pistol
+    - proto: MobMilitaryComradePistol
+      cost: 10
+      prob: 0.9
+    #rifle - the backbone
+    - proto: MobMilitaryComradeRifle
+      cost: 16
+    #marksman
+    - proto: MobMilitaryComradeMarksman
+      cost: 20
+      prob: 0.5
+    #combat medic
+    - proto: MobMilitaryComradeMedic
+      cost: 22
+      prob: 0.4
+    #officer
+    - proto: MobMilitaryOfficer
+      cost: 40
+      prob: 0.5
+    #elite marines
+    - proto: MobSSFMarine
+      cost: 45
+      prob: 0.5
+    - proto: MobSSFMarineLMG
+      cost: 55
+      prob: 0.35
+    #bosses
+    - proto: MobSSFCommander
+      cost: 90
+      prob: 0.25
+    - proto: MobPPShVeteran
+      cost: 85
+      prob: 0.15
+    - proto: MobRPGSpecialist
+      cost: 85
+      prob: 0.15
+  difficulties:
+    - Difficult
+    - Impossible
+  configs:
+    DefenseStructure: WeaponTurretSyndicate
+
 - type: salvageFaction
   id: SovietImpossible
   desc: salvage-faction-elder

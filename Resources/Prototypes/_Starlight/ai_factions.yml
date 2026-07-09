@@ -63,6 +63,28 @@
     - Pirate # starlight
 
 - type: npcFaction
+  id: Military # starlight - Military Raid expedition
+  hostile:
+    - NanoTrasen
+    - NanoTrasenSilicon
+    - SimpleHostile
+    - Xeno
+    - PetsNT
+    - Syndicate
+    - SyndicateSilicon
+    - DungeonSyndicate
+    - DungeonSoviet
+    - Zombie
+    - Revolutionary
+    - Abyss
+    - Vampire
+    - Changeling
+    - AllHostile
+    - Gorilla
+    - Abductor
+    - Pirate
+
+- type: npcFaction
   id: Gorilla
   hostile:
     - NanoTrasen

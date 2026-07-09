@@ -1,0 +1,187 @@
+# Phase 1 Military Raid expedition mobs.
+# All mobs reuse the existing SimpleHumanoidHostileCompound AI (custom per-role HTNs
+# are a later phase). Distinction comes from gear, armor and role loadouts.
+
+#region SSF marine armor
+# Elite plate: ~50% resistance to most damage, intentionally weaker vs Heat (~35%)
+# to provide counterplay, per the design doc. Reuses the bulletproof vest sprite.
+- type: entity
+  parent: ClothingOuterArmorBulletproof
+  id: ClothingOuterArmorSSFMarine
+  name: SSF marine plate
+  suffix: SSF, Do Not Map
+  description: Heavy composite plate issued to Space Force Marines. Excellent all-round protection, but its ablative layer copes poorly with sustained heat.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Cold: 0.5
+        Shock: 0.5
+        Caustic: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+#endregion
+
+#region base comrade
+- type: entity
+  name: comrade
+  parent: BaseMobHuman
+  id: MobMilitaryComrade
+  categories: [ Spawner ]
+  components:
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 1.5
+    - type: NpcFactionMember
+      factions:
+        - Military
+    - type: Loadout
+      prototypes:
+        - MilitaryGearRifle
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+#endregion
+
+#region comrade variants
+- type: entity
+  suffix: Sabre
+  parent: MobMilitaryComrade
+  id: MobMilitaryComradeSabre
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitaryGearSabre
+
+- type: entity
+  suffix: Knife
+  parent: MobMilitaryComrade
+  id: MobMilitaryComradeKnife
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitaryGearKnife
+
+- type: entity
+  suffix: Shotgun
+  parent: MobMilitaryComrade
+  id: MobMilitaryComradeShotgun
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitaryGearShotgun
+
+- type: entity
+  suffix: Pistol
+  parent: MobMilitaryComrade
+  id: MobMilitaryComradePistol
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitaryGearPistol
+
+- type: entity
+  suffix: Rifle
+  parent: MobMilitaryComrade
+  id: MobMilitaryComradeRifle
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitaryGearRifle
+
+- type: entity
+  name: marksman
+  suffix: Marksman
+  parent: MobMilitaryComrade
+  id: MobMilitaryComradeMarksman
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitaryGearMarksman
+
+- type: entity
+  name: combat medic
+  suffix: Medic
+  parent: MobMilitaryComrade
+  id: MobMilitaryComradeMedic
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitaryGearMedic
+#endregion
+
+#region SSF marines (elite)
+- type: entity
+  name: SSF marine
+  parent: MobMilitaryComrade
+  id: MobSSFMarine
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Military
+    - type: Loadout
+      prototypes:
+        - MilitarySSFMarineGearRifle
+
+- type: entity
+  name: SSF marine
+  suffix: LMG
+  parent: MobSSFMarine
+  id: MobSSFMarineLMG
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitarySSFMarineGearLMG
+#endregion
+
+#region ranks & bosses
+- type: entity
+  name: officer
+  suffix: Officer
+  parent: MobMilitaryComrade
+  id: MobMilitaryOfficer
+  components:
+    - type: Loadout
+      prototypes:
+        - MilitaryOfficerGear
+
+- type: entity
+  name: SSF commander
+  suffix: Boss
+  parent: MobSSFMarine
+  id: MobSSFCommander
+  components:
+    - type: Loadout
+      prototypes:
+        - SSFCommanderGear
+
+- type: entity
+  name: PPSh veteran
+  suffix: Rare Boss
+  parent: MobSSFMarine
+  id: MobPPShVeteran
+  components:
+    - type: Loadout
+      prototypes:
+        - PPShVeteranGear
+
+- type: entity
+  name: RPG-7 specialist
+  suffix: Rare Boss
+  parent: MobMilitaryComrade
+  id: MobRPGSpecialist
+  components:
+    - type: Loadout
+      prototypes:
+        - RPGSpecialistGear
+#endregion
