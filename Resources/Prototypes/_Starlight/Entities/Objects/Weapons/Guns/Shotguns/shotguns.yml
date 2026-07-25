@@ -456,3 +456,21 @@
   - type: Appearance
   - type: StaticPrice
     price: 1
+
+- type: entity
+  name: SPAS-12
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponShotgunspas12
+  description: A semi automatic shotgun with tactical furniture and a seven-shell capacity underneath.
+  components:
+  - type: Item
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/cshotgun_inhands_64x.rsi
+  - type: Gun
+    spread: 20
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/spas12icons.rsi
+  - type: Clothing
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/spas12icons.rsi
+  - type: GunRequiresWield
+  - type: BallisticAmmoProvider
+    capacity: 7

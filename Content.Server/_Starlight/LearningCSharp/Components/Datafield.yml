@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckStarTalisman
+  name: star talisman
+  description: Twinkles like a star.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Neck/Misc/star_amulet.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Neck/Misc/star_amulet.rsi
+  - type: DataFieldTemplate
+    name: "Inanis' Talisman"
