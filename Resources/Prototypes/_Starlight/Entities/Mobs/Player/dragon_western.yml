@@ -163,7 +163,7 @@
   parent: BaseAction
   id: ActionDragonRoar
   name: "[color=orange]Dragon's Roar[/color]"
-  description: Unleash a terrifying roar. Nearby creatures are gripped by primal dread — slowed and marked as prey of an apex predator.
+  description: Unleash a terrifying roar. Nearby creatures are gripped by primal dread. Slowed and marked as prey of an apex predator.
   components:
   - type: Action
     icon: { sprite: _Starlight/Interface/Actions/dragon_western.rsi, state: roar }
