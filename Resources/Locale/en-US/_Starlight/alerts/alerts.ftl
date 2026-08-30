@@ -1,3 +1,6 @@
+alerts-predator-hunt-name = [color=red]Predator Hunt[/color]
+alerts-predator-hunt-desc = An [color=red]apex predator[/color] has your scent. It is hunting you and it knows exactly where you are. Your legs feel slow, heavy with dread.
+western-dragon-roar-emote = The western dragon lets out a bone-shaking roar!
 alerts-cards-name = [color=lightblue]Challenge available[/color]
 alerts-cards-desc = You're [color=lightblue]facing a choice[/color]. Click the alert to see your available paths. If you close it, you won't see this again for the rest of the round.
 alerts-cybernetic-disruption-name = [color=red]Cybernetics disrupted[/color]

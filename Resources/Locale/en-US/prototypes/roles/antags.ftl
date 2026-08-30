@@ -43,6 +43,7 @@ roles-antag-thief-objective = Add some NT property to your personal collection w
 
 roles-antag-dragon-name = Space Dragon
 roles-antag-dragon-objective = Create a carp army to take over this quadrant.
+roles-antag-western-dragon-objective = Protect your horde! Destroy any who dare claim what is yours.
 
 # Starlight start
 roles-antag-changeling-description = Use your shapeshifting abilities to complete your objectives.

@@ -315,6 +315,9 @@
   id: Inedible # Prevents something from being eaten using DevourSystem, but only if on the direct target (e.g. doesn't apply if in inventory of target)
 
 - type: Tag
+  id: WesternDragonFirePatch
+
+- type: Tag
   id: InsulatedFabric
 
 - type: Tag

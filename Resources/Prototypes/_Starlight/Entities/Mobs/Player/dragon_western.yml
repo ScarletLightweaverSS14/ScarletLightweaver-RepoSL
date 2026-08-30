@@ -1,0 +1,238 @@
+- type: entity
+  parent: BaseMobDragon
+  id: DragonWesternDefault
+  name: western dragon
+  description: An ancient and colossal leviathan, far more powerful than its space-dwelling kin. Its very presence warps the air around it.
+  components:
+  # No Dragon component — no rifts, no rift death timer
+  - type: GhostRole
+    name: ghost-role-information-western-dragon-name
+    description: ghost-role-information-western-dragon-description
+    rules: ghost-role-information-western-dragon-rules
+    mindRoles:
+    - MindRoleWesternDragon
+  - type: ActionGun
+    action: ActionWesternDragonsBreath
+    gunProto: WesternDragonsBreathGun
+  - type: DragonRoar
+  - type: ActionGrant
+    actions:
+    - ActionWesternFireTrail
+    - ActionDragonRoar
+    - ActionWingDash
+  - type: RandomSprite
+    available: []
+  - type: Sprite
+    sprite: _Starlight/Mobs/Carp/dragon_western.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Critical:
+        Base: alive
+      Dead:
+        Base: alive
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Critical
+      1800: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      900: 0.9
+      1100: 0.7
+      1300: 0.5
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+    baseWeightlessModifier: 1.5
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Piercing: 40
+        Slash: 40
+  - type: Damageable
+    damageModifierSet: DragonResistances
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatDragon
+      amount: 8
+
+# --- Western Dragon Gun ---
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WesternDragonsBreathGun
+  name: western dragon's lung
+  description: Ancient fire, hotter and wider than anything the void has seen.
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 8
+    rechargeSound:
+      path: /Audio/Animals/space_dragon_roar.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileWesternDragonsBreath
+    capacity: 1
+    count: 1
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Animals/space_dragon_roar.ogg
+    soundEmpty: null
+    projectileSpeed: 2.5
+
+# --- Western Dragon Breath Projectile ---
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: ProjectileWesternDragonsBreath
+  name: western dragon's breath
+  description: A torrent of ancient, searing flame.
+  components:
+  - type: PointLight
+    color: "#FF6A00"
+    radius: 5.0
+    energy: 8.0
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
+  - type: IgnitionSource
+    temperature: 1400
+    ignited: true
+  - type: IgniteOnCollide
+    fireStacks: 10.0
+  - type: RepeatingTrigger
+    delay: 0.2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 10
+    intensitySlope: 1
+    maxIntensity: 3
+    maxTileBreak: 0
+    canCreateVacuum: false
+    deleteAfterExplosion: false
+    repeatable: true
+  - type: TimedDespawn
+    lifetime: 2.0
+
+# --- Western Dragon Breath Action ---
+- type: entity
+  parent: BaseAction
+  id: ActionWesternDragonsBreath
+  name: "[color=orange]Ancient Flame[/color]"
+  description: Unleash a torrent of searing ancient fire, leaving a long deadly trail of burning destruction!
+  components:
+  - type: Action
+    icon: { sprite: Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
+    itemIconStyle: BigAction
+    useDelay: 8
+    priority: 2
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:ActionGunShootEvent
+  - type: EorgPreventAction
+
+# --- Wing Dash Action ---
+- type: entity
+  parent: BaseAction
+  id: ActionWingDash
+  name: "[color=cyan]Wing Surge[/color]"
+  description: Beat your massive wings and launch yourself forward in the direction you face. Heavy, but powerful.
+  components:
+  - type: Action
+    icon: { sprite: _Starlight/Interface/Actions/dragon_western.rsi, state: wing_surge }
+    useDelay: 12
+    priority: 2
+  - type: InstantAction
+    event: !type:WingDashEvent
+      dashDistance: 7
+  - type: EorgPreventAction
+
+# --- Dragon Roar Action ---
+- type: entity
+  parent: BaseAction
+  id: ActionDragonRoar
+  name: "[color=orange]Dragon's Roar[/color]"
+  description: Unleash a terrifying roar. Nearby creatures are gripped by primal dread — slowed and marked as prey of an apex predator.
+  components:
+  - type: Action
+    icon: { sprite: _Starlight/Interface/Actions/dragon_western.rsi, state: roar }
+    useDelay: 45
+    priority: 3
+  - type: InstantAction
+    event: !type:DragonRoarEvent {}
+  - type: EorgPreventAction
+
+# --- Persistent fire patch entity (extinguishable, examined, natural death) ---
+- type: entity
+  id: WesternDragonFirePatch
+  name: dragonfire
+  description: A searing patch of ancient dragonfire. It will eventually burn out on its own, or can be extinguished.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - WesternDragonFirePatch
+  - type: Sprite
+    sprite: Effects/fire.rsi
+    layers:
+    - state: "2"
+      shader: unshaded
+  - type: PointLight
+    color: "#FF4500"
+    radius: 2.0
+    energy: 4.0
+  - type: Flammable
+    fireStacks: 8
+  - type: IgnitionSource
+    temperature: 700
+    ignited: true
+  - type: IgniteOnCollide
+    fireStacks: 2.0
+  - type: TimedDespawn
+    lifetime: 45
+
+# --- Roar red glow effect (brief, spawns at humanoid positions) ---
+- type: entity
+  id: WesternDragonRoarGlowEffect
+  name: predator sense
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: "#FF0000"
+    radius: 2.5
+    energy: 6.0
+  - type: TimedDespawn
+    lifetime: 1.5
+
+# --- Fire Trail Action ---
+- type: entity
+  parent: BaseAction
+  id: ActionWesternFireTrail
+  name: "[color=red]Inferno Trail[/color]"
+  description: Slam your tail down and ignite the ground in a wide swathe of lingering fire ahead of you.
+  components:
+  - type: Action
+    icon: { sprite: _Starlight/Interface/Actions/dragon_western.rsi, state: fire_trail }
+    itemIconStyle: BigAction
+    useDelay: 20
+    priority: 1
+  - type: TargetAction
+    range: 6
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: WesternDragonFirePatch
+        amount: 1
+  - type: EorgPreventAction

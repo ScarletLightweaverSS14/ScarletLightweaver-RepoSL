@@ -1,0 +1,7 @@
+- type: antag
+  id: WesternDragon
+  name: ghost-role-information-western-dragon-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-western-dragon-objective
+  playTimeTracker: AntagWesternDragon

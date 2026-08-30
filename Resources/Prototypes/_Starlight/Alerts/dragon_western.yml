@@ -1,0 +1,7 @@
+- type: alert
+  id: PredatorHunt
+  icons:
+  - sprite: /Textures/_Starlight/Interface/Alerts/predator_hunt.rsi
+    state: Dragon_Hunt
+  name: alerts-predator-hunt-name
+  description: alerts-predator-hunt-desc

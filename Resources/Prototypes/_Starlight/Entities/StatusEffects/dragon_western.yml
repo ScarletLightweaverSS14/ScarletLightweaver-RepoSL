@@ -1,0 +1,12 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectPredatorHunt
+  name: Predator Hunt
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+  - type: PredatorHunt
+  - type: StatusEffectAlert
+    alert: PredatorHunt

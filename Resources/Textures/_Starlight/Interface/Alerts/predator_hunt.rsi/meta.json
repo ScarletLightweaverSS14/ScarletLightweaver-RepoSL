@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-4.0",
+  "copyright": "State based copyrights",
+  "states": [
+    {
+      "name": "Dragon_Hunt",
+      "copyright": "Sprited by BlackAures1 (GITHUB) from dragon survival https://github.com/BlackAures1/DragonSurvival/tree/master edited by ScarletLightweaverSS14 (GITHUB) to match RSI dimension requirements"
+    }
+  ]
+}

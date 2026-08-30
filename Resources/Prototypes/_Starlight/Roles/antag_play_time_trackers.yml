@@ -91,6 +91,10 @@
   name: ghost-role-information-rat-king-name
 
 - type: playTimeTracker
+  id: AntagWesternDragon
+  name: ghost-role-information-western-dragon-name
+
+- type: playTimeTracker
   id: AntagSSF
   name: ghost-role-information-soviet-marine-name
 

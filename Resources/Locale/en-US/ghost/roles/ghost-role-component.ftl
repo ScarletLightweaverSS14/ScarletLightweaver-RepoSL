@@ -147,6 +147,10 @@ ghost-role-information-space-dragon-description = Call in 3 carp rifts and take 
 ghost-role-information-space-dragon-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with all your summoned carp.
 ghost-role-information-space-dragon-summoned-carp-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with your dragon and its allies.
 
+ghost-role-information-western-dragon-name = Western Dragon
+ghost-role-information-western-dragon-description = You are an ancient western dragon who has made this expedition planet your home. Guard your horde with fire and fury. No allies, no rifts, just raw power.
+ghost-role-information-western-dragon-rules = You are a [color={role-type-solo-antagonist-color}][bold]{role-type-solo-antagonist-name}[/bold][/color]. Your one objective: Protect your horde! Destroy any who dare touch what is yours.
+
 ghost-role-information-space-dragon-dungeon-description = Defend the expedition dungeon with your fishy comrades!
 ghost-role-information-space-dragon-dungeon-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with all dungeon mobs.
 
