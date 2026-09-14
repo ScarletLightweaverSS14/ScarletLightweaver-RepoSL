@@ -1,6 +1,6 @@
 - type: entity
   name: terror spider
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBaseAntag, MobRespirator, BaseSlicingRefinable ]
   id: MobTerrorSpider
   description: a deadly hybrid of a giant spider and xenomorph.
   abstract: true
@@ -23,6 +23,24 @@
     - Xenomind
   - type: ThermalVision
     useAlternativeShader: true
+  - type: Barotrauma
+    maxDamage: 500
+    damage:
+      types:
+        Blunt: 0.2
+  - type: PressureProtection
+    highPressureModifier: 20
+    highPressureMultiplier: 1000
+  - type: TemperatureDamage
+    heatDamageThreshold: 400
+    coldDamageThreshold: 220
+    coldDamage:
+      types:
+        Cold: 0.1
+    heatDamage:
+      types:
+        Heat: 1.5
+  - type: TerrorSpider
   - type: OptionsVisualizer
     visuals:
       base:
@@ -58,8 +76,8 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSpider
       amount: 4
   - type: CombatMode
@@ -81,12 +99,11 @@
     damage:
       types:
         Piercing: 18
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 30
+  - type: Solution
+    id: melee
+    solution:
+      maxVol: 30
   - type: SolutionRegeneration
-    solution: melee
     generated:
       reagents:
       - ReagentId: Mechanotoxin
@@ -104,7 +121,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: CopperBlood
-        Quantity: 150
+        Quantity: 300
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -143,6 +160,7 @@
     name: ghost-role-terror-spider-name
     description: ghost-role-terror-spider-description
     rules: ghost-role-terror-spider-rules
+    mindRoles: [MindRoleGhostRoleTeamAntagonist]
     raffle:
       settings: short
   - type: GhostTakeoverAvailable

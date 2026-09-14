@@ -138,6 +138,7 @@
     - !type:SpeciesRequirement
       species:
         - Felionoid
+        - NeoFelionoid
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -162,6 +163,7 @@
     - !type:SpeciesRequirement
       species:
         - Vulpkanin
+        - NeoVulpkanin
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -185,6 +187,8 @@
       species:
         - Avali
         - Resomi
+        - NeoAvali
+        - NeoResomi
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -229,6 +233,7 @@
     - !type:SpeciesRequirement
       species:
         - Dwarf
+        - NeoDwarf
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -251,6 +256,7 @@
     - !type:SpeciesRequirement
       species:
         - Human
+        - NeoHuman
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -273,6 +279,7 @@
     - !type:SpeciesRequirement
       species:
         - Vox
+        - NeoVox
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -295,6 +302,7 @@
     - !type:SpeciesRequirement
       species:
         - Reptilian
+        - NeoReptilian
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -317,6 +325,7 @@
     - !type:SpeciesRequirement
       species:
         - Shadekin
+        - NeoKin
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -339,6 +348,7 @@
     - !type:SpeciesRequirement
       species:
         - SlimePerson
+        - NeoSlimePerson
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -361,6 +371,7 @@
     - !type:SpeciesRequirement
       species:
         - Cyclorite
+        - NeoCyclorite
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -383,6 +394,7 @@
     - !type:SpeciesRequirement
       species:
         - Diona
+        - NeoDiona
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -410,6 +422,7 @@
     - !type:SpeciesRequirement
       species:
         - Moth
+        - NeoMoth
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -432,6 +445,7 @@
     - !type:SpeciesRequirement
       species:
         - Thaven
+        - NeoThaven
       inverted: true
     - !type:TraitsRequirement
       traits:
@@ -454,6 +468,29 @@
     - !type:SpeciesRequirement
       species:
         - Lagomorph
+        - NeoLagomorph
+      inverted: true
+    - !type:TraitsRequirement
+      traits:
+        - Iterator
+      inverted: true
+
+- type: trait
+  id: Squeakish
+  name: trait-language-squeakish-name
+  description: trait-language-squeakish-desc
+  category: LanguageTraits
+  cost: 2
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - Squeakish
+      languagesUnderstood:
+        - Squeakish
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - Rodentia
       inverted: true
     - !type:TraitsRequirement
       traits:

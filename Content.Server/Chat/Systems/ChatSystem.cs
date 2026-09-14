@@ -1,4 +1,3 @@
-using System.Collections.Immutable;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -9,7 +8,6 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Prototypes;
-using Content.Server.Starlight.TTS;
 using Content.Server.Station.Systems;
 using Content.Shared._Starlight.Language;
 using Content.Shared._Starlight.Speech;
@@ -27,10 +25,7 @@ using Content.Shared.Players.RateLimiting;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 // Starlight Start
-using Content.Shared.Speech;
 using Content.Shared.Station.Components;
-using Content.Shared.Whitelist;
-using Npgsql.Replication.PgOutput.Messages;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -43,14 +38,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 // Starlight Start
-using Content.Shared.Speech;
-using Content.Server._Starlight.Language;
 using Content.Shared._Starlight.Chat;
-using Content.Shared._Starlight.Language;
 using Content.Shared._Starlight.Language.Systems;
-using Content.Shared.Popups;
 using Content.Shared._Starlight.Radio;
-using Content.Server.Radio.EntitySystems;
+using Content.Server._Starlight.TextToSpeech;
 // Starlight End
 
 namespace Content.Server.Chat.Systems;
@@ -62,23 +53,23 @@ namespace Content.Server.Chat.Systems;
 /// </summary>
 public sealed partial class ChatSystem : SharedChatSystem
 {
-    [Dependency] private readonly IReplayRecordingManager _replay = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IChatSanitizationManager _sanitizer = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
-    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly LanguageSystem _language = default!; // Starlight
-    [Dependency] private readonly SharedPopupSystem _popups = default!; // Starlight
+    [Dependency] private IReplayRecordingManager _replay = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IChatSanitizationManager _sanitizer = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ReplacementAccentSystem _wordreplacement = default!;
+    [Dependency] private ExamineSystemShared _examineSystem = default!;
+    [Dependency] private LanguageSystem _language = default!; // Starlight
+    [Dependency] private SharedPopupSystem _popups = default!; // Starlight
 
     public const float DefaultObfuscationFactor = 0.2f; // Percentage of symbols in a whispered message that can be seen even by "far" listeners - Starlight
     public readonly Color DefaultSpeakColor = Color.LightGray; // Starlight
@@ -219,7 +210,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         LanguagePrototype language;
 
         if (message.Text.StartsWith(SharedLanguageSystem.ChatPrefixChar))
+        {
             language = _language.GetLanguageFromPrefix(source, ref message.Text, out _, true);
+            // remove prefix from tts property. luckily this is being done before anything else so i get to just set it directly, yay me!
+            message.Tts = message.Text;
+        }
         else language = languageOverride ?? _language.GetLanguage(source);
         // Starlight end
 
@@ -477,7 +472,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        if (!EntityManager.TryGetComponent<StationDataComponent>(station, out var stationDataComp)) return;
+        if (!TryComp<StationDataComponent>(station, out var stationDataComp)) return;
 
         var filter = _stationSystem.GetInStation(stationDataComp);
 
@@ -630,7 +625,10 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (session.AttachedEntity is not { Valid: true } listener) // Starlight-edit: Languages
                 continue;
 
-            if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
+            // Moffstation - Start - Radio Host, hide chat messages from station radio
+            var rangeCheck = MessageRangeCheck(session, data, range);
+            if (rangeCheck == MessageRangeCheckResult.Disallowed)
+            // Moffstation - End
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
             // Starlight - Start
@@ -669,7 +667,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-unknown-wrap-message", string.Empty, result, language, obfuscated);
             }
 
-            _chatManager.ChatMessageToOne(ChatChannel.Whisper, result, wrappedMessage, source, false, session.Channel);
+            _chatManager.ChatMessageToOne(ChatChannel.Whisper, result, wrappedMessage, source, rangeCheck == MessageRangeCheckResult.HideChat, session.Channel); // Moffstation - Radio Host, hide chat messages from station radio
             // Starlight - End
         }
 

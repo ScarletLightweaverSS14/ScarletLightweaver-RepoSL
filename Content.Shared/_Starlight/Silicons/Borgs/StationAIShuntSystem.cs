@@ -18,18 +18,18 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Starlight.Silicons.Borgs;
 
-public sealed class StationAIShuntSystem : EntitySystem
+public sealed partial class StationAIShuntSystem : EntitySystem
 {
 
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedSiliconLawSystem _siliconLaw = default!;
-    [Dependency] private readonly FollowerSystem _follower = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly StationAiVisionSystem _vision = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedActionsSystem _actionSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedSiliconLawSystem _siliconLaw = default!;
+    [Dependency] private FollowerSystem _follower = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private StationAiVisionSystem _vision = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
 
     public override void Initialize()
     {
@@ -42,6 +42,7 @@ public sealed class StationAIShuntSystem : EntitySystem
 
         SubscribeLocalEvent<StationAIShuntThroughComponent, GetVerbsEvent<AlternativeVerb>>(GetAltVerbs);
         SubscribeLocalEvent<StationAIShuntThroughComponent, FindShuntTargetEvent>(OnFindShuntTarget);
+        InitializeReconnect();
     }
 
     #region Actions
@@ -50,7 +51,7 @@ public sealed class StationAIShuntSystem : EntitySystem
         if (ev.Handled)
             return;
         var target = ev.Target;
-        if (_vision.IsOutsideCameraView(target))
+        if (!ev.IgnoreCameraView && _vision.IsOutsideCameraViewCached(target))
             return;
 
         // If target has ShuntThrough component, search for a valid target in containers
@@ -67,6 +68,15 @@ public sealed class StationAIShuntSystem : EntitySystem
 
         if (!TryComp<StationAIShuntComponent>(target, out var shunt))
             return;
+
+        // We check first if this is already "posessed" for one or another reason. This is a remote, not a ghost maker.
+        if (_mindSystem.TryGetMind(target, out _, out _))
+        {
+            if (_net.IsServer)
+                _popup.PopupEntity(Loc.GetString("shunt-target-occupied"), target, uid, PopupType.Large);
+            return;
+        }
+
         if (!_mindSystem.TryGetMind(uid, out var mindId, out var _))
             return;
         if (!TryComp<MobStateComponent>(uid, out var state) || state.CurrentState != MobState.Alive)
@@ -98,6 +108,8 @@ public sealed class StationAIShuntSystem : EntitySystem
         _mindSystem.TransferTo(mindId, target);
         shunt.ReturnAction = _actionSystem.AddAction(target, shuntable.UnshuntAction.Id);
         shuntable.Inhabited = target;
+        shuntable.LastShunt = target;
+        Dirty(uid, shuntable);
 
         if (TryComp<SiliconLawProviderComponent>(uid, out var coreLaws))
         {
@@ -308,6 +320,7 @@ public sealed class StationAIShuntSystem : EntitySystem
 
 public sealed partial class AIShuntActionEvent : EntityTargetActionEvent
 {
+    public bool IgnoreCameraView;
 }
 
 public sealed partial class AIUnShuntActionEvent : InstantActionEvent
