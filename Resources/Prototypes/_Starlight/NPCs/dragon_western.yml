@@ -1,0 +1,61 @@
+# Shared utility queries choose legal targets; only the western dragon uses the boss operator.
+- type: htnCompound
+  id: WesternDragonBossCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: WesternDragonTargets
+    - !type:HTNPrimitiveTask
+      operator: !type:WesternDragonCombatOperator
+  - preconditions:
+    - !type:WesternDragonCanDevourPrecondition
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: WesternDragonFoodTargets
+    - !type:HTNPrimitiveTask
+      operator: !type:WesternDragonCombatOperator
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: utilityQuery
+  id: WesternDragonTargets
+  limit: 24
+  query:
+  - !type:NearbyHostilesQuery
+  considerations:
+  - !type:TargetIsAliveCon
+    curve: !type:BoolCurve
+  - !type:TargetIsCritCon
+    curve: !type:InverseBoolCurve
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve
+  - !type:TargetInLOSCon
+    curve: !type:BoolCurve
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+
+# Devour retains the normal critical/dead humanoid requirement and never selects allies.
+- type: utilityQuery
+  id: WesternDragonFoodTargets
+  limit: 8
+  query:
+  - !type:NearbyHostilesQuery
+  - !type:ComponentFilter
+    components:
+    - type: MobState
+    - type: HumanoidAppearance
+      species: Human # Required for serialization; ComponentFilter only checks component presence.
+  considerations:
+  - !type:TargetIsAliveCon
+    curve: !type:InverseBoolCurve
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve
+  - !type:TargetInLOSCon
+    curve: !type:BoolCurve
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance

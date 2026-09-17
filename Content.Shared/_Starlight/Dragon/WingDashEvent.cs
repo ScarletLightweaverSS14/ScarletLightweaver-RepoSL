@@ -2,10 +2,10 @@ using Content.Shared.Actions;
 
 namespace Content.Shared._Starlight.Dragon;
 
-public sealed partial class WingDashEvent : InstantActionEvent
+public sealed partial class WingDashEvent : WorldTargetActionEvent
 {
     [DataField]
-    public float DashDistance = 4f;
+    public float DashDistance = 5.5f;
     [DataField]
-    public float DashSpeed = 3.5f;
+    public float DashSpeed = 6f;
 }

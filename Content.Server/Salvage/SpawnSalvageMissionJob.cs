@@ -179,6 +179,10 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
 
         expedition.DungeonLocation = dungeonOffset;
 
+        // Starlight: guaranteed, separate boss room on Lava and Caves expeditions.
+        _dungeon.SpawnWesternDragonLair((mapUid, grid), mission.Biome, dungeons, landingPadRadius);
+        await SuspendIfOutOfTime();
+
         List<Vector2i> reservedTiles = new();
 
         foreach (var tile in _map.GetTilesIntersecting(mapUid, grid, new Circle(Vector2.Zero, landingPadRadius), false))

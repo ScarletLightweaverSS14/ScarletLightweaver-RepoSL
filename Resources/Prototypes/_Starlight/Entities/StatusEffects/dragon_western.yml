@@ -8,5 +8,6 @@
       components:
       - MobState
   - type: PredatorHunt
+  - type: PredatorHuntVisual
   - type: StatusEffectAlert
     alert: PredatorHunt

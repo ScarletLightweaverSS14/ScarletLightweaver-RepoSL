@@ -13,14 +13,23 @@ public sealed partial class PredatorHuntComponent : Component
 
 public sealed partial class PredatorHuntSystem : EntitySystem
 {
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+
     public override void Initialize()
     {
-        // The relay system wraps events as StatusEffectRelayedEvent<T> before raising on effect entities
-        SubscribeLocalEvent<PredatorHuntComponent, StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRelayRefreshSpeed);
+        SubscribeLocalEvent<PredatorHuntComponent, StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshSpeed);
+        SubscribeLocalEvent<PredatorHuntComponent, StatusEffectAppliedEvent>(OnApplied);
+        SubscribeLocalEvent<PredatorHuntComponent, StatusEffectRemovedEvent>(OnRemoved);
     }
 
-    private void OnRelayRefreshSpeed(Entity<PredatorHuntComponent> ent, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> ev)
+    private void OnRefreshSpeed(Entity<PredatorHuntComponent> ent, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        ev.Args.ModifySpeed(ent.Comp.SpeedModifier, ent.Comp.SpeedModifier);
+        args.Args.ModifySpeed(ent.Comp.SpeedModifier, ent.Comp.SpeedModifier);
     }
+
+    private void OnApplied(Entity<PredatorHuntComponent> ent, ref StatusEffectAppliedEvent args)
+        => _movement.RefreshMovementSpeedModifiers(args.Target);
+
+    private void OnRemoved(Entity<PredatorHuntComponent> ent, ref StatusEffectRemovedEvent args)
+        => _movement.RefreshMovementSpeedModifiers(args.Target);
 }

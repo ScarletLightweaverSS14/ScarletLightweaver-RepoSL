@@ -1,0 +1,19 @@
+- type: dungeonRoom
+  id: WesternDragonLair
+  size: 25,25
+  atlas: /Maps/_Starlight/Dungeon/western_dragon_lair.yml
+  offset: 0,0
+  tags:
+  - WesternDragonLair
+
+- type: Tag
+  id: WesternDragonLair
+
+# Keep the map encounter under boss AI control instead of advertising a ghost takeover.
+- type: entity
+  parent: DragonWesternDefault
+  id: DragonWesternLairBoss
+  suffix: Lair boss
+  components:
+  - type: GhostRole
+    prob: 0

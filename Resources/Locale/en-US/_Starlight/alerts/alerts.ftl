@@ -1,5 +1,5 @@
 alerts-predator-hunt-name = [color=red]Predator Hunt[/color]
-alerts-predator-hunt-desc = An [color=red]apex predator[/color] has your scent. It is hunting you and it knows exactly where you are. Your legs feel slow, heavy with dread.
+alerts-predator-hunt-desc = The roar of an [color=red]apex predator[/color] fills you with dread. Your legs feel heavy, slowing your movement.
 western-dragon-roar-emote = The western dragon lets out a bone-shaking roar!
 alerts-cybernetic-disruption-name = [color=red]Cybernetics disrupted[/color]
 alerts-cybernetic-disruption-desc = You're [color=red]disrupted[/color]! Something is impairing your cybernetic implants.

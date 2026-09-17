@@ -16,8 +16,13 @@
       "copyright": "Sprited by BlackAures1 (GITHUB) from dragon survival https://github.com/BlackAures1/DragonSurvival/tree/master edited by ScarletLightweaverSS14 (GITHUB) to match RSI dimension requirements"
     },
     {
-      "name": "fire_trail",
-      "copyright": "Sprited by BlackAures1 (GITHUB) from dragon survival https://github.com/BlackAures1/DragonSurvival/tree/master edited by ScarletLightweaverSS14 (GITHUB) to match RSI dimension requirements"
+      "name": "bigfireball"
+    },
+    {
+      "name": "firebreath"
+    },
+    {
+      "name": "tailslam"
     }
   ]
 }

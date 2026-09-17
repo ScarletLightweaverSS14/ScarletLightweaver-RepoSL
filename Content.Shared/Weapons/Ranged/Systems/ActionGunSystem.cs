@@ -35,7 +35,9 @@ public sealed partial class ActionGunSystem : EntitySystem
     private void OnShoot(Entity<ActionGunComponent> ent, ref ActionGunShootEvent args)
     {
         if (TryComp<GunComponent>(ent.Comp.Gun, out var gun))
-            _gun.AttemptShoot(ent, (ent.Comp.Gun.Value, gun), args.Target);
+        {
+            var fired = _gun.AttemptShoot(ent, (ent.Comp.Gun.Value, gun), args.Target);
+            OnWesternDragonShot(ent, args, fired); // Starlight: dragon actions must start their cooldown after firing.
+        }
     }
 }
-

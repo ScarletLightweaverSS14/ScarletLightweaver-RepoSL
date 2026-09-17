@@ -54,7 +54,8 @@ public sealed partial class FlammableParticleSystem : EntitySystem
         {
             // Ignited: spawn emitter
             var coords = _transform.GetMapCoordinates(ent);
-            state.SmokeEmitter = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner);
+            if (ShouldSpawnSmoke(ent)) // Starlight: dragon fire keeps its flames without smoke.
+                state.SmokeEmitter = _particles.SpawnEffect(SmokeEffect, coords, ent.Owner);
             state.FireEmitter  = _particles.SpawnEffect(FireEffect,  coords, ent.Owner);
 
             if (state.SmokeEmitter != null) state.SmokeEmitter.Intensity = 1f;
@@ -101,4 +102,3 @@ public sealed partial class FlammableParticleSystem : EntitySystem
         }
     }
 }
-
