@@ -40,6 +40,9 @@ public sealed class WesternDragonBossTest
             dragon = em.SpawnEntity("DragonWesternDefault", new EntityCoordinates(arena.Grid, 0.5f, 0.5f));
             server.System<DamageableSystem>().ChangeDamage(dragon,
                 new DamageSpecifier { DamageDict = { ["Slash"] = FixedPoint2.New(230) } }, ignoreResistances: true);
+            // Unlock the slam without simulating a fresh heavy hit: that also boosts roar's score
+            // and can legitimately select its dash combo instead of the area attack under test.
+            em.GetComponent<WesternDragonBossComponent>(dragon).RecentDamage = 0;
             em.SpawnEntity("MobHuman", new EntityCoordinates(arena.Grid, 2.5f, 0.5f));
             em.SpawnEntity("MobHuman", new EntityCoordinates(arena.Grid, -1.5f, 0.5f));
         });

@@ -3,6 +3,27 @@
   id: WesternDragonBossCompound
   branches:
   - tasks:
+    - !type:HTNCompoundTask
+      task: WesternDragonCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+# Guard the hoard while idle; combat and devour use the same boss logic.
+- type: htnCompound
+  id: WesternDragonLairCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: WesternDragonCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleSpinCompound
+
+- type: htnCompound
+  id: WesternDragonCombatCompound
+  branches:
+  - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
         proto: WesternDragonTargets
@@ -16,9 +37,6 @@
         proto: WesternDragonFoodTargets
     - !type:HTNPrimitiveTask
       operator: !type:WesternDragonCombatOperator
-  - tasks:
-    - !type:HTNCompoundTask
-      task: IdleCompound
 
 - type: utilityQuery
   id: WesternDragonTargets

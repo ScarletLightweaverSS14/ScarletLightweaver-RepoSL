@@ -5,4 +5,6 @@ namespace Content.Server._Starlight.Dragon;
 public sealed partial class WesternDragonLairComponent : Component
 {
     [DataField] public Vector2i Origin;
+    [DataField] public Vector2i Entrance;
+    [DataField] public Vector2i ApproachStart;
 }

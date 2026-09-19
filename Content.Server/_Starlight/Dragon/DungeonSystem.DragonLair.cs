@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Server._Starlight.Dragon;
 using Content.Server.Parallax;
 using Content.Shared.Procedural;
@@ -60,7 +61,14 @@ public sealed partial class DungeonSystem
             var door = candidate.Center - new Vector2i(candidate.Direction.X * half.X, candidate.Direction.Y * half.Y);
             // The landing zone is cleared on arrival; don't route through a dungeon that overlaps its center.
             var start = candidate.Direction * landingRadius;
-            GetCorridorNodes(corridor, [(start, door)], 8192, forbidden);
+            // Route to the single entrance, never through another side of the lava moat.
+            var excluded = new HashSet<Vector2i>(forbidden);
+            var candidateOrigin = candidate.Center - half;
+            for (var x = 0; x < room.Size.X; x++)
+            for (var y = 0; y < room.Size.Y; y++)
+                excluded.Add(candidateOrigin + new Vector2i(x, y));
+            excluded.Remove(door);
+            GetCorridorNodes(corridor, [(start, door)], 8192, excluded);
             if (corridor.Count == 0)
                 continue;
             corridor.Add(door);
@@ -73,13 +81,16 @@ public sealed partial class DungeonSystem
             Log.Warning("Dragon lair has no clear route to the landing zone; dungeon obstacles require mining.");
 
         var origin = chosen.Center - half;
-        SpawnRoom(grid, grid.Comp, origin, room, new Random(0), null, clearExisting: true);
+        // The atlas entrance faces south. Rotate its center toward the landing zone.
+        var rotation = new Angle(Math.Atan2(chosen.Direction.Y, chosen.Direction.X) - Math.PI / 2);
+        var transform = Matrix3Helpers.CreateTransform((Vector2) origin + (Vector2) room.Size / 2f, rotation);
+        SpawnRoom(grid, grid.Comp, transform, room, clearExisting: true);
 
         var biome = EntityManager.System<BiomeSystem>();
         var reservation = new List<(Vector2i, Tile)>();
         biome.ReserveTiles(grid, new Box2(origin, origin + room.Size), reservation);
 
-        var floor = new Tile(_tileDefManager["FloorSteelCheckerLight"].TileId);
+        var floor = new Tile(_tileDefManager["FloorBasalt"].TileId);
         var approach = new HashSet<Vector2i>();
         foreach (var node in corridor)
         for (var x = -1; x <= 1; x++)
@@ -87,6 +98,10 @@ public sealed partial class DungeonSystem
         {
             var tile = node + new Vector2i(x, y);
             if (tile.LengthSquared < (landingRadius * landingRadius) || occupied.Contains(tile))
+                continue;
+            // The atlas owns the bridge, moat and decorations inside these bounds.
+            if (tile.X >= origin.X && tile.X < origin.X + room.Size.X &&
+                tile.Y >= origin.Y && tile.Y < origin.Y + room.Size.Y)
                 continue;
             approach.Add(tile);
         }
@@ -104,6 +119,9 @@ public sealed partial class DungeonSystem
             biome.ReserveTiles(grid, new Box2(node - Vector2i.One, node + new Vector2i(2, 2)), reservation);
         }
 
-        AddComp<WesternDragonLairComponent>(grid).Origin = origin;
+        var lair = AddComp<WesternDragonLairComponent>(grid);
+        lair.Origin = origin;
+        lair.Entrance = chosen.Center - new Vector2i(chosen.Direction.X * half.X, chosen.Direction.Y * half.Y);
+        lair.ApproachStart = chosen.Direction * landingRadius;
     }
 }

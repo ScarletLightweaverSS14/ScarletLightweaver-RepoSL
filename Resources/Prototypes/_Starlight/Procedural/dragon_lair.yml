@@ -1,6 +1,6 @@
 - type: dungeonRoom
   id: WesternDragonLair
-  size: 25,25
+  size: 35,35
   atlas: /Maps/_Starlight/Dungeon/western_dragon_lair.yml
   offset: 0,0
   tags:
@@ -13,7 +13,35 @@
 - type: entity
   parent: DragonWesternDefault
   id: DragonWesternLairBoss
+  name: ancient fire dragon
+  description: An ancient wyrm guarding a hoard in the heart of a volcanic cavern.
   suffix: Lair boss
   components:
+  - type: HTN
+    rootTask:
+      task: WesternDragonLairCompound
   - type: GhostRole
     prob: 0
+
+# Loot is defined on the prototype: dungeon atlases copy prototypes, not container contents.
+- type: entity
+  parent: CratePirate
+  id: CrateWesternDragonHoard
+  name: scorched dragon hoard
+  description: A battered chest of precious metals and antique coins, claimed by an ancient fire dragon.
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: IngotGold1
+          amount: 10
+        - id: IngotSilver1
+          amount: 10
+        - id: MaterialDiamond1
+          amount: 3
+        - id: TreasureCoinGold
+          amount: 3
+        - id: TreasureCoinDiamond
+        - id: SpaceCash5000
