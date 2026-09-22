@@ -1,0 +1,67 @@
+- type: entity
+  parent: GrenadeFrag
+  id: Grenade40mmFrag
+  name: 40mm frag grenade
+  description: A compact fragmentation round for an underbarrel grenade launcher.
+  components:
+  - type: Tag
+    tags:
+    - Grenade40mm
+  - type: CartridgeAmmo
+    proto: BulletGrenade40mmFrag
+
+- type: entity
+  parent: GrenadeBlast
+  id: Grenade40mmBlast
+  name: 40mm blast grenade
+  description: A compact explosive round for an underbarrel grenade launcher.
+  components:
+  - type: Tag
+    tags:
+    - Grenade40mm
+  - type: CartridgeAmmo
+    proto: BulletGrenade40mmBlast
+
+# Half the impact damage and explosion values of the full-sized launcher rounds.
+- type: entity
+  parent: BulletGrenadeFrag
+  id: BulletGrenade40mmFrag
+  name: 40mm frag grenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3.5
+  - type: Explosive
+    totalIntensity: 25
+    intensitySlope: 0.5
+    maxIntensity: 2.5
+  - type: ProjectileGrenade
+    fillPrototype: PelletGrenade40mmFrag
+    capacity: 15
+
+- type: entity
+  parent: PelletClusterLessLethal
+  id: PelletGrenade40mmFrag
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 2.5
+
+- type: entity
+  parent: BulletGrenadeBlast
+  id: BulletGrenade40mmBlast
+  name: 40mm blast grenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3.5
+  - type: Explosive
+    totalIntensity: 75
+    intensitySlope: 2.5
+    maxIntensity: 5

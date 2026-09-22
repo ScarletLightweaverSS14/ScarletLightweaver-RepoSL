@@ -1,0 +1,18 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledCarbine
+  name: M-90gl bundle
+  description: "A versatile battle rifle with an attached grenade launcher, bundled with 3 magazines and 6 40mm grenades."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleM90GrenadeLauncher
+        - id: MagazineRifleFMJ
+          amount: 2
+        - id: Grenade40mmBlast
+          amount: 3
+        - id: Grenade40mmFrag
+          amount: 3
+

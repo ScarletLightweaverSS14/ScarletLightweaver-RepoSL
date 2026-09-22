@@ -260,6 +260,10 @@
 - type: Tag
   id: Grenade120mm # Ammo: Magazine120mmGrenadeBlast, ShuttleGunNTSFCyerxa120mm
 
+# Ammunition accepted by single-shot 40mm underbarrel launchers.
+- type: Tag
+  id: Grenade40mm
+
 - type: Tag
   id: GygaxArmor
 

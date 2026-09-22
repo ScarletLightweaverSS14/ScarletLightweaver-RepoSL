@@ -177,6 +177,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.UseSecondary);
             AddButton(ContentKeyFunctions.UseItemInHand);
             AddButton(ContentKeyFunctions.AltUseItemInHand);
+            AddButton(ContentKeyFunctions.SecondaryWeaponAction); // Starlight
             AddButton(ContentKeyFunctions.ActivateItemInWorld);
             AddButton(ContentKeyFunctions.AltActivateItemInWorld);
             AddButton(ContentKeyFunctions.Drop);
@@ -435,7 +436,7 @@ namespace Content.Client.Options.UI.Tabs
                 i += 1;
             }
 
-            if (keyEvent.Alt && key != Keyboard.Key.Alt)
+            if (keyEvent.Alt && key != Keyboard.Key.Alt && key != Keyboard.Key.RightAlt) // Starlight: bind Right Alt independently.
             {
                 mods[i] = Keyboard.Key.Alt;
                 i += 1;

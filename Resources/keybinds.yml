@@ -1,5 +1,9 @@
 ﻿version: 1 # Not used right now, whatever.
 binds:
+# Starlight: independently fire the held weapon's secondary mechanism.
+- function: SecondaryWeaponAction
+  type: State
+  key: RightAlt
 - function: UIClick
   type: State
   key: MouseLeft

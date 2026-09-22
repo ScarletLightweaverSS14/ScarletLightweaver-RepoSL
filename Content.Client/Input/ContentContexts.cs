@@ -64,6 +64,7 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.Drop);
             human.AddFunction(ContentKeyFunctions.UseItemInHand);
             human.AddFunction(ContentKeyFunctions.AltUseItemInHand);
+            human.AddFunction(ContentKeyFunctions.SecondaryWeaponAction); // Starlight
             human.AddFunction(ContentKeyFunctions.OpenCharacterMenu);
             human.AddFunction(ContentKeyFunctions.OpenEmotesMenu);
             human.AddFunction(ContentKeyFunctions.OpenLanguageMenu); // Starlight

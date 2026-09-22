@@ -1,0 +1,15 @@
+# Default firing settings for an AltWeaponry component added to any gun.
+# The component supplies the ammo container; loaded ammunition supplies the projectile.
+- type: entity
+  id: WeaponAltWeaponry
+  name: alternate weapon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes: [SemiAuto]
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: ContainerAmmoProvider
+    container: altweapon
