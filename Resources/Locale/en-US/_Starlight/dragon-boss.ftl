@@ -5,3 +5,4 @@ western-dragon-taunt-wounded = YOU HAVE ONLY AWAKENED MY FURY!
 western-dragon-taunt-kill = ANOTHER FOOL REDUCED TO ASH.
 western-dragon-taunt-surrounded = ALL OF YOU WILL BURN!
 western-dragon-taunt-hurt = YOU WILL PAY FOR THAT!
+western-dragon-counterplay-warning = {CAPITALIZE(THE($dragon))} plants its claws and draws a searing breath, tracking its attacker!

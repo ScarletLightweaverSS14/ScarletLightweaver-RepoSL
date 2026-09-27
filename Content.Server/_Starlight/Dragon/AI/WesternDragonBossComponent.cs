@@ -9,10 +9,12 @@ namespace Content.Server._Starlight.Dragon;
 public sealed partial class WesternDragonBossComponent : Component
 {
     [DataField] public float ThinkInterval = 0.5f;
-    [DataField] public float AbilityInterval = 6f;
+    [DataField] public float AbilityInterval = 4f;
     [DataField] public float TailSlamHealth = 0.85f;
-    [DataField] public float BreathHealth = 0.7f;
+    // Keep a fire attack available before damage unlocks the other attacks.
+    [DataField] public float BreathHealth = 1f;
     [DataField] public float FireballHealth = 0.5f;
+    [DataField] public float RepositionHealth = 0.7f;
     // Damage unlocks persist through healing and HTN replanning.
     [DataField] public float LowestHealth = 1f;
     [DataField] public float TargetCommitment = 3f;
@@ -64,4 +66,4 @@ public sealed partial class WesternDragonBossComponent : Component
 }
 
 public enum DragonAbility : byte { None, TailSlam, Breath, Fireball, Roar, Dash }
-public enum DragonPositioning : byte { Approach, Circle, Retreat, Recover, Search, Feed }
+public enum DragonPositioning : byte { Approach, Circle, Retreat, Recover, Search, Feed, Counter }

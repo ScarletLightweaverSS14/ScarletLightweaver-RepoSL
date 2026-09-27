@@ -29,6 +29,12 @@
         proto: WesternDragonTargets
     - !type:HTNPrimitiveTask
       operator: !type:WesternDragonCombatOperator
+  # Incoming attacks can reveal a firing position outside the normal sight query.
+  - preconditions:
+    - !type:WesternDragonAttackedPrecondition
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:WesternDragonCombatOperator
   - preconditions:
     - !type:WesternDragonCanDevourPrecondition
     tasks:

@@ -13,6 +13,7 @@ public sealed partial class WesternDragonBossSystem
     private bool TryAbility(EntityUid uid, WesternDragonBossComponent boss, List<Enemy> enemies, Enemy target, float health)
     {
         var now = _timing.CurTime;
+        var counter = IsCountering(boss, target.Uid);
         var followUp = boss.ComboTarget != null;
         if (followUp && (boss.ComboTarget != target.Uid || now >= boss.ComboUntil))
         {
@@ -34,10 +35,13 @@ public sealed partial class WesternDragonBossSystem
                 "ActionWingDash" => DragonAbility.Dash,
                 _ => DragonAbility.None,
             };
+            // Commit to the warned counterattack instead of selecting a spell that cannot reach through cover.
+            if ((counter || !target.Visible) && ability != DragonAbility.Fireball)
+                continue;
             if ((followUp && ability != DragonAbility.Dash) ||
                 (ability == DragonAbility.TailSlam && boss.LowestHealth > boss.TailSlamHealth) ||
                 (ability == DragonAbility.Breath && boss.LowestHealth > boss.BreathHealth) ||
-                (ability == DragonAbility.Fireball && boss.LowestHealth > boss.FireballHealth))
+                (ability == DragonAbility.Fireball && boss.LowestHealth > boss.FireballHealth && !counter))
                 continue;
             var aim = target.Coordinates;
             var score = 0f;
@@ -65,14 +69,16 @@ public sealed partial class WesternDragonBossSystem
                 case DragonAbility.Fireball:
                     foreach (var candidate in enemies)
                     {
-                        if (candidate.Distance is < 2.5f or > 12)
+                        if (candidate.Distance < (counter ? 0.5f : 2.5f) || candidate.Distance > (counter ? boss.CounterplayRange : 12))
                             continue;
                         var grouped = enemies.Count(e => Vector2.DistanceSquared(e.Position, candidate.Position) <= 6.25f);
                         var value = 4 + (grouped * 3) + (candidate.Ranged ? 3 : 0) + (candidate.Distance > 5 ? 3 : 0);
+                        if (counter && candidate.Uid == target.Uid)
+                            value += 20;
                         if (value <= score)
                             continue;
                         score = value;
-                        aim = candidate.Coordinates;
+                        aim = counter && candidate.Uid == target.Uid ? PredictCounterShot(uid, candidate) : candidate.Coordinates;
                     }
                     break;
                 case DragonAbility.Roar when enemies.Any(e => e.Distance <= 7):

@@ -20,7 +20,6 @@ namespace Content.IntegrationTests.Tests._Starlight;
 public sealed class WesternDragonPacingTest
 {
     [TestCase("ActionWesternTailSlam", DragonAbility.TailSlam, 2f, 230)]
-    [TestCase("ActionWesternFireBreath", DragonAbility.Breath, 4f, 460)]
     [TestCase("ActionWesternDragonsBreath", DragonAbility.Fireball, 8f, 760)]
     public async Task DamageUnlocksAttacksAndHealingDoesNotRelock(string actionId, DragonAbility expected, float distance, int damage)
     {
@@ -43,14 +42,14 @@ public sealed class WesternDragonPacingTest
             var ai = server.System<WesternDragonBossSystem>();
             var board = em.GetComponent<HTNComponent>(dragon).Blackboard;
             ai.Tick(dragon, board);
-            Assert.That(boss.AbilitiesUsed, Is.Zero, "Fresh dragons should start with melee, roar and dash.");
+            Assert.That(boss.AbilitiesUsed, Is.Zero, "Tail Slam and Ancient Flame still require damage to unlock.");
             server.System<DamageableSystem>().ChangeDamage(dragon,
                 new DamageSpecifier { DamageDict = { ["Slash"] = FixedPoint2.New(damage) } }, ignoreResistances: true);
             boss.NextThink = TimeSpan.Zero;
             ai.Tick(dragon, board);
             Assert.That(boss.LastAbility, Is.EqualTo(expected), "A single nearby opponent must be enough for unlocked Tail Slam.");
             var now = server.ResolveDependency<IGameTiming>().CurTime;
-            Assert.That(boss.NextAbility, Is.GreaterThanOrEqualTo(now + TimeSpan.FromSeconds(6)));
+            Assert.That(boss.NextAbility, Is.InRange(now + TimeSpan.FromSeconds(4), now + TimeSpan.FromSeconds(5)));
             var lowest = boss.LowestHealth;
             ai.Stop(dragon, board);
             server.System<DamageableSystem>().ClearAllDamage(dragon);
@@ -99,7 +98,7 @@ public sealed class WesternDragonPacingTest
                 ai.Stop(dragon, board);
                 Assert.That(boss.ComboTarget, Is.Null);
                 Assert.That(boss.NextAbility, Is.GreaterThanOrEqualTo(
-                    server.ResolveDependency<IGameTiming>().CurTime + TimeSpan.FromSeconds(6)),
+                    server.ResolveDependency<IGameTiming>().CurTime + TimeSpan.FromSeconds(boss.AbilityInterval)),
                     "Cancelling a combo must not retain its short follow-up timer.");
             }
         });
@@ -111,7 +110,7 @@ public sealed class WesternDragonPacingTest
             Assert.That(boss.ComboTarget, Is.Null);
             Assert.That(boss.AbilitiesUsed, Is.EqualTo(dashAvailable && !replan ? 2 : 1));
             Assert.That(boss.NextAbility, Is.GreaterThanOrEqualTo(
-                server.ResolveDependency<IGameTiming>().CurTime + TimeSpan.FromSeconds(4)));
+                server.ResolveDependency<IGameTiming>().CurTime + TimeSpan.FromSeconds(boss.AbilityInterval - 2)));
         });
         await pair.RunSeconds(2.5f);
         await server.WaitAssertion(() =>
@@ -120,6 +119,41 @@ public sealed class WesternDragonPacingTest
                 "The combo or failed-combo fallback must actually reach and melee the target.");
             Assert.That(em.GetComponent<WesternDragonBossComponent>(dragon).AbilitiesUsed, Is.EqualTo(dashAvailable && !replan ? 2 : 1),
                 "The melee window must not be interrupted by another spell.");
+        });
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task HealthyDragonUsesFireBreathWhileRoarIsCoolingDown()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var em = server.EntMan;
+        var arena = await pair.CreateTestMap();
+        EntityUid dragon = default;
+        await server.WaitAssertion(() =>
+        {
+            var map = server.System<SharedMapSystem>();
+            for (var x = -7; x <= 7; x++)
+            for (var y = -7; y <= 7; y++)
+                map.SetTile(arena.Grid, new Vector2i(x, y), arena.Tile.Tile);
+            dragon = em.SpawnEntity("DragonWesternDefault", new EntityCoordinates(arena.Grid, 0.5f, 0.5f));
+            em.SpawnEntity("MobHuman", new EntityCoordinates(arena.Grid, 3.5f, 0.5f));
+            var actions = server.System<SharedActionsSystem>();
+            var roar = actions.GetActions(dragon).Single(a => em.GetComponent<MetaDataComponent>(a).EntityPrototype?.ID == "ActionDragonRoar");
+            actions.SetCooldown(roar, TimeSpan.FromSeconds(45));
+        });
+        // Run the real HTN with all attacks enabled, rather than forcing a particular ability.
+        await pair.RunSeconds(1.2f);
+        await server.WaitAssertion(() =>
+        {
+            var boss = em.GetComponent<WesternDragonBossComponent>(dragon);
+            Assert.That(boss.LowestHealth, Is.EqualTo(1f));
+            Assert.That(boss.LastAbility, Is.EqualTo(DragonAbility.Breath));
+            Assert.That(boss.AbilitiesUsed, Is.EqualTo(1), "Available fire must still respect shared recovery.");
+            var actions = server.System<SharedActionsSystem>();
+            var breath = actions.GetActions(dragon).Single(a => em.GetComponent<MetaDataComponent>(a).EntityPrototype?.ID == "ActionWesternFireBreath");
+            Assert.That(actions.ValidAction(breath), Is.False, "The normal Fire Breath cooldown must be consumed.");
         });
         await pair.CleanReturnAsync();
     }

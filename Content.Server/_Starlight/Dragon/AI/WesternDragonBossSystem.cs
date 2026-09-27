@@ -16,7 +16,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Map;
@@ -44,11 +43,12 @@ public sealed partial class WesternDragonBossSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
 
-    private readonly record struct Enemy(EntityUid Uid, EntityCoordinates Coordinates, Vector2 Position, Vector2 Velocity, float Distance, bool Ranged);
+    private readonly record struct Enemy(EntityUid Uid, EntityCoordinates Coordinates, Vector2 Position, Vector2 Velocity, float Distance, bool Ranged, bool Visible = true);
 
     public override void Initialize()
     {
         SubscribeLocalEvent<WesternDragonBossComponent, DamageChangedEvent>(OnDamage);
+        SubscribeLocalEvent<WesternDragonBossComponent, BeforeDamageChangedEvent>(OnAttacked);
         SubscribeLocalEvent<WesternDragonBossComponent, ComponentShutdown>(OnShutdown);
         InitializeDevour();
     }
@@ -70,6 +70,7 @@ public sealed partial class WesternDragonBossSystem : EntitySystem
         // While dashing, the jump system must be the only system driving movement.
         if (TryComp<WingDashComponent>(uid, out var dash) && dash.EndTime > now)
         {
+            boss.PursuitTarget = null;
             _steering.Unregister(uid);
             return true;
         }
@@ -83,6 +84,7 @@ public sealed partial class WesternDragonBossSystem : EntitySystem
         boss.RecentDamage *= 0.85f;
 
         var enemies = Observe(uid, blackboard);
+        ObserveRecentAttacker(uid, boss, enemies);
         boss.VisibleEnemies = enemies.Count;
         boss.CloseEnemies = enemies.Count(e => e.Distance <= 2.5f);
         var health = HealthFraction(uid);
@@ -94,6 +96,7 @@ public sealed partial class WesternDragonBossSystem : EntitySystem
 
         if (enemies.Count == 0)
         {
+            ClearCounterplay(boss);
             // Investigate the last observed position briefly, never track hidden enemies through walls.
             if (boss.Target is { } lost && !TerminatingOrDeleted(lost) &&
                 TryComp<MobStateComponent>(lost, out var lostState) && lostState.CurrentState == MobState.Alive &&
@@ -128,6 +131,14 @@ public sealed partial class WesternDragonBossSystem : EntitySystem
         blackboard.SetValue("DragonCloseEnemies", (float) boss.CloseEnemies);
         blackboard.SetValue("DragonHealth", health);
         _combat.SetInCombatMode(uid, true);
+
+        UpdateCounterplay(uid, boss, target);
+        if (IsCountering(boss, target.Uid) && now < boss.CounterplayReadyAt)
+        {
+            boss.Positioning = DragonPositioning.Counter;
+            _steering.Unregister(uid);
+            return true;
+        }
 
         if (now < boss.RecoverUntil)
         {
@@ -207,6 +218,8 @@ public sealed partial class WesternDragonBossSystem : EntitySystem
 
         if (boss.Target != best.Uid)
         {
+            ClearCounterplay(boss);
+            boss.NextPathRetry = TimeSpan.Zero;
             boss.NextRetarget = _timing.CurTime + TimeSpan.FromSeconds(boss.TargetCommitment);
             boss.NextPosition = _timing.CurTime;
         }
@@ -232,9 +245,7 @@ public sealed partial class WesternDragonBossSystem : EntitySystem
             return;
         var damage = args.DamageDelta.DamageDict.Values.Sum(value => Math.Max(0, (float) value));
         boss.RecentDamage += damage;
-        var attacker = args.Origin;
-        if (TryComp<ProjectileComponent>(attacker, out var projectile))
-            attacker = projectile.Shooter;
+        var attacker = ResolveAttacker(args.Origin);
         if (attacker is not { } source || source == uid || Deleted(source) || _factions.IsEntityFriendly(uid, source))
             return;
         if (boss.Threat.Count < 32 || boss.Threat.ContainsKey(source))
@@ -248,6 +259,11 @@ public sealed partial class WesternDragonBossSystem : EntitySystem
         if (!TryComp<WesternDragonBossComponent>(uid, out var boss))
             return;
         CancelDevour(boss);
+        ClearCounterplay(boss);
+        boss.RecentAttacker = null;
+        boss.RecentAttackPosition = null;
+        boss.RecentAttackUntil = TimeSpan.Zero;
+        boss.NextPathRetry = TimeSpan.Zero;
         _steering.Unregister(uid);
         if (!TerminatingOrDeleted(uid))
             _combat.SetInCombatMode(uid, false);
