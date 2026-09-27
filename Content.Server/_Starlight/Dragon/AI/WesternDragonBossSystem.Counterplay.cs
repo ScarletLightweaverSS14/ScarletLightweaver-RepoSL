@@ -18,20 +18,16 @@ public sealed partial class WesternDragonBossSystem
     private void UpdateCounterplay(EntityUid uid, WesternDragonBossComponent boss, Enemy target)
     {
         var now = _timing.CurTime;
-        var canClose = target.Distance <= 3 && _interaction.InRangeUnobstructed(uid, target.Coordinates, range: 0,
-            collisionMask: CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
-        if (boss.RecentAttacker == target.Uid && now < boss.RecentAttackUntil)
-            boss.PursuitAttackedUntil = boss.RecentAttackUntil;
         if (boss.CounterplayTarget != null)
         {
-            if (IsCountering(boss, target.Uid) && !canClose && _blocker.CanMove(uid))
+            if (IsCountering(boss, target.Uid) && target.Distance > 3 && _blocker.CanMove(uid))
                 return;
             ClearCounterplay(boss);
         }
 
         // A path failure alone is not evidence of kiting. Require repeated attacks from the
         // pursued target, with no meaningful gain in distance for an entire observation window.
-        if (now < boss.NextCounterplay || now >= boss.PursuitAttackedUntil || canClose ||
+        if (now < boss.NextCounterplay || now >= boss.PursuitAttackedUntil || target.Distance <= 3 ||
             now < boss.RecoverUntil || boss.ComboTarget != null || !_blocker.CanMove(uid) ||
             boss.Positioning is DragonPositioning.Retreat or DragonPositioning.Circle or DragonPositioning.Feed)
         {
@@ -51,9 +47,8 @@ public sealed partial class WesternDragonBossSystem
 
         // Don't warn or change stance for an attack that is unavailable. Existing action and
         // gun cooldowns still apply; this only temporarily bypasses the fireball's health gate.
-        if (now < boss.NextAbility || target.Distance > boss.CounterplayRange || !TryComp<ActionGunComponent>(uid, out var gun) ||
-            _actions.GetAction(gun.ActionEntity) is not { } action || !_actions.ValidAction(action) ||
-            !TryComp<GunComponent>(gun.Gun, out var weapon) || now < weapon.NextFire)
+        if (target.Distance > 12 || !TryComp<ActionGunComponent>(uid, out var gun) ||
+            _actions.GetAction(gun.ActionEntity) is not { } action || !_actions.ValidAction(action))
             return;
 
         boss.CounterplayTarget = target.Uid;
