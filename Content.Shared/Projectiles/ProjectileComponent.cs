@@ -74,6 +74,10 @@ public sealed partial class ProjectileComponent : Component
     [DataField]
     public bool IgnoreResistances = false;
 
+    /// <summary>Fraction of worn armor protection bypassed, from 0 to 1. Innate resistances still apply.</summary>
+    [DataField]
+    public float ArmorPenetration;
+
     /// <summary>
     ///     Get that juicy FPS hit sound.
     /// </summary>

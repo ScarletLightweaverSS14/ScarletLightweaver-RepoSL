@@ -1,0 +1,7 @@
+Voidwalker Crystal Lance
+Generated using the built-in OpenAI image generation tool on 2026-09-30.
+Imported as a 64x32 RGBA PNG using nearest-neighbor downsampling; original alpha preserved.
+This is original art, not an edit of the existing Volley sprite.
+
+Generation prompt:
+Use case: stylized-concept. Asset type: one production 2D pixel-art game sprite for a Space Station 14 crystal projectile, PNG with a genuinely transparent background. Create ONE massive amethyst crystal lance pointing horizontally RIGHT. Flat side/top-down game view, no perspective scene. A long sharp central crystalline spear with a jagged cluster of short crystals joined at its rear, dark violet outline, saturated amethyst facets, lavender edges and a few white glints. Crisp intentionally chunky pixel art suitable for a 64 by 32 pixel sprite, limited palette, clean silhouette that reads at small size. Center it on a 2:1 transparent canvas with small transparent margins, about 56 pixels long and 16 pixels thick when reduced to 64x32. Prefer a literal 64x32 output if possible. No handle, no metal, no characters, no floor, no cast shadow, no text, no frame, no baked checkerboard, no broad blurred glow. The rightmost tip must be the unmistakable firing direction. New original art; all pixels outside the crystal should have alpha zero.

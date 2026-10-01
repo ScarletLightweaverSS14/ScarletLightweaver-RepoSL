@@ -60,7 +60,10 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         }
         var deleted = Deleted(target);
 
-        if (_damageableSystem.TryChangeDamage((target, damageableComponent), ev.Damage, out var damage, component.IgnoreResistances, origin: component.Shooter)) // Starlight
+        var damage = _damageableSystem.ChangeDamage((target, damageableComponent), ev.Damage,
+            component.IgnoreResistances, origin: component.Shooter,
+            armorPenetration: Math.Clamp(component.ArmorPenetration, 0f, 1f));
+        if (!damage.Empty)
         {
             if (!deleted)
             {

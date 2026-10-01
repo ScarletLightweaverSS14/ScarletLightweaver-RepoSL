@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Original art generated with OpenAI image generation for Voidwalker, 2026-10-01. Prompts and import notes in ../action_icons.txt.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    { "name": "volley" },
+    { "name": "ground_spikes" },
+    { "name": "burst" },
+    { "name": "prison" },
+    { "name": "lance" },
+    { "name": "beam" }
+  ]
+}

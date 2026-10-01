@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Original art generated with OpenAI image generation for Voidwalker, 2026-09-30. Import notes and prompt in ../crystal_lance.txt.",
+  "size": { "x": 64, "y": 32 },
+  "states": [ { "name": "lance" } ]
+}

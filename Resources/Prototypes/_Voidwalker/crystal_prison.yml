@@ -1,0 +1,59 @@
+- type: entity
+  id: ActionVoidwalkerCrystalPrison
+  name: Crystal Prison
+  description: Grow a towering cage of amethyst around a visible floor tile. Each crystal withstands 120 structural damage and crumbles after 10 seconds. Occupied edges are left open.
+  components:
+  - type: Action
+    icon:
+      sprite: _Voidwalker/action_icons.rsi
+      state: prison
+    useDelay: 28
+  - type: TargetAction
+    checkCanAccess: true
+    range: 8
+  - type: WorldTargetAction
+    event: !type:CrystalPrisonEvent
+
+# Reuse the large crystal art, rise animation, light and damage handling from Ground Spikes.
+# A full tile collider closes the ring; there is no eruption or contact damage.
+- type: entity
+  parent: VoidwalkerGroundSpike
+  id: VoidwalkerPrisonCrystal
+  name: amethyst prison crystal
+  description: A towering crystal bar. Cracks run through its fading violet heart.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    scale: 1.55, 2.1
+    offset: 0, 0.55
+  - type: CrystalSpikeVisuals
+    riseTime: 0.18
+    riseOffset: 0.945
+    overshootScale: 0.96, 1.06
+    settleTime: 0.1
+  - type: Fixtures
+    fixtures:
+      spike:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        hard: true
+        layer:
+        - GlassLayer
+  - type: PointLight
+    color: "#9160ff"
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ Destruction ]
+  - type: TimedDespawn
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: VoidwalkerCrystalFlash

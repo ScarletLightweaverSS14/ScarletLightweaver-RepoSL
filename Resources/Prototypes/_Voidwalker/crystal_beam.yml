@@ -1,0 +1,106 @@
+- type: entity
+  id: ActionVoidwalkerCrystalBeam
+  name: Crystal Beam
+  description: Focus for one second, then sweep a continuous amethyst beam with your cursor for three seconds. Pierces creatures, stops at solid cover, and turns slowly. Deals 12 heat and 6 piercing every quarter-second. Recover for 50 seconds afterwards.
+  components:
+  - type: Action
+    icon:
+      sprite: _Voidwalker/action_icons.rsi
+      state: beam
+    useDelay: 50
+  - type: TargetAction
+    checkCanAccess: false
+    range: 20
+  - type: WorldTargetAction
+    event: !type:CrystalBeamEvent
+
+- type: entity
+  id: VoidwalkerCrystalBeam
+  name: amethyst convergence
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CrystalBeam
+    chargeTime: 1
+    duration: 3
+    pulseInterval: 0.25
+    aimInterval: 0.1
+    range: 12
+    width: 0.3
+    rotationSpeed: 90
+    rayCount: 5
+    focusCount: 5
+    # Reuse the gravity-well sound set. Its original CC-BY-SA-3.0 attribution remains
+    # in Audio/Effects/Grenades/Supermatter/attributions.yml.
+    chargeSound:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
+      params:
+        volume: 0
+        pitch: 0.85
+        referenceDistance: 3
+        maxDistance: 18
+    sustainSound:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
+      params:
+        loop: true
+        volume: 0
+        pitch: 0.7
+        referenceDistance: 3
+        maxDistance: 18
+  - type: CrystalBeamDamage
+    damage:
+      types:
+        Heat: 12
+        Piercing: 6
+  - type: PointLight
+    color: "#b877ff"
+    radius: 3
+    energy: 2
+  - type: TimedDespawn
+    lifetime: 5
+
+- type: entity
+  id: VoidwalkerBeamFocus
+  name: focusing amethyst
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/Shards/crystal.rsi
+    state: shard2
+    color: "#d8a3ff"
+    drawdepth: Effects
+    rotation: -90
+    layers:
+    - state: shard2
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 5
+
+- type: entity
+  parent: VoidwalkerCrystalFlash
+  id: VoidwalkerBeamImpact
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#e2b6ff"
+    scale: 0.65, 0.65
+
+# Cosmetic only: no collider, damage, harvestable shards, or persistent structure.
+- type: entity
+  id: VoidwalkerBeamGrowth
+  name: fleeting amethyst growth
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Decoration/crystal.rsi
+    state: crystal_grey
+    color: "#c995ff"
+    scale: 0.4, 0.4
+    noRot: true
+    drawdepth: Effects
+  - type: CrystalSpikeVisuals
+    riseTime: 0.08
+  - type: AnimationPlayer
+  - type: TimedDespawn
+    lifetime: 0.45
+  - type: Tag
+    tags: [ HideContextMenu ]

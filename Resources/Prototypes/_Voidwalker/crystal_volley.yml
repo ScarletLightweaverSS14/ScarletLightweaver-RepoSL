@@ -1,0 +1,104 @@
+# Crystal Volley: action cooldown/range and projectile damage/lifetime are tuned here.
+- type: entity
+  id: ActionVoidwalkerCrystalVolley
+  name: Crystal Volley
+  description: Grow a halo of amethyst spears. Click to launch each crystal at the selected location before the halo fades.
+  components:
+  - type: Action
+    icon:
+      sprite: _Voidwalker/action_icons.rsi
+      state: volley
+    useDelay: 16
+  - type: InstantAction
+    event: !type:SummonCrystalVolleyEvent
+
+- type: entity
+  id: ActionVoidwalkerLaunchCrystal
+  name: Launch Crystal
+  description: Launch one hovering crystal toward the clicked location. Each crystal deals 25 piercing damage.
+  components:
+  - type: Action
+    icon:
+      sprite: _Voidwalker/action_icons.rsi
+      state: volley
+    useDelay: 0.18
+    temporary: true
+    # The existing action UI starts targeting newly granted, toggled actions.
+    toggled: true
+  - type: TargetAction
+    repeat: true
+    checkCanAccess: false
+    range: 20
+  - type: WorldTargetAction
+    event: !type:FireCrystalVolleyEvent
+  - type: LimitedCharges
+    maxCharges: 6
+
+- type: entity
+  id: VoidwalkerHoverCrystal
+  name: hovering amethyst
+  description: A razor-sharp crystal suspended by a sliver of the void.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/Shards/crystal.rsi
+    state: shard2
+    color: "#ba7aff"
+    rotation: -90
+    scale: 1.3, 1.3
+    drawdepth: Effects
+  - type: PointLight
+    color: "#ba7aff"
+    radius: 1.3
+    energy: 0.7
+  - type: TimedDespawn
+    lifetime: 12
+
+- type: entity
+  parent: BaseBullet
+  id: VoidwalkerCrystalProjectile
+  name: amethyst spear
+  description: A shard of the void, violently set free.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/Shards/crystal.rsi
+    color: "#ba7aff"
+    rotation: -90
+    scale: 1.3, 1.3
+    layers:
+    - state: shard2
+      shader: unshaded
+  - type: Projectile
+    # GunSystem's world-angle convention is south-facing; the rotated sprite faces east.
+    angle: -90
+    damage:
+      types:
+        Piercing: 25
+    impactEffect: VoidwalkerCrystalFlash
+    soundHit:
+      path: /Audio/Effects/glass_crack2.ogg
+    forceSound: true
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: 0.1
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: PointLight
+    color: "#ba7aff"
+    radius: 1.3
+    energy: 0.7
+  - type: TimedDespawn
+    lifetime: 0.65
+
+- type: entity
+  parent: EffectSparks
+  id: VoidwalkerCrystalFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#ba7aff"

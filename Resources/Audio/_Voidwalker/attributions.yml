@@ -1,0 +1,4 @@
+- files: ["crystal_charge.wav", "crystal_beam_loop.wav"]
+  license: "MIT"
+  copyright: "Original procedural synthesis for Starlight-Chimes, 2026. No third-party samples. Generator: Tools/_Voidwalker/GenerateBeamAudio.ps1. License: Resources/Audio/_Voidwalker/LICENSE.txt."
+  source: "https://opensource.org/license/mit"

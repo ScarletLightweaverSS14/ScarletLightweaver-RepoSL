@@ -1,0 +1,98 @@
+- type: entity
+  id: ActionVoidwalkerGroundSpikes
+  name: Crystal Ground Spikes
+  description: Stomp eight towering amethyst clusters through the floor in a travelling fault line. Direct hits deal 45 piercing and 150 stamina damage, once per target. Stops at walls and gaps in the floor.
+  components:
+  - type: Action
+    icon:
+      sprite: _Voidwalker/action_icons.rsi
+      state: ground_spikes
+    useDelay: 20
+  - type: TargetAction
+    checkCanAccess: false
+    range: 12
+  - type: WorldTargetAction
+    event: !type:CrystalGroundSpikesEvent
+
+# All eruption balance values live here. The spike prototype controls its lifetime.
+- type: entity
+  id: VoidwalkerCrystalFaultLine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CrystalFaultLine
+    spikeCount: 8
+    firstSpikeDistance: 1
+    spikeSpacing: 1
+    initialDelay: 0.2
+    eruptionDelay: 0.15
+    hitRadius: 0.85
+    hitOncePerCast: true
+    damage:
+      types:
+        Piercing: 45
+    staminaDamage: 150
+
+# Reuses the large harvestable crystal's art. No shard drops, reflection or resource farming.
+# These lingering spikes are non-blocking; damage is applied only as they erupt.
+- type: entity
+  id: VoidwalkerGroundSpike
+  name: amethyst ground spike
+  description: A jagged crystal thrust out of the floor. Its glow is already fading.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Decoration/crystal.rsi
+    scale: 1.4, 1.65
+    offset: 0, 0.3
+    noRot: true
+    drawdepth: Mobs
+    # Reuse the harvestable crystal as a tall core with two shorter, darker outgrowths.
+    layers:
+    - state: crystal_grey
+      color: "#8653b7"
+      scale: 0.65, 0.7
+      offset: -0.22, -0.12
+      rotation: 18
+    - state: crystal_grey
+      color: "#a76bd9"
+      scale: 0.7, 0.8
+      offset: 0.2, -0.08
+      rotation: -15
+    - state: crystal_grey
+      color: "#d1a0ff"
+  - type: CrystalSpikeVisuals
+    riseTime: 0.14
+    riseOffset: 0.74
+    overshootScale: 0.96, 1.08
+    settleTime: 0.08
+  - type: AnimationPlayer
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      spike:
+        shape: !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+        layer:
+        - BulletImpassable
+  - type: PointLight
+    color: "#ba7aff"
+    radius: 2.5
+    energy: 1.8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ Destruction ]
+  - type: TimedDespawn
+    lifetime: 4

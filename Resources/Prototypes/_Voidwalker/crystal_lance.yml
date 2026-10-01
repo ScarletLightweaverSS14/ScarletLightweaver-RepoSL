@@ -1,0 +1,68 @@
+- type: entity
+  id: ActionVoidwalkerCrystalLance
+  name: Crystal Lance
+  description: Charge a massive amethyst spear toward the clicked point. Deals 120 piercing damage with 65% armor penetration and can pierce up to three targets. Solid obstacles stop the lance.
+  components:
+  - type: Action
+    icon:
+      sprite: _Voidwalker/action_icons.rsi
+      state: lance
+    useDelay: 35
+  - type: TargetAction
+    checkCanAccess: false
+    range: 18
+  - type: WorldTargetAction
+    event: !type:CrystalLanceEvent
+
+- type: entity
+  id: VoidwalkerChargingLance
+  name: forming amethyst lance
+  description: A jagged spear gathering the light around it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Voidwalker/crystal_lance.rsi
+    state: lance
+    drawdepth: Effects
+  - type: Appearance
+  - type: ScaleVisuals
+    scale: 0.25, 0.25
+  - type: PointLight
+    color: "#be82ff"
+    radius: 2
+    energy: 1.8
+  - type: TimedDespawn
+    lifetime: 1.8
+
+- type: entity
+  parent: VoidwalkerCrystalProjectile
+  id: VoidwalkerLanceProjectile
+  name: amethyst lance
+  description: A massive crystal spear driven by the void.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Voidwalker/crystal_lance.rsi
+    color: "#ffffff"
+    rotation: 0
+    scale: 1.5, 1.5
+    layers:
+    - state: lance
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 120
+    armorPenetration: 0.65
+    projectileType: Intangible
+    maximumHits: 3
+    deleteOnMaximumHits: true
+    soundHit:
+      path: /Audio/Effects/glass_break1.ogg
+  - type: CrystalLanceProjectile
+  - type: PointLight
+    color: "#be82ff"
+    radius: 2.5
+    energy: 2
+  - type: TimedDespawn
+    lifetime: 0.3

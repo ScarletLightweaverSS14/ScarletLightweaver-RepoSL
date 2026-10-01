@@ -1,0 +1,58 @@
+- type: entity
+  id: ActionVoidwalkerCrystalBurst
+  name: Crystal Burst
+  description: Grow a dense ring of 24 amethyst spears, then shatter it outward after a brief warning. Each shard deals 60 piercing damage and flies up to five meters from its launch point.
+  components:
+  - type: Action
+    icon:
+      sprite: _Voidwalker/action_icons.rsi
+      state: burst
+    useDelay: 20
+  - type: InstantAction
+    event: !type:CrystalBurstEvent
+
+# Inherit the volley crystal's sprite, collisions and impact effects, with stronger burst damage.
+# CrystalBurst controls speed and flight range through its DataFields.
+- type: entity
+  parent: VoidwalkerCrystalProjectile
+  id: VoidwalkerBurstProjectile
+  name: amethyst burst shard
+  description: An explosive splinter of the void. Its energy is already burning out.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#d6a2ff"
+    scale: 1.55, 1.55
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 60
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: 0.16
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: TimedDespawn
+    lifetime: 0.209
+
+- type: entity
+  parent: VoidwalkerHoverCrystal
+  id: VoidwalkerBurstHover
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#d6a2ff"
+    scale: 1.55, 1.55
+
+- type: entity
+  parent: VoidwalkerCrystalFlash
+  id: VoidwalkerBurstFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#e7beff"
+    scale: 2.5, 2.5
