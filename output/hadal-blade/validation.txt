@@ -1,0 +1,24 @@
+PASS HadalBlade.rsi/icon: 32x64, 1 frames, 1 directions, 12 colors
+PASS HadalBlade.rsi/off: 32x64, 1 frames, 1 directions, 12 colors
+PASS HadalBlade.rsi/on: 32x64, 8 frames, 1 directions, 12 colors
+PASS HadalBlade.rsi/idle: 32x64, 8 frames, 1 directions, 12 colors
+PASS HadalBlade.rsi/core: 32x64, 8 frames, 1 directions, 6 colors
+PASS HadalBladeInhands.rsi/inhand-left: 64x64, 32 frames, 4 directions, 11 colors
+PASS HadalBladeInhands.rsi/inhand-left-on: 64x64, 32 frames, 4 directions, 11 colors
+PASS HadalBladeInhands.rsi/wielded-inhand-left: 64x64, 32 frames, 4 directions, 11 colors
+PASS HadalBladeInhands.rsi/wielded-inhand-left-on: 64x64, 32 frames, 4 directions, 11 colors
+PASS HadalBladeInhands.rsi/inhand-right: 64x64, 32 frames, 4 directions, 11 colors
+PASS HadalBladeInhands.rsi/inhand-right-on: 64x64, 32 frames, 4 directions, 11 colors
+PASS HadalBladeInhands.rsi/wielded-inhand-right: 64x64, 32 frames, 4 directions, 11 colors
+PASS HadalBladeInhands.rsi/wielded-inhand-right-on: 64x64, 32 frames, 4 directions, 11 colors
+PASS HadalBladeEffects.rsi/pressure-cut: 64x64, 4 frames, 1 directions, 9 colors
+PASS HadalBladeBelt.rsi/equipped-BELT: 32x32, 4 frames, 4 directions, 12 colors
+PASS idle phase 1: 21 changed pixels; fixed grip, guard and blade silhouette
+PASS idle phase 2: 37 changed pixels; fixed grip, guard and blade silhouette
+PASS idle phase 3: 34 changed pixels; fixed grip, guard and blade silhouette
+PASS idle phase 4: 34 changed pixels; fixed grip, guard and blade silhouette
+PASS idle phase 5: 30 changed pixels; fixed grip, guard and blade silhouette
+PASS idle phase 6: 26 changed pixels; fixed grip, guard and blade silhouette
+PASS idle phase 7: 10 changed pixels; fixed grip, guard and blade silhouette
+Validated 4 RSI folders, 15 states and 290 frames against the repository JSON schema and native-image checks.
+File checks only. See separate engine-check logs; in-game appearance requires a client session.

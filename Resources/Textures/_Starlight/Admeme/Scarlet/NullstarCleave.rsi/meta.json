@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original AI-generated Rift Cleave artwork for Scarlet using OpenAI image generation; native palette conversion and RSI assembly by Codex.",
+  "size": {
+    "x": 128,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "core"
+    },
+    {
+      "name": "streak"
+    },
+    {
+      "name": "arc"
+    }
+  ]
+}

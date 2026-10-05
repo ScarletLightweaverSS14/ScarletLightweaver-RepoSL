@@ -1,0 +1,4 @@
+0–1s RMS: -12,6 dBFS
+1–3s RMS: -13,8 dBFS
+3–6s RMS: -20,2 dBFS
+6–8,5s RMS: -34,9 dBFS

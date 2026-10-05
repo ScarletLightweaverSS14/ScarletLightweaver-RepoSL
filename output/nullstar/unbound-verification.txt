@@ -1,0 +1,42 @@
+Nullstar stage 3 — verification
+
+PASS: dotnet build Content.IntegrationTests/Content.IntegrationTests.csproj --no-restore -v minimal
+  Before engine checks: 75 existing warnings, zero errors.
+  Final build after ring alignment and temporary fixture removal: 421 existing warnings, zero errors; 34.00 seconds. See unbound-build-final.log.
+PASS: Existing EntityPrototypeComponentsTest.PrototypesHaveKnownComponents.
+  19,301 entities / 64,952 components / 4,469 files validated.
+PASS: Existing StereoTest.TestAudioFiles — includes all eight custom WAV clips.
+PASS: Temporary NullstarUnboundTest.ReleaseRequiresWieldAndPushesVisibleMobsOnce.
+  Normal blade grants no preview action; preview grants its action.
+  Action attempt rejects one-handed use, accepts a wielded blade.
+  Release spawns exactly one wave and disables the spent action.
+  Nearby mob receives outward velocity once, without direct damage.
+  Wall-obstructed and out-of-range mobs are not thrown.
+  Caster velocity is unchanged. Repeating release is rejected.
+  Dropping and picking up the blade does not clear its released state.
+  Fixture invokes the completed action event and advances wave time explicitly;
+  it does not simulate the preview DoAfter or a live rendered client.
+  Source archived at output/nullstar/NullstarUnboundTest.cs; removed from test project afterward.
+Engine run: 3 passed, 0 failed, 0 skipped; 1 minute 55.902 seconds.
+See unbound-check.log for raw output.
+
+PASS: Four RSI folders, ten states, 25 packed frames: schema, sizes, palette, binary alpha, transparent margins.
+PASS: Eight mono 44.1 kHz 16-bit PCM WAVs: headers, durations, peak/RMS, DC, faded endpoints.
+Visual review: inspected native exported ring and four-layer contact sheet.
+
+Not verified live: rendered wave/knockback alignment, map-edge/rotated-grid scenarios,
+buckled/contained/ghost exclusions, preview DoAfter interruption, subjective audio mix.
+Those exclusions and interruption fields use the existing component/API paths.
+No arena, extraction, Scarlet transformation, survival changes, boss bar, alert, or announcement is included in this stage.
+
+
+Audio revision — 2026-10-04:
+Replaced the 2.4-second stone/glass release with an 8.5-second explosion/pressure mix.
+The initial transient still starts with the shockwave. Blast bodies and distant rumble decay over several seconds.
+EmitSoundOnSpawn now uses positional: true; the sound is not parented to the three-second VFX entity.
+All seven basic combat WAV hashes remain identical to the pre-revision files.
+All eight files passed the WAV/mono/duration/peak/RMS/DC/endpoint validator.
+Late-tail RMS decreases from -12.6 dBFS (first second) to -34.9 dBFS (6–8.5 seconds).
+Engine checks rerun after this revision: PrototypesHaveKnownComponents and StereoTest.TestAudioFiles both passed; 2 passed, 0 failed, 58.928 seconds.
+See unbound-audio-check.log. No C# edits or additional behavior tests were needed for this audio-only revision.
+Perceived weight, loudness against other players and spatial playback still require in-game listening.

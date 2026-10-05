@@ -1,0 +1,21 @@
+Nullstar stage 2 verification
+
+PASS: existing EntityPrototypeComponentsTest.PrototypesHaveKnownComponents
+19,298 entity prototypes / 64,942 components / 4,469 files.
+
+PASS: existing StereoTest.TestAudioFiles
+Loads repository gameplay audio through the client audio system, including the seven new Nullstar WAVs,
+and checks mono channel layout. Both engine tests passed in 56.537 seconds; see combat-check.log.
+
+PASS: Validate-Audio.ps1
+Seven 44.1 kHz mono 16-bit PCM clips; 0.45 to 0.72 seconds each.
+Valid RIFF/data lengths, non-silent contents, no clipping, low DC offset and silent endpoints.
+See audio-validation.txt for per-file levels.
+
+Stage-1 sprite PNGs are unchanged. Basic attacks use the existing thrust/slash animations,
+with the upright blade facing outward (180-degree rotation) and alternating wide swings.
+No game C# changes or new test systems were needed.
+
+Not checked: live character/attack alignment, real combat balance, subjective listening,
+or spatial loudness in a live graphical game session. The offline audio-preview.html
+provides individual cues and an example mixed strike for listening review.

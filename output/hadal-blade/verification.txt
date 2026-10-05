@@ -1,0 +1,27 @@
+Hadal Blade verification, 2026-10-03
+
+PASS: dotnet build Content.IntegrationTests/Content.IntegrationTests.csproj --no-restore -v minimal
+0 errors; repository build emitted warnings. See build-check.log.
+
+PASS: existing EntityPrototypeComponentsTest.PrototypesHaveKnownComponents
+19,297 entities / 64,934 components / 4,468 prototype files.
+
+PASS: temporary HadalBladeSmokeTest.WieldedBladeReleasesPressureAndRetainsCooldown
+- Spawn the actual ScarletHadalBlade prototype.
+- Confirm no ItemToggle component remains.
+- Confirm holding grants its action and one-handed use is rejected.
+- Wield with the normal system; confirm use is allowed.
+- Release the action: exactly three projectiles, each aimed toward the target.
+- Confirm shooter attribution and 11 damage per projectile (no inherited bullet damage).
+- Drop and pick up: action returns with the same cooldown and requires wielding again.
+This exercises the release path directly; it does not simulate the windup through client input.
+
+The two tests passed in 47 seconds. See ability-check.log.
+The temporary fixture is archived as HadalBladeSmokeTest.cs in this output folder and removed
+from Content.IntegrationTests. No runtime test systems or permanent test-project changes remain.
+
+PASS: native RSI/image checks, 4 folders, 15 states, 290 frames.
+PASS: contact sheet reviewed for item, hands, belt, and pressure-cut artwork.
+
+Not checked in a live graphical client: worn sprite occlusion/alignment on characters,
+audio balance, and full player-input windup/collision presentation.

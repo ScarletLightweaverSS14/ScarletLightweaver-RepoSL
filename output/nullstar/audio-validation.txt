@@ -1,0 +1,12 @@
+PASS glance.wav: 0,48s, mono 44.1kHz/16bit PCM, peak -6,7 dBFS, RMS -19,6 dBFS, silent endpoints
+PASS hit1.wav: 0,48s, mono 44.1kHz/16bit PCM, peak -6,8 dBFS, RMS -22,1 dBFS, silent endpoints
+PASS hit2.wav: 0,48s, mono 44.1kHz/16bit PCM, peak -5,5 dBFS, RMS -21,0 dBFS, silent endpoints
+PASS rift-charge.wav: 0,80s, mono 44.1kHz/16bit PCM, peak -12,2 dBFS, RMS -26,1 dBFS, silent endpoints
+PASS rift-cleave.wav: 2,40s, mono 44.1kHz/16bit PCM, peak -3,1 dBFS, RMS -19,8 dBFS, silent endpoints
+PASS rift-dash.wav: 0,36s, mono 44.1kHz/16bit PCM, peak -4,8 dBFS, RMS -20,3 dBFS, silent endpoints
+PASS swing1.wav: 0,62s, mono 44.1kHz/16bit PCM, peak -3,9 dBFS, RMS -17,7 dBFS, silent endpoints
+PASS swing2.wav: 0,62s, mono 44.1kHz/16bit PCM, peak -3,9 dBFS, RMS -17,6 dBFS, silent endpoints
+PASS unbound.wav: 8,50s, mono 44.1kHz/16bit PCM, peak -3,1 dBFS, RMS -17,1 dBFS, silent endpoints
+PASS unwield.wav: 0,45s, mono 44.1kHz/16bit PCM, peak -14,0 dBFS, RMS -28,0 dBFS, silent endpoints
+PASS wield.wav: 0,72s, mono 44.1kHz/16bit PCM, peak -7,8 dBFS, RMS -30,1 dBFS, silent endpoints
+Technical audio checks only; subjective balance and the combined in-game mix need listening.

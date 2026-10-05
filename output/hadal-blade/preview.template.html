@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scarlet's Hadal Blade — Sprite Preview</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#11131d;color:#e0e1ed;font:15px/1.5 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:32px}h1{font-size:32px;letter-spacing:.04em;margin:0}h2{font-size:19px;font-weight:550;margin:0 0 16px}p{color:#a6a9bd;margin:8px 0 24px}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:22px 0}button,select{background:#272b40;border:1px solid #575572;border-radius:5px;color:#e5e1f6;padding:8px 12px;font:inherit}button{cursor:pointer}section{background:#191c2a;border:1px solid #32364c;padding:22px;border-radius:10px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:18px}.tile{text-align:center;min-width:0}.tile small{display:block;margin-top:6px;color:#a6a9bd}canvas{display:block;margin:auto;image-rendering:pixelated;max-width:100%;height:auto;border:1px solid #464b62}.tag{display:inline-block;color:#b995eb;border:1px solid #655080;padding:3px 9px;border-radius:20px;font-size:12px;margin-bottom:10px}footer{color:#959aaf;font-size:13px;margin:24px 0}label{color:#b9bdd0}#status{color:#a8d0dd}.phase{color:#bd97e8;font-size:13px;min-height:20px;margin-top:8px}
+</style>
+<main>
+<span class="tag">CSOD SCARLET · NATIVE SPRITES</span>
+<h1>THE HADAL BLADE</h1>
+<p>Black crystalline mass. An amethyst heart pulsing inside a fixed jagged edge.</p>
+<div class="controls">
+<button id="play">Pause</button>
+<label>Background <select id="bg"><option value="station">Station gray</option><option value="dark">Dark</option><option value="light">Light</option><option value="checker">Transparency grid</option></select></label>
+<label>Hand <select id="hand"><option value="right">Right</option><option value="left">Left</option></select></label>
+<label>Zoom <select id="zoom"><option value="3">3×</option><option value="1">1× native</option><option value="2">2×</option><option value="4">4×</option><option value="6">6×</option></select></label>
+</div>
+<div id="status">Loading embedded PNG assets…</div>
+<section><h2>Item · 32 × 64</h2><div class="grid">
+<div class="tile"><canvas id="off" width="32" height="64"></canvas><small>Quiet phase</small></div>
+<div class="tile"><canvas id="on" width="32" height="64"></canvas><small>Idle · 8 frames / 3.2 second cycle</small><div class="phase" id="phase"></div></div>
+<div class="tile"><canvas id="icon" width="32" height="64"></canvas><small>Static inventory icon</small></div>
+</div></section>
+<section><h2>In-hand · 64 × 64</h2><div class="grid">
+<div class="tile"><canvas id="south" width="64" height="64"></canvas><small>South</small></div>
+<div class="tile"><canvas id="north" width="64" height="64"></canvas><small>North</small></div>
+<div class="tile"><canvas id="east" width="64" height="64"></canvas><small>East</small></div>
+<div class="tile"><canvas id="west" width="64" height="64"></canvas><small>West</small></div>
+</div></section>
+<section><h2>On belt · 32 × 32</h2><div class="grid">
+<div class="tile"><canvas id="belt-south" width="32" height="32"></canvas><small>South</small></div>
+<div class="tile"><canvas id="belt-north" width="32" height="32"></canvas><small>North</small></div>
+<div class="tile"><canvas id="belt-east" width="32" height="32"></canvas><small>East</small></div>
+<div class="tile"><canvas id="belt-west" width="32" height="32"></canvas><small>West</small></div>
+</div></section>
+<section><h2>Pressure-cut effect · 64 × 64</h2><div class="grid">
+<div class="tile"><canvas id="swing" width="64" height="64"></canvas><small>335 ms discharge · repeating for preview</small></div>
+<div class="tile"><canvas id="swingcrest" width="64" height="64"></canvas><small>Peak release</small></div>
+</div></section>
+<section><h2>Hadal Crush</h2><p>Wield with both hands, select the action, and aim. After a 0.7 second windup, three pressure crescents spread over 36°. Each deals 8 cold + 3 blunt and slows by 35% for 2.5 seconds. About 5 tiles of reach; 25 second cooldown. Movement, damage, or changing hands interrupts the windup.</p></section>
+<footer>Nearest-neighbor display of the actual exported PNGs. Select 1× to judge game-scale readability. The in-hand views show isolated weapon layers; character occlusion and engine lighting need an in-game check. All assets are embedded; this page works offline.</footer>
+</main>
+<script>
+const sources=__ASSET_DATA__;
+const images={};
+const ids=['off','on','icon','south','north','east','west','belt-south','belt-north','belt-east','belt-west','swing','swingcrest'];
+const canvases=Object.fromEntries(ids.map(id=>[id,document.getElementById(id)]));
+let paused=false,time=0,last=performance.now();
+document.getElementById('play').onclick=()=>{paused=!paused;document.getElementById('play').textContent=paused?'Play':'Pause';};
+function background(ctx,w,h){
+ const bg=document.getElementById('bg').value;
+ ctx.fillStyle=({station:'#535a65',dark:'#151820',light:'#d6d8df',checker:'#8b8d98'})[bg];ctx.fillRect(0,0,w,h);
+ if(bg==='checker'){ctx.fillStyle='#b5b7c0';for(let y=0;y<h;y+=8)for(let x=0;x<w;x+=8)if((x/8+y/8)%2===0)ctx.fillRect(x,y,8,8);}
+}
+function frame(id,key,col=0,row=0){
+ const c=canvases[id],ctx=c.getContext('2d'),z=Number(document.getElementById('zoom').value);
+ c.style.width=`${c.width*z}px`;ctx.imageSmoothingEnabled=false;background(ctx,c.width,c.height);
+ if(key)ctx.drawImage(images[key],col*c.width,row*c.height,c.width,c.height,0,0,c.width,c.height);
+}
+function render(now){
+ if(!paused)time+=Math.min((now-last)/1000,.1);last=now;
+ const t=time%3.2,ends=[1.25,1.45,1.65,1.85,2.15,2.35,2.65,3.2],p=ends.findIndex(end=>t<end);
+ frame('off','off');frame('on','on',p);frame('icon','icon');
+ document.getElementById('phase').textContent=p===0?'Quiet':p<4?'Crystal heartbeat':'Pressure settling';
+ const hand=document.getElementById('hand').value;
+ ['south','north','east','west'].forEach((id,d)=>{
+  frame(id,hand,p,d);
+  frame(`belt-${id}`,'belt',d%2,Math.floor(d/2));
+ });
+ const s=time%1.6,sp=s<.055?0:s<.125?1:s<.215?2:s<.335?3:-1;
+ frame('swing',sp<0?null:'swing',Math.max(sp,0));frame('swingcrest','swing',1);
+ requestAnimationFrame(render);
+}
+Promise.all(Object.entries(sources).map(([key,src])=>new Promise((resolve,reject)=>{
+ const img=new Image();img.onload=()=>{images[key]=img;resolve();};img.onerror=()=>reject(new Error(`Could not decode ${key}`));img.src=src;
+}))).then(()=>{document.getElementById('status').textContent='Playing the exported sprite frames.';requestAnimationFrame(render);}).catch(e=>{document.getElementById('status').textContent=e.message;});
+</script>
+</html>

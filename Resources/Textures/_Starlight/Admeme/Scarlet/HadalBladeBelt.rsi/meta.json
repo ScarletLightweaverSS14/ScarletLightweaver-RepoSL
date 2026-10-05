@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "AI-generated for Scarlet using OpenAI image generation, based on Scarlet's approved Hadal Blade concept; native pixel export and RSI assembly by Codex. No existing game sprite pixels copied.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "AI-generated for Scarlet using OpenAI image generation from Scarlet's Nullstar design brief; native pixel export and RSI assembly by Codex. No existing weapon artwork copied.",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}

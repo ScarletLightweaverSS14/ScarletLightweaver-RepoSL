@@ -1,0 +1,49 @@
+Nullstar charged Rift Cleave revision — 2026-10-04
+
+Build: PASS
+  dotnet build Content.IntegrationTests/Content.IntegrationTests.csproj --no-restore -v minimal
+  Shared, server and client dependencies compiled. Final build: 213 existing warnings, 0 errors.
+  No warnings in the added Nullstar files. Log: rift-dash-final-build.log.
+
+Engine behavior: PASS — 11 focused checks, 0 failures (53.419 seconds).
+  Charged windup causes no damage or dash before completion.
+  Physical forward movement occurs between charge and cut; damage occurs at arrival.
+  Turning during charge does not retarget the lane.
+  Direct damage, lateral range exclusion, caster exclusion and residual contact/push limits.
+  Walking is locked only during the committed dash; movement and zero velocity restored afterward.
+  Wall and closed-airlock obstruction; wall spawned after charging also stops the dash.
+  Damage does not reach a victim behind those obstacles.
+  Windup interrupted by movement, unwielding, combat damage or blade deletion.
+  Dash interrupted by unwielding, blade deletion or externally removing the dash component.
+  Cooldown survives drop/re-pickup; temporary effects close and despawn.
+  Client/server integration reported no effect-scale errors.
+  Log: rift-dash-final-check.log.
+
+Standard resource checks: PASS
+  EntityPrototypeComponentsTest.PrototypesHaveKnownComponents
+    19,304 entities / 64,966 components / 4,469 files validated.
+  StereoTest.TestAudioFiles
+  These passed with the first ten behavior cases (12/12 total) before the final additional cleanup case.
+  Log: rift-dash-check.log.
+
+Assets: PASS
+  Validate-Sprites.ps1: 6 RSI folders, 16 states, 31 packed frames; schema, dimensions,
+    direction counts, 16-color maximum, binary alpha, empty margins and nonempty frames.
+  Validate-Audio.ps1: all 11 cues, mono 44.1 kHz PCM16 WAV; headers, durations,
+    DC offset, faded endpoints, non-silence and peak headroom.
+  The 8 earlier sounds, including approved unbound.wav, match their previous SHA256 hashes.
+  New free recorded sources and license provenance: rift-audio-sources.md.
+
+Preview: rendered locally in an isolated headless Chrome profile after the connected browser
+  reported unavailable. Inspected charge and immediate slash frames, direction and pixel scaling.
+  Screenshots: rift-preview-charge.png / rift-preview-cut.png.
+  rift-preview.html is an offline illustration with embedded assets, not a game recording.
+
+Scope and remaining manual checks:
+  Subjective loudness, multiplayer latency, moving/rotating shuttle grids, unusual mob bodies,
+  camera/character occlusion and encounter balance need a live gameplay pass.
+  No arena, boss transformation, 90-second extraction or other Nullstar moves added here.
+  Hadal's hold-right-click charge UI and two-slash/stomp combo are the next separate stage.
+
+Temporary fixture copied to output/nullstar/NullstarRiftCleaveTest.cs and removed from
+  Content.IntegrationTests after passing. No runtime test systems added.

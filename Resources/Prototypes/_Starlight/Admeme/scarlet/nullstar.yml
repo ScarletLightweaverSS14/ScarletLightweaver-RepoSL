@@ -1,0 +1,225 @@
+# Basic combat, standalone Unbound release and Rift Cleave. Extraction and arena arrive later.
+- type: entity
+  parent: [BaseSword, BaseCentcommContraband]
+  id: ScarletNullstar
+  name: Nullstar
+  suffix: Scarlet, Admeme
+  description: An ancient blade of blackened stone and amethyst, its veins converging upon a distant point of light. It feels less forged than permitted to exist.
+  components:
+  - type: NullstarUnbound
+  - type: NullstarRiftCleave
+  - type: Sprite
+    sprite: _Starlight/Admeme/Scarlet/Nullstar.rsi
+    state: icon
+  - type: Icon
+    sprite: _Starlight/Admeme/Scarlet/Nullstar.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: _Starlight/Admeme/Scarlet/NullstarInhands.rsi
+  - type: Clothing
+    sprite: _Starlight/Admeme/Scarlet/NullstarBelt.rsi
+    slots: [belt]
+    quickEquip: false
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/_Starlight/Weapons/Nullstar/wield.wav
+      params:
+        volume: -5
+        variation: 0.03
+    unwieldSound:
+      path: /Audio/_Starlight/Weapons/Nullstar/unwield.wav
+      params:
+        volume: -6
+        variation: 0.03
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.75
+    range: 1.65
+    angle: 70
+    animation: WeaponArcThrust
+    wideAnimation: WeaponArcSlash
+    # Nullstar's item art points straight up, unlike the base sword's diagonal art.
+    wideAnimationRotation: 180
+    animationOffset: 0.8
+    swingBeverage: true
+    autoAttack: false
+    damage:
+      types:
+        Slash: 32
+        Piercing: 8
+    soundSwing:
+      collection: NullstarSwing
+      params:
+        volume: -4
+        variation: 0.04
+    soundHit:
+      collection: NullstarHit
+      params:
+        volume: -2
+        variation: 0.05
+    soundNoDamage:
+      path: /Audio/_Starlight/Weapons/Nullstar/glance.wav
+      params:
+        volume: -4
+        variation: 0.05
+  - type: UseDelay
+    delay: 1
+
+- type: soundCollection
+  id: NullstarSwing
+  files:
+  - /Audio/_Starlight/Weapons/Nullstar/swing1.wav
+  - /Audio/_Starlight/Weapons/Nullstar/swing2.wav
+
+- type: soundCollection
+  id: NullstarHit
+  files:
+  - /Audio/_Starlight/Weapons/Nullstar/hit1.wav
+  - /Audio/_Starlight/Weapons/Nullstar/hit2.wav
+
+# One-use preview only. The normal sword waits for the later extraction integration.
+- type: entity
+  parent: ScarletNullstar
+  id: ScarletNullstarUnboundPreview
+  suffix: Scarlet, Unbound preview
+  components:
+  - type: NullstarUnbound
+    previewAction: ActionNullstarUnboundPreview
+
+- type: entity
+  parent: BaseAction
+  id: ActionNullstarUnboundPreview
+  name: Nullstar Unbound
+  description: Hold Nullstar in both hands and stand still for one second to preview its release. An expanding seven-tile wave pushes nearby creatures away without direct damage. Once per blade.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Starlight/Admeme/Scarlet/NullstarUnbound.rsi
+      state: flare
+  - type: InstantAction
+    event: !type:NullstarUnboundEvent
+  - type: DoAfterArgs
+    delay: 1
+    breakOnMove: true
+    breakOnDamage: true
+    breakOnHandChange: true
+    needHand: true
+
+- type: entity
+  id: EffectNullstarUnbound
+  name: Nullstar unbound
+  categories: [HideSpawnMenu]
+  components:
+  - type: NullstarUnboundWave
+  - type: Sprite
+    sprite: _Starlight/Admeme/Scarlet/NullstarUnbound.rsi
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - state: ring
+      shader: unshaded
+    - state: debris
+      shader: unshaded
+    - state: flare
+      shader: unshaded
+    - state: rift
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    # Let the release tail finish at the seal after its three-second visual entity despawns.
+    positional: true
+    sound:
+      path: /Audio/_Starlight/Weapons/Nullstar/unbound.wav
+      params:
+        volume: -3
+        variation: 0.03
+  - type: Tag
+    tags: [HideContextMenu]
+
+- type: entity
+  parent: BaseAction
+  id: ActionNullstarRiftCleave
+  name: Rift Cleave
+  description: Brace for a moment, then rush toward your aim and cleave as you stop. A thin wound in space lingers after the strike. Requires both hands and room to move. Moving, taking damage or losing your grip interrupts the charge.
+  components:
+  - type: NullstarRiftCleaveAction
+  - type: Action
+    useDelay: 8
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Starlight/Admeme/Scarlet/NullstarRift.rsi
+      state: slash
+  - type: TargetAction
+    range: 8
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:NullstarRiftCleaveEvent
+
+- type: entity
+  id: EffectNullstarRiftCleave
+  name: Nullstar fracture
+  categories: [HideSpawnMenu]
+  components:
+  - type: NullstarRift
+    directDamage:
+      types:
+        Slash: 50
+        Piercing: 10
+    residualDamage:
+      types:
+        Slash: 3
+        Piercing: 2
+    releaseSound:
+      path: /Audio/_Starlight/Weapons/Nullstar/rift-cleave.wav
+      params:
+        volume: 1
+        variation: 0.03
+  - type: Sprite
+    sprite: _Starlight/Admeme/Scarlet/NullstarRift.rsi
+    drawdepth: Effects
+    layers:
+    - state: telegraph
+      shader: unshaded
+    - state: slash
+      visible: false
+      shader: unshaded
+    - state: rift
+      visible: false
+      shader: unshaded
+    - sprite: _Starlight/Admeme/Scarlet/NullstarCleave.rsi
+      state: arc
+      visible: false
+      shader: unshaded
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Starlight/Weapons/Nullstar/rift-charge.wav
+      params:
+        volume: -3
+  - type: TimedDespawn
+    # Failsafe during windup. Completion resets this to the active and closing durations.
+    lifetime: 6
+  - type: Tag
+    tags: [HideContextMenu]
+
+- type: entity
+  id: EffectNullstarCleaveMotion
+  name: Nullstar pressure wake
+  categories: [HideSpawnMenu]
+  components:
+  - type: NullstarCleaveMotion
+  - type: Sprite
+    sprite: _Starlight/Admeme/Scarlet/NullstarCleave.rsi
+    drawdepth: Effects
+    layers:
+    - state: core
+      shader: unshaded
+    - state: streak
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 3
+  - type: Tag
+    tags: [HideContextMenu]
+

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nullstar — basic combat audio</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#17141f;color:#e1d8ed;font:16px/1.5 system-ui,sans-serif}main{max-width:960px;margin:auto;padding:32px}h1{font-size:36px;margin:0}h2{font-size:19px}p{color:#b7adc6}.stats{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.stats span,article{padding:15px;background:#241f30;border:1px solid #4c3d61;border-radius:7px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}audio{width:100%}button{background:#704da0;color:white;border:1px solid #ad8acf;border-radius:5px;padding:10px 15px;font:inherit;margin:0 8px 8px 0;cursor:pointer}small{color:#b7adc6}footer{margin-top:30px;font-size:14px;color:#a79ab7}canvas{display:block;width:100%;height:50px;margin:12px 0}#status{min-height:24px}
+</style>
+<main><h1>NULLSTAR</h1><p>Basic attacks · stone-metal weight, a cutting edge, and a restrained crystalline resonance.</p>
+<div class="stats"><span>32 slash + 8 piercing</span><span>1.33 seconds between attacks</span><span>1.65 tile reach · 70° sweep</span><span>Requires both hands</span></div>
+<p>Click attacks thrust; wide attacks alternate sweeping directions. This page auditions the audio at the configured base volume; it does not simulate game positioning or target material sounds.</p>
+<button id="swing">Random swing</button><button id="hit">Example landed strike</button><button id="stop">Stop</button><p id="status" aria-live="polite"></p>
+<div class="grid" id="cues"></div>
+<footer>Custom mono clips made from attributed repository and CC0 recordings, with pitch shifting, filtering, reversed crystal accents and synthesized resonance. Nothing plays automatically. The mix combines a swing and an impact; the game may substitute a target's material-specific impact. Generated offline preview; all audio is embedded.</footer></main>
+<script>
+const cues=__CUES__,live=new Set();let pending=null,audioContext; function configure(a,db){a.volume=1;let connected=false;a.addEventListener("play",()=>{audioContext??=new AudioContext();audioContext.resume();if(connected)return;const source=audioContext.createMediaElementSource(a),gain=audioContext.createGain();gain.gain.value=10**(db/20);source.connect(gain).connect(audioContext.destination);connected=true;});}
+function stop(){if(pending!==null)clearTimeout(pending);for(const a of live){a.pause();a.currentTime=0;}live.clear();document.querySelectorAll('audio').forEach(a=>a.pause());}
+function play(key,vary=true){const c=cues[key],a=new Audio(c.src);configure(a,c.db);a.preservesPitch=false;a.playbackRate=vary?1+(Math.random()*2-1)*c.variation:1;live.add(a);a.onended=()=>live.delete(a);a.play().catch(e=>document.getElementById('status').textContent=e.message);}
+for(const [key,c] of Object.entries(cues)){
+ const card=document.createElement('article'),title=document.createElement('h2'),small=document.createElement('small'),audio=document.createElement('audio'),canvas=document.createElement('canvas');
+ title.textContent=c.label;small.textContent=`${c.duration.toFixed(2)}s · ${c.db} dB playback trim`;audio.controls=true;audio.preload='none';audio.src=c.src;configure(audio,c.db);canvas.width=480;canvas.height=64;
+ card.append(title,small,canvas,audio);document.getElementById('cues').append(card);
+ const ctx=canvas.getContext('2d');ctx.fillStyle='#b58edc';c.peaks.forEach((p,i)=>ctx.fillRect(i*480/c.peaks.length,32-p*30,Math.max(1,480/c.peaks.length-1),Math.max(1,p*60)));
+}
+document.getElementById('swing').onclick=()=>{stop();play(Math.random()<.5?'swing1':'swing2');document.getElementById('status').textContent='Swing with subtle pitch variation.';};
+document.getElementById('hit').onclick=()=>{stop();play(Math.random()<.5?'swing1':'swing2');pending=setTimeout(()=>play(Math.random()<.5?'hit1':'hit2'),60);document.getElementById('status').textContent='Example swing + impact; actual impact timing depends on the game.';};
+document.getElementById('stop').onclick=stop;
+</script></html>
+

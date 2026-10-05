@@ -1,0 +1,176 @@
+- type: entity
+  parent: [BaseSword, BaseCentcommContraband]
+  id: ScarletHadalBlade
+  name: The Hadal Blade
+  suffix: Scarlet, Admeme
+  description: A weapon forged for the crushing dark of the deepest seas. Its edge carries the cold pressure of the abyss, striking with the relentless force of the hadal depths.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Admeme/Scarlet/HadalBlade.rsi
+    layers:
+    - state: idle
+    - state: core
+      shader: unshaded
+  - type: Icon
+    sprite: _Starlight/Admeme/Scarlet/HadalBlade.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    sprite: _Starlight/Admeme/Scarlet/HadalBladeInhands.rsi
+  - type: Clothing
+    sprite: _Starlight/Admeme/Scarlet/HadalBladeBelt.rsi
+    slots: [belt]
+    quickEquip: false
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Effects/metal_scrape3.ogg
+      params:
+        pitch: 0.65
+        volume: -7
+    unwieldSound:
+      path: /Audio/Effects/metal_thud1.ogg
+      params:
+        pitch: 0.7
+        volume: -8
+  - type: MeleeRequiresWield
+  - type: HadalBlade
+  - type: UseDelay
+    delay: 1
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 0.4
+    color: "#9963CD"
+    netsync: false
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 5
+        Slash: 15
+        Cold: 10
+        Structural: 20
+    attackRate: 0.8
+    range: 1.5
+    angle: 60
+    wideAnimation: WeaponArcHadalPressure
+    soundSwing:
+      path: /Audio/Weapons/slash.ogg
+      params:
+        pitch: 0.65
+        variation: 0.08
+        volume: -2
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+      params:
+        pitch: 0.7
+        variation: 0.08
+    soundNoDamage:
+      path: /Audio/Weapons/block_metal1.ogg
+      params:
+        pitch: 0.65
+        volume: -2
+  - type: HeldSpeedModifier
+    walkModifier: 0.875
+    sprintModifier: 0.875
+  - type: Reflect
+    reflectProb: 0.25
+    spread: 75
+    slotFlags: NONE
+    enhancedReflection:
+      TaserBolt: 0.80
+      DisablerBolt: 0.50
+      LaserBolt: 0.50
+      BulletDisabler: 0.50
+      BulletDisablerSmgSpread: 0.50
+      BulletLaserSpread: 0.50
+      DisablerBoltSmg: 0.50
+      BulletLaserSpreadNarrow: 0.50
+      BulletDisablerSmg: 0.45
+      PelletClusterRubber: 0.50
+      RedLaserBeam: 0.40
+      IgnitionRedLaser: 0.40
+      DestroyBeam: 0.40
+      RadOrb: 0.40
+      FreezeRay: 0.40
+  - type: DisarmMalus
+    malus: 0.6
+
+- type: entity
+  parent: WeaponArcAnimated
+  id: WeaponArcHadalPressure
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Starlight/Admeme/Scarlet/HadalBladeEffects.rsi
+    layers:
+    - state: pressure-cut
+      # ToWorldAngle makes unrotated melee effects face south, not east.
+      rotation: -90
+      loop: false
+      shader: unshaded
+
+- type: entity
+  parent: BaseAction
+  id: ActionHadalCrush
+  name: Hadal Crush
+  description: Grip the blade with both hands and stand still for 0.7 seconds to release three freezing pressure crescents. Each deals 8 cold and 3 blunt damage, slowing its target by 35% for 2.5 seconds. Reach of about 5 tiles. Cooldown of 25 seconds.
+  components:
+  - type: Action
+    useDelay: 25
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Starlight/Admeme/Scarlet/HadalBladeEffects.rsi
+      state: pressure-cut
+    sound:
+      path: /Audio/Magic/rumble.ogg
+      params:
+        pitch: 0.65
+        volume: -3
+  - type: TargetAction
+    range: 6
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:HadalCrushEvent
+  - type: DoAfterArgs
+    delay: 0.7
+    breakOnMove: true
+    breakOnDamage: true
+    breakOnHandChange: true
+    needHand: true
+
+- type: entity
+  parent: BaseBullet
+  id: ProjectileHadalPressure
+  name: hadal pressure
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Starlight/Admeme/Scarlet/HadalBladeEffects.rsi
+    layers:
+    - state: pressure-cut
+      rotation: -90
+      loop: false
+      shader: unshaded
+  - type: FlyBySound
+    prob: 0
+  - type: Projectile
+    impactEffect: null
+    damage:
+      types:
+        Cold: 8
+        Blunt: 3
+    soundHit:
+      path: /Audio/Effects/glass_crack2.ogg
+      params:
+        pitch: 0.65
+        volume: -5
+    forceSound: true
+  - type: StunOnCollide
+    stunAmount: 0
+    knockdownAmount: 0
+    slowdownAmount: 2.5
+    walkSpeedModifier: 0.65
+    sprintSpeedModifier: 0.65
+    drop: false
+  - type: TimedDespawn
+    lifetime: 0.3

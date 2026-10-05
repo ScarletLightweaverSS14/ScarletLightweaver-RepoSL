@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original AI-generated Nullstar Unbound artwork for Scarlet using OpenAI image generation; palette reduction and RSI assembly by Codex.",
+  "size": {
+    "x": 128,
+    "y": 128
+  },
+  "states": [
+    {
+      "name": "ring"
+    },
+    {
+      "name": "debris"
+    },
+    {
+      "name": "flare"
+    },
+    {
+      "name": "rift"
+    }
+  ]
+}

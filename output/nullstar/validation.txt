@@ -1,0 +1,18 @@
+PASS Nullstar.rsi/icon: 32x64, 1 frames, 1 directions, 14 colors
+PASS NullstarInhands.rsi/inhand-left: 64x64, 4 frames, 4 directions, 12 colors
+PASS NullstarInhands.rsi/wielded-inhand-left: 64x64, 4 frames, 4 directions, 12 colors
+PASS NullstarInhands.rsi/inhand-right: 64x64, 4 frames, 4 directions, 12 colors
+PASS NullstarInhands.rsi/wielded-inhand-right: 64x64, 4 frames, 4 directions, 12 colors
+PASS NullstarBelt.rsi/equipped-BELT: 32x32, 4 frames, 4 directions, 10 colors
+PASS NullstarUnbound.rsi/ring: 128x128, 1 frames, 1 directions, 12 colors
+PASS NullstarUnbound.rsi/debris: 128x128, 1 frames, 1 directions, 13 colors
+PASS NullstarUnbound.rsi/flare: 128x128, 1 frames, 1 directions, 10 colors
+PASS NullstarUnbound.rsi/rift: 128x128, 1 frames, 1 directions, 16 colors
+PASS NullstarRift.rsi/telegraph: 128x32, 1 frames, 1 directions, 9 colors
+PASS NullstarRift.rsi/slash: 128x32, 1 frames, 1 directions, 14 colors
+PASS NullstarRift.rsi/rift: 128x32, 1 frames, 1 directions, 15 colors
+PASS NullstarCleave.rsi/core: 128x64, 1 frames, 1 directions, 10 colors
+PASS NullstarCleave.rsi/streak: 128x64, 1 frames, 1 directions, 10 colors
+PASS NullstarCleave.rsi/arc: 128x64, 1 frames, 1 directions, 10 colors
+Validated 6 RSI folders, 16 states and 31 frames against the repository schema and native-image checks.
+Sprite and effect assets. Character occlusion and belt positioning still need a live in-game check.
