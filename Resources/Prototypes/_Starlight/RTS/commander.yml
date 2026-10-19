@@ -1,0 +1,36 @@
+- type: entity
+  id: RtsCommander
+  name: RTS commander
+  description: A free-moving command camera for an RTS battlefield.
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: RtsCommander
+  - type: Input
+    context: rts
+  - type: InputMover
+  - type: ActiveInputMover
+  - type: MobMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 8
+    baseSprintSpeed: 12
+  - type: MovementIgnoreGravity
+  - type: CanMoveInAir
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: InAir
+  - type: Fixtures
+    fixtures:
+      camera:
+        shape: !type:PhysShapeCircle
+          radius: 0.1
+        layer:
+        - GhostImpassable
+  - type: Eye
+    drawFov: false
+    pvsScale: 2
+  - type: MindContainer
+    ghostOnShutdown: false
+  - type: ContentEye
+    targetZoom: 1.8, 1.8
+    maxZoom: 3, 3

@@ -1,0 +1,62 @@
+- type: entity
+  abstract: true
+  id: RtsInfantryBase
+  components:
+  - type: RtsUnit
+  - type: Sprite
+    sprite: Mobs/Silicon/Bots/cleanbot.rsi
+    state: cleanbot
+    noRot: true
+    drawdepth: Mobs
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.28
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: GravityAffected
+  - type: InputMover
+  - type: MobMover
+  - type: MobCollision
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: RtsInfantryBlue
+  parent: RtsInfantryBase
+  name: blue infantry
+  description: A blue command drone awaiting orders.
+  components:
+  - type: RtsOwner
+    team: Blue
+  - type: Sprite
+    color: "#72B8FF"
+
+- type: entity
+  id: RtsInfantryRed
+  parent: RtsInfantryBase
+  name: red infantry
+  description: A red command drone awaiting orders.
+  components:
+  - type: RtsOwner
+    team: Red
+  - type: Sprite
+    color: "#FF7777"

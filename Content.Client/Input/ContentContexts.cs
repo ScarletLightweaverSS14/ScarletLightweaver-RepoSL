@@ -128,6 +128,8 @@ namespace Content.Client.Input
             ghost.AddFunction(EngineKeyFunctions.MoveRight);
             ghost.AddFunction(EngineKeyFunctions.Walk);
 
+            contexts.New("rts", "ghost");
+
             common.AddFunction(ContentKeyFunctions.OpenEntitySpawnWindow);
             common.AddFunction(ContentKeyFunctions.OpenSandboxWindow);
             common.AddFunction(ContentKeyFunctions.OpenTileSpawnWindow);

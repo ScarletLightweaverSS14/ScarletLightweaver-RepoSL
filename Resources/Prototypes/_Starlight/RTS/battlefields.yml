@@ -1,0 +1,15 @@
+- type: rtsBattlefield
+  id: RtsSkirmish
+  size: 96
+  terrain: Grasslands
+  vegetation: RtsForest
+  clearingTile: FloorPlanetGrass
+  pathTile: FloorPlanetDirt
+  blueHeadquarters: RtsHeadquartersBlue
+  redHeadquarters: RtsHeadquartersRed
+  blueUnit: RtsInfantryBlue
+  redUnit: RtsInfantryRed
+  startingUnits: 4
+  baseInset: 12
+  clearingRadius: 9
+  pathHalfWidth: 3

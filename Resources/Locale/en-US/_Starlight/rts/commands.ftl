@@ -1,0 +1,15 @@
+cmd-rtsmap-desc = Generate an isolated procedural RTS battlefield with two headquarters.
+cmd-rtsmap-help = Usage: {$command} [seed] [size (80–120)]. Defaults to a random seed and a 96×96 battlefield.
+cmd-rtsmap-invalid-size = Battlefield size must be an integer between 80 and 120 tiles.
+cmd-rtsmap-created = Created RTS battlefield on map {$map}: {$size}×{$size}, seed {$seed}. Command blue with: rtsjoin {$map}. Inspect it with: tp {$x} {$y} {$map}. Remove it with: gamemap:rmid {$map}.
+cmd-rtsjoin-desc = Command a team on an RTS battlefield using a temporary camera.
+cmd-rtsjoin-help = Usage: {$command} [map ID] [Blue|Red]. Joins your current battlefield, or the only battlefield if no ID is supplied. Use Exit RTS in the panel to return.
+cmd-rtsjoin-in-game-only = Run rtsjoin from the in-game console so there is a player to control the camera.
+cmd-rtsjoin-invalid-map = Map {$map} is not an RTS battlefield. Generate one with rtsmap first.
+cmd-rtsjoin-no-battlefields = No RTS battlefields exist. Generate one with rtsmap, then run rtsjoin.
+cmd-rtsjoin-choose-map = More than one RTS battlefield exists. Use rtsjoin <map ID>. Available maps: {$maps}.
+cmd-rtsjoin-failed = Could not attach the RTS camera. Check the server log for the mind/session error.
+cmd-rtsjoin-joined = Joined {$team} on RTS map {$map}. WASD pans the camera; select units with left click or drag, then right click to move. Use Exit RTS in the command panel to return.
+rts-order-rejected = No units could accept that order. Choose your units and a position inside the battlefield.
+rts-order-moving = Move order sent to {$count} units.
+rts-order-stopped = Stopped {$count} units.

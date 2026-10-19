@@ -1,0 +1,33 @@
+# Vegetation-only templates for finite RTS battlefields. Grasslands supplies the
+# terrain; a broad noise mask groups these trees into forests and open plains.
+- type: biomeTemplate
+  id: RtsForest
+  layers:
+    - !type:BiomeMetaLayer
+      template: RtsForestTrees
+      threshold: 0
+      noise:
+        seed: 17
+        frequency: 0.06
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        octaves: 3
+        lacunarity: 2
+
+- type: biomeTemplate
+  id: RtsForestTrees
+  layers:
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetGrass
+        - FloorPlanetDirt
+      threshold: 0.25
+      noise:
+        seed: 31
+        frequency: 2
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        octaves: 3
+      entities:
+        - FloraTree
+        - FloraTreeLarge

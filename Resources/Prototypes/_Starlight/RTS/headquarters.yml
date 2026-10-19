@@ -1,0 +1,58 @@
+- type: entity
+  abstract: true
+  id: RtsHeadquartersBase
+  parent: BaseStructure
+  components:
+  - type: RtsHeadquarters
+  - type: Sprite
+    sprite: _Starlight/Structures/Power/smes.rsi
+    state: advancedsmes
+    scale: 2, 2
+    noRot: true
+    drawdepth: Mobs
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.9,-0.9,0.9,0.9"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: RtsHeadquartersBlue
+  parent: RtsHeadquartersBase
+  name: blue headquarters
+  description: The blue team's command center.
+  components:
+  - type: RtsOwner
+    team: Blue
+  - type: Sprite
+    color: "#72B8FF"
+
+- type: entity
+  id: RtsHeadquartersRed
+  parent: RtsHeadquartersBase
+  name: red headquarters
+  description: The red team's command center.
+  components:
+  - type: RtsOwner
+    team: Red
+  - type: Sprite
+    color: "#FF7777"
