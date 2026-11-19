@@ -72,6 +72,7 @@ public sealed partial class StoreBoundUserInterface
 
         _listings = msg.Listings;
 
+        menu.SetCategoryBalance(msg.CategoryBalance);
         menu.UpdateBalance(msg.Balance);
         menu.GridMode = msg.GridMode;
 

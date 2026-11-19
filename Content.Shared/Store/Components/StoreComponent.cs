@@ -65,6 +65,12 @@ public sealed partial class StoreComponent : Component
     public bool Grid = false;
 
     /// <summary>
+    /// Show only the currencies used by the selected category in the store UI.
+    /// </summary>
+    [DataField]
+    public bool CategoryBalance;
+
+    /// <summary>
     /// All available listings from the last time that it was checked.
     /// </summary>
     [ViewVariables]

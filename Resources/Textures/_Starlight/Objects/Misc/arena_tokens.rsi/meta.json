@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original arena token sprites created for Starlight",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "ntsf" },
+    { "name": "ert" },
+    { "name": "security" },
+    { "name": "gorlex" },
+    { "name": "blackstar" },
+    { "name": "pirate" },
+    { "name": "tsf" },
+    { "name": "bloodred" },
+    { "name": "ntsf-inhand-left", "directions": 4 },
+    { "name": "ntsf-inhand-right", "directions": 4 },
+    { "name": "ert-inhand-left", "directions": 4 },
+    { "name": "ert-inhand-right", "directions": 4 },
+    { "name": "security-inhand-left", "directions": 4 },
+    { "name": "security-inhand-right", "directions": 4 },
+    { "name": "gorlex-inhand-left", "directions": 4 },
+    { "name": "gorlex-inhand-right", "directions": 4 },
+    { "name": "blackstar-inhand-left", "directions": 4 },
+    { "name": "blackstar-inhand-right", "directions": 4 },
+    { "name": "pirate-inhand-left", "directions": 4 },
+    { "name": "pirate-inhand-right", "directions": 4 },
+    { "name": "tsf-inhand-left", "directions": 4 },
+    { "name": "tsf-inhand-right", "directions": 4 },
+    { "name": "bloodred-inhand-left", "directions": 4 },
+    { "name": "bloodred-inhand-right", "directions": 4 }
+  ]
+}

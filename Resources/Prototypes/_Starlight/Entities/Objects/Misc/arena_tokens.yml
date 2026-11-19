@@ -1,0 +1,124 @@
+- type: entity
+  id: BaseArenaToken
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Misc/arena_tokens.rsi
+  - type: Item
+    size: Tiny
+    sprite: _Starlight/Objects/Misc/arena_tokens.rsi
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  id: ArenaTokenNTSF
+  parent: BaseArenaToken
+  name: NTSF arena requisition
+  description: A special forces requisition chit. Worth 20 NTSF credits at an arena vendor.
+  components:
+  - type: Sprite
+    state: ntsf
+  - type: Item
+    heldPrefix: ntsf
+  - type: Currency
+    price:
+      ArenaNTSF: 20
+
+- type: entity
+  id: ArenaTokenERT
+  parent: BaseArenaToken
+  name: ERT arena requisition
+  description: An emergency response requisition chit. Worth 20 ERT credits at an arena vendor.
+  components:
+  - type: Sprite
+    state: ert
+  - type: Item
+    heldPrefix: ert
+  - type: Currency
+    price:
+      ArenaERT: 20
+
+- type: entity
+  id: ArenaTokenSecurity
+  parent: BaseArenaToken
+  name: security arena requisition
+  description: An armory requisition chit. Worth 20 security credits at an arena vendor.
+  components:
+  - type: Sprite
+    state: security
+  - type: Item
+    heldPrefix: security
+  - type: Currency
+    price:
+      ArenaSecurity: 20
+
+- type: entity
+  id: ArenaTokenGorlex
+  parent: BaseArenaToken
+  name: Gorlex arena contract
+  description: A prepaid mercenary contract. Worth 20 Gorlex credits at an arena vendor.
+  components:
+  - type: Sprite
+    state: gorlex
+  - type: Item
+    heldPrefix: gorlex
+  - type: Currency
+    price:
+      ArenaGorlex: 20
+
+- type: entity
+  id: ArenaTokenBlackstar
+  parent: BaseArenaToken
+  name: Blackstar warband warrant
+  description: A warrant for a Blackstar warband's supplies. Worth 20 warband credits at an arena vendor.
+  components:
+  - type: Sprite
+    state: blackstar
+  - type: Item
+    heldPrefix: blackstar
+  - type: Currency
+    price:
+      ArenaBlackstar: 20
+
+- type: entity
+  id: ArenaTokenPirate
+  parent: BaseArenaToken
+  name: pirate arena doubloon
+  description: A heavy brass token for a pirate crew's share of the loot. Worth 20 pirate credits at an arena vendor.
+  components:
+  - type: Sprite
+    state: pirate
+  - type: Item
+    heldPrefix: pirate
+  - type: Currency
+    price:
+      ArenaPirate: 20
+
+- type: entity
+  id: ArenaTokenTSF
+  parent: BaseArenaToken
+  name: TSF arena requisition
+  description: A government forces requisition chit. Worth 20 TSF credits at an arena vendor.
+  components:
+  - type: Sprite
+    state: tsf
+  - type: Item
+    heldPrefix: tsf
+  - type: Currency
+    price:
+      ArenaTSF: 20
+
+- type: entity
+  id: ArenaBloodredCrystal
+  parent: BaseArenaToken
+  name: bloodred arena crystal
+  description: A large, branching telecrystal reserved for nuclear operatives. Worth 40 nuclear operative credits at an arena vendor.
+  components:
+  - type: Sprite
+    state: bloodred
+  - type: Item
+    heldPrefix: bloodred
+  - type: Currency
+    price:
+      ArenaNukie: 40

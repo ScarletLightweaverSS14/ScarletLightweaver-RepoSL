@@ -1,0 +1,89 @@
+- type: currency
+  id: ArenaNTSF
+  displayName: arena-currency-ntsf
+  canWithdraw: false
+
+- type: currency
+  id: ArenaERT
+  displayName: arena-currency-ert
+  canWithdraw: false
+
+- type: currency
+  id: ArenaSecurity
+  displayName: arena-currency-security
+  canWithdraw: false
+
+- type: currency
+  id: ArenaGorlex
+  displayName: arena-currency-gorlex
+  canWithdraw: false
+
+- type: currency
+  id: ArenaBlackstar
+  displayName: arena-currency-blackstar
+  canWithdraw: false
+
+- type: currency
+  id: ArenaPirate
+  displayName: arena-currency-pirate
+  canWithdraw: false
+
+- type: currency
+  id: ArenaTSF
+  displayName: arena-currency-tsf
+  canWithdraw: false
+
+- type: currency
+  id: ArenaNukie
+  displayName: arena-currency-nukie
+  canWithdraw: false
+
+- type: storeCategory
+  id: ArenaNTSF
+  name: arena-category-ntsf
+  priority: 0
+
+- type: storeCategory
+  id: ArenaERT
+  name: arena-category-ert
+  priority: 1
+
+- type: storeCategory
+  id: ArenaSecurity
+  name: arena-category-security
+  priority: 2
+
+- type: storeCategory
+  id: ArenaSyndicate
+  name: arena-category-syndicate
+  priority: 3
+
+- type: storeCategory
+  id: ArenaGorlex
+  name: arena-category-gorlex
+  priority: 4
+
+- type: storeCategory
+  id: ArenaUSSP
+  name: arena-category-ussp
+  priority: 5
+
+- type: storeCategory
+  id: ArenaBlackstar
+  name: arena-category-blackstar
+  priority: 6
+
+- type: storeCategory
+  id: ArenaPirates
+  name: arena-category-pirates
+  priority: 7
+
+- type: storeCategory
+  id: ArenaTSF
+  name: arena-category-tsf
+  priority: 8
+
+- type: storeCategory
+  id: ArenaNukies
+  name: arena-category-nukies
+  priority: 9

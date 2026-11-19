@@ -1,0 +1,1217 @@
+# Supplemental arena equipment. Prices are per item; faction requisitions provide 20 credits.
+
+# NTSF
+- type: listing
+  id: ArenaNTSFWeaponRiflePeacemaker
+  productEntity: WeaponRiflePeacemaker
+  cost: { ArenaNTSF: 7 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponRifleLecter
+  productEntity: WeaponRifleLecter
+  cost: { ArenaNTSF: 6 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponRifleLr30
+  productEntity: WeaponRifleLr30
+  cost: { ArenaNTSF: 6 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponRifleIK60
+  productEntity: WeaponRifleIK60
+  cost: { ArenaNTSF: 8 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponRifleL10
+  productEntity: WeaponRifleL10
+  cost: { ArenaNTSF: 7 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponSubMachineGunWt550
+  productEntity: WeaponSubMachineGunWt550
+  cost: { ArenaNTSF: 7 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponSubMachineGunAtreides
+  productEntity: WeaponSubMachineGunAtreides
+  cost: { ArenaNTSF: 6 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponSubMachineGunSP91RC
+  productEntity: WeaponSubMachineGunSP91RC
+  cost: { ArenaNTSF: 5 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponShotgunKammerer
+  productEntity: WeaponShotgunKammerer
+  cost: { ArenaNTSF: 5 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponShotgunEnforcer
+  productEntity: WeaponShotgunEnforcer
+  cost: { ArenaNTSF: 6 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponShotgunRiot
+  productEntity: WeaponShotgunRiot
+  cost: { ArenaNTSF: 6 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponShotgunCycler
+  productEntity: WeaponShotgunCycler
+  cost: { ArenaNTSF: 8 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponShotgunCombat
+  productEntity: WeaponShotgunCombat
+  cost: { ArenaNTSF: 7 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponLaserCarbine
+  productEntity: WeaponLaserCarbine
+  cost: { ArenaNTSF: 5 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponLaserCannon
+  productEntity: WeaponLaserCannon
+  cost: { ArenaNTSF: 7 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponEnergyGun
+  productEntity: WeaponEnergyGun
+  cost: { ArenaNTSF: 6 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazineRifleSP
+  productEntity: MagazineRifleSP
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazineRifleFMJ
+  productEntity: MagazineRifleFMJ
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazinePistolSubMachineGunSP
+  productEntity: MagazinePistolSubMachineGunSP
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazinePistolSubMachineGunFMJ
+  productEntity: MagazinePistolSubMachineGunFMJ
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazinePistolSubMachineGunHP
+  productEntity: MagazinePistolSubMachineGunHP
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazinePistolSubMachineGunTopMountedFMJ
+  productEntity: MagazinePistolSubMachineGunTopMountedFMJ
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazinePistolSubMachineGunTopMountedHP
+  productEntity: MagazinePistolSubMachineGunTopMountedHP
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazineBatteryLr30
+  productEntity: MagazineBatteryLr30
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazineDMRSP
+  productEntity: MagazineDMRSP
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazineDMRFMJ
+  productEntity: MagazineDMRFMJ
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazineDMRAP
+  productEntity: MagazineDMRAP
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFBoxLethalshot
+  productEntity: BoxLethalshot
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFBoxShotgunSlug
+  productEntity: BoxShotgunSlug
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFBoxShotgunIncendiary
+  productEntity: BoxShotgunIncendiary
+  cost: { ArenaNTSF: 3 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFBoxBeanbag
+  productEntity: BoxBeanbag
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazineShotgunSlug
+  productEntity: MagazineShotgunSlug
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMagazineShotgunBeanbag
+  productEntity: MagazineShotgunBeanbag
+  cost: { ArenaNTSF: 1 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMedkitAdvancedFilled
+  productEntity: MedkitAdvancedFilled
+  cost: { ArenaNTSF: 3 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFAdvancedMedipen
+  productEntity: AdvancedMedipen
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFStimpackMini
+  productEntity: StimpackMini
+  cost: { ArenaNTSF: 3 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFRegenerativeMesh
+  productEntity: RegenerativeMesh
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFMedicatedSuture
+  productEntity: MedicatedSuture
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFPowerCellHyper
+  productEntity: PowerCellHyper
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFGrenadeFlashBang
+  productEntity: GrenadeFlashBang
+  cost: { ArenaNTSF: 2 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFGrenadeShrapnel
+  productEntity: GrenadeShrapnel
+  cost: { ArenaNTSF: 4 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFGrenadeIncendiary
+  productEntity: GrenadeIncendiary
+  cost: { ArenaNTSF: 4 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponPulsePistol
+  productEntity: WeaponPulsePistol
+  cost: { ArenaNTSF: 8 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponPulseM1911
+  productEntity: WeaponPulseM1911
+  cost: { ArenaNTSF: 8 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFWeaponSniperEnergy
+  productEntity: WeaponSniperEnergy
+  cost: { ArenaNTSF: 10 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFEnergyShield
+  productEntity: EnergyShield
+  cost: { ArenaNTSF: 8 }
+  categories: [ ArenaNTSF ]
+- type: listing
+  id: ArenaNTSFEnergyShieldUnbreakable
+  productEntity: EnergyShieldUnbreakable
+  cost: { ArenaNTSF: 12 }
+  categories: [ ArenaNTSF ]
+
+# ERT
+- type: listing
+  id: ArenaERTWeaponRiflePeacemaker
+  productEntity: WeaponRiflePeacemaker
+  cost: { ArenaERT: 7 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponRifleLr30
+  productEntity: WeaponRifleLr30
+  cost: { ArenaERT: 6 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponRifleL10
+  productEntity: WeaponRifleL10
+  cost: { ArenaERT: 7 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponSubMachineGunDrozd
+  productEntity: WeaponSubMachineGunDrozd
+  cost: { ArenaERT: 6 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponSubMachineGunAtreides
+  productEntity: WeaponSubMachineGunAtreides
+  cost: { ArenaERT: 6 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponSubMachineGunSP91RC
+  productEntity: WeaponSubMachineGunSP91RC
+  cost: { ArenaERT: 5 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponShotgunKammerer
+  productEntity: WeaponShotgunKammerer
+  cost: { ArenaERT: 5 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponShotgunRiot
+  productEntity: WeaponShotgunRiot
+  cost: { ArenaERT: 6 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponShotgunCycler
+  productEntity: WeaponShotgunCycler
+  cost: { ArenaERT: 8 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponEnergyGun
+  productEntity: WeaponEnergyGun
+  cost: { ArenaERT: 6 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTWeaponEnergyShotgun
+  productEntity: WeaponEnergyShotgun
+  cost: { ArenaERT: 8 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineRifleSP
+  productEntity: MagazineRifleSP
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineRifleFMJ
+  productEntity: MagazineRifleFMJ
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineRifleHP
+  productEntity: MagazineRifleHP
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineRifleAP
+  productEntity: MagazineRifleAP
+  cost: { ArenaERT: 2 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazinePistolSubMachineGunSP
+  productEntity: MagazinePistolSubMachineGunSP
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazinePistolSubMachineGunFMJ
+  productEntity: MagazinePistolSubMachineGunFMJ
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazinePistolSubMachineGunHP
+  productEntity: MagazinePistolSubMachineGunHP
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazinePistolSubMachineGunAP
+  productEntity: MagazinePistolSubMachineGunAP
+  cost: { ArenaERT: 2 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazinePistolSubMachineGunTopMountedFMJ
+  productEntity: MagazinePistolSubMachineGunTopMountedFMJ
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazinePistolSubMachineGunTopMountedHP
+  productEntity: MagazinePistolSubMachineGunTopMountedHP
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineDMRSP
+  productEntity: MagazineDMRSP
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineDMRFMJ
+  productEntity: MagazineDMRFMJ
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineDMRAP
+  productEntity: MagazineDMRAP
+  cost: { ArenaERT: 2 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTBoxBeanbag
+  productEntity: BoxBeanbag
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineShotgunSlug
+  productEntity: MagazineShotgunSlug
+  cost: { ArenaERT: 2 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMagazineShotgunBeanbag
+  productEntity: MagazineShotgunBeanbag
+  cost: { ArenaERT: 1 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMedkitAdvancedFilled
+  productEntity: MedkitAdvancedFilled
+  cost: { ArenaERT: 3 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTStimpackMini
+  productEntity: StimpackMini
+  cost: { ArenaERT: 3 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTRegenerativeMesh
+  productEntity: RegenerativeMesh
+  cost: { ArenaERT: 2 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTMedicatedSuture
+  productEntity: MedicatedSuture
+  cost: { ArenaERT: 2 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTGrenadeShrapnel
+  productEntity: GrenadeShrapnel
+  cost: { ArenaERT: 4 }
+  categories: [ ArenaERT ]
+- type: listing
+  id: ArenaERTGrenadeIncendiary
+  productEntity: GrenadeIncendiary
+  cost: { ArenaERT: 4 }
+  categories: [ ArenaERT ]
+
+# Security
+- type: listing
+  id: ArenaSecurityWeaponRifleLecter
+  productEntity: WeaponRifleLecter
+  cost: { ArenaSecurity: 6 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponRifleLecterRubber
+  productEntity: WeaponRifleLecterRubber
+  cost: { ArenaSecurity: 5 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponRifleLr30
+  productEntity: WeaponRifleLr30
+  cost: { ArenaSecurity: 6 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponSubMachineGunDrozd
+  productEntity: WeaponSubMachineGunDrozd
+  cost: { ArenaSecurity: 6 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponSubMachineGunDrozdRubber
+  productEntity: WeaponSubMachineGunDrozdRubber
+  cost: { ArenaSecurity: 5 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponSubMachineGunSP91RC
+  productEntity: WeaponSubMachineGunSP91RC
+  cost: { ArenaSecurity: 5 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponShotgunKammerer
+  productEntity: WeaponShotgunKammerer
+  cost: { ArenaSecurity: 5 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponShotgunEnforcer
+  productEntity: WeaponShotgunEnforcer
+  cost: { ArenaSecurity: 6 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponShotgunRiot
+  productEntity: WeaponShotgunRiot
+  cost: { ArenaSecurity: 6 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponLaserCarbine
+  productEntity: WeaponLaserCarbine
+  cost: { ArenaSecurity: 5 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityWeaponEnergyGun
+  productEntity: WeaponEnergyGun
+  cost: { ArenaSecurity: 6 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazineRifleSP
+  productEntity: MagazineRifleSP
+  cost: { ArenaSecurity: 1 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazineRifleFMJ
+  productEntity: MagazineRifleFMJ
+  cost: { ArenaSecurity: 1 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazineRifleRubber
+  productEntity: MagazineRifleRubber
+  cost: { ArenaSecurity: 1 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazinePistolSubMachineGunSP
+  productEntity: MagazinePistolSubMachineGunSP
+  cost: { ArenaSecurity: 1 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazinePistolSubMachineGunFMJ
+  productEntity: MagazinePistolSubMachineGunFMJ
+  cost: { ArenaSecurity: 1 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazinePistolSubMachineGunRubber
+  productEntity: MagazinePistolSubMachineGunRubber
+  cost: { ArenaSecurity: 1 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazineBatteryLr30
+  productEntity: MagazineBatteryLr30
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityBoxLethalshot
+  productEntity: BoxLethalshot
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityBoxShotgunSlug
+  productEntity: BoxShotgunSlug
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityBoxBeanbag
+  productEntity: BoxBeanbag
+  cost: { ArenaSecurity: 1 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazineShotgunSlug
+  productEntity: MagazineShotgunSlug
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMagazineShotgunBeanbag
+  productEntity: MagazineShotgunBeanbag
+  cost: { ArenaSecurity: 1 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMedkitCombatFilled
+  productEntity: MedkitCombatFilled
+  cost: { ArenaSecurity: 3 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMedkitAdvancedFilled
+  productEntity: MedkitAdvancedFilled
+  cost: { ArenaSecurity: 3 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityCombatMedipen
+  productEntity: CombatMedipen
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityAdvancedMedipen
+  productEntity: AdvancedMedipen
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityRegenerativeMesh
+  productEntity: RegenerativeMesh
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityMedicatedSuture
+  productEntity: MedicatedSuture
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityPortableRecharger
+  productEntity: PortableRecharger
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityPowerCellHyper
+  productEntity: PowerCellHyper
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+- type: listing
+  id: ArenaSecurityGrenadeFlashBang
+  productEntity: GrenadeFlashBang
+  cost: { ArenaSecurity: 2 }
+  categories: [ ArenaSecurity ]
+
+# Gorlex
+- type: listing
+  id: ArenaGorlexWeaponSubMachineGunC20r
+  productEntity: WeaponSubMachineGunC20r
+  cost: { ArenaGorlex: 7 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexWeaponSubMachineGunUzi
+  productEntity: WeaponSubMachineGunUzi
+  cost: { ArenaGorlex: 5 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexWeaponRifleEstoc
+  productEntity: WeaponRifleEstoc
+  cost: { ArenaGorlex: 8 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexWeaponRiflePitbull
+  productEntity: WeaponRiflePitbull
+  cost: { ArenaGorlex: 10 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexWeaponShotgunBulldog
+  productEntity: WeaponShotgunBulldog
+  cost: { ArenaGorlex: 7 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexWeaponShotgunMinotaur
+  productEntity: WeaponShotgunMinotaur
+  cost: { ArenaGorlex: 9 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexWeaponSniperHristov
+  productEntity: WeaponSniperHristov
+  cost: { ArenaGorlex: 10 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMagazinePistolSubMachineGunSP
+  productEntity: MagazinePistolSubMachineGunSP
+  cost: { ArenaGorlex: 1 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMagazinePistolSubMachineGunAP
+  productEntity: MagazinePistolSubMachineGunAP
+  cost: { ArenaGorlex: 2 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMagazinePistolSubMachineGunUzi
+  productEntity: MagazinePistolSubMachineGunUzi
+  cost: { ArenaGorlex: 1 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMagazineLightRifleAP
+  productEntity: MagazineLightRifleAP
+  cost: { ArenaGorlex: 2 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMagazineLightRifleIncendiary
+  productEntity: MagazineLightRifleIncendiary
+  cost: { ArenaGorlex: 2 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMagazineShotgunSlug
+  productEntity: MagazineShotgunSlug
+  cost: { ArenaGorlex: 2 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMagazineShotgunIncendiary
+  productEntity: MagazineShotgunIncendiary
+  cost: { ArenaGorlex: 2 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMagazineShotgunBreach
+  productEntity: MagazineShotgunBreach
+  cost: { ArenaGorlex: 3 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexBoxShotgunSlug
+  productEntity: BoxShotgunSlug
+  cost: { ArenaGorlex: 2 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexBoxShotgunIncendiary
+  productEntity: BoxShotgunIncendiary
+  cost: { ArenaGorlex: 3 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexC4
+  productEntity: C4
+  cost: { ArenaGorlex: 3 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexGrenadeShrapnel
+  productEntity: GrenadeShrapnel
+  cost: { ArenaGorlex: 4 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexGrenadeIncendiary
+  productEntity: GrenadeIncendiary
+  cost: { ArenaGorlex: 4 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexStimpackMini
+  productEntity: StimpackMini
+  cost: { ArenaGorlex: 3 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexMedkitAdvancedFilled
+  productEntity: MedkitAdvancedFilled
+  cost: { ArenaGorlex: 3 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexCombatMedipen
+  productEntity: CombatMedipen
+  cost: { ArenaGorlex: 2 }
+  categories: [ ArenaGorlex ]
+- type: listing
+  id: ArenaGorlexEnergyShield
+  productEntity: EnergyShield
+  cost: { ArenaGorlex: 8 }
+  categories: [ ArenaGorlex ]
+
+# Blackstar
+- type: listing
+  id: ArenaBlackstarWeaponLightMachineGunBlackstarMG42
+  productEntity: WeaponLightMachineGunBlackstarMG42
+  cost: { ArenaBlackstar: 10 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarWeaponRifleL10
+  productEntity: WeaponRifleL10
+  cost: { ArenaBlackstar: 7 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarWeaponRifleEstoc
+  productEntity: WeaponRifleEstoc
+  cost: { ArenaBlackstar: 8 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarWeaponSubMachineGunDrozd
+  productEntity: WeaponSubMachineGunDrozd
+  cost: { ArenaBlackstar: 6 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarWeaponShotgunCycler
+  productEntity: WeaponShotgunCycler
+  cost: { ArenaBlackstar: 8 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarWeaponShotgunKammerer
+  productEntity: WeaponShotgunKammerer
+  cost: { ArenaBlackstar: 5 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarWeaponSniperHristov
+  productEntity: WeaponSniperHristov
+  cost: { ArenaBlackstar: 10 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazineRifleFMJ
+  productEntity: MagazineRifleFMJ
+  cost: { ArenaBlackstar: 1 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazineRifleHP
+  productEntity: MagazineRifleHP
+  cost: { ArenaBlackstar: 1 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazineRifleAP
+  productEntity: MagazineRifleAP
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazineRifleIncendiary
+  productEntity: MagazineRifleIncendiary
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazineDMRFMJ
+  productEntity: MagazineDMRFMJ
+  cost: { ArenaBlackstar: 1 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazineDMRAP
+  productEntity: MagazineDMRAP
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazineLightRifleBoxSP
+  productEntity: MagazineLightRifleBoxSP
+  cost: { ArenaBlackstar: 3 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazinePistolSubMachineGunFMJ
+  productEntity: MagazinePistolSubMachineGunFMJ
+  cost: { ArenaBlackstar: 1 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMagazinePistolSubMachineGunAP
+  productEntity: MagazinePistolSubMachineGunAP
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarBoxLethalshot
+  productEntity: BoxLethalshot
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarBoxShotgunSlug
+  productEntity: BoxShotgunSlug
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarBoxShotgunIncendiary
+  productEntity: BoxShotgunIncendiary
+  cost: { ArenaBlackstar: 3 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarGrenadeShrapnel
+  productEntity: GrenadeShrapnel
+  cost: { ArenaBlackstar: 4 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarGrenadeIncendiary
+  productEntity: GrenadeIncendiary
+  cost: { ArenaBlackstar: 4 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarSmokeGrenade
+  productEntity: SmokeGrenade
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMedkitCombatFilled
+  productEntity: MedkitCombatFilled
+  cost: { ArenaBlackstar: 3 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarMedkitAdvancedFilled
+  productEntity: MedkitAdvancedFilled
+  cost: { ArenaBlackstar: 3 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarCombatMedipen
+  productEntity: CombatMedipen
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarAdvancedMedipen
+  productEntity: AdvancedMedipen
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarStimpackMini
+  productEntity: StimpackMini
+  cost: { ArenaBlackstar: 3 }
+  categories: [ ArenaBlackstar ]
+- type: listing
+  id: ArenaBlackstarPortableRecharger
+  productEntity: PortableRecharger
+  cost: { ArenaBlackstar: 2 }
+  categories: [ ArenaBlackstar ]
+
+# Pirates
+- type: listing
+  id: ArenaPiratesWeaponRevolverGA6Fang
+  productEntity: WeaponRevolverGA6Fang
+  cost: { ArenaPirate: 5 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesWeaponShotgunSawn
+  productEntity: WeaponShotgunSawn
+  cost: { ArenaPirate: 4 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesWeaponShotgunDoubleBarreled
+  productEntity: WeaponShotgunDoubleBarreled
+  cost: { ArenaPirate: 4 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesWeaponSubMachineGunMakeshift
+  productEntity: WeaponSubMachineGunMakeshift
+  cost: { ArenaPirate: 4 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesWeaponRifleAk
+  productEntity: WeaponRifleAk
+  cost: { ArenaPirate: 7 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesWeaponSniperMosin
+  productEntity: WeaponSniperMosin
+  cost: { ArenaPirate: 3 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesSpeedLoaderMagnumSP
+  productEntity: SpeedLoaderMagnumSP
+  cost: { ArenaPirate: 1 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesSpeedLoaderMagnumFMJ
+  productEntity: SpeedLoaderMagnumFMJ
+  cost: { ArenaPirate: 1 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesMagazineLightRifleFMJ
+  productEntity: MagazineLightRifleFMJ
+  cost: { ArenaPirate: 1 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesMagazineLightRifleAP
+  productEntity: MagazineLightRifleAP
+  cost: { ArenaPirate: 2 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesMagazinePistolSubMachineGunSP
+  productEntity: MagazinePistolSubMachineGunSP
+  cost: { ArenaPirate: 1 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesBoxLethalshot
+  productEntity: BoxLethalshot
+  cost: { ArenaPirate: 2 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesBoxShotgunSlug
+  productEntity: BoxShotgunSlug
+  cost: { ArenaPirate: 2 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesExGrenade
+  productEntity: ExGrenade
+  cost: { ArenaPirate: 3 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesSmokeGrenade
+  productEntity: SmokeGrenade
+  cost: { ArenaPirate: 2 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesMedkitCombatFilled
+  productEntity: MedkitCombatFilled
+  cost: { ArenaPirate: 3 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesMedkitAdvancedFilled
+  productEntity: MedkitAdvancedFilled
+  cost: { ArenaPirate: 3 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesCombatMedipen
+  productEntity: CombatMedipen
+  cost: { ArenaPirate: 2 }
+  categories: [ ArenaPirates ]
+- type: listing
+  id: ArenaPiratesStimpackMini
+  productEntity: StimpackMini
+  cost: { ArenaPirate: 3 }
+  categories: [ ArenaPirates ]
+
+# TSF
+- type: listing
+  id: ArenaTSFWeaponRiflePeacemaker
+  productEntity: WeaponRiflePeacemaker
+  cost: { ArenaTSF: 7 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponRifleLr30
+  productEntity: WeaponRifleLr30
+  cost: { ArenaTSF: 6 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponRifleIK60
+  productEntity: WeaponRifleIK60
+  cost: { ArenaTSF: 8 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponRifleL10
+  productEntity: WeaponRifleL10
+  cost: { ArenaTSF: 7 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponSubMachineGunDrozd
+  productEntity: WeaponSubMachineGunDrozd
+  cost: { ArenaTSF: 6 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponSubMachineGunWt550
+  productEntity: WeaponSubMachineGunWt550
+  cost: { ArenaTSF: 7 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponSubMachineGunSP91RC
+  productEntity: WeaponSubMachineGunSP91RC
+  cost: { ArenaTSF: 5 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponShotgunKammerer
+  productEntity: WeaponShotgunKammerer
+  cost: { ArenaTSF: 5 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponShotgunRiot
+  productEntity: WeaponShotgunRiot
+  cost: { ArenaTSF: 6 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponShotgunCycler
+  productEntity: WeaponShotgunCycler
+  cost: { ArenaTSF: 8 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponShotgunCombat
+  productEntity: WeaponShotgunCombat
+  cost: { ArenaTSF: 7 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponLaserCarbine
+  productEntity: WeaponLaserCarbine
+  cost: { ArenaTSF: 5 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponLaserCannon
+  productEntity: WeaponLaserCannon
+  cost: { ArenaTSF: 7 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponEnergyGun
+  productEntity: WeaponEnergyGun
+  cost: { ArenaTSF: 6 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFWeaponEnergyShotgun
+  productEntity: WeaponEnergyShotgun
+  cost: { ArenaTSF: 8 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleFMJ
+  productEntity: MagazineRifleFMJ
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleHP
+  productEntity: MagazineRifleHP
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleAP
+  productEntity: MagazineRifleAP
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleIncendiary
+  productEntity: MagazineRifleIncendiary
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleUranium
+  productEntity: MagazineRifleUranium
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazinePistolSubMachineGunSP
+  productEntity: MagazinePistolSubMachineGunSP
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazinePistolSubMachineGunHP
+  productEntity: MagazinePistolSubMachineGunHP
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazinePistolSubMachineGunAP
+  productEntity: MagazinePistolSubMachineGunAP
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazinePistolSubMachineGunTopMountedFMJ
+  productEntity: MagazinePistolSubMachineGunTopMountedFMJ
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazinePistolSubMachineGunTopMountedHP
+  productEntity: MagazinePistolSubMachineGunTopMountedHP
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineBatteryLr30
+  productEntity: MagazineBatteryLr30
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineDMRSP
+  productEntity: MagazineDMRSP
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineDMRFMJ
+  productEntity: MagazineDMRFMJ
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineDMRAP
+  productEntity: MagazineDMRAP
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFBoxShotgunSlug
+  productEntity: BoxShotgunSlug
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFBoxShotgunIncendiary
+  productEntity: BoxShotgunIncendiary
+  cost: { ArenaTSF: 3 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineShotgunSlug
+  productEntity: MagazineShotgunSlug
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineShotgunBeanbag
+  productEntity: MagazineShotgunBeanbag
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMedkitAdvancedFilled
+  productEntity: MedkitAdvancedFilled
+  cost: { ArenaTSF: 3 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFCombatMedipen
+  productEntity: CombatMedipen
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFAdvancedMedipen
+  productEntity: AdvancedMedipen
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFStimpackMini
+  productEntity: StimpackMini
+  cost: { ArenaTSF: 3 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFRegenerativeMesh
+  productEntity: RegenerativeMesh
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMedicatedSuture
+  productEntity: MedicatedSuture
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFPortableRecharger
+  productEntity: PortableRecharger
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFPowerCellHyper
+  productEntity: PowerCellHyper
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFSmokeGrenade
+  productEntity: SmokeGrenade
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFEmpGrenade
+  productEntity: EmpGrenade
+  cost: { ArenaTSF: 3 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFGrenadeShrapnel
+  productEntity: GrenadeShrapnel
+  cost: { ArenaTSF: 4 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFGrenadeIncendiary
+  productEntity: GrenadeIncendiary
+  cost: { ArenaTSF: 4 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleM52SP
+  productEntity: MagazineRifleM52SP
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleM52HP
+  productEntity: MagazineRifleM52HP
+  cost: { ArenaTSF: 1 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleM52Incendiary
+  productEntity: MagazineRifleM52Incendiary
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+- type: listing
+  id: ArenaTSFMagazineRifleM52Uranium
+  productEntity: MagazineRifleM52Uranium
+  cost: { ArenaTSF: 2 }
+  categories: [ ArenaTSF ]
+
+# Nukies
+- type: listing
+  id: ArenaNukiesMagazineLightRifleFMJ
+  productEntity: MagazineLightRifleFMJ
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+- type: listing
+  id: ArenaNukiesMagazineLightRifleAP
+  productEntity: MagazineLightRifleAP
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+- type: listing
+  id: ArenaNukiesMagazinePistolSubMachineGunFMJ
+  productEntity: MagazinePistolSubMachineGunFMJ
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+- type: listing
+  id: ArenaNukiesMagazinePistolSubMachineGunAP
+  productEntity: MagazinePistolSubMachineGunAP
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+- type: listing
+  id: ArenaNukiesBoxShotgunSlug
+  productEntity: BoxShotgunSlug
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+- type: listing
+  id: ArenaNukiesBoxShotgunIncendiary
+  productEntity: BoxShotgunIncendiary
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+- type: listing
+  id: ArenaNukiesMedkitAdvancedFilled
+  productEntity: MedkitAdvancedFilled
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+- type: listing
+  id: ArenaNukiesStimpackMini
+  productEntity: StimpackMini
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]

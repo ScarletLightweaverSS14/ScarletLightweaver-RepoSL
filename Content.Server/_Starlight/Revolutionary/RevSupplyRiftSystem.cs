@@ -11,6 +11,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
+using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Store;
@@ -51,8 +52,10 @@ public sealed partial class RevSupplyRiftSystem : EntitySystem
     [Dependency] private IConfigurationManager _config = default!; // Starlight
     [Dependency] private RoundEndSystem _roundEnd = default!; // starlight
     [Dependency] private SharedTransformSystem _transform = default!; // Starlight
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private static readonly ProtoId<ListingPrototype> RevSupplyRiftListingId = "RevSupplyRiftListing";
+    private static readonly ProtoId<ListingPrototype> ArenaSupplyRiftListingId = "ArenaUSSPRevSupplyRiftListing";
 
     /// <summary>
     /// The current active rift entity, if any.
@@ -131,12 +134,14 @@ public sealed partial class RevSupplyRiftSystem : EntitySystem
     private void OnStorePurchaseAttempt(ref StorePurchaseAttemptEvent args)
     {
         // Only handle the revolutionary supply rift listing
-        if (args.ListingId != RevSupplyRiftListingId)
+        if (args.ListingId != RevSupplyRiftListingId && args.ListingId != ArenaSupplyRiftListingId)
             return;
 
         // Check if a rift has been destroyed
         if (_riftDestroyed)
         {
+            if (args.ListingId == ArenaSupplyRiftListingId)
+                _popup.PopupEntity(Loc.GetString("arena-vendor-rift-destroyed"), args.Buyer, args.Buyer);
             // A rift has been destroyed, so cancel this purchase
             args.Cancel = true;
             return;
@@ -145,6 +150,8 @@ public sealed partial class RevSupplyRiftSystem : EntitySystem
         // Check if there's already an active rift being processed or placed
         if (IsRiftBeingProcessed())
         {
+            if (args.ListingId == ArenaSupplyRiftListingId)
+                _popup.PopupEntity(Loc.GetString("arena-vendor-rift-charging"), args.Buyer, args.Buyer);
             // A rift is already being processed, so cancel this purchase
             args.Cancel = true;
             return;
@@ -160,7 +167,7 @@ public sealed partial class RevSupplyRiftSystem : EntitySystem
     private void OnStorePurchaseCompleted(ref StorePurchaseCompletedEvent args)
     {
         // Only handle the revolutionary supply rift listing
-        if (args.ListingId != RevSupplyRiftListingId)
+        if (args.ListingId != RevSupplyRiftListingId && args.ListingId != ArenaSupplyRiftListingId)
             return;
 
         // Mark that we're done processing a rift purchase

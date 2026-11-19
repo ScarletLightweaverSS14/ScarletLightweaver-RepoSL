@@ -1,0 +1,41 @@
+- type: entity
+  id: ArenaFactionVendor
+  parent: BaseMachine
+  name: arena faction vendor
+  suffix: Admin, Arena
+  description: An arena requisition machine that runs without power. Insert faction requisitions, telecrystals, or telebonds to buy equipment. Balances are shared with everyone using the machine.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Structures/Machines/arena_vendor.rsi
+    state: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    name: arena-vendor-name
+    categoryBalance: true
+    categories:
+    - ArenaNTSF
+    - ArenaERT
+    - ArenaSecurity
+    - ArenaSyndicate
+    - ArenaGorlex
+    - ArenaUSSP
+    - ArenaBlackstar
+    - ArenaPirates
+    - ArenaTSF
+    - ArenaNukies
+    currencyWhitelist:
+    - ArenaNTSF
+    - ArenaERT
+    - ArenaSecurity
+    - Telecrystal
+    - ArenaGorlex
+    - Telebond
+    - ArenaBlackstar
+    - ArenaPirate
+    - ArenaTSF
+    - ArenaNukie

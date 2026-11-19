@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using Content.Client.Actions;
 using Content.Client.Message;
@@ -32,9 +33,12 @@ public sealed partial class StoreMenu : DefaultWindow
     public string CurrentCategory = string.Empty;
     public bool GridMode { get; set; } = false; // Starlight
     private bool? _clientGridOverride = null;
+    private bool _categoryBalance;
+    public bool CategoryBalance => _categoryBalance;
     private const int NamePreviewMax = 40;
     private const int DescriptionPreviewMax = 180; // Starlight end
     private List<ListingDataWithCostModifiers> _cachedListings = new();
+    private HashSet<ListingDataWithCostModifiers> _categoryListings = new();
 
     public StoreMenu()
     {
@@ -51,18 +55,10 @@ public sealed partial class StoreMenu : DefaultWindow
     public void UpdateBalance(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance)
     {
         Balance = balance;
+        UpdateBalanceDisplay();
 
         var currency = balance.ToDictionary(type =>
             (type.Key, type.Value), type => _prototypeManager.Index(type.Key));
-
-        var balanceStr = string.Empty;
-        foreach (var ((_, amount), proto) in currency)
-        {
-            balanceStr += Loc.GetString("store-ui-balance-display", ("amount", amount),
-                ("currency", Loc.GetString(proto.DisplayName, ("amount", 1)))) + "\n";
-        }
-
-        BalanceInfo.SetMarkup(balanceStr.TrimEnd());
 
         var disabled = true;
         foreach (var type in currency)
@@ -77,6 +73,47 @@ public sealed partial class StoreMenu : DefaultWindow
         WithdrawButton.Disabled = disabled;
     }
 
+    public void SetCategoryBalance(bool enabled)
+    {
+        if (enabled && !_categoryBalance)
+        {
+            SetSize = new Vector2(620, 560);
+            if (Parent != null)
+            {
+                SetSize = Vector2.Min(SetSize, Vector2.Max(MinSize, Parent.Size));
+                var maxPosition = Vector2.Max(Vector2.Zero, Parent.Size - SetSize);
+                LayoutContainer.SetPosition(this, Vector2.Clamp(Position, Vector2.Zero, maxPosition));
+            }
+        }
+
+        _categoryBalance = enabled;
+        UpdateBalanceDisplay();
+    }
+
+    private void UpdateBalanceDisplay()
+    {
+        var categoryCurrencies = _categoryBalance
+            ? _categoryListings.Where(listing => listing.Categories.Contains(CurrentCategory))
+                .SelectMany(listing => listing.Cost.Keys).ToHashSet()
+            : null;
+
+        var lines = new List<string>();
+        if (_categoryBalance)
+            lines.Add(Loc.GetString("arena-vendor-shared-balance"));
+
+        foreach (var (id, amount) in Balance)
+        {
+            if (categoryCurrencies != null && !categoryCurrencies.Contains(id))
+                continue;
+
+            var proto = _prototypeManager.Index(id);
+            lines.Add(Loc.GetString("store-ui-balance-display", ("amount", amount),
+                ("currency", Loc.GetString(proto.DisplayName, ("amount", 1)))));
+        }
+
+        BalanceInfo.SetMarkup(string.Join("\n", lines));
+    }
+
     public void UpdateListing(List<ListingDataWithCostModifiers> listings)
     {
         _cachedListings = listings;
@@ -86,6 +123,9 @@ public sealed partial class StoreMenu : DefaultWindow
 
     public void UpdateListing()
     {
+        if (_categoryBalance)
+            UpdateBalanceDisplay();
+
         var sorted = _cachedListings.OrderBy(l => l.Priority)
                                     .ThenBy(l => l.Cost.Values.Sum());
 
@@ -331,6 +371,7 @@ public sealed partial class StoreMenu : DefaultWindow
 
     public void PopulateStoreCategoryButtons(HashSet<ListingDataWithCostModifiers> listings)
     {
+        _categoryListings = listings;
         var allCategories = new List<StoreCategoryPrototype>();
         foreach (var listing in listings)
         {

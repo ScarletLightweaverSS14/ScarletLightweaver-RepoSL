@@ -9,7 +9,7 @@ namespace Content.Client.Store.Ui;
 [UsedImplicitly]
 public sealed partial class StoreBoundUserInterface : BoundUserInterface // Starlight, partial
 {
-    private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     private readonly StoreSystem _storeSystem = default!;
 
     [ViewVariables]
@@ -101,7 +101,7 @@ public sealed partial class StoreBoundUserInterface : BoundUserInterface // Star
             filteredListings.RemoveWhere(listingData => !ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listingData, _prototypeManager).Trim().ToLowerInvariant().Contains(_search) &&
                                                         !ListingLocalisationHelpers.GetLocalisedDescriptionOrEntityDescription(listingData, _prototypeManager).Trim().ToLowerInvariant().Contains(_search));
         }
-        _menu.PopulateStoreCategoryButtons(filteredListings);
+        _menu.PopulateStoreCategoryButtons(_menu.CategoryBalance ? _listings : filteredListings);
         _menu.UpdateListing(filteredListings.ToList());
     }
 }

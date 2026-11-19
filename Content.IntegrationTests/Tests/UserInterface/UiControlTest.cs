@@ -1,9 +1,14 @@
+using System.Collections.Generic;
 using System.Linq;
 using Content.Client.Lobby.UI;
+using Content.Client.Store.Ui;
 using Content.IntegrationTests.Fixtures;
+using Content.Shared.FixedPoint;
+using Content.Shared.Store;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Reflection;
 
 #region Starlight
@@ -15,6 +20,57 @@ namespace Content.IntegrationTests.Tests.UserInterface;
 [TestFixture]
 public sealed class UiControlTest : GameTest
 {
+    [Test]
+    public async Task ArenaVendorCategoryBalanceTracksSelection()
+    {
+        var client = Pair.Client;
+        await client.WaitAssertion(() =>
+        {
+            using var menu = new StoreMenu();
+            var listings = new HashSet<ListingDataWithCostModifiers>
+            {
+                new(client.ProtoMan.Index(new ProtoId<ListingPrototype>("ArenaNTSFWeaponRiflePeacemaker"))),
+                new(client.ProtoMan.Index(new ProtoId<ListingPrototype>("ArenaERTWeaponRiflePeacemaker"))),
+            };
+            menu.SetCategoryBalance(true);
+            menu.UpdateBalance(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
+            {
+                ["ArenaNTSF"] = 20,
+                ["ArenaERT"] = 0,
+            });
+            menu.PopulateStoreCategoryButtons(listings);
+            menu.UpdateListing(listings.ToList());
+
+            Assert.That(menu.BalanceInfo.Text, Does.Contain("NTSF credits: 20"));
+            Assert.That(menu.BalanceInfo.Text, Does.Not.Contain("ERT credits"));
+            menu.CurrentCategory = "ArenaERT";
+            menu.UpdateListing();
+            Assert.That(menu.BalanceInfo.Text, Does.Contain("ERT credits: 0"));
+            Assert.That(menu.BalanceInfo.Text, Does.Not.Contain("NTSF credits"));
+
+            menu.UpdateListing(new List<ListingDataWithCostModifiers>());
+            Assert.That(menu.CurrentCategory, Is.EqualTo("ArenaERT"));
+            Assert.That(menu.BalanceInfo.Text, Does.Contain("ERT credits: 0"));
+
+            menu.SetCategoryBalance(false);
+            Assert.That(menu.BalanceInfo.Text, Does.Contain("NTSF credits: 20"));
+            Assert.That(menu.BalanceInfo.Text, Does.Contain("ERT credits: 0"));
+
+            var uplinkListings = client.ProtoMan.EnumeratePrototypes<ListingPrototype>()
+                .Where(listing => listing.Categories.Any(category =>
+                    category.Id is "ArenaSyndicate" or "ArenaNukies" or "ArenaUSSP"))
+                .Select(listing => new ListingDataWithCostModifiers(listing))
+                .ToHashSet();
+            menu.SetCategoryBalance(true);
+            menu.PopulateStoreCategoryButtons(uplinkListings);
+            foreach (var category in new[] { "ArenaSyndicate", "ArenaNukies", "ArenaUSSP" })
+            {
+                menu.CurrentCategory = category;
+                menu.UpdateListing(uplinkListings.ToList());
+            }
+        });
+    }
+
     // You should not be adding to this.
     private Type[] _ignored = new Type[]
     {

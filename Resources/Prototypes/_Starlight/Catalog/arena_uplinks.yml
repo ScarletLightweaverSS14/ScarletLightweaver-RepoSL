@@ -1,0 +1,5355 @@
+# Arena copies of the Syndicate and USSP uplink catalogs. Role, objective and stock
+# restrictions are omitted for arena use. Conversion rewards use telebonds.
+
+- type: listing
+  id: ArenaSyndicateUplinkPistolViper
+  name: uplink-pistol-viper-name
+  description: uplink-pistol-viper-desc
+  productEntity: WeaponPistolViper
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPistolViper
+  name: uplink-pistol-viper-name
+  description: uplink-pistol-viper-desc
+  productEntity: WeaponPistolViper
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkPistolCobra
+  name: uplink-pistol-cobra-name
+  description: uplink-pistol-cobra-desc
+  productEntity: WeaponPistolCobra
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPistolCobra
+  name: uplink-pistol-cobra-name
+  description: uplink-pistol-cobra-desc
+  productEntity: WeaponPistolCobra
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkRifleMosin
+  name: uplink-rifle-mosin-name
+  description: uplink-rifle-mosin-desc
+  productEntity: WeaponSniperMosin
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkRifleMosin
+  name: uplink-rifle-mosin-name
+  description: uplink-rifle-mosin-desc
+  productEntity: WeaponSniperMosin
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEsword
+  name: uplink-esword-name
+  description: uplink-esword-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
+  productEntity: EnergySword
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEsword
+  name: uplink-esword-name
+  description: uplink-esword-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
+  productEntity: EnergySword
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEnergyDagger
+  name: uplink-edagger-name
+  description: uplink-edagger-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_dagger.rsi, state: icon }
+  productEntity: EnergyDaggerBox
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEnergyDagger
+  name: uplink-edagger-name
+  description: uplink-edagger-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_dagger.rsi, state: icon }
+  productEntity: EnergyDaggerBox
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEnergyCrossbow
+  name: uplink-energycrossbow-name
+  description: uplink-energycrossbow-desc
+  productEntity: WeaponEnergyCrossbow
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEnergyCrossbow
+  name: uplink-energycrossbow-name
+  description: uplink-energycrossbow-desc
+  productEntity: WeaponEnergyCrossbow
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkThrowingKnivesKit
+  name: uplink-knives-kit-name
+  description: uplink-knives-kit-desc
+  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: throwing_knives }
+  productEntity: ThrowingKnivesKit
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkThrowingKnivesKit
+  name: uplink-knives-kit-name
+  description: uplink-knives-kit-desc
+  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: throwing_knives }
+  productEntity: ThrowingKnivesKit
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGlovesNorthStar
+  name: uplink-gloves-north-star-name
+  description: uplink-gloves-north-star-desc
+  productEntity: ClothingHandsGlovesNorthStar
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGlovesNorthStar
+  name: uplink-gloves-north-star-name
+  description: uplink-gloves-north-star-desc
+  productEntity: ClothingHandsGlovesNorthStar
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEshield
+  name: uplink-eshield-name
+  description: uplink-eshield-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
+  productEntity: EnergyShield
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEshield
+  name: uplink-eshield-name
+  description: uplink-eshield-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
+  productEntity: EnergyShield
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkRiggedBoxingGloves
+  name: uplink-rigged-boxing-gloves-name
+  description: uplink-rigged-boxing-gloves-desc
+  icon: { sprite: Clothing/Hands/Gloves/Boxing/boxingblue.rsi, state: icon }
+  productEntity: ClothingHandsGlovesBoxingRiggedBlue # TODO Replace this with the random spawner when it's not bugged
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkRiggedBoxingGloves
+  name: uplink-rigged-boxing-gloves-name
+  description: uplink-rigged-boxing-gloves-desc
+  icon: { sprite: Clothing/Hands/Gloves/Boxing/boxingblue.rsi, state: icon }
+  productEntity: ClothingHandsGlovesBoxingRiggedBlue # TODO Replace this with the random spawner when it's not bugged
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSniperBundle
+  name: uplink-sniper-bundle-name
+  description: uplink-sniper-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
+  productEntity: BriefcaseSyndieSniperBundleFilled
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSniperBundle
+  name: uplink-sniper-bundle-name
+  description: uplink-sniper-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
+  productEntity: BriefcaseSyndieSniperBundleFilled
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHushpup
+  name: uplink-hushpup-name
+  description: uplink-hushpup-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
+  productEntity: BriefcaseWeaponHushpupFilled
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHushpup
+  name: uplink-hushpup-name
+  description: uplink-hushpup-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
+  productEntity: BriefcaseWeaponHushpupFilled
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkC20R
+  name: uplink-c20r-name
+  description: uplink-c20r-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  productEntity: BriefcaseWeaponC20Filled
+  cost: { Telecrystal: 14 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkC20R
+  name: uplink-c20r-name
+  description: uplink-c20r-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  productEntity: BriefcaseWeaponC20Filled
+  cost: { ArenaNukie: 14 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkC20RBundle
+  name: uplink-c20r-bundle-name
+  description: uplink-c20r-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+  cost: { Telecrystal: 17 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkC20RBundle
+  name: uplink-c20r-bundle-name
+  description: uplink-c20r-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+  cost: { ArenaNukie: 17 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBulldog
+  name: uplink-bulldog-name
+  description: uplink-bulldog-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  productEntity: BriefcaseWeaponBulldogFilled
+  cost: { Telecrystal: 14 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBulldog
+  name: uplink-bulldog-name
+  description: uplink-bulldog-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  productEntity: BriefcaseWeaponBulldogFilled
+  cost: { ArenaNukie: 14 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBulldogBundle
+  name: uplink-bulldog-bundle-name
+  description: uplink-bulldog-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBulldogBundle
+  name: uplink-bulldog-bundle-name
+  description: uplink-bulldog-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEstocBundle
+  name: uplink-estoc-bundle-name
+  description: uplink-estoc-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledRifle
+  cost: { Telecrystal: 16 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEstocBundle
+  name: uplink-estoc-bundle-name
+  description: uplink-estoc-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledRifle
+  cost: { ArenaNukie: 16 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGrenadeLauncher
+  name: uplink-grenade-launcher-name
+  description: uplink-grenade-launcher-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: BriefcaseWeaponChinaLakeFilled
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGrenadeLauncher
+  name: uplink-grenade-launcher-name
+  description: uplink-grenade-launcher-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: BriefcaseWeaponChinaLakeFilled
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGrenadeLauncherBundle
+  name: uplink-grenade-launcher-bundle-name
+  description: uplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  cost: { Telecrystal: 26 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGrenadeLauncherBundle
+  name: uplink-grenade-launcher-bundle-name
+  description: uplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  cost: { ArenaNukie: 26 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkL6SawBundle
+  name: uplink-l6-saw-bundle-name
+  description: uplink-l6-saw-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  cost: { Telecrystal: 25 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkL6SawBundle
+  name: uplink-l6-saw-bundle-name
+  description: uplink-l6-saw-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  cost: { ArenaNukie: 25 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkExplosiveGrenade
+  name: uplink-explosive-grenade-name
+  description: uplink-explosive-grenade-desc
+  productEntity: ExGrenade
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkExplosiveGrenade
+  name: uplink-explosive-grenade-name
+  description: uplink-explosive-grenade-desc
+  productEntity: ExGrenade
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSmokeGrenade
+  name: uplink-smoke-grenade-name
+  description: uplink-smoke-grenade-desc
+  productEntity: SmokeGrenade
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSmokeGrenade
+  name: uplink-smoke-grenade-name
+  description: uplink-smoke-grenade-desc
+  productEntity: SmokeGrenade
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndieMiniBomb
+  name: uplink-mini-bomb-name
+  description: uplink-mini-bomb-desc
+  productEntity: SyndieMiniBomb
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndieMiniBomb
+  name: uplink-mini-bomb-name
+  description: uplink-mini-bomb-desc
+  productEntity: SyndieMiniBomb
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSingularityGrenade
+  name: uplink-singularity-grenade-name
+  description: uplink-singularity-grenade-desc
+  productEntity: SingularityGrenade
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSingularityGrenade
+  name: uplink-singularity-grenade-name
+  description: uplink-singularity-grenade-desc
+  productEntity: SingularityGrenade
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGrenadePenguin
+  name: uplink-penguin-grenade-name
+  description: uplink-penguin-grenade-desc
+  productEntity: MobGrenadePenguin
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGrenadePenguin
+  name: uplink-penguin-grenade-name
+  description: uplink-penguin-grenade-desc
+  productEntity: MobGrenadePenguin
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkC4
+  name: uplink-c4-name
+  description: uplink-c4-desc
+  productEntity: C4
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkC4
+  name: uplink-c4-name
+  description: uplink-c4-desc
+  productEntity: C4
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGrenadierRig
+  name: uplink-grenadier-rig-name
+  description: uplink-grenadier-rig-desc
+  productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGrenadierRig
+  name: uplink-grenadier-rig-name
+  description: uplink-grenadier-rig-desc
+  productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkC4Bundle
+  name: uplink-c4-bundle-name
+  description: uplink-c4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkC4Bundle
+  name: uplink-c4-bundle-name
+  description: uplink-c4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEmpGrenade
+  name: uplink-emp-grenade-name
+  description: uplink-emp-grenade-desc
+  productEntity: EmpGrenade
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEmpGrenade
+  name: uplink-emp-grenade-name
+  description: uplink-emp-grenade-desc
+  productEntity: EmpGrenade
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkExplodingPen
+  name: uplink-exploding-pen-name
+  description: uplink-exploding-pen-desc
+  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
+  productEntity: PenExplodingBox
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkExplodingPen
+  name: uplink-exploding-pen-name
+  description: uplink-exploding-pen-desc
+  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
+  productEntity: PenExplodingBox
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBomb
+  name: uplink-exploding-syndicate-bomb-name
+  description: uplink-exploding-syndicate-bomb-desc
+  productEntity: SyndicateBomb
+  cost: { Telecrystal: 11 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBomb
+  name: uplink-exploding-syndicate-bomb-name
+  description: uplink-exploding-syndicate-bomb-desc
+  productEntity: SyndicateBomb
+  cost: { ArenaNukie: 11 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBombNukie
+  name: uplink-exploding-syndicate-bomb-name
+  description: uplink-exploding-syndicate-bomb-desc
+  productEntity: SyndicateBomb
+  cost: { Telecrystal: 11 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBombNukie
+  name: uplink-exploding-syndicate-bomb-name
+  description: uplink-exploding-syndicate-bomb-desc
+  productEntity: SyndicateBomb
+  cost: { ArenaNukie: 11 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGrenadeShrapnel
+  name: uplink-shrapnel-grenade-name
+  description: uplink-shrapnel-grenade-desc
+  productEntity: GrenadeShrapnel
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGrenadeShrapnel
+  name: uplink-shrapnel-grenade-name
+  description: uplink-shrapnel-grenade-desc
+  productEntity: GrenadeShrapnel
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGrenadeIncendiary
+  name: uplink-incendiary-grenade-name
+  description: uplink-incendiary-grenade-desc
+  productEntity: GrenadeIncendiary
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGrenadeIncendiary
+  name: uplink-incendiary-grenade-name
+  description: uplink-incendiary-grenade-desc
+  productEntity: GrenadeIncendiary
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkPistol9mmMagazineSP
+  name: uplink-pistol-high-capacity-magazine-name # Starlight, actually descriptive now
+  description: uplink-pistol-high-capacity-magazine-desc # Starlight
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: base-icon }
+  productEntity: MagazinePistolHighCapacitySP # Staright
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPistol9mmMagazineSP
+  name: uplink-pistol-high-capacity-magazine-name # Starlight, actually descriptive now
+  description: uplink-pistol-high-capacity-magazine-desc # Starlight
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: base-icon }
+  productEntity: MagazinePistolHighCapacitySP # Staright
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagazinePistolSubMachineGun
+  name: uplink-pistol-magazine-c20r-name
+  description: uplink-pistol-magazine-c20r-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolSubMachineGunSP
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagazinePistolSubMachineGun
+  name: uplink-pistol-magazine-c20r-name
+  description: uplink-pistol-magazine-c20r-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolSubMachineGunSP
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagazineShotgunPellet
+  name: uplink-magazine-bulldog-pellet-name
+  description: uplink-magazine-bulldog-pellet-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: pellets }
+  productEntity: MagazineShotgun
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagazineShotgunPellet
+  name: uplink-magazine-bulldog-pellet-name
+  description: uplink-magazine-bulldog-pellet-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: pellets }
+  productEntity: MagazineShotgun
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagazineShotgunSlug
+  name: uplink-magazine-bulldog-slug-name
+  description: uplink-magazine-bulldog-slug-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug }
+  productEntity: MagazineShotgunSlug
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagazineShotgunSlug
+  name: uplink-magazine-bulldog-slug-name
+  description: uplink-magazine-bulldog-slug-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug }
+  productEntity: MagazineShotgunSlug
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagazinePistolCaselessRifle
+  name: uplink-pistol-magazine-caseless-name
+  description: uplink-pistol-magazine-caseless-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolCaselessRifle
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagazinePistolCaselessRifle
+  name: uplink-pistol-magazine-caseless-name
+  description: uplink-pistol-magazine-caseless-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolCaselessRifle
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMosinAmmo
+  name: uplink-mosin-ammo-name
+  description: uplink-mosin-ammo-desc
+  productEntity: MagazineBoxLightRifleFMJ
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMosinAmmo
+  name: uplink-mosin-ammo-name
+  description: uplink-mosin-ammo-desc
+  productEntity: MagazineBoxLightRifleFMJ
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEstocAmmo
+  name: uplink-estoc-ammo-name
+  description: uplink-estoc-ammo-desc
+  productEntity: MagazineRifleSP #Starlight
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEstocAmmo
+  name: uplink-estoc-ammo-name
+  description: uplink-estoc-ammo-desc
+  productEntity: MagazineRifleSP #Starlight
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHristovAmmo
+  name: uplink-sniper-ammo-name
+  description: uplink-sniper-ammo-desc
+  productEntity: MagazineBoxAntiMateriel
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHristovAmmo
+  name: uplink-sniper-ammo-name
+  description: uplink-sniper-ammo-desc
+  productEntity: MagazineBoxAntiMateriel
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkAmmoBundle
+  name: uplink-ammo-bundle-name
+  description: uplink-ammo-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+  cost: { Telecrystal: 15 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkAmmoBundle
+  name: uplink-ammo-bundle-name
+  description: uplink-ammo-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+  cost: { ArenaNukie: 15 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHypopen
+  name: uplink-hypopen-name
+  description: uplink-hypopen-desc
+  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
+  productEntity: HypopenBox
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHypopen
+  name: uplink-hypopen-name
+  description: uplink-hypopen-desc
+  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
+  productEntity: HypopenBox
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHypoDart
+  name: uplink-hypodart-name
+  description: uplink-hypodart-desc
+  icon: { sprite: /Textures/Objects/Fun/Darts/dart_red.rsi, state: icon }
+  productEntity: HypoDartBox
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHypoDart
+  name: uplink-hypodart-name
+  description: uplink-hypodart-desc
+  icon: { sprite: /Textures/Objects/Fun/Darts/dart_red.rsi, state: icon }
+  productEntity: HypoDartBox
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkChemistryKitBundle
+  name: uplink-chemistry-kit-name
+  description: uplink-chemistry-kit-desc
+  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: vials }
+  productEntity: ChemicalSynthesisKit
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkChemistryKitBundle
+  name: uplink-chemistry-kit-name
+  description: uplink-chemistry-kit-desc
+  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: vials }
+  productEntity: ChemicalSynthesisKit
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkZombieBundle
+  name: uplink-zombie-bundle-name
+  description: uplink-zombie-bundle-desc
+  icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
+  productEntity: ClothingBackpackDuffelZombieBundle
+  cost: { Telecrystal: 40 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkZombieBundle
+  name: uplink-zombie-bundle-name
+  description: uplink-zombie-bundle-desc
+  icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
+  productEntity: ClothingBackpackDuffelZombieBundle
+  cost: { ArenaNukie: 40 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkNocturineChemistryBottle
+  name: uplink-nocturine-chemistry-bottle-name
+  description: uplink-nocturine-chemistry-bottle-desc
+  productEntity: ChemistryBottleNocturine
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkNocturineChemistryBottle
+  name: uplink-nocturine-chemistry-bottle-name
+  description: uplink-nocturine-chemistry-bottle-desc
+  productEntity: ChemistryBottleNocturine
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCombatMedkit
+  name: uplink-combat-medkit-name
+  description: uplink-combat-medkit-desc
+  productEntity: MedkitCombatFilled
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCombatMedkit
+  name: uplink-combat-medkit-name
+  description: uplink-combat-medkit-desc
+  productEntity: MedkitCombatFilled
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCombatMedipen
+  name: uplink-combat-medipen-name
+  description: uplink-combat-medipen-desc
+  productEntity: CombatMedipen
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCombatMedipen
+  name: uplink-combat-medipen-name
+  description: uplink-combat-medipen-desc
+  productEntity: CombatMedipen
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkStimpack
+  name: uplink-stimpack-name
+  description: uplink-stimpack-desc
+  productEntity: Stimpack
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkStimpack
+  name: uplink-stimpack-name
+  description: uplink-stimpack-desc
+  productEntity: Stimpack
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkStimkit
+  name: uplink-stimkit-name
+  description: uplink-stimkit-desc
+  productEntity: StimkitFilled
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkStimkit
+  name: uplink-stimkit-name
+  description: uplink-stimkit-desc
+  productEntity: StimkitFilled
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCigarettes
+  name: uplink-cigarettes-name
+  description: uplink-cigarettes-desc
+  productEntity: CigPackSyndicate
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCigarettes
+  name: uplink-cigarettes-name
+  description: uplink-cigarettes-desc
+  productEntity: CigPackSyndicate
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMedsBundle
+  name: uplink-meds-bundle-name
+  description: uplink-meds-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  cost: { Telecrystal: 24 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMedsBundle
+  name: uplink-meds-bundle-name
+  description: uplink-meds-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  cost: { ArenaNukie: 24 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateIDCard
+  name: uplink-syndicate-id-card-name
+  description: uplink-syndicate-id-card-desc
+  productEntity: SyndicateIDCard
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateIDCard
+  name: uplink-syndicate-id-card-name
+  description: uplink-syndicate-id-card-desc
+  productEntity: SyndicateIDCard
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkAgentIDCard
+  name: uplink-agent-id-card-name
+  description: uplink-agent-id-card-desc
+  productEntity: AgentIDCard
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkAgentIDCard
+  name: uplink-agent-id-card-name
+  description: uplink-agent-id-card-desc
+  productEntity: AgentIDCard
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkStealthBox
+  name: uplink-stealth-box-name
+  description: uplink-stealth-box-desc
+  productEntity: StealthBox
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkStealthBox
+  name: uplink-stealth-box-name
+  description: uplink-stealth-box-desc
+  productEntity: StealthBox
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkChameleonProjector
+  name: uplink-chameleon-projector-name
+  description: uplink-chameleon-projector-desc
+  productEntity: ChameleonProjector
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkChameleonProjector
+  name: uplink-chameleon-projector-name
+  description: uplink-chameleon-projector-desc
+  productEntity: ChameleonProjector
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHeadsetEncryptionKey
+  name: uplink-encryption-key-name
+  description: uplink-encryption-key-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: BoxEncryptionKeySyndie # Two for the price of one
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHeadsetEncryptionKey
+  name: uplink-encryption-key-name
+  description: uplink-encryption-key-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: BoxEncryptionKeySyndie # Two for the price of one
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBinaryTranslatorKey
+  name: uplink-binary-translator-key-name
+  description: uplink-binary-translator-key-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+  productEntity: EncryptionKeyBinarySyndicate
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBinaryTranslatorKey
+  name: uplink-binary-translator-key-name
+  description: uplink-binary-translator-key-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+  productEntity: EncryptionKeyBinarySyndicate
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCyberpen
+  name: uplink-cyberpen-name
+  description: uplink-cyberpen-desc
+  productEntity: CyberPen
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCyberpen
+  name: uplink-cyberpen-name
+  description: uplink-cyberpen-desc
+  productEntity: CyberPen
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDecoyDisk
+  name: uplink-decoy-disk-name
+  description: uplink-decoy-disk-desc
+  productEntity: NukeDiskFake
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDecoyDisk
+  name: uplink-decoy-disk-name
+  description: uplink-decoy-disk-desc
+  productEntity: NukeDiskFake
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBribe
+  name: uplink-bribe-name
+  description: uplink-bribe-desc
+  productEntity: BriefcaseSyndieLobbyingBundleFilled
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBribe
+  name: uplink-bribe-name
+  description: uplink-bribe-desc
+  productEntity: BriefcaseSyndieLobbyingBundleFilled
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBombFake
+  name: uplink-exploding-syndicate-bomb-fake-name
+  description: uplink-exploding-syndicate-bomb-fake-desc
+  productEntity: SyndicateBombFake
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBombFake
+  name: uplink-exploding-syndicate-bomb-fake-name
+  description: uplink-exploding-syndicate-bomb-fake-desc
+  productEntity: SyndicateBombFake
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBombFakeNukie
+  name: uplink-exploding-syndicate-bomb-fake-name
+  description: uplink-exploding-syndicate-bomb-fake-desc
+  productEntity: SyndicateBombFake
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBombFakeNukie
+  name: uplink-exploding-syndicate-bomb-fake-name
+  description: uplink-exploding-syndicate-bomb-fake-desc
+  productEntity: SyndicateBombFake
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkAccessBreaker
+  name: uplink-access-breaker-name
+  description: uplink-access-breaker-desc
+  productEntity: AccessBreaker
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkAccessBreaker
+  name: uplink-access-breaker-name
+  description: uplink-access-breaker-desc
+  productEntity: AccessBreaker
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEmag
+  name: uplink-emag-name
+  description: uplink-emag-desc
+  productEntity: Emag
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEmag
+  name: uplink-emag-name
+  description: uplink-emag-desc
+  productEntity: Emag
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkRadioJammer
+  name: uplink-radio-jammer-name
+  description: uplink-radio-jammer-desc
+  productEntity: RadioJammer
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkRadioJammer
+  name: uplink-radio-jammer-name
+  description: uplink-radio-jammer-desc
+  productEntity: RadioJammer
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateWeaponModule
+  name: uplink-syndicate-weapon-module-name
+  description: uplink-syndicate-weapon-module-desc
+  productEntity: BorgModuleSyndicateWeapon
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateWeaponModule
+  name: uplink-syndicate-weapon-module-name
+  description: uplink-syndicate-weapon-module-desc
+  productEntity: BorgModuleSyndicateWeapon
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDisposableTurret
+  name: uplink-disposable-turret-name
+  description: uplink-disposable-turret-desc
+  productEntity: ToolboxElectricalTurretFilled
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDisposableTurret
+  name: uplink-disposable-turret-name
+  description: uplink-disposable-turret-desc
+  productEntity: ToolboxElectricalTurretFilled
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateMartyrModule
+  name: uplink-syndicate-martyr-module-name
+  description: uplink-syndicate-martyr-module-desc
+  icon: { sprite: /Textures/Objects/Specific/Robotics/borgmodule.rsi, state: syndicateborgbomb }
+  productEntity: BorgModuleMartyr
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateMartyrModule
+  name: uplink-syndicate-martyr-module-name
+  description: uplink-syndicate-martyr-module-desc
+  icon: { sprite: /Textures/Objects/Specific/Robotics/borgmodule.rsi, state: syndicateborgbomb }
+  productEntity: BorgModuleMartyr
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSoapSyndie
+  name: uplink-soap-name
+  description: uplink-soap-desc
+  productEntity: SoapSyndie
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSoapSyndie
+  name: uplink-soap-name
+  description: uplink-soap-desc
+  productEntity: SoapSyndie
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSlipocalypseClusterSoap
+  name: uplink-slipocalypse-clustersoap-name
+  description: uplink-slipocalypse-clustersoap-desc
+  productEntity: SlipocalypseClusterSoap
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSlipocalypseClusterSoap
+  name: uplink-slipocalypse-clustersoap-name
+  description: uplink-slipocalypse-clustersoap-desc
+  productEntity: SlipocalypseClusterSoap
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkToolbox
+  name: uplink-toolbox-name
+  description: uplink-toolbox-desc
+  productEntity: ToolboxSyndicateFilled
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkToolbox
+  name: uplink-toolbox-name
+  description: uplink-toolbox-desc
+  productEntity: ToolboxSyndicateFilled
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateJawsOfLife
+  name: uplink-syndicate-jaws-of-life-name
+  description: uplink-syndicate-jaws-of-life-desc
+  productEntity: SyndicateJawsOfLife
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateJawsOfLife
+  name: uplink-syndicate-jaws-of-life-name
+  description: uplink-syndicate-jaws-of-life-desc
+  productEntity: SyndicateJawsOfLife
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkTravelCamera
+  name: uplink-travel-camera-name
+  description: uplink-travel-camera-desc
+  productEntity: TravelCamera
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkTravelCamera
+  name: uplink-travel-camera-name
+  description: uplink-travel-camera-desc
+  productEntity: TravelCamera
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkPowerSink
+  name: uplink-power-sink-name
+  description: uplink-power-sink-desc
+  productEntity: PowerSink
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPowerSink
+  name: uplink-power-sink-name
+  description: uplink-power-sink-desc
+  productEntity: PowerSink
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndimovCircuitKit
+  name: uplink-syndimov-law-name
+  description: uplink-syndimov-law-desc
+  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: syndicate_circuit }
+  productEntity: SyndimovCircuitKit
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndimovCircuitKit
+  name: uplink-syndimov-law-name
+  description: uplink-syndimov-law-desc
+  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: syndicate_circuit }
+  productEntity: SyndimovCircuitKit
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkAntimovCircuitBoard
+  name: uplink-antimov-law-name
+  description: uplink-antimov-law-desc
+  productEntity: AntimovCircuitBoard
+  cost: { Telecrystal: 24 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkAntimovCircuitBoard
+  name: uplink-antimov-law-name
+  description: uplink-antimov-law-desc
+  productEntity: AntimovCircuitBoard
+  cost: { ArenaNukie: 24 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSurplusBundle
+  name: uplink-surplus-bundle-name
+  description: uplink-surplus-bundle-desc
+  productEntity: CrateSyndicateSurplusBundle
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSurplusBundle
+  name: uplink-surplus-bundle-name
+  description: uplink-surplus-bundle-desc
+  productEntity: CrateSyndicateSurplusBundle
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkStarterKit
+  name: uplink-starter-kit-name
+  description: uplink-starter-kit-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
+  cost: { Telecrystal: 40 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkStarterKit
+  name: uplink-starter-kit-name
+  description: uplink-starter-kit-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
+  cost: { ArenaNukie: 40 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCameraBug
+  name: uplink-cameraBug-name
+  description: uplink-cameraBug-desc
+  productEntity: CameraBug
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCameraBug
+  name: uplink-cameraBug-name
+  description: uplink-cameraBug-desc
+  productEntity: CameraBug
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHoloparaKit
+  name: uplink-holopara-kit-name
+  description: uplink-holopara-kit-desc
+  icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
+  productEntity: BoxHoloparasite
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHoloparaKit
+  name: uplink-holopara-kit-name
+  description: uplink-holopara-kit-desc
+  icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
+  productEntity: BoxHoloparasite
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicate
+  name: uplink-reinforcement-radio-name
+  description: uplink-reinforcement-radio-traitor-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
+  productEntity: ReinforcementRadioSyndicate
+  cost: { Telecrystal: 11 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicate
+  name: uplink-reinforcement-radio-name
+  description: uplink-reinforcement-radio-traitor-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
+  productEntity: ReinforcementRadioSyndicate
+  cost: { ArenaNukie: 11 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateNukeops
+  name: uplink-reinforcement-radio-nukeops-name
+  description: uplink-reinforcement-radio-nukeops-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
+  productEntity: ReinforcementRadioSyndicateNukeops
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateNukeops
+  name: uplink-reinforcement-radio-nukeops-name
+  description: uplink-reinforcement-radio-nukeops-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
+  productEntity: ReinforcementRadioSyndicateNukeops
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateCyborgAssault
+  name:  uplink-reinforcement-radio-assault-cyborg-name
+  description: uplink-reinforcement-radio-assault-cyborg-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  productEntity: ReinforcementRadioSyndicateCyborgAssault
+  cost: { Telecrystal: 40 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateCyborgAssault
+  name:  uplink-reinforcement-radio-assault-cyborg-name
+  description: uplink-reinforcement-radio-assault-cyborg-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  productEntity: ReinforcementRadioSyndicateCyborgAssault
+  cost: { ArenaNukie: 40 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateAncestor
+  name: uplink-reinforcement-radio-ancestor-name
+  description: uplink-reinforcement-radio-ancestor-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
+  productEntity: ReinforcementRadioSyndicateAncestor
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateAncestor
+  name: uplink-reinforcement-radio-ancestor-name
+  description: uplink-reinforcement-radio-ancestor-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
+  productEntity: ReinforcementRadioSyndicateAncestor
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateAncestorNukeops
+  name: uplink-reinforcement-radio-ancestor-name
+  description: uplink-reinforcement-radio-ancestor-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
+  productEntity: ReinforcementRadioSyndicateAncestorNukeops
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateAncestorNukeops
+  name: uplink-reinforcement-radio-ancestor-name
+  description: uplink-reinforcement-radio-ancestor-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
+  productEntity: ReinforcementRadioSyndicateAncestorNukeops
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCarpDehydrated
+  name: uplink-carp-dehydrated-name
+  description: uplink-carp-dehydrated-desc
+  productEntity: DehydratedSpaceCarp
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCarpDehydrated
+  name: uplink-carp-dehydrated-name
+  description: uplink-carp-dehydrated-desc
+  productEntity: DehydratedSpaceCarp
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMobCatMicrobomb
+  name: uplink-mobcat-microbomb-name
+  description: uplink-mobcat-microbomb-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
+  productEntity: ReinforcementRadioSyndicateSyndiCat
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMobCatMicrobomb
+  name: uplink-mobcat-microbomb-name
+  description: uplink-mobcat-microbomb-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
+  productEntity: ReinforcementRadioSyndicateSyndiCat
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicatePersonalAI
+  name: uplink-syndicate-pai-name
+  description: uplink-syndicate-pai-desc
+  icon: { sprite: /Textures/Objects/Fun/pai.rsi, state: syndicate-icon-pai-off }
+  productEntity: SyndicatePersonalAI
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicatePersonalAI
+  name: uplink-syndicate-pai-name
+  description: uplink-syndicate-pai-desc
+  icon: { sprite: /Textures/Objects/Fun/pai.rsi, state: syndicate-icon-pai-off }
+  productEntity: SyndicatePersonalAI
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkStorageImplanter
+  name: uplink-storage-implanter-name
+  description: uplink-storage-implanter-desc
+  icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
+  productEntity: StorageImplanter
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkStorageImplanter
+  name: uplink-storage-implanter-name
+  description: uplink-storage-implanter-desc
+  icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
+  productEntity: StorageImplanter
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkFreedomImplanter
+  name: uplink-freedom-implanter-name
+  description: uplink-freedom-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: freedom }
+  productEntity: FreedomImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkFreedomImplanter
+  name: uplink-freedom-implanter-name
+  description: uplink-freedom-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: freedom }
+  productEntity: FreedomImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkScramImplanter
+  name: uplink-scram-implanter-name
+  description: uplink-scram-implanter-desc
+  icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
+  productEntity: ScramImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkScramImplanter
+  name: uplink-scram-implanter-name
+  description: uplink-scram-implanter-desc
+  icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
+  productEntity: ScramImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDnaScramblerImplant
+  name: uplink-dna-scrambler-implanter-name
+  description: uplink-dna-scrambler-implanter-desc
+  icon: { sprite: /Textures/Mobs/Species/Human/parts.rsi, state: full }
+  productEntity: DnaScramblerImplanter
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDnaScramblerImplant
+  name: uplink-dna-scrambler-implanter-name
+  description: uplink-dna-scrambler-implanter-desc
+  icon: { sprite: /Textures/Mobs/Species/Human/parts.rsi, state: full }
+  productEntity: DnaScramblerImplanter
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEmpImplanter
+  name: uplink-emp-implanter-name
+  description: uplink-emp-implanter-desc
+  icon: { sprite: /Textures/Effects/emp.rsi, state: emp_disable }
+  productEntity: EmpImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEmpImplanter
+  name: uplink-emp-implanter-name
+  description: uplink-emp-implanter-desc
+  icon: { sprite: /Textures/Effects/emp.rsi, state: emp_disable }
+  productEntity: EmpImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkRadioImplanter
+  name: uplink-radio-implanter-name
+  description: uplink-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: RadioImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkRadioImplanter
+  name: uplink-radio-implanter-name
+  description: uplink-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: RadioImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMicroBombImplanter
+  name: uplink-micro-bomb-implanter-name
+  description: uplink-micro-bomb-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMicroBombImplanter
+  name: uplink-micro-bomb-implanter-name
+  description: uplink-micro-bomb-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMacroBombImplanter
+  name: uplink-macro-bomb-implanter-name
+  description: uplink-macro-bomb-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost: { Telecrystal: 13 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMacroBombImplanter
+  name: uplink-macro-bomb-implanter-name
+  description: uplink-macro-bomb-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost: { ArenaNukie: 13 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDeathAcidifierImplanter
+  name: uplink-death-acidifier-implant-name
+  description: uplink-death-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: DeathAcidifierImplanter
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDeathAcidifierImplanter
+  name: uplink-death-acidifier-implant-name
+  description: uplink-death-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: DeathAcidifierImplanter
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkUplinkImplanter
+  name: uplink-uplink-implanter-name
+  description: uplink-uplink-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/communication.rsi, state: old-radio }
+  productEntity: UplinkImplanter
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkUplinkImplanter
+  name: uplink-uplink-implanter-name
+  description: uplink-uplink-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/communication.rsi, state: old-radio }
+  productEntity: UplinkImplanter
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDeathRattle
+  name: uplink-deathrattle-implant-name
+  description: uplink-deathrattle-implant-desc
+  productEntity: BoxDeathRattleImplants
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDeathRattle
+  name: uplink-deathrattle-implant-name
+  description: uplink-deathrattle-implant-desc
+  productEntity: BoxDeathRattleImplants
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkFakeMindshield
+  name: uplink-fake-mindshield-name
+  description: uplink-fake-mindshield-desc
+  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkFakeMindshield
+  name: uplink-fake-mindshield-name
+  description: uplink-fake-mindshield-desc
+  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkVoiceMaskImplant
+  name: uplink-voice-mask-implanter-name
+  description: uplink-voice-mask-implanter-desc
+  icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
+  productEntity: VoiceMaskImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkVoiceMaskImplant
+  name: uplink-voice-mask-implanter-name
+  description: uplink-voice-mask-implanter-desc
+  icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
+  productEntity: VoiceMaskImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkJetpack
+  name: uplink-black-jetpack-name
+  description: uplink-black-jetpack-desc
+  productEntity: JetpackBlackFilled
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkJetpack
+  name: uplink-black-jetpack-name
+  description: uplink-black-jetpack-desc
+  productEntity: JetpackBlackFilled
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkChestRig
+  name: uplink-chest-rig-name
+  description: uplink-chest-rig-desc
+  productEntity: ClothingBeltMilitaryWebbing
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkChestRig
+  name: uplink-chest-rig-name
+  description: uplink-chest-rig-desc
+  productEntity: ClothingBeltMilitaryWebbing
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkChameleonBundle
+  name: uplink-chameleon-bundle-name
+  description: uplink-chameleon-bundle-desc
+  icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
+  productEntity: CrateSyndicateChameleonBundle
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkChameleonBundle
+  name: uplink-chameleon-bundle-name
+  description: uplink-chameleon-bundle-desc
+  icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
+  productEntity: CrateSyndicateChameleonBundle
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingNoSlipsShoes
+  name: uplink-clothing-no-slips-shoes-name
+  description: uplink-clothing-no-slips-shoes-desc
+  productEntity: ClothingShoesChameleonNoSlips
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingNoSlipsShoes
+  name: uplink-clothing-no-slips-shoes-name
+  description: uplink-clothing-no-slips-shoes-desc
+  productEntity: ClothingShoesChameleonNoSlips
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingOuterVestWeb
+  name: uplink-clothing-outer-vest-web-name
+  description: uplink-clothing-outer-vest-web-desc
+  productEntity: ClothingOuterVestWeb
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingOuterVestWeb
+  name: uplink-clothing-outer-vest-web-name
+  description: uplink-clothing-outer-vest-web-desc
+  productEntity: ClothingOuterVestWeb
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingOuterVestWebElite
+  name: uplink-clothing-outer-vest-web-elite-name
+  description: uplink-clothing-outer-vest-web-elite-desc
+  productEntity: ClothingOuterVestWebElite
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingOuterVestWebElite
+  name: uplink-clothing-outer-vest-web-elite-name
+  description: uplink-clothing-outer-vest-web-elite-desc
+  productEntity: ClothingOuterVestWebElite
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingShoesBootsMagSyndie
+  name: uplink-clothing-shoes-boots-mag-syndie-name
+  description: uplink-clothing-shoes-boots-mag-syndie-desc
+  productEntity: ClothingShoesBootsMagSyndie
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingShoesBootsMagSyndie
+  name: uplink-clothing-shoes-boots-mag-syndie-name
+  description: uplink-clothing-shoes-boots-mag-syndie-desc
+  productEntity: ClothingShoesBootsMagSyndie
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEVASyndie
+  name: uplink-eva-syndie-name
+  description: uplink-eva-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateEVABundle
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEVASyndie
+  name: uplink-eva-syndie-name
+  description: uplink-eva-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateEVABundle
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHardsuitCarp
+  name: uplink-hardsuit-carp-name
+  description: uplink-hardsuit-carp-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/carpsuit.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitCarp
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHardsuitCarp
+  name: uplink-hardsuit-carp-name
+  description: uplink-hardsuit-carp-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Suits/carpsuit.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitCarp
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHardsuitSyndie
+  name: uplink-hardsuit-syndie-name
+  description: uplink-hardsuit-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
+  cost: { Telecrystal: 7 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHardsuitSyndie
+  name: uplink-hardsuit-syndie-name
+  description: uplink-hardsuit-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
+  cost: { ArenaNukie: 7 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingOuterArmorRaid
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackSyndicateRaidBundle
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingOuterArmorRaid
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackSyndicateRaidBundle
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHardsuitSyndieElite
+  name: uplink-hardsuit-syndieelite-name
+  description: uplink-hardsuit-syndieelite-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHardsuitSyndieElite
+  name: uplink-hardsuit-syndieelite-name
+  description: uplink-hardsuit-syndieelite-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingOuterHardsuitJuggernaut
+  name: uplink-clothing-outer-hardsuit-juggernaut-name
+  description: uplink-clothing-outer-hardsuit-juggernaut-desc
+  icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
+  productEntity: CrateCybersunJuggernautBundle
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingOuterHardsuitJuggernaut
+  name: uplink-clothing-outer-hardsuit-juggernaut-name
+  description: uplink-clothing-outer-hardsuit-juggernaut-desc
+  icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
+  productEntity: CrateCybersunJuggernautBundle
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingEyesHudSyndicate
+  name: uplink-clothing-eyes-hud-syndicate-name
+  description: uplink-clothing-eyes-hud-syndicate-desc
+  productEntity: ClothingEyesHudSyndicate
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingEyesHudSyndicate
+  name: uplink-clothing-eyes-hud-syndicate-name
+  description: uplink-clothing-eyes-hud-syndicate-desc
+  productEntity: ClothingEyesHudSyndicate
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBackpackSyndicate
+  name: uplink-backpack-syndicate-name
+  description: uplink-backpack-syndicate-desc
+  productEntity: ClothingBackpackSyndicate
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBackpackSyndicate
+  name: uplink-backpack-syndicate-name
+  description: uplink-backpack-syndicate-desc
+  productEntity: ClothingBackpackSyndicate
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBarberScissors
+  name: uplink-barber-scissors-name
+  description: uplink-barber-scissors-desc
+  productEntity: BarberScissors
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBarberScissors
+  name: uplink-barber-scissors-name
+  description: uplink-barber-scissors-desc
+  productEntity: BarberScissors
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSnackBox
+  name: uplink-snack-box-name
+  description: uplink-snack-box-desc
+  productEntity: HappyHonkNukieSnacks
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSnackBox
+  name: uplink-snack-box-name
+  description: uplink-snack-box-desc
+  productEntity: HappyHonkNukieSnacks
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingConductingGloves
+  name: uplink-clothing-conducting-gloves-name
+  description: uplink-clothing-conducting-gloves-desc
+  productEntity: ClothingHandsGlovesConducting
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingConductingGloves
+  name: uplink-clothing-conducting-gloves-name
+  description: uplink-clothing-conducting-gloves-desc
+  productEntity: ClothingHandsGlovesConducting
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkRevolverCapGun
+  name: uplink-revolver-cap-gun-name
+  description: uplink-revolver-cap-gun-desc
+  productEntity: RevolverCapGun
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkRevolverCapGun
+  name: uplink-revolver-cap-gun-name
+  description: uplink-revolver-cap-gun-desc
+  productEntity: RevolverCapGun
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateStamp
+  name: uplink-syndicate-stamp-name
+  description: uplink-syndicate-stamp-desc
+  productEntity: RubberStampSyndicate
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateStamp
+  name: uplink-syndicate-stamp-name
+  description: uplink-syndicate-stamp-desc
+  productEntity: RubberStampSyndicate
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCatEars
+  name: uplink-cat-ears-name
+  description: uplink-cat-ears-desc
+  productEntity: ClothingHeadHatCatEars
+  cost: { Telecrystal: 26 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCatEars
+  name: uplink-cat-ears-name
+  description: uplink-cat-ears-desc
+  productEntity: ClothingHeadHatCatEars
+  cost: { ArenaNukie: 26 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkOutlawHat
+  name: uplink-outlaw-hat-name
+  description: uplink-outlaw-hat-desc
+  productEntity: ClothingHeadHatOutlawHat
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkOutlawHat
+  name: uplink-outlaw-hat-name
+  description: uplink-outlaw-hat-desc
+  productEntity: ClothingHeadHatOutlawHat
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkOutlawGlasses
+  name: uplink-outlaw-glasses-name
+  description: uplink-outlaw-glasses-desc
+  productEntity: ClothingEyesGlassesOutlawGlasses
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkOutlawGlasses
+  name: uplink-outlaw-glasses-name
+  description: uplink-outlaw-glasses-desc
+  productEntity: ClothingEyesGlassesOutlawGlasses
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCostumePyjama
+  name: uplink-costume-pyjama-name
+  description: uplink-costume-pyjama-desc
+  productEntity: ClothingBackpackDuffelSyndicatePyjamaBundle
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCostumePyjama
+  name: uplink-costume-pyjama-name
+  description: uplink-costume-pyjama-desc
+  productEntity: ClothingBackpackDuffelSyndicatePyjamaBundle
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCostumeClown
+  name: uplink-costume-clown-name
+  description: uplink-costume-clown-desc
+  productEntity: ClothingBackpackDuffelSyndicateCostumeClown
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCostumeClown
+  name: uplink-costume-clown-name
+  description: uplink-costume-clown-desc
+  productEntity: ClothingBackpackDuffelSyndicateCostumeClown
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCarpSuitBundle
+  name: uplink-carp-suit-bundle-name
+  description: uplink-carp-suit-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateCarpSuit
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCarpSuitBundle
+  name: uplink-carp-suit-bundle-name
+  description: uplink-carp-suit-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateCarpSuit
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkOperativeSuit
+  name: uplink-operative-suit-name
+  description: uplink-operative-suit-desc
+  productEntity: ClothingUniformJumpsuitOperative
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkOperativeSuit
+  name: uplink-operative-suit-name
+  description: uplink-operative-suit-desc
+  productEntity: ClothingUniformJumpsuitOperative
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkOperativeSkirt
+  name: uplink-operative-skirt-name
+  description: uplink-operative-skirt-desc
+  productEntity: ClothingUniformJumpskirtOperative
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkOperativeSkirt
+  name: uplink-operative-skirt-name
+  description: uplink-operative-skirt-desc
+  productEntity: ClothingUniformJumpskirtOperative
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBalloon
+  name: uplink-balloon-name
+  description: uplink-balloon-desc
+  productEntity: BalloonSyn
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBalloon
+  name: uplink-balloon-name
+  description: uplink-balloon-desc
+  productEntity: BalloonSyn
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkScarfSyndieRed
+  name: uplink-scarf-syndie-red-name
+  description: uplink-scarf-syndie-red-desc
+  productEntity: ClothingNeckScarfStripedSyndieRed
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkScarfSyndieRed
+  name: uplink-scarf-syndie-red-name
+  description: uplink-scarf-syndie-red-desc
+  productEntity: ClothingNeckScarfStripedSyndieRed
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkScarfSyndieGreen
+  name: uplink-scarf-syndie-green-name
+  description: uplink-scarf-syndie-green-desc
+  productEntity: ClothingNeckScarfStripedSyndieGreen
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkScarfSyndieGreen
+  name: uplink-scarf-syndie-green-name
+  description: uplink-scarf-syndie-green-desc
+  productEntity: ClothingNeckScarfStripedSyndieGreen
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBusinessCard
+  name: uplink-business-card-name
+  description: uplink-business-card-desc
+  productEntity: SyndicateBusinessCard
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBusinessCard
+  name: uplink-business-card-name
+  description: uplink-business-card-desc
+  productEntity: SyndicateBusinessCard
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDecoyKit
+  name: uplink-decoy-kit-name
+  description: uplink-decoy-kit-desc
+  icon: { sprite: /Textures/Objects/Tools/Decoys/operative_decoy.rsi, state: folded }
+  productEntity: ClothingBackpackDuffelSyndicateDecoyKitFilled
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDecoyKit
+  name: uplink-decoy-kit-name
+  description: uplink-decoy-kit-desc
+  icon: { sprite: /Textures/Objects/Tools/Decoys/operative_decoy.rsi, state: folded }
+  productEntity: ClothingBackpackDuffelSyndicateDecoyKitFilled
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGatfruitSeeds
+  name: uplink-gatfruit-seeds-name
+  description: uplink-gatfruit-seeds-desc
+  productEntity: GatfruitSeeds
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGatfruitSeeds
+  name: uplink-gatfruit-seeds-name
+  description: uplink-gatfruit-seeds-desc
+  productEntity: GatfruitSeeds
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkHolyHandGrenade
+  name: uplink-holy-hand-grenade-name
+  description: uplink-holy-hand-grenade-desc
+  productEntity: HolyHandGrenade
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkHolyHandGrenade
+  name: uplink-holy-hand-grenade-name
+  description: uplink-holy-hand-grenade-desc
+  productEntity: HolyHandGrenade
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkRevolverCapGunFake
+  name: uplink-revolver-cap-gun-fake-name
+  description: uplink-revolver-cap-gun-fake-desc
+  productEntity: RevolverCapGunFake
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkRevolverCapGunFake
+  name: uplink-revolver-cap-gun-fake-name
+  description: uplink-revolver-cap-gun-fake-desc
+  productEntity: RevolverCapGunFake
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClusterBananaPeel
+  name: uplink-cluster-banana-peel-name
+  description: uplink-cluster-banana-peel-desc
+  productEntity: ClusterBananaPeel
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClusterBananaPeel
+  name: uplink-cluster-banana-peel-name
+  description: uplink-cluster-banana-peel-desc
+  productEntity: ClusterBananaPeel
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHoloclownKit
+  name: uplink-holoclown-kit-name
+  description: uplink-holoclown-kit-desc
+  icon: { sprite: /Textures/Objects/Fun/figurines.rsi, state: holoclown }
+  productEntity: BoxHoloclown
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHoloclownKit
+  name: uplink-holoclown-kit-name
+  description: uplink-holoclown-kit-desc
+  icon: { sprite: /Textures/Objects/Fun/figurines.rsi, state: holoclown }
+  productEntity: BoxHoloclown
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHotPotato
+  name: uplink-hot-potato-name
+  description: uplink-hot-potato-desc
+  productEntity: HotPotato
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHotPotato
+  name: uplink-hot-potato-name
+  description: uplink-hot-potato-desc
+  productEntity: HotPotato
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkChimpUpgradeKit
+  name: uplink-chimp-upgrade-kit-name
+  description: uplink-chimp-upgrade-kit-desc
+  productEntity: WeaponPistolCHIMPUpgradeKit
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkChimpUpgradeKit
+  name: uplink-chimp-upgrade-kit-name
+  description: uplink-chimp-upgrade-kit-desc
+  productEntity: WeaponPistolCHIMPUpgradeKit
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkProximityMine
+  name: uplink-proximity-mine-name
+  description: uplink-proximity-mine-desc
+  productEntity: WetFloorSignMineExplosive
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkProximityMine
+  name: uplink-proximity-mine-name
+  description: uplink-proximity-mine-desc
+  productEntity: WetFloorSignMineExplosive
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateSpongeBox
+  name: uplink-syndicate-sponge-box-name
+  description: uplink-syndicate-sponge-box-desc
+  icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
+  productEntity: SyndicateSpongeBox
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateSpongeBox
+  name: uplink-syndicate-sponge-box-name
+  description: uplink-syndicate-sponge-box-desc
+  icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
+  productEntity: SyndicateSpongeBox
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCaneBlade
+  name: uplink-cane-blade-name
+  description: uplink-cane-blade-desc
+  icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
+  productEntity: CaneSheathFilled
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCaneBlade
+  name: uplink-cane-blade-name
+  description: uplink-cane-blade-desc
+  icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
+  productEntity: CaneSheathFilled
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCombatBakery
+  name: uplink-combat-bakery-name
+  description: uplink-combat-bakery-desc
+  icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
+  productEntity: CombatBakeryKit
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCombatBakery
+  name: uplink-combat-bakery-name
+  description: uplink-combat-bakery-desc
+  icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
+  productEntity: CombatBakeryKit
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkContrabandLighter
+  name: uplink-contraband-lighter-name
+  description: uplink-contraband-lighter-desc
+  icon: { sprite:  Objects/Tools/Lighters/syndielighter.rsi, state: icon}
+  productEntity: UplinkLighterBox
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkContrabandLighter
+  name: uplink-contraband-lighter-name
+  description: uplink-contraband-lighter-desc
+  icon: { sprite:  Objects/Tools/Lighters/syndielighter.rsi, state: icon}
+  productEntity: UplinkLighterBox
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkAcolyteArmor
+  name: uplink-acolyte-armor-name
+  description: uplink-acolyte-armor-desc
+  icon: { sprite: Clothing/OuterClothing/Armor/cult_armour.rsi, state: icon}
+  productEntity: ClothingBackpackDuffelAcolyteBundle
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkAcolyteArmor
+  name: uplink-acolyte-armor-name
+  description: uplink-acolyte-armor-desc
+  icon: { sprite: Clothing/OuterClothing/Armor/cult_armour.rsi, state: icon}
+  productEntity: ClothingBackpackDuffelAcolyteBundle
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkBriefcaseGun
+  name: uplink-briefcase-gun-name
+  description: uplink-briefcase-gun-desc
+  productEntity: WeaponSubMachineGunBriefcase
+  cost: { Telecrystal: 13 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkBriefcaseGun
+  name: uplink-briefcase-gun-name
+  description: uplink-briefcase-gun-desc
+  productEntity: WeaponSubMachineGunBriefcase
+  cost: { ArenaNukie: 13 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkHijackBeacon
+  name: uplink-hijack-beacon-name
+  description: uplink-hijack-beacon-desc
+  productEntity: HijackBeacon
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkHijackBeacon
+  name: uplink-hijack-beacon-name
+  description: uplink-hijack-beacon-desc
+  productEntity: HijackBeacon
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateMothroach
+  name: uplink-reinforcement-radio-mothroach-name
+  description: uplink-reinforcement-radio-mothroach-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-mobroach }
+  productEntity: ReinforcementRadioSyndicateMothroach
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateMothroach
+  name: uplink-reinforcement-radio-mothroach-name
+  description: uplink-reinforcement-radio-mothroach-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-mobroach }
+  productEntity: ReinforcementRadioSyndicateMothroach
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBoxStampsFake
+  name: uplink-fake-stamps-name
+  description: uplink-fake-stamps-desc
+  productEntity: BoxStampsFake
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBoxStampsFake
+  name: uplink-fake-stamps-name
+  description: uplink-fake-stamps-desc
+  productEntity: BoxStampsFake
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBoxStampsJoke
+  name: uplink-joke-stamps-name
+  description: uplink-joke-stamps-desc
+  productEntity: BoxStampsJoke
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBoxStampsJoke
+  name: uplink-joke-stamps-name
+  description: uplink-joke-stamps-desc
+  productEntity: BoxStampsJoke
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkPlushieLinari
+  name: uplink-plushie-linari-name
+  description: uplink-plushie-linari-desc
+  productEntity: PlushieLinari
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPlushieLinari
+  name: uplink-plushie-linari-name
+  description: uplink-plushie-linari-desc
+  productEntity: PlushieLinari
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMobBombroach
+  name: uplink-bombroach-microbomb-name
+  description: uplink-bombroach-microbomb-desc
+  icon: { sprite: _Starlight/Objects/Devices/communication.rsi, state: old-radio-bombroach }
+  productEntity: ReinforcementRadioSyndicateBombroach
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMobBombroach
+  name: uplink-bombroach-microbomb-name
+  description: uplink-bombroach-microbomb-desc
+  icon: { sprite: _Starlight/Objects/Devices/communication.rsi, state: old-radio-bombroach }
+  productEntity: ReinforcementRadioSyndicateBombroach
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCdDiskSyndicate
+  name: uplink-cddisksyndicate-name
+  description: uplink-cddisksyndicate-desc
+  productEntity: CDSyndicateFM
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCdDiskSyndicate
+  name: uplink-cddisksyndicate-name
+  description: uplink-cddisksyndicate-desc
+  productEntity: CDSyndicateFM
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCdDiskNumber
+  name: uplink-cddisknumber-name
+  description: uplink-cddisknumber-desc
+  productEntity: CDNumbers
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCdDiskNumber
+  name: uplink-cddisknumber-name
+  description: uplink-cddisknumber-desc
+  productEntity: CDNumbers
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkNuclearCommanderCds
+  name: uplink-box-nuclearoperativecds-name
+  description: uplink-box-nuclearoperativecds-desc
+  productEntity: BoxNuclearCommanderCds
+  cost: { Telecrystal: 0 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkNuclearCommanderCds
+  name: uplink-box-nuclearoperativecds-name
+  description: uplink-box-nuclearoperativecds-desc
+  productEntity: BoxNuclearCommanderCds
+  cost: { ArenaNukie: 0 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBorgi
+  name: uplink-syndicate-borgi-bundle-name
+  description: uplink-syndicate-borgi-bundle-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKitBasicBundle
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBorgi
+  name: uplink-syndicate-borgi-bundle-name
+  description: uplink-syndicate-borgi-bundle-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKitBasicBundle
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBorgiKitted
+  name: uplink-syndicate-borgi-kitted-name
+  description: uplink-syndicate-borgi-kitted-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKit1
+  cost: { Telecrystal: 40 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBorgiKitted
+  name: uplink-syndicate-borgi-kitted-name
+  description: uplink-syndicate-borgi-kitted-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKit1
+  cost: { ArenaNukie: 40 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBorgiSpeed
+  name: uplink-syndicate-borgi-speed-name
+  description: uplink-syndicate-borgi-speed-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKit2
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBorgiSpeed
+  name: uplink-syndicate-borgi-speed-name
+  description: uplink-syndicate-borgi-speed-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKit2
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateCyborgMedical
+  name: uplink-reinforcement-radio-medical-cyborg-name
+  description: uplink-reinforcement-radio-medical-cyborg-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ReinforcementRadioSyndicateCyborgMedical
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateCyborgMedical
+  name: uplink-reinforcement-radio-medical-cyborg-name
+  description: uplink-reinforcement-radio-medical-cyborg-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ReinforcementRadioSyndicateCyborgMedical
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateCyborgSabotur
+  name: uplink-reinforcement-radio-saboteur-cyborg-name
+  description: uplink-reinforcement-radio-saboteur-cyborg-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ReinforcementRadioSyndicateCyborgSaboteur
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateCyborgSabotur
+  name: uplink-reinforcement-radio-saboteur-cyborg-name
+  description: uplink-reinforcement-radio-saboteur-cyborg-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ReinforcementRadioSyndicateCyborgSaboteur
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateCyborgStealth
+  name: uplink-reinforcement-radio-stealth-cyborg-name
+  description: uplink-reinforcement-radio-stealth-cyborg-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ReinforcementRadioSyndicateCyborgStealth
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateCyborgStealth
+  name: uplink-reinforcement-radio-stealth-cyborg-name
+  description: uplink-reinforcement-radio-stealth-cyborg-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ReinforcementRadioSyndicateCyborgStealth
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDarkGygaxLoneOps
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/darkgygax.rsi, state: base }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDarkGygaxLoneOps
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/darkgygax.rsi, state: base }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMaulerLoneOps
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/mauler.rsi, state: base }
+  productEntity: CrateCybersunMaulerBundle
+  cost: { Telecrystal: 45 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMaulerLoneOps
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/mauler.rsi, state: base }
+  productEntity: CrateCybersunMaulerBundle
+  cost: { ArenaNukie: 45 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/darkgygax.rsi, state: base }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost: { Telecrystal: 75 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/darkgygax.rsi, state: base }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost: { ArenaNukie: 75 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/mauler.rsi, state: base }
+  productEntity: CrateCybersunMaulerBundle
+  cost: { Telecrystal: 100 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/mauler.rsi, state: base }
+  productEntity: CrateCybersunMaulerBundle
+  cost: { ArenaNukie: 100 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkPistolMagnumMagazine
+  name: uplink-pistol-magnum-magazine-name
+  description: uplink-pistol-magnum-magazine-desc
+  icon:
+    {
+      sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi,
+      state: sp,
+    }
+  productEntity: MagazineMagnum
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPistolMagnumMagazine
+  name: uplink-pistol-magnum-magazine-name
+  description: uplink-pistol-magnum-magazine-desc
+  icon:
+    {
+      sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi,
+      state: sp,
+    }
+  productEntity: MagazineMagnum
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagazineMagnumRifle
+  name: uplink-rifle-magazine-pitbull-name
+  description: uplink-rifle-magazine-pitbull-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Ammunition/Magazine/Magnum/magnum_rifle_mag.rsi,
+      state: mag-1,
+    }
+  productEntity: MagazineMagnumRifleSP
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagazineMagnumRifle
+  name: uplink-rifle-magazine-pitbull-name
+  description: uplink-rifle-magazine-pitbull-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Ammunition/Magazine/Magnum/magnum_rifle_mag.rsi,
+      state: mag-1,
+    }
+  productEntity: MagazineMagnumRifleSP
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkUziMagazine
+  name: uplink-uzi-magazine-name
+  description: uplink-uzi-magazine-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Ammunition/Magazine/SMGs/uzi.rsi,
+      state: base,
+    }
+  productEntity: MagazinePistolSubMachineGunUzi
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkUziMagazine
+  name: uplink-uzi-magazine-name
+  description: uplink-uzi-magazine-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Ammunition/Magazine/SMGs/uzi.rsi,
+      state: base,
+    }
+  productEntity: MagazinePistolSubMachineGunUzi
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkShotgunBreachingMagazine
+  name: uplink-breaching-magazine-name
+  description: uplink-breaching-magazine-desc
+  icon:
+    {
+      sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi,
+      state: breach,
+    }
+  productEntity: MagazineShotgunBreach
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkShotgunBreachingMagazine
+  name: uplink-breaching-magazine-name
+  description: uplink-breaching-magazine-desc
+  icon:
+    {
+      sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi,
+      state: breach,
+    }
+  productEntity: MagazineShotgunBreach
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagazineGrenadeFrag
+  name: uplink-grenade-launcher-frag-ammo-name
+  description: uplink-grenade-launcher-frag-ammo-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi, state: icon }
+  productEntity: MagazineGrenadeFrag
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagazineGrenadeFrag
+  name: uplink-grenade-launcher-frag-ammo-name
+  description: uplink-grenade-launcher-frag-ammo-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi, state: icon }
+  productEntity: MagazineGrenadeFrag
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagazineGrenadeBlast
+  name: uplink-grenade-launcher-blast-ammo-name
+  description: uplink-grenade-launcher-blast-ammo-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi, state: icon }
+  productEntity: MagazineGrenadeBlast
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagazineGrenadeBlast
+  name: uplink-grenade-launcher-blast-ammo-name
+  description: uplink-grenade-launcher-blast-ammo-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi, state: icon }
+  productEntity: MagazineGrenadeBlast
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHushpupAmmo
+  name: uplink-hushpup-ammo-name
+  description: uplink-hushpup-ammo-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: lethal }
+  productEntity: BoxLethalshot
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHushpupAmmo
+  name: uplink-hushpup-ammo-name
+  description: uplink-hushpup-ammo-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: lethal }
+  productEntity: BoxLethalshot
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkPistol9mmMagazineHP
+  name: uplink-pistol-hp-magazine-name
+  description: uplink-pistol-hp-magazine-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red }
+  productEntity: MagazinePistolHP
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPistol9mmMagazineHP
+  name: uplink-pistol-hp-magazine-name
+  description: uplink-pistol-hp-magazine-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red }
+  productEntity: MagazinePistolHP
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkPistol9mmMagazineFMJ
+  name: uplink-pistol-fmj-magazine-name # Starlight
+  description: uplink-pistol-fmj-magazine-desc # Starlight
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: fmj }
+  productEntity: MagazinePistolFMJ
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPistol9mmMagazineFMJ
+  name: uplink-pistol-fmj-magazine-name # Starlight
+  description: uplink-pistol-fmj-magazine-desc # Starlight
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: fmj }
+  productEntity: MagazinePistolFMJ
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSpeedLoaderMagnumAP
+  name: uplink-speedloader-magnum-name
+  description: uplink-speedloader-magnu-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  productEntity: SpeedLoaderMagnumAP
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSpeedLoaderMagnumAP
+  name: uplink-speedloader-magnum-name
+  description: uplink-speedloader-magnu-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  productEntity: SpeedLoaderMagnumAP
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCyberEyeNightVision
+  name: uplink-nightvision-eyes
+  description: uplink-nightvision-eyes-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Specific/Medical/implants.rsi,
+      state: eyes_night,
+    }
+  productEntity: CyberEyeNightVision
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCyberEyeNightVision
+  name: uplink-nightvision-eyes
+  description: uplink-nightvision-eyes-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Specific/Medical/implants.rsi,
+      state: eyes_night,
+    }
+  productEntity: CyberEyeNightVision
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCyberEyeThermal
+  name: uplink-thermalvision-eyes
+  description: uplink-thermalvision-eyes-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Specific/Medical/implants.rsi,
+      state: eyes_thermal,
+    }
+  productEntity: CyberEyeThermal
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCyberEyeThermal
+  name: uplink-thermalvision-eyes
+  description: uplink-thermalvision-eyes-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Specific/Medical/implants.rsi,
+      state: eyes_thermal,
+    }
+  productEntity: CyberEyeThermal
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkNoseImplantOlfactory
+  name: uplink-olfactory-implant-name
+  description: uplink-olfactory-implant-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Specific/Medical/implants.rsi,
+      state: nose_implant_scent,
+    }
+  productEntity: NoseImplantOlfactory
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkNoseImplantOlfactory
+  name: uplink-olfactory-implant-name
+  description: uplink-olfactory-implant-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Specific/Medical/implants.rsi,
+      state: nose_implant_scent,
+    }
+  productEntity: NoseImplantOlfactory
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMantisBladeArm
+  name: uplink-mantis-blade-arms-name
+  description: uplink-mantis-blade-arms-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Melee/cybermantisblade.rsi,
+      state: cybermantisblade,
+    }
+  productEntity: ClothingBackpackDufelSyndicateFilledMantisBladeArms
+  cost: { Telecrystal: 7 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMantisBladeArm
+  name: uplink-mantis-blade-arms-name
+  description: uplink-mantis-blade-arms-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Melee/cybermantisblade.rsi,
+      state: cybermantisblade,
+    }
+  productEntity: ClothingBackpackDufelSyndicateFilledMantisBladeArms
+  cost: { ArenaNukie: 7 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkAdvancedClawsImplant
+  name: uplink-advanced-claws-name
+  description: uplink-advanced-claws-desc
+  icon:
+    {
+      sprite: _Starlight/Objects/Specific/Medical/implants.rsi,
+      state: hand_implant_claws,
+    }
+  productEntity: HandImplantClaws
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkAdvancedClawsImplant
+  name: uplink-advanced-claws-name
+  description: uplink-advanced-claws-desc
+  icon:
+    {
+      sprite: _Starlight/Objects/Specific/Medical/implants.rsi,
+      state: hand_implant_claws,
+    }
+  productEntity: HandImplantClaws
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkForensicsImplant
+  name: uplink-forensics-implant-name
+  description: uplink-forensics-implant-desc
+  icon:
+    {
+      sprite: _Starlight/Objects/Specific/Medical/implants.rsi,
+      state: hand_implant_forensics,
+    }
+  productEntity: HandImplantForensics
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkForensicsImplant
+  name: uplink-forensics-implant-name
+  description: uplink-forensics-implant-desc
+  icon:
+    {
+      sprite: _Starlight/Objects/Specific/Medical/implants.rsi,
+      state: hand_implant_forensics,
+    }
+  productEntity: HandImplantForensics
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndieEyeImplant
+  name: uplink-syndie-implant-name
+  description: uplink-syndie-implant-desc
+  icon:
+    {
+      sprite: _Starlight/Objects/Specific/Medical/implants.rsi,
+      state: eye_implant_syndicate,
+    }
+  productEntity: EyeImplantSyndie
+  cost: { Telecrystal: 5 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndieEyeImplant
+  name: uplink-syndie-implant-name
+  description: uplink-syndie-implant-desc
+  icon:
+    {
+      sprite: _Starlight/Objects/Specific/Medical/implants.rsi,
+      state: eye_implant_syndicate,
+    }
+  productEntity: EyeImplantSyndie
+  cost: { ArenaNukie: 5 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGrenadierRigDAGD
+  name: uplink-grenadier-rig-name
+  description: uplink-grenadier-rig-desc
+  productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGrenadierRigDAGD
+  name: uplink-grenadier-rig-name
+  description: uplink-grenadier-rig-desc
+  productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkAmmoBundleDAGD
+  name: uplink-ammo-bundle-name
+  description: uplink-ammo-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+  cost: { Telecrystal: 15 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkAmmoBundleDAGD
+  name: uplink-ammo-bundle-name
+  description: uplink-ammo-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+  cost: { ArenaNukie: 15 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMedsBundleDAGD
+  name: uplink-meds-bundle-name
+  description: uplink-meds-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  cost: { Telecrystal: 24 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMedsBundleDAGD
+  name: uplink-meds-bundle-name
+  description: uplink-meds-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  cost: { ArenaNukie: 24 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkNukieAntimovCircuitBoardDAGD
+  name: uplink-antimov-law-name
+  description: uplink-antimov-law-desc
+  productEntity: AntimovCircuitBoard
+  cost: { Telecrystal: 24 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkNukieAntimovCircuitBoardDAGD
+  name: uplink-antimov-law-name
+  description: uplink-antimov-law-desc
+  productEntity: AntimovCircuitBoard
+  cost: { ArenaNukie: 24 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkStarterKitDAGD
+  name: uplink-starter-kit-name
+  description: uplink-starter-kit-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
+  cost: { Telecrystal: 40 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkStarterKitDAGD
+  name: uplink-starter-kit-name
+  description: uplink-starter-kit-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
+  cost: { ArenaNukie: 40 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateCyborgAssaultBundleDAGD
+  name:  uplink-reinforcement-radio-assault-cyborg-bundle-name
+  description: uplink-reinforcement-radio-assault-cyborg-bundle-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgAssault
+  cost: { Telecrystal: 40 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateCyborgAssaultBundleDAGD
+  name:  uplink-reinforcement-radio-assault-cyborg-bundle-name
+  description: uplink-reinforcement-radio-assault-cyborg-bundle-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgAssault
+  cost: { ArenaNukie: 40 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateCyborgMedicalBundleDAGD
+  name: uplink-reinforcement-radio-medical-cyborg-bundle-name
+  description: uplink-reinforcement-radio-medical-cyborg-bundle-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgMedical
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateCyborgMedicalBundleDAGD
+  name: uplink-reinforcement-radio-medical-cyborg-bundle-name
+  description: uplink-reinforcement-radio-medical-cyborg-bundle-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgMedical
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateCyborgSaboturBundleDAGD
+  name: uplink-reinforcement-radio-saboteur-cyborg-bundle-name
+  description: uplink-reinforcement-radio-saboteur-cyborg-bundle-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgSaboteur
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateCyborgSaboturBundleDAGD
+  name: uplink-reinforcement-radio-saboteur-cyborg-bundle-name
+  description: uplink-reinforcement-radio-saboteur-cyborg-bundle-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgSaboteur
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkReinforcementRadioSyndicateCyborgStealthBundleDAGD
+  name: uplink-reinforcement-radio-stealth-cyborg-bundle-name
+  description: uplink-reinforcement-radio-stealth-cyborg-bundle-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgStealth
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkReinforcementRadioSyndicateCyborgStealthBundleDAGD
+  name: uplink-reinforcement-radio-stealth-cyborg-bundle-name
+  description: uplink-reinforcement-radio-stealth-cyborg-bundle-desc
+  icon: {
+      sprite: Objects/Devices/communication.rsi,
+      state: old-radio-borg-assault,
+    } # TODO BETTER ICON
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgStealth
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBorgiKittedBundleDAGD
+  name: uplink-syndicate-borgi-kitted-bundle-name
+  description: uplink-syndicate-borgi-kitted-bundle-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKit1Bundle
+  cost: { Telecrystal: 40 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBorgiKittedBundleDAGD
+  name: uplink-syndicate-borgi-kitted-bundle-name
+  description: uplink-syndicate-borgi-kitted-bundle-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKit1Bundle
+  cost: { ArenaNukie: 40 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateBorgiSpeedBundleDAGD
+  name: uplink-syndicate-borgi-speed-bundle-name
+  description: uplink-syndicate-borgi-speed-bundle-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKit2Bundle
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateBorgiSpeedBundleDAGD
+  name: uplink-syndicate-borgi-speed-bundle-name
+  description: uplink-syndicate-borgi-speed-bundle-desc
+  icon: { sprite: Objects/Fun/Balloons/corgi.rsi, state: icon }
+  productEntity: SyndiBorgiKit2Bundle
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMicroBombImplanterDAGD
+  name: uplink-micro-bomb-implanter-name
+  description: uplink-micro-bomb-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMicroBombImplanterDAGD
+  name: uplink-micro-bomb-implanter-name
+  description: uplink-micro-bomb-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMacroBombImplanterDAGD
+  name: uplink-macro-bomb-implanter-name
+  description: uplink-macro-bomb-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost: { Telecrystal: 13 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMacroBombImplanterDAGD
+  name: uplink-macro-bomb-implanter-name
+  description: uplink-macro-bomb-implanter-desc
+  icon: { sprite: /Textures/Interface/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost: { ArenaNukie: 13 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDeathAcidifierImplanterDAGD
+  name: uplink-death-acidifier-implant-name
+  description: uplink-death-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: DeathAcidifierImplanter
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDeathAcidifierImplanterDAGD
+  name: uplink-death-acidifier-implant-name
+  description: uplink-death-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: DeathAcidifierImplanter
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDeathRattleDAGD
+  name: uplink-deathrattle-implant-name
+  description: uplink-deathrattle-implant-desc
+  productEntity: BoxDeathRattleImplants
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDeathRattleDAGD
+  name: uplink-deathrattle-implant-name
+  description: uplink-deathrattle-implant-desc
+  productEntity: BoxDeathRattleImplants
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingOuterArmorRaidDAGD
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackSyndicateRaidBundle
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingOuterArmorRaidDAGD
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackSyndicateRaidBundle
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingOuterHardsuitJuggernautDAGD
+  name: uplink-clothing-outer-hardsuit-juggernaut-name
+  description: uplink-clothing-outer-hardsuit-juggernaut-desc
+  icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
+  productEntity: CrateCybersunJuggernautBundle
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingOuterHardsuitJuggernautDAGD
+  name: uplink-clothing-outer-hardsuit-juggernaut-name
+  description: uplink-clothing-outer-hardsuit-juggernaut-desc
+  icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
+  productEntity: CrateCybersunJuggernautBundle
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingEyesHudSyndicateDAGD
+  name: uplink-clothing-eyes-hud-syndicate-name
+  description: uplink-clothing-eyes-hud-syndicate-desc
+  productEntity: ClothingEyesHudSyndicate
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingEyesHudSyndicateDAGD
+  name: uplink-clothing-eyes-hud-syndicate-name
+  description: uplink-clothing-eyes-hud-syndicate-desc
+  productEntity: ClothingEyesHudSyndicate
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkWeaponShotgunMinotaurDAGD
+  name: uplink-minotaur-name
+  description: uplink-minotaur-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Shotguns/minotaur.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledMinotaurShotgun
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkWeaponShotgunMinotaurDAGD
+  name: uplink-minotaur-name
+  description: uplink-minotaur-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Shotguns/minotaur.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledMinotaurShotgun
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkWeaponRiflePitpullDAGD
+  name: uplink-pitbull-bundle-name
+  description: uplink-pitbull-bundle-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Rifles/pitbull.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledBullpup
+  cost: { Telecrystal: 17 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkWeaponRiflePitpullDAGD
+  name: uplink-pitbull-bundle-name
+  description: uplink-pitbull-bundle-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Rifles/pitbull.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledBullpup
+  cost: { ArenaNukie: 17 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagazineMagnumRifleDAGD
+  name: uplink-rifle-magazine-pitbull-name
+  description: uplink-rifle-magazine-pitbull-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Ammunition/Magazine/Magnum/magnum_rifle_mag.rsi,
+      state: mag-1,
+    }
+  productEntity: MagazineMagnumRifleSP
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagazineMagnumRifleDAGD
+  name: uplink-rifle-magazine-pitbull-name
+  description: uplink-rifle-magazine-pitbull-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Ammunition/Magazine/Magnum/magnum_rifle_mag.rsi,
+      state: mag-1,
+    }
+  productEntity: MagazineMagnumRifleSP
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkShotgunBreachingMagazineDAGD
+  name: uplink-breaching-magazine-name
+  description: uplink-breaching-magazine-desc
+  icon:
+    {
+      sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi,
+      state: breach,
+    }
+  productEntity: MagazineShotgunBreach
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkShotgunBreachingMagazineDAGD
+  name: uplink-breaching-magazine-name
+  description: uplink-breaching-magazine-desc
+  icon:
+    {
+      sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi,
+      state: breach,
+    }
+  productEntity: MagazineShotgunBreach
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEnergyDomeSyndieDAGD
+  name: uplink-energy-dome-name
+  description: uplink-energy-dome-desc
+  productEntity: EnergyDomeGeneratorPersonalSyndie
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEnergyDomeSyndieDAGD
+  name: uplink-energy-dome-name
+  description: uplink-energy-dome-desc
+  productEntity: EnergyDomeGeneratorPersonalSyndie
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGearAcidifierImplanterDAGD
+  name: uplink-gear-acidifier-implant-name
+  description: uplink-gear-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: GearAcidifierImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGearAcidifierImplanterDAGD
+  name: uplink-gear-acidifier-implant-name
+  description: uplink-gear-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: GearAcidifierImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkToxicGrenadeDAGD
+  name: uplink-toxic-grenade-name
+  description: uplink-toxic-grenade-desc
+  productEntity: ToxicGasGrenade
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkToxicGrenadeDAGD
+  name: uplink-toxic-grenade-name
+  description: uplink-toxic-grenade-desc
+  productEntity: ToxicGasGrenade
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkX4DAGD
+  name: uplink-x4-name
+  description: uplink-x4-desc
+  productEntity: X4
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkX4DAGD
+  name: uplink-x4-name
+  description: uplink-x4-desc
+  productEntity: X4
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkX4BundleDAGD
+  name: uplink-x4-bundle-name
+  description: uplink-x4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateX4tBundle
+  cost: { Telecrystal: 18 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkX4BundleDAGD
+  name: uplink-x4-bundle-name
+  description: uplink-x4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateX4tBundle
+  cost: { ArenaNukie: 18 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDarkGygaxDAGD
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/darkgygax.rsi, state: base }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost: { Telecrystal: 30 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDarkGygaxDAGD
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/darkgygax.rsi, state: base }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost: { ArenaNukie: 30 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMaulerDAGD
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/mauler.rsi, state: base }
+  productEntity: CrateCybersunMaulerBundle
+  cost: { Telecrystal: 45 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMaulerDAGD
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/_Starlight/Objects/Specific/Mechs/Mechs/mauler.rsi, state: base }
+  productEntity: CrateCybersunMaulerBundle
+  cost: { ArenaNukie: 45 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndicateDisruptor
+  name: uplink-disruptor-name
+  description: uplink-disruptor-desc
+  productEntity: SyndicateDisruptor
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndicateDisruptor
+  name: uplink-disruptor-name
+  description: uplink-disruptor-desc
+  productEntity: SyndicateDisruptor
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEcronizer
+  name: uplink-ecronizer-name
+  description: uplink-ecronizer-desc
+  productEntity: Ecronizer
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEcronizer
+  name: uplink-ecronizer-name
+  description: uplink-ecronizer-desc
+  productEntity: Ecronizer
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkLubeGrenade
+  name: uplink-lube-grenade-name
+  description: uplink-lube-grenade-desc
+  productEntity: LubeGrenade
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkLubeGrenade
+  name: uplink-lube-grenade-name
+  description: uplink-lube-grenade-desc
+  productEntity: LubeGrenade
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGlueGrenade
+  name: uplink-glue-grenade-name
+  description: uplink-glue-grenade-desc
+  productEntity: GlueGrenade
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGlueGrenade
+  name: uplink-glue-grenade-name
+  description: uplink-glue-grenade-desc
+  productEntity: GlueGrenade
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkCleanerKit
+  name: uplink-cleaner-kit-name
+  description: uplink-cleaner-kit-desc
+  productEntity: ToolboxArtisticFilledCleaner
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkCleanerKit
+  name: uplink-cleaner-kit-name
+  description: uplink-cleaner-kit-desc
+  productEntity: ToolboxArtisticFilledCleaner
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkObserverBundle
+  name: uplink-observer-bundle-name
+  description: uplink-observer-bundle-desc
+  productEntity: ClothingBackpackSyndicateObserverBundle
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkObserverBundle
+  name: uplink-observer-bundle-name
+  description: uplink-observer-bundle-desc
+  productEntity: ClothingBackpackSyndicateObserverBundle
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateSyndicateShuttleBundle
+  name: uplink-shuttle-bundle-name
+  description: uplink-shuttle-bundle-desc
+  icon: { sprite: Structures/Shuttles/thruster.rsi, state: base }
+  productEntity: CrateNameSyndicateShuttleBundle
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesSyndicateShuttleBundle
+  name: uplink-shuttle-bundle-name
+  description: uplink-shuttle-bundle-desc
+  icon: { sprite: Structures/Shuttles/thruster.rsi, state: base }
+  productEntity: CrateNameSyndicateShuttleBundle
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkWhiteholeGrenade
+  name: uplink-whitehole-grenade-name
+  description: uplink-whitehole-grenade-desc
+  productEntity: WhiteholeGrenade
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkWhiteholeGrenade
+  name: uplink-whitehole-grenade-name
+  description: uplink-whitehole-grenade-desc
+  productEntity: WhiteholeGrenade
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDuffelSurgery
+  name: uplink-duffel-surgery-name
+  description: uplink-duffel-surgery-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledMedical
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDuffelSurgery
+  name: uplink-duffel-surgery-name
+  description: uplink-duffel-surgery-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledMedical
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSuperSurplusBundle
+  name: uplink-super-surplus-bundle-name
+  description: uplink-super-surplus-bundle-desc
+  productEntity: CrateSyndicateSuperSurplusBundle
+  cost: { Telecrystal: 40 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSuperSurplusBundle
+  name: uplink-super-surplus-bundle-name
+  description: uplink-super-surplus-bundle-desc
+  productEntity: CrateSyndicateSuperSurplusBundle
+  cost: { ArenaNukie: 40 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkPizzaBomb
+  name: uplink-pizza-bomb-name
+  description: uplink-pizza-bomb-desc
+  productEntity: Pizzabomb
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkPizzaBomb
+  name: uplink-pizza-bomb-name
+  description: uplink-pizza-bomb-desc
+  productEntity: Pizzabomb
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkExplosiveCollar
+  name: uplink-explosive-collar-name
+  description: uplink-explosive-collar-desc
+  icon: { sprite: /Textures/_Starlight/Clothing/Neck/Misc/explosivecollar.rsi, state: icon }
+  productEntity: ClothingNeckExplosiveCollarBox
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkExplosiveCollar
+  name: uplink-explosive-collar-name
+  description: uplink-explosive-collar-desc
+  icon: { sprite: /Textures/_Starlight/Clothing/Neck/Misc/explosivecollar.rsi, state: icon }
+  productEntity: ClothingNeckExplosiveCollarBox
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkToxicGrenade
+  name: uplink-toxic-grenade-name
+  description: uplink-toxic-grenade-desc
+  productEntity: ToxicGasGrenade
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkToxicGrenade
+  name: uplink-toxic-grenade-name
+  description: uplink-toxic-grenade-desc
+  productEntity: ToxicGasGrenade
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkX4
+  name: uplink-x4-name
+  description: uplink-x4-desc
+  productEntity: X4
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkX4
+  name: uplink-x4-name
+  description: uplink-x4-desc
+  productEntity: X4
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkX4Bundle
+  name: uplink-x4-bundle-name
+  description: uplink-x4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateX4tBundle
+  cost: { Telecrystal: 18 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkX4Bundle
+  name: uplink-x4-bundle-name
+  description: uplink-x4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateX4tBundle
+  cost: { ArenaNukie: 18 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClusterGrenade
+  name: uplink-cluster-grenade-name
+  description: uplink-cluster-grenade-desc
+  productEntity: ClusterGrenade
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClusterGrenade
+  name: uplink-cluster-grenade-name
+  description: uplink-cluster-grenade-desc
+  productEntity: ClusterGrenade
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEmpKit
+  name: uplink-emp-kit-name
+  description: uplink-emp-kit-desc
+  productEntity: ElectricalDisruptionKit
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEmpKit
+  name: uplink-emp-kit-name
+  description: uplink-emp-kit-desc
+  productEntity: ElectricalDisruptionKit
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkExplosiveGrenadeFlash
+  name: uplink-flash-grenade-name
+  description: uplink-flash-grenade-desc
+  productEntity: GrenadeFlashBang
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkExplosiveGrenadeFlash
+  name: uplink-flash-grenade-name
+  description: uplink-flash-grenade-desc
+  productEntity: GrenadeFlashBang
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkNukeOpMagillitisSerumImplant
+  name: uplink-magillitis-serum-implanter-name
+  description: uplink-magillitis-serum-implanter-desc
+  icon: { sprite: _Starlight/Interface/Actions/actions_implants.rsi, state: gorilla_rampage }
+  productEntity: MagillitisSerumImplanter
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkNukeOpMagillitisSerumImplant
+  name: uplink-magillitis-serum-implanter-name
+  description: uplink-magillitis-serum-implanter-desc
+  icon: { sprite: _Starlight/Interface/Actions/actions_implants.rsi, state: gorilla_rampage }
+  productEntity: MagillitisSerumImplanter
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMindcontrolImplant
+  name: uplink-mind-control-implant-name
+  description: uplink-mind-control-implant-desc
+  productEntity: MindControlImplanter
+  cost: { Telecrystal: 7 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMindcontrolImplant
+  name: uplink-mind-control-implant-name
+  description: uplink-mind-control-implant-desc
+  productEntity: MindControlImplanter
+  cost: { ArenaNukie: 7 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkGearAcidifierImplanter
+  name: uplink-gear-acidifier-implant-name
+  description: uplink-gear-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: GearAcidifierImplanter
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkGearAcidifierImplanter
+  name: uplink-gear-acidifier-implant-name
+  description: uplink-gear-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: GearAcidifierImplanter
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkContortionistJumpsuit
+  name: uplink-contortionist-jumpsuit-name
+  description: uplink-contortionist-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndie
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkContortionistJumpsuit
+  name: uplink-contortionist-jumpsuit-name
+  description: uplink-contortionist-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndie
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMarriage
+  name: uplink-marriage-axe-name
+  description: uplink-marriage-axe-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Melee/marriage_axe.rsi,
+      state: icon,
+    }
+  productEntity: MarriageAxe
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMarriage
+  name: uplink-marriage-axe-name
+  description: uplink-marriage-axe-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Melee/marriage_axe.rsi,
+      state: icon,
+    }
+  productEntity: MarriageAxe
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHydra
+  name: uplink-hydra-name
+  description: uplink-hydra-desc
+  icon:
+    {
+      sprite: /Textures/Objects/Weapons/Guns/Launchers/hydra_launcher.rsi,
+      state: icon,
+    }
+  productEntity: WeaponLauncherHydraSyndicate
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHydra
+  name: uplink-hydra-name
+  description: uplink-hydra-desc
+  icon:
+    {
+      sprite: /Textures/Objects/Weapons/Guns/Launchers/hydra_launcher.rsi,
+      state: icon,
+    }
+  productEntity: WeaponLauncherHydraSyndicate
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBananaEsword
+  name: uplink-banana-esword-name
+  description: uplink-banana-esword-desc
+  productEntity: EnergySwordBanana
+  cost: { Telecrystal: 8 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBananaEsword
+  name: uplink-banana-esword-name
+  description: uplink-banana-esword-desc
+  productEntity: EnergySwordBanana
+  cost: { ArenaNukie: 8 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMagillitisSerumImplant
+  name: uplink-magillitis-serum-implanter-name
+  description: uplink-magillitis-serum-implanter-desc
+  icon: { sprite: _Starlight/Interface/Actions/actions_implants.rsi, state: gorilla_rampage }
+  productEntity: MagillitisSerumImplanter
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMagillitisSerumImplant
+  name: uplink-magillitis-serum-implanter-name
+  description: uplink-magillitis-serum-implanter-desc
+  icon: { sprite: _Starlight/Interface/Actions/actions_implants.rsi, state: gorilla_rampage }
+  productEntity: MagillitisSerumImplanter
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkTrunkSyndicate
+  name: uplink-trunk-syndicate-name
+  description: uplink-trunk-syndicate-desc
+  productEntity: ClothingBackpackTrunkSyndicate
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkTrunkSyndicate
+  name: uplink-trunk-syndicate-name
+  description: uplink-trunk-syndicate-desc
+  productEntity: ClothingBackpackTrunkSyndicate
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkNoslipClownShoes
+  name: uplink-noslip-clown-shoes-name
+  description: uplink-noslip-clown-shoes-desc
+  productEntity: ClownShoesNoSlip
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkNoslipClownShoes
+  name: uplink-noslip-clown-shoes-name
+  description: uplink-noslip-clown-shoes-desc
+  productEntity: ClownShoesNoSlip
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkMimanaStealthy
+  name: uplink-mimana-stealthy-name
+  description: uplink-mimana-stealthy-desc
+  productEntity: TrashMimanaPeelStealthy
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkMimanaStealthy
+  name: uplink-mimana-stealthy-name
+  description: uplink-mimana-stealthy-desc
+  productEntity: TrashMimanaPeelStealthy
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBananaPeelExplosive
+  name: uplink-banana-peel-explosive-name
+  description: uplink-banana-peel-explosive-desc
+  icon: { sprite: Objects/Specific/Hydroponics/banana.rsi, state: peel }
+  productEntity: TrashBananaPeelExplosiveUnarmed
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBananaPeelExplosive
+  name: uplink-banana-peel-explosive-name
+  description: uplink-banana-peel-explosive-desc
+  icon: { sprite: Objects/Specific/Hydroponics/banana.rsi, state: peel }
+  productEntity: TrashBananaPeelExplosiveUnarmed
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkNecronomicon
+  name: uplink-necronomicon-name
+  description: uplink-necronomicon-desc
+  productEntity: BibleNecronomicon
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkNecronomicon
+  name: uplink-necronomicon-name
+  description: uplink-necronomicon-desc
+  productEntity: BibleNecronomicon
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkHiddenUplinkRadioBotany
+  name: uplink-hidden-radio-botany-name
+  description: uplink-hidden-radio-botany-desc
+  productEntity: HiddenUplinkRadioBotany
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkHiddenUplinkRadioBotany
+  name: uplink-hidden-radio-botany-name
+  description: uplink-hidden-radio-botany-desc
+  productEntity: HiddenUplinkRadioBotany
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkFoodShakerPepperLead
+  name: uplink-food-pepper-shaker-lead-name
+  description: uplink-food-pepper-shaker-lead-desc
+  productEntity: FoodShakerPepperLead
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkFoodShakerPepperLead
+  name: uplink-food-pepper-shaker-lead-name
+  description: uplink-food-pepper-shaker-lead-desc
+  productEntity: FoodShakerPepperLead
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkPitcherNapalm
+  name: uplink-pitcher-napalm-name
+  description: uplink-pitcher-napalm-desc
+  productEntity: PitcherNapalm
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkPitcherNapalm
+  name: uplink-pitcher-napalm-name
+  description: uplink-pitcher-napalm-desc
+  productEntity: PitcherNapalm
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkEmergencyMedipenMute
+  name: uplink-emergency-medipen-mute-name
+  description: uplink-emergency-medipen-mute-desc
+  productEntity: EmergencyMedipenMute
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkEmergencyMedipenMute
+  name: uplink-emergency-medipen-mute-name
+  description: uplink-emergency-medipen-mute-desc
+  productEntity: EmergencyMedipenMute
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateuplinkClothingShoesColorWhiteNoSound
+  name: uplink-clothing-shoes-white-no-sound-name
+  description: uplink-clothing-shoes-white-no-sound-desc
+  productEntity: ClothingShoesColorWhiteNoSound
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesuplinkClothingShoesColorWhiteNoSound
+  name: uplink-clothing-shoes-white-no-sound-name
+  description: uplink-clothing-shoes-white-no-sound-desc
+  productEntity: ClothingShoesColorWhiteNoSound
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHiddenUplinkRadioScience
+  name: uplink-hidden-uplink-radio-science-name
+  description: uplink-hidden-uplink-radio-science-desc
+  productEntity: HiddenUplinkRadioScience
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHiddenUplinkRadioScience
+  name: uplink-hidden-uplink-radio-science-name
+  description: uplink-hidden-uplink-radio-science-desc
+  productEntity: HiddenUplinkRadioScience
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingSyndiHeadHatCone
+  name: uplink-clothing-syndi-head-cone-name
+  description: uplink-clothing-syndi-head-cone-desc
+  productEntity: ClothingSyndiHeadHatCone
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingSyndiHeadHatCone
+  name: uplink-clothing-syndi-head-cone-name
+  description: uplink-clothing-syndi-head-cone-desc
+  productEntity: ClothingSyndiHeadHatCone
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkNetworkConfiguratorWithTrigger
+  name: uplink-network-configurator-with-trigger-name
+  description: uplink-network-configurator-with-trigger-desc
+  productEntity: NetworkConfiguratorWithTrigger
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkNetworkConfiguratorWithTrigger
+  name: uplink-network-configurator-with-trigger-name
+  description: uplink-network-configurator-with-trigger-desc
+  productEntity: NetworkConfiguratorWithTrigger
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkWeaponMeleeBoxcutterSyndi
+  name: uplink-boxcutter-syndi-name
+  description: uplink-boxcutter-syndi-desc
+  productEntity: WeaponMeleeBoxcutterSyndi
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkWeaponMeleeBoxcutterSyndi
+  name: uplink-boxcutter-syndi-name
+  description: uplink-boxcutter-syndi-desc
+  productEntity: WeaponMeleeBoxcutterSyndi
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkAppraisalToolRadioJammer
+  name: uplink-appraisal-tool-radio-jammer-name
+  description: uplink-appraisal-tool-radio-jammer-desc
+  productEntity: AppraisalToolRadioJammer
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkAppraisalToolRadioJammer
+  name: uplink-appraisal-tool-radio-jammer-name
+  description: uplink-appraisal-tool-radio-jammer-desc
+  productEntity: AppraisalToolRadioJammer
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkLeadChemistryVial
+  name: uplink-lead-chemistry-vial-name
+  description: uplink-lead-chemistry-vial-desc
+  productEntity: LeadChemistryVial
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkLeadChemistryVial
+  name: uplink-lead-chemistry-vial-name
+  description: uplink-lead-chemistry-vial-desc
+  productEntity: LeadChemistryVial
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSyndieDrobe
+  name: uplink-syndiedrobe-name
+  description: uplink-syndiedrobe-desc
+  productEntity: SyndieDrobeFlatpack
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSyndieDrobe
+  name: uplink-syndiedrobe-name
+  description: uplink-syndiedrobe-desc
+  productEntity: SyndieDrobeFlatpack
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaUSSPSKBSmallFlashConversion
+  name: ussp-flash-name
+  description: ussp-flash-desc
+  productEntity: SciFlash
+  cost: { Telebond: 2 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPSovietKeyConversion
+  name: soviet-encryption-key-name
+  description: soviet-encryption-key-conversion-desc
+  icon: { sprite: _Starlight/Objects/Devices/encryption_keys.rsi, state: soviet_label }
+  productEntity: EncryptionKeySoviet
+  cost: { Telebond: 2 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBImplanterConversion
+  name: SKB-implanter-name
+  description: SKB-implanter-desc
+  productEntity: USSPUplinkImplanterEmpty
+  cost: { Telebond: 3 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUplinkCommiemovCircuitBoardConversion
+  name: lawboard-name
+  description: lawboard-desc
+  productEntity: CommiemovCircuitBoard
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUplinkEmagCommieConversion
+  productEntity: EmagCommie
+  cost: { Telebond: 6 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUplinkPinpointerConversion
+  productEntity: PinpointerUSSPTracker
+  cost: { Telebond: 6 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBMakarov
+  name: makarov-name
+  description: makarov-desc
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Pistols/makarov.rsi, state: icon }
+  productEntity: WeaponPistolMakarov
+  cost: { Telebond: 2 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSNKVDFinka
+  name: finka-name
+  description: finka-desc
+  icon: { sprite: _Starlight/Objects/Weapons/Melee/finka.rsi, state: icon }
+  productEntity: Finka
+  cost: { Telebond: 2 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBBanner
+  name: banner-name
+  description: banner-desc
+  productEntity: RevolutionaryHeldBanner
+  cost: { Telebond: 3 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBMosin
+  name: mosin-name
+  description: mosin-desc
+  icon: { sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi, state: base }
+  productEntity: WeaponSniperMosin
+  cost: { Telebond: 3 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBToz106
+  name: toz-name
+  description: toz-desc
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Shotguns/toz.rsi, state: base }
+  productEntity: WeaponShotgunToz106Extended
+  cost: { Telebond: 4 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSNKVDAPS
+  name: aps-name
+  description: aps-desc
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Pistols/aps.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelStechkinAPS
+  cost: { Telebond: 10 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBDP28
+  name: dp-name
+  description: dp-desc
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/LMGs/DP28.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelDP28Bundle
+  cost: { Telebond: 15 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPAvtomatKalashnikovaMultiKiller
+  name: akms-name
+  description: akms-desc
+  icon: { sprite: Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelAKMSBundle
+  cost: { Telebond: 20 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBPPSH
+  name: ppsh-name
+  description: ppsh-desc
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/SMGs/PPSh59.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelPPShBundle
+  cost: { Telebond: 30 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBSovietEVABundle
+  name: soviet-eva-name
+  description: soviet-eva-desc
+  icon: { sprite: _Starlight/Clothing/OuterClothing/Suits/soviet_eva.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSovietEVABundle
+  cost: { Telebond: 3 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBBandolier
+  name: soviet-bandolier-name
+  description: soviet-bandolier-desc
+  productEntity: ClothingSovietBandolier
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBChestRig
+  name: soviet-chest-rig-name
+  description: soviet-chest-rig-desc
+  productEntity: ClothingBeltSovietMarineWebbing
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBGasMask
+  name: soviet-gas-mask-name
+  description: soviet-gas-mask-desc
+  productEntity: ClothingSovietGasMask
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBCheapSunglasses
+  name: glasses-name
+  description: glasses-desc
+  productEntity: ClothingEyesGlassesSKBGlasses
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBMarineGoggles
+  name: marine-goggles-name
+  description: marine-goggles-desc
+  productEntity: ClothingEyesHudSovietMarine
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBPlateArmour
+  name: soviet-plate-armour-name
+  description: soviet-plate-armour-desc
+  productEntity: ClothingOuterArmorSovietPlate
+  cost: { Telebond: 4 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSSFHardsuit
+  name: soviet-hardsuit-name
+  description: soviet-hardsuit-desc
+  icon: { sprite: _Starlight/Clothing/OuterClothing/Hardsuits/sovietmarine.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelMarineHardsuitBundle
+  cost: { Telebond: 30 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPCoat
+  name: soviet-coat-name
+  description: soviet-coat-desc
+  productEntity: ClothingOuterSovietCoat
+  cost: { Telebond: 3 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBRadioImplant
+  name: SKB-implant-radio-name
+  description: SKB-implant-radio-desc
+  productEntity: RadioImplanterUSSP
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBRattlerImplant
+  name: SKB-implant-rattler-name
+  description: SKB-implant-rattler-desc
+  productEntity: USSPDeathRattleImplanter
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBImplanter
+  name: SKB-implanter-name
+  description: SKB-implanter-desc
+  productEntity: USSPUplinkImplanterEmpty
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPStolenRemoteSignaller
+  name: stole-remote-signaller-name
+  description: stole-remote-signaller-desc
+  productEntity: RemoteSignaller
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPGiftedShuttleBundle
+  name: syndicate-soviet-shuttle-bundle-name
+  description: syndicate-soviet-shuttle-bundle-desc
+  productEntity: CrateNameSyndicateShuttleBundle
+  cost: { Telebond: 15 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPsmall-power-cage
+  name: small-power-cage-name
+  description: small-power-cage-desc
+  productEntity: PowerCageSmall
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPhigh-power-cage
+  name: high-power-cage-name
+  description: high-power-cage-desc
+  productEntity: PowerCageHigh
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPfrag-grenade
+  name: frag-grenade-name
+  description: frag-grenade-desc
+  productEntity: GrenadeFrag
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPLSE-400c
+  name: lse-400c-name
+  description: lse-400c-desc
+  productEntity: ShuttleGunSvalinnMachineGun
+  cost: { Telebond: 4 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPStolenPTK-800
+  name: stolen-ptk800-name
+  description: stolen-ptk800-desc
+  productEntity: ShuttleGunKinetic
+  cost: { Telebond: 6 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPLSE-1200c
+  name: lse-1200c-name
+  description: lse-1200c-desc
+  productEntity: ShuttleGunPerforator
+  cost: { Telebond: 8 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPStolenShuttleGunOfFriendship
+  name: stolen-soviet-friendship-name
+  description: stolen-soviet-friendship-desc
+  productEntity: ShuttleGunFriendship
+  cost: { Telebond: 12 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPSovietKey
+  name: soviet-encryption-key-name
+  description: soviet-encryption-key-desc
+  icon: { sprite: _Starlight/Objects/Devices/encryption_keys.rsi, state: soviet_label }
+  productEntity: EncryptionKeySoviet
+  cost: { Telebond: 2 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPVoiceMask
+  name: soviet-voice-mask-name
+  description: soviet-voice-mask-desc
+  productEntity: ClothingMaskGasVoiceChameleon
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPMedals
+  name: soviet-medals-name
+  description: soviet-medals-desc
+  productEntity: ClothingSovietMedals
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPUshanka
+  name: ushanka-name
+  description: ushanka-desc
+  productEntity: ClothingHeadHatUshanka
+  cost: { Telebond: 0 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPUniform
+  name: sovietuniform-name
+  description: sovietuniform-desc
+  productEntity: ClothingUniformJumpsuitSovietFatigues
+  cost: { Telebond: 0 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPOldUniform
+  name: sovietolduniform-name
+  description: sovietolduniform-desc
+  productEntity: ClothingUniformJumpsuitSoviet
+  cost: { Telebond: 0 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPNewspaperPropaganda
+  name: soviet-propaganda-name
+  description: soviet-propaganda-desc
+  productEntity: MagazineRevolutionary5
+  cost: { Telebond: 0 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPDeskFlag
+  name: soviet-desk-flag-name
+  description: soviet-desk-flag-desc
+  productEntity: SovietDeskFlag
+  cost: { Telebond: 0 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBWhistle
+  name: whistle-name
+  description: whistle-desc
+  productEntity: CommanderWhistle
+  cost: { Telebond: 1 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPRevolutionaryBanner
+  name: soviet-banner-name
+  description: soviet-banner-desc
+  productEntity: BannerSovietHammer
+  cost: { Telebond: 2 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPZaporozhianBundle
+  name: zapo-name
+  description: zapo-desc
+  icon: { sprite: Clothing/Head/Hats/hetman_hat.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelZaporozhianBundle
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPUSSPVodkizine
+  name: vodkizine-name
+  description: vodkizine-desc
+  productEntity: DrinkVodkizineBottleFull
+  cost: { Telebond: 5 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPRevSupplyRiftListing
+  description: arena-vendor-rift-description
+  productEntity: RevSupplyRift
+  cost: { Telebond: 8 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBMosinWarListing
+  name: mosin-name
+  description: mosin-desc
+  icon: { sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi, state: base }
+  productEntity: WeaponSniperMosin
+  cost: { Telebond: 3 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPSKBPlateArmourWarListing
+  name: soviet-plate-armour-name
+  description: soviet-plate-armour-desc
+  productEntity: ClothingOuterArmorSovietPlate
+  cost: { Telebond: 4 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaUSSPRevolutionaryWarMechListing
+  productEntity: MechPobedaFilled
+  cost: { Telebond: 20 }
+  categories: [ ArenaUSSP ]
+
+- type: listing
+  id: ArenaSyndicateUplinkUziBundle
+  name: uplink-uzi-bundle-name
+  description: uplink-uzi-bundle-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/SMGs/uzi.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledUzi
+  cost: { Telecrystal: 15 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkUziBundle
+  name: uplink-uzi-bundle-name
+  description: uplink-uzi-bundle-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/SMGs/uzi.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledUzi
+  cost: { ArenaNukie: 15 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkWeaponShotgunMinotaur
+  name: uplink-minotaur-name
+  description: uplink-minotaur-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Shotguns/minotaur.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledMinotaurShotgun
+  cost: { Telecrystal: 20 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkWeaponShotgunMinotaur
+  name: uplink-minotaur-name
+  description: uplink-minotaur-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Shotguns/minotaur.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledMinotaurShotgun
+  cost: { ArenaNukie: 20 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkWeaponRiflePitbull
+  name: uplink-pitbull-bundle-name
+  description: uplink-pitbull-bundle-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Rifles/pitbull.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledBullpup
+  cost: { Telecrystal: 17 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkWeaponRiflePitbull
+  name: uplink-pitbull-bundle-name
+  description: uplink-pitbull-bundle-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Rifles/pitbull.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledBullpup
+  cost: { ArenaNukie: 17 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkWeaponPistolDeagle
+  name: uplink-deagle-name
+  description: uplink-deagle-desc
+  productEntity: WeaponPistolDeagle
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkWeaponPistolDeagle
+  name: uplink-deagle-name
+  description: uplink-deagle-desc
+  productEntity: WeaponPistolDeagle
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkWeaponPistolStechkinBundle
+  name: uplink-stechkin-bundle-name
+  description: uplink-stechkin-bundle-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Pistols/stechkin.rsi,
+      state: icon,
+    }
+  productEntity: BigBoxSyndicateBundle
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkWeaponPistolStechkinBundle
+  name: uplink-stechkin-bundle-name
+  description: uplink-stechkin-bundle-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Objects/Weapons/Guns/Pistols/stechkin.rsi,
+      state: icon,
+    }
+  productEntity: BigBoxSyndicateBundle
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHomerunBat
+  name: uplink-homerun-bat-name
+  description: uplink-homerun-bat-desc
+  productEntity: HomerunBat
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHomerunBat
+  name: uplink-homerun-bat-name
+  description: uplink-homerun-bat-desc
+  productEntity: HomerunBat
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSwitchblade
+  name: uplink-switchblade-name
+  description: uplink-switchblade-desc
+  productEntity: WeaponMeleeSwitchblade
+  cost: { Telecrystal: 1 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSwitchblade
+  name: uplink-switchblade-name
+  description: uplink-switchblade-desc
+  productEntity: WeaponMeleeSwitchblade
+  cost: { ArenaNukie: 1 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateSyndicateFriendshipBundle
+  name: uplink-friendship-bundle-name
+  description: uplink-friendship-bundle-desc
+  icon: { sprite: Objects/Weapons/Guns/Shuttles/launcher.rsi, state: exp-320g }
+  productEntity: CrateNameSyndicateFriendshipBundle
+  cost: { Telecrystal: 15 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesSyndicateFriendshipBundle
+  name: uplink-friendship-bundle-name
+  description: uplink-friendship-bundle-desc
+  icon: { sprite: Objects/Weapons/Guns/Shuttles/launcher.rsi, state: exp-320g }
+  productEntity: CrateNameSyndicateFriendshipBundle
+  cost: { ArenaNukie: 15 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkBreachingHammer
+  name: uplink-breaching-hammer-name
+  description: uplink-breaching-hammer-desc
+  productEntity: HammerBreachingNT
+  cost: { Telecrystal: 12 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkBreachingHammer
+  name: uplink-breaching-hammer-name
+  description: uplink-breaching-hammer-desc
+  productEntity: HammerBreachingNT
+  cost: { ArenaNukie: 12 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEstoc
+  name: uplink-estoc-name
+  description: uplink-estoc-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: BriefcaseWeaponDMRFilled
+  cost: { Telecrystal: 14 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEstoc
+  name: uplink-estoc-name
+  description: uplink-estoc-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: BriefcaseWeaponDMRFilled
+  cost: { ArenaNukie: 14 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkFireAxe
+  name: uplink-fire-axe-flaming-name
+  description: uplink-fire-axe-flaming-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/fireaxeflaming.rsi, state: icon }
+  productEntity: FireAxeFlaming
+  cost: { Telecrystal: 6 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkFireAxe
+  name: uplink-fire-axe-flaming-name
+  description: uplink-fire-axe-flaming-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/fireaxeflaming.rsi, state: icon }
+  productEntity: FireAxeFlaming
+  cost: { ArenaNukie: 6 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkRevolverPython
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  productEntity: WeaponRevolverPythonAP
+  cost: { Telecrystal: 4 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkRevolverPython
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  productEntity: WeaponRevolverPythonAP
+  cost: { ArenaNukie: 4 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkEnergyDomeSyndie
+  name: uplink-energy-dome-name
+  description: uplink-energy-dome-desc
+  productEntity: EnergyDomeGeneratorPersonalSyndie
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkEnergyDomeSyndie
+  name: uplink-energy-dome-name
+  description: uplink-energy-dome-desc
+  productEntity: EnergyDomeGeneratorPersonalSyndie
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkHardsuitInfiltration
+  name: uplink-hardsuit-infiltration-name
+  description: uplink-hardsuit-infiltration-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Clothing/OuterClothing/Hardsuits/infiltrationsyndie.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledInfiltration
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkHardsuitInfiltration
+  name: uplink-hardsuit-infiltration-name
+  description: uplink-hardsuit-infiltration-desc
+  icon:
+    {
+      sprite: /Textures/_Starlight/Clothing/OuterClothing/Hardsuits/infiltrationsyndie.rsi,
+      state: icon,
+    }
+  productEntity: ClothingBackpackDuffelSyndicateFilledInfiltration
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkSatchelSyndicate
+  name: uplink-satchel-syndicate-name
+  description: uplink-satchel-syndicate-desc
+  productEntity: ClothingBackpackSatchelSyndicate
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkSatchelSyndicate
+  name: uplink-satchel-syndicate-name
+  description: uplink-satchel-syndicate-desc
+  productEntity: ClothingBackpackSatchelSyndicate
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkDuffelSyndicate
+  name: uplink-duffel-syndicate-name
+  description: uplink-duffel-syndicate-desc
+  productEntity: ClothingBackpackDuffelSyndicate
+  cost: { Telecrystal: 2 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkDuffelSyndicate
+  name: uplink-duffel-syndicate-name
+  description: uplink-duffel-syndicate-desc
+  productEntity: ClothingBackpackDuffelSyndicate
+  cost: { ArenaNukie: 2 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingThievingGloves
+  name: uplink-clothing-chameleon-thieving-gloves-name
+  description: uplink-clothing-chameleon-thieving-gloves-desc
+  productEntity: ClothingHandsChameleonThief
+  cost: { Telecrystal: 10 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingThievingGloves
+  name: uplink-clothing-chameleon-thieving-gloves-name
+  description: uplink-clothing-chameleon-thieving-gloves-desc
+  productEntity: ClothingHandsChameleonThief
+  cost: { ArenaNukie: 10 }
+  categories: [ ArenaNukies ]
+
+- type: listing
+  id: ArenaSyndicateUplinkClothingOuterArmorBasic
+  name: uplink-clothing-outer-armor-basic-name
+  description: uplink-clothing-outer-armor-basic-desc
+  productEntity: ClothingOuterArmorBasic
+  cost: { Telecrystal: 3 }
+  categories: [ ArenaSyndicate ]
+
+- type: listing
+  id: ArenaNukiesUplinkClothingOuterArmorBasic
+  name: uplink-clothing-outer-armor-basic-name
+  description: uplink-clothing-outer-armor-basic-desc
+  productEntity: ClothingOuterArmorBasic
+  cost: { ArenaNukie: 3 }
+  categories: [ ArenaNukies ]

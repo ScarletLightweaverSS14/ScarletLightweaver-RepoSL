@@ -141,7 +141,7 @@ public sealed partial class StoreSystem
         // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store) || RemoteHasRinger(store);
 
-        var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed, component.Grid); // Starlight
+        var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed, component.Grid, component.CategoryBalance); // Starlight
         _ui.SetUiState(store, StoreUiKey.Key, state);
         UpdateRemoteStores(store, state);
     }
@@ -202,14 +202,6 @@ public sealed partial class StoreSystem
 
         var buyer = msg.Actor;
 
-        // STARLIGHT: Raise an event to allow other systems to potentially cancel this purchase
-        var purchaseAttemptEvent = new StorePurchaseAttemptEvent(listing.ID, uid, buyer);
-        RaiseLocalEvent(ref purchaseAttemptEvent);
-
-        // STARLIGHT: If the event handler requested cancellation, cancel the purchase
-        if (purchaseAttemptEvent.Cancel)
-            return;
-
         //verify that we can actually buy this listing and it wasn't added
         if (!ListingHasCategory(listing, component.Categories))
             return;
@@ -238,6 +230,12 @@ public sealed partial class StoreSystem
                 return;
             }
         }
+
+        // Raise this after validation so cancelled or unaffordable purchases do not reserve stock.
+        var purchaseAttemptEvent = new StorePurchaseAttemptEvent(listing.ID, uid, buyer);
+        RaiseLocalEvent(ref purchaseAttemptEvent);
+        if (purchaseAttemptEvent.Cancel)
+            return;
 
         if (!IsOnStartingMap(uid, component))
             DisableRefund(uid, component);

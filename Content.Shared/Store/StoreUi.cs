@@ -23,13 +23,16 @@ public sealed class StoreUpdateState : BoundUserInterfaceState
 
     public readonly bool GridMode; // Starlight
 
-    public StoreUpdateState(HashSet<ListingDataWithCostModifiers> listings, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance, bool showFooter, bool allowRefund, bool gridMode = false) // Starlight
+    public readonly bool CategoryBalance;
+
+    public StoreUpdateState(HashSet<ListingDataWithCostModifiers> listings, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance, bool showFooter, bool allowRefund, bool gridMode = false, bool categoryBalance = false) // Starlight
     {
         Listings = listings;
         Balance = balance;
         ShowFooter = showFooter;
         AllowRefund = allowRefund;
         GridMode = gridMode; // Starlight
+        CategoryBalance = categoryBalance;
     }
 }
 
